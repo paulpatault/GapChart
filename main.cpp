@@ -333,12 +333,12 @@ int main( )
     ImGui_ImplGlfw_InitForOpenGL(window,true);
     ImGui_ImplOpenGL3_Init("#version 330 core");
 
-    glm::vec4 top1(0.f,0.f,0.8f,1.f);
+    glm::vec4 top1(0.f,72.f/255.f,204.f/255.f,1.f);
     glm::vec4 top(98.f/255.f,214.f/255.f,230.f/255.f,1.f);
     glm::vec4 top_mid(236.f/255.f,238.f/255.f,26.f/255.f,1.f);
     glm::vec4 mid(194.f/255.f,194.f/255.f,194.f/255.f,1.f);
     glm::vec4 bot_mid(140.f/255.f,140.f/255.f,140.f/255.f,1.f);
-    glm::vec4 bot(239.f/255.f,113.f/255.f,113.f/255.f,1.f);
+    glm::vec4 bot(231.f/255.f,97.f/255.f,97.f/255.f,1.f);
 
     do
     {
