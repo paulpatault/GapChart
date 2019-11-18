@@ -136,7 +136,7 @@
       <workItem from="1573818950802" duration="633000" />
       <workItem from="1573827325711" duration="616000" />
       <workItem from="1574085183808" duration="1318000" />
-      <workItem from="1574093977296" duration="4724000" />
+      <workItem from="1574093977296" duration="5987000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -152,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574097314308</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="code + propre">
+      <created>1574100109096</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574100109096</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,11 +179,13 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
     <MESSAGE value="change color" />
     <MESSAGE value="cylindre" />
-    <option name="LAST_COMMIT_MESSAGE" value="cylindre" />
+    <MESSAGE value="code + propre" />
+    <option name="LAST_COMMIT_MESSAGE" value="code + propre" />
   </component>
 </project>

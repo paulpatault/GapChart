@@ -1,21 +1,35 @@
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+// Include standard headers
+#include <stdio.h>
 #include <cmath>
-#include <iostream>
 #include <vector>
+#include <sstream>
+#include <iostream>
+#include <stdlib.h>
+#include <vector>
+using namespace std;
+
+// Include GLEW
+#include <GL/glew.h>
+
+// Include GLFW
+#include <GLFW/glfw3.h>
+
+// Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <sstream>
+using namespace glm;
+
+// Include ImGui
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
+using namespace ImGui;
 
-using namespace glm;
-using namespace std;
-
+// My includes
 #include "LoadData.h"
-
 #include "debugbreak.h"
+
+
 #define ASSERT(x) if(!(x)) debug_break();
 #define GLCall(x) GLClearError();\
     x;\
@@ -80,11 +94,11 @@ void escalier(const vec3 begin, const vec3 end, float vertices[], const int NUMB
     }
 }
 
-vector<float> y_Escalier(LoadData myData, int team) {
+std::vector<float> y_Escalier(LoadData myData, int team) {
 
-    int NUMBER_OF_DAYS = myData.cardDays();
+    const int NUMBER_OF_DAYS = myData.cardDays();
 
-    vector<float> res(NUMBER_OF_DAYS);
+    std::vector<float> res(NUMBER_OF_DAYS);
 
     float complementaire, points;
 
@@ -246,7 +260,7 @@ int main( void )
     // Initialize the library
     if ( !glfwInit( ) )
     {
-        fprintf(stderr, "Failed to initialize GLFW\n");
+        std::cerr << "Failed to initialize GLFW" << std::endl;
         return -1;
     }
     GLFWwindow *window;
@@ -266,6 +280,7 @@ int main( void )
     if ( !window )
     {
         glfwTerminate( );
+        std::cerr << "Fail link to window" << std::endl;
         return -1;
     }
 
@@ -274,15 +289,15 @@ int main( void )
 
     glewExperimental = true; // Needed for core profile
     if (glewInit() != GLEW_OK) {
-        fprintf(stderr, "Failed to initialize GLEW\n");
+        std::cerr << "Failed to initialize GLEW" << std::endl;
         return -1;
     }
+
     //gère le transparence
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
 
-    cout << "version :: " << glGetString(GL_VERSION) << endl;
-
+    std::cout << "Version == " << glGetString(GL_VERSION) << std::endl;
 
     // Assure que l'on peut capturer la touche d'échappement enfoncée ci-dessous
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -299,7 +314,7 @@ int main( void )
 
     /// initialisation des matrices du modèle MVP (ModelViewProjection)
     GLCall(GLint matrixID = glGetUniformLocation(programID, "u_MVP") );
-    mat4 Projection = ortho(0.f,FSCREEN_WIDTH,0.f,FSCREEN_HEIGHT,-1.f,1.f);
+    glm::mat4 Projection = ortho(0.f,FSCREEN_WIDTH,0.f,FSCREEN_HEIGHT,-1.f,1.f);
     // Camera matrix
     const float _x = 0.f;
     const float _y = 0.f;
@@ -326,17 +341,20 @@ int main( void )
     const float epaisseur = ((float)SCREEN_HEIGHT/2)/20;
     GLfloat t_vertex_data[20][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
 
+    std::vector<float> tabY(myData.cardDays());
     for(int team = 0; team < 20; team++)
     {
-        vector<float> myVec1 = y_Escalier(myData, team);
-        tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, myVec1);
+        tabY = y_Escalier(myData, team);
+        tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, tabY);
     }
 
 #if defined(CYLINDRE)
 
     const int nbDivCylindre = 3;
-    GLfloat t_vertex_data_dim3[20][nbDivCylindre][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
     const float delta_epaisseur = epaisseur/nbDivCylindre;
+
+    GLfloat t_vertex_data_dim3[20][nbDivCylindre][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
+
     for(int team = 0; team < 20; team++)
     {
         for(int i = 0; i < NB_POINTS * 3; i += 3)
@@ -344,9 +362,9 @@ int main( void )
             if(i % 2 == 1 ){
 
                 for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
-                    t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                              // .x
+                    t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                                         // .x
                     t_vertex_data_dim3[team][sous_tableau][i + 1] = t_vertex_data[team][i + 1] - (sous_tableau * delta_epaisseur);  // .y
-                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2];                          // .z
+                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2];                                     // .z
                 }
                 //remplacement
                 /*
@@ -365,9 +383,9 @@ int main( void )
                 */
             } else {
                 for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
-                    t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                                          // .x
+                    t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                                                                         // .x
                     t_vertex_data_dim3[team][sous_tableau][i + 1] = t_vertex_data[team][i + 1] + ( (float)(nbDivCylindre - 1 - sous_tableau) * delta_epaisseur );   // .y
-                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2]; // ajouter + dz                      // .z
+                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2];                                                                     // .z
                 }
                 //remplacement
                 /*
