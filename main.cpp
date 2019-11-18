@@ -32,7 +32,6 @@ void GLClearError(){
 }
 
 
-
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 700
 #define FSCREEN_WIDTH 1000.f
@@ -100,7 +99,7 @@ vector<float> y_Escalier(LoadData myData, int team) {
     return res;
 }
 
-void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epaisseur, vector<float>  coordCenter) {
+void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epaisseur, vector<float>  coordCenter, GLfloat ZZZ, int team) {
     vec2 tot[NUMBER_OF_POINTS];
     float dx = (SCREEN_WIDTH-100)/(float)NUMBER_OF_POINTS;
     float x0 = 50;
@@ -140,8 +139,66 @@ void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epa
     {
         vertices[3*i] = tot[i].x;
         vertices[3*i+1] = tot[i].y + 20; // +20 pour que le plus bas ne touche pas le bas de la fenetre
-        vertices[3*i+2] = 0;
+        vertices[3*i+2] = ZZZ;
     }
+}
+
+vector<vector<float>> cylindre4f(vector<float> y_Escalier, const int NUMBER_OF_POINTS, const float epaisseur ) {
+
+    //initialise res
+    vector<vector<float>> res(4);
+    {
+        //couche du haut
+        res[0] = vector<float>(y_Escalier.size() * 3);
+        //couche du haut_milieu
+        res[1] = vector<float>(y_Escalier.size() * 3);
+        //couche du bas_milieu
+        res[2] = vector<float>(y_Escalier.size() * 3);
+        //couche du bas
+        res[3] = vector<float>(y_Escalier.size() * 3);
+    }
+
+    float dx = (SCREEN_WIDTH-100)/(float)(38);
+    float x0 = 50;
+
+    for(int i = 0; i < y_Escalier.size(); i ++)
+    {
+        for(int j = 0; j < 4; j++)
+        {
+            glm::vec3 point;
+            point.x = x0 + (float) i * dx;
+            point.y = y_Escalier[i];
+            point.z = 0;
+
+            switch (j)
+            {
+                case 0:
+                    point.y -= epaisseur/2;
+                    break;
+                case 1:
+                    point.y -= epaisseur/4;
+                    //point.z = -0.02f; //(sqrt(3)/4) * epaisseur;
+                    //point.z = 0.f;
+                    break;
+                case 2:
+                    point.y += epaisseur/4;
+                    //point.z = -0.02f; //(sqrt(3)/4) * epaisseur;
+                    //point.z = 0.f;
+                    break;
+                case 3:
+                    point.y += epaisseur/2;
+                    break;
+                default:
+                    cerr << "ERROR in cylindre for i = " << i << "and j = " << j << endl;
+                    break;
+            }
+            res[j][3 * i] = point.x;
+            res[j][3 * i + 1] = point.y;
+            res[j][3 * i + 2] = point.z;
+        }
+    }
+
+    return res;
 }
 
 
@@ -242,7 +299,7 @@ GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path
     return ProgramID;
 }
 
-int main( )
+int main( void )
 {
     // Initialize the library
     if ( !glfwInit( ) )
@@ -299,14 +356,31 @@ int main( )
 
     /// matrice pour changement de repère
     GLCall(GLint matrixID = glGetUniformLocation(programID, "u_MVP") );
-    mat4 my_projection = ortho(0.f,FSCREEN_WIDTH,0.f,FSCREEN_HEIGHT,-1.f,1.f);
+    mat4 Projection = ortho(0.f,FSCREEN_WIDTH,0.f,FSCREEN_HEIGHT,-1.f,1.f);
+    // Camera matrix
+    float _x = 0.f;
+    float _y = 0.f;
+    float _z = -1.f;
+    glm::mat4 View = glm::lookAt(
+            glm::vec3(_x, _y,_z), // Camera is at (4,3,3), in World Space
+            glm::vec3(_x + 0.f, _y + 0.f,_z - 1.f), // and looks at the origin
+            glm::vec3(0.f,1.f,0.f)  // Head is up (set to 0,-1,0 to look upside-down)
+    );
+    // Model matrix : an identity matrix (model will be at the origin)
+    glm::mat4 Model = glm::mat4(1.0f);
+    // Our ModelViewProjection : multiplication of our 3 matrices
+    glm::mat4 mvp = Projection * View * Model; // Remember, matrix multiplication is the other way around
+
     glUseProgram(programID);
-    GLCall( glUniformMatrix4fv(matrixID,1,GL_FALSE,&my_projection[0][0]) );
+    GLCall( glUniformMatrix4fv(matrixID,1,GL_FALSE,&mvp[0][0]) );
     glUseProgram(0);
 
 
 
     LoadData myData("../DataProjet2019/data/rankspts.csv");
+
+
+    ///////// BASIQUE /////////
 
     // 4 pour les 4 coins des rectangles, 38 jours, +4 dernier rectangle
     int NB_POINTS = 4 * 38 + 4;
@@ -316,17 +390,84 @@ int main( )
     for(int team = 0; team < 20; team++)
     {
         vector<float> myVec1 = y_Escalier(myData, team);
-        tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, myVec1);
+        tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, myVec1, 0, team );
     }
 
-
+    /*
     GLuint vertexbuffer[20];
     for(int i = 0; i < 20; i++){
         glGenBuffers(1, &vertexbuffer[i]);
         glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer[i]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data[i]), t_vertex_data[i], GL_STATIC_DRAW);
     }
+        */
 
+
+    ///////// CYLINDRE /////////
+
+    // idée 1 pour cylindre
+    /*
+    NB_POINTS = 38;
+    vector<vector<vector<float>>> cylindre(20);
+    for(int i = 0; i < 20; i++){
+        cylindre[i] = cylindre4f(y_Escalier(myData, 0), NB_POINTS, epaisseur);
+    }
+     */
+
+    // idée 2 pour cylindre
+    GLfloat t_vertex_data_dim3[20][3][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
+    float delta_epaisseur = epaisseur/3;
+    for(int team = 0; team < 20; team++)
+    {
+        for(int i = 0; i < NB_POINTS * 3; i += 3)
+        {
+            if(i % 2 == 1 ){
+                /// TOP
+                t_vertex_data_dim3[team][0][i]     = t_vertex_data[team][i];      // .x
+                t_vertex_data_dim3[team][0][i + 1] = t_vertex_data[team][i + 1];  // .y
+                t_vertex_data_dim3[team][0][i + 2] = t_vertex_data[team][i + 2];  // .z
+                /// MID
+                t_vertex_data_dim3[team][1][i]     = t_vertex_data[team][i];                        // .x
+                t_vertex_data_dim3[team][1][i + 1] = t_vertex_data[team][i + 1] - delta_epaisseur;  // .y
+                t_vertex_data_dim3[team][1][i + 2] = t_vertex_data[team][i + 2];  // ajouter + dz   // .z
+                /// BOT
+                t_vertex_data_dim3[team][2][i]     = t_vertex_data[team][i];                              // .x
+                t_vertex_data_dim3[team][2][i + 1] = t_vertex_data[team][i + 1] - (2 * delta_epaisseur);  // .y
+                t_vertex_data_dim3[team][2][i + 2] = t_vertex_data[team][i + 2];  // ajouter + dz         // .z
+
+            } else {
+
+                /// TOP
+                t_vertex_data_dim3[team][0][i]     = t_vertex_data[team][i];                             // .x
+                t_vertex_data_dim3[team][0][i + 1] = t_vertex_data[team][i + 1] + (2 * delta_epaisseur);   // .y
+                t_vertex_data_dim3[team][0][i + 2] = t_vertex_data[team][i + 2]; // ajouter + dz         // .z
+                /// MID
+                t_vertex_data_dim3[team][1][i]     = t_vertex_data[team][i];      // .x
+                t_vertex_data_dim3[team][1][i + 1] = t_vertex_data[team][i + 1] + delta_epaisseur;  // .y
+                t_vertex_data_dim3[team][1][i + 2] = t_vertex_data[team][i + 2];  // .z
+                /// BOT
+                t_vertex_data_dim3[team][2][i]     = t_vertex_data[team][i];      // .x
+                t_vertex_data_dim3[team][2][i + 1] = t_vertex_data[team][i + 1];  // .y
+                t_vertex_data_dim3[team][2][i + 2] = t_vertex_data[team][i + 2];  // ajouter + dz         // .z
+            }
+        }
+    }
+
+    GLuint cylindre_vertexbuffer[20][3];
+    for(int i = 0; i < 20; i++){
+        glGenBuffers(1, &cylindre_vertexbuffer[i][0]);
+        glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][0]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[i][0]), t_vertex_data_dim3[i][0], GL_STATIC_DRAW);
+
+        glGenBuffers(1, &cylindre_vertexbuffer[i][1]);
+        glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][1]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[i][1]), t_vertex_data_dim3[i][1], GL_STATIC_DRAW);
+
+        glGenBuffers(1, &cylindre_vertexbuffer[i][2]);
+        glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][2]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[i][2]), t_vertex_data_dim3[i][2], GL_STATIC_DRAW);
+    }
+    ///////// STOP CYLINDRE /////////
 
     ImGui::CreateContext();
     ImGui::StyleColorsDark();
@@ -348,12 +489,66 @@ int main( )
         // Use our shader
         glUseProgram(programID);
 
+        // ImGui loop
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        for(int i = 0; i < 20; i++){
+        // Draw
+        for(int i = 0; i < 20; i++)
+        {
+            //// CYLINDRE ////
+            ///*
+            for(int j = 0; j < 3; j++)
+            {
+                GLint colorID = glGetUniformLocation(programID,"u_color");
+                if(i == 0)
+                {
+                    glUniform4f(colorID, top1[0], top1[1], top1[2], top1[3] );
+                }
+                else if(i < 4)
+                {
+                    glUniform4f(colorID, top[0], top[1], top[2], top[3] );
+                }
+                else if(i < 7)
+                {
+                    glUniform4f(colorID, top_mid[0], top_mid[1], top_mid[2], top_mid[3] );
+                }
+                else if(i < 9)
+                {
+                    glUniform4f(colorID, mid[0], mid[1], mid[2], mid[3] );
+                }
+                else if(i < 15)
+                {
+                    glUniform4f(colorID, bot_mid[0], bot_mid[1], bot_mid[2], bot_mid[3] );
+                }
+                else
+                {
+                    glUniform4f(colorID, bot[0], bot[1], bot[2], bot[3] );
+                }
 
+                glEnableVertexAttribArray(0);
+
+                glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][j]);
+
+                glVertexAttribPointer(
+                        0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+                        3,                  // size
+                        GL_FLOAT,           // type
+                        GL_FALSE,           // normalized?
+                        0,                  // stride
+                        (void*)nullptr            // array buffer offset
+                );
+
+                // Draw the triangle !
+                glDrawArrays(GL_TRIANGLE_STRIP, 0, NB_POINTS );
+
+                glDisableVertexAttribArray(0);
+            }
+            //*/
+
+            //// NORMAL ////
+            /*
             GLint colorID = glGetUniformLocation(programID,"u_color");
             if(i == 0)
             {
@@ -396,8 +591,11 @@ int main( )
             glDrawArrays(GL_TRIANGLE_STRIP, 0, NB_POINTS);
 
             glDisableVertexAttribArray(0);
+            */
+
         }
 
+        // ImGui Edit
         ImGui::ColorEdit3("top1 color", (float*)&top1);
         ImGui::ColorEdit3("top color", (float*)&top);
         ImGui::ColorEdit3("top_mid color", (float*)&top_mid);
@@ -412,8 +610,8 @@ int main( )
 
         // Poll for and process events
         glfwPollEvents( );
-
-    } while( (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS) && (glfwWindowShouldClose(window) == 0) ); // Loop until the user closes the window
+    }
+    while( (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS) && (glfwWindowShouldClose(window) == 0) ); // Loop until the user closes the window
 
     glfwTerminate( );
 
