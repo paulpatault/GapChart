@@ -342,17 +342,20 @@ int main(void)
     GLfloat t_vertex_data[20][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
 
     std::vector<float> tabY(myData.cardDays());
+    std::vector<vector<float>> yEscBis(20);
     for(int team = 0; team < 20; team++)
     {
         tabY = y_Escalier(myData, team);
+        yEscBis[team] = y_Escalier(myData, team);
         tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, tabY);
     }
+    cout << endl << yEscBis[19][0] + 20 << endl;
 
 #if defined(CYLINDRE)
 
     const int nbDivCylindre = 3;
     const float delta_epaisseur = epaisseur/nbDivCylindre;
-
+    const float dz = 0.005f;
     GLfloat t_vertex_data_dim3[20][nbDivCylindre][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
 
     for(int team = 0; team < 20; team++)
@@ -360,22 +363,20 @@ int main(void)
         for(int i = 0; i < NB_POINTS * 3; i += 3)
         {
             if(i % 2 == 0 ){
-
                 for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
                     t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                                         // .x
                     t_vertex_data_dim3[team][sous_tableau][i + 1] = t_vertex_data[team][i + 1] - (sous_tableau * delta_epaisseur);  // .y
-                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2];                                     // .z
+                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2] - (sous_tableau * dz) ;                                     // .z
                 }
             } else {
                 for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
                     t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                                                                         // .x
                     t_vertex_data_dim3[team][sous_tableau][i + 1] = t_vertex_data[team][i + 1] + ( (float)(nbDivCylindre - 1 - sous_tableau) * delta_epaisseur );   // .y
-                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2];                                                                     // .z
+                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2] - ( (float)(nbDivCylindre - 1 - sous_tableau) * dz );
                 }
             }
         }
     }
-
 
     GLuint cylindre_vertexbuffer[20][nbDivCylindre];
     for(int i = 0; i < 20; i++){
@@ -383,7 +384,6 @@ int main(void)
             glGenBuffers(1, &cylindre_vertexbuffer[i][sous_tableau]);
             glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][sous_tableau]);
             glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[i][sous_tableau]), t_vertex_data_dim3[i][sous_tableau], GL_STATIC_DRAW);
-
         }
     }
 
