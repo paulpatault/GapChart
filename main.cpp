@@ -115,8 +115,8 @@ std::vector<float> y_Escalier(LoadData myData, int team) {
 
 void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epaisseur, vector<float>  coordCenter) {
     vec2 tot[NUMBER_OF_POINTS];
-    float dx = (SCREEN_WIDTH-100)/(float)NUMBER_OF_POINTS;
-    float x0 = 50;
+    const float dx = (SCREEN_WIDTH-100)/(float)NUMBER_OF_POINTS;
+    const float x0 = 50;
     int days = 0;
     for(int i = 0; i < NUMBER_OF_POINTS; i++)
     {
@@ -255,7 +255,7 @@ GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path
     return ProgramID;
 }
 
-int main( void )
+int main(void)
 {
     // Initialize the library
     if ( !glfwInit( ) )
@@ -346,11 +346,7 @@ int main( void )
     {
         tabY = y_Escalier(myData, team);
         tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, tabY);
-        if(team==19)
-            for(int i = 0; i < 10; i ++)
-                cout << " " << tabY[i]+20 << "  ";
     }
-    cout << endl;
 
 #if defined(CYLINDRE)
 
