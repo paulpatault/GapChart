@@ -145,14 +145,14 @@ void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epa
         else // i impair => les autres points (:= bas gauche ou bas droit)
         {
             tot[i].x = tot[i - 1].x;
-            tot[i].y = tot[i - 1].y + epaisseur;
+            tot[i].y = tot[i - 1].y - epaisseur;
         }
     }
     /// on rempli le tableau avec les pts obtenus
     for(int i = 0; i < NUMBER_OF_POINTS; i++)
     {
         vertices[3*i] = tot[i].x;
-        vertices[3*i+1] = tot[i].y + 20; // +20 pour que le plus bas ne touche pas le bas de la fenetre
+        vertices[3*i+1] = tot[i].y + 35; // +40 pour que le plus bas ne touche pas le bas de la fenetre
         vertices[3*i+2] = 0;
     }
 }
@@ -346,7 +346,11 @@ int main( void )
     {
         tabY = y_Escalier(myData, team);
         tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, tabY);
+        if(team==19)
+            for(int i = 0; i < 10; i ++)
+                cout << " " << tabY[i]+20 << "  ";
     }
+    cout << endl;
 
 #if defined(CYLINDRE)
 
@@ -359,52 +363,23 @@ int main( void )
     {
         for(int i = 0; i < NB_POINTS * 3; i += 3)
         {
-            if(i % 2 == 1 ){
+            if(i % 2 == 0 ){
 
                 for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
                     t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                                         // .x
                     t_vertex_data_dim3[team][sous_tableau][i + 1] = t_vertex_data[team][i + 1] - (sous_tableau * delta_epaisseur);  // .y
                     t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2];                                     // .z
                 }
-                //remplacement
-                /*
-                /// TOP
-                t_vertex_data_dim3[team][0][i]     = t_vertex_data[team][i];      // .x
-                t_vertex_data_dim3[team][0][i + 1] = t_vertex_data[team][i + 1];  // .y
-                t_vertex_data_dim3[team][0][i + 2] = t_vertex_data[team][i + 2];  // .z
-                /// MID
-                t_vertex_data_dim3[team][1][i]     = t_vertex_data[team][i];                        // .x
-                t_vertex_data_dim3[team][1][i + 1] = t_vertex_data[team][i + 1] - delta_epaisseur;  // .y
-                t_vertex_data_dim3[team][1][i + 2] = t_vertex_data[team][i + 2];  // ajouter + dz   // .z
-                /// BOT
-                t_vertex_data_dim3[team][2][i]     = t_vertex_data[team][i];                              // .x
-                t_vertex_data_dim3[team][2][i + 1] = t_vertex_data[team][i + 1] - (2 * delta_epaisseur);  // .y
-                t_vertex_data_dim3[team][2][i + 2] = t_vertex_data[team][i + 2];  // ajouter + dz         // .z
-                */
             } else {
                 for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
                     t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                                                                         // .x
                     t_vertex_data_dim3[team][sous_tableau][i + 1] = t_vertex_data[team][i + 1] + ( (float)(nbDivCylindre - 1 - sous_tableau) * delta_epaisseur );   // .y
                     t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2];                                                                     // .z
                 }
-                //remplacement
-                /*
-                /// TOP
-                t_vertex_data_dim3[team][0][i]     = t_vertex_data[team][i];                             // .x
-                t_vertex_data_dim3[team][0][i + 1] = t_vertex_data[team][i + 1] + (2 * delta_epaisseur);   // .y
-                t_vertex_data_dim3[team][0][i + 2] = t_vertex_data[team][i + 2]; // ajouter + dz         // .z
-                /// MID
-                t_vertex_data_dim3[team][1][i]     = t_vertex_data[team][i];      // .x
-                t_vertex_data_dim3[team][1][i + 1] = t_vertex_data[team][i + 1] + delta_epaisseur;  // .y
-                t_vertex_data_dim3[team][1][i + 2] = t_vertex_data[team][i + 2];  // .z
-                /// BOT
-                t_vertex_data_dim3[team][2][i]     = t_vertex_data[team][i];      // .x
-                t_vertex_data_dim3[team][2][i + 1] = t_vertex_data[team][i + 1];  // .y
-                t_vertex_data_dim3[team][2][i + 2] = t_vertex_data[team][i + 2];  // ajouter + dz         // .z
-                 */
             }
         }
     }
+
 
     GLuint cylindre_vertexbuffer[20][nbDivCylindre];
     for(int i = 0; i < 20; i++){
@@ -414,20 +389,6 @@ int main( void )
             glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[i][sous_tableau]), t_vertex_data_dim3[i][sous_tableau], GL_STATIC_DRAW);
 
         }
-        //remplacement
-        /*
-        glGenBuffers(1, &cylindre_vertexbuffer[i][0]);
-        glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][0]);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[i][0]), t_vertex_data_dim3[i][0], GL_STATIC_DRAW);
-
-        glGenBuffers(1, &cylindre_vertexbuffer[i][1]);
-        glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][1]);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[i][1]), t_vertex_data_dim3[i][1], GL_STATIC_DRAW);
-
-        glGenBuffers(1, &cylindre_vertexbuffer[i][2]);
-        glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][2]);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[i][2]), t_vertex_data_dim3[i][2], GL_STATIC_DRAW);
-         */
     }
 
 #elif defined(NORMAL)
@@ -502,7 +463,7 @@ int main( void )
 
                 glDisableVertexAttribArray(0);
             }
-            //*/
+
 
 #elif defined(NORMAL)
             GLint colorID = glGetUniformLocation(programID,"u_color");
