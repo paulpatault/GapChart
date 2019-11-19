@@ -6,12 +6,12 @@
 
 LoadData::LoadData(string filePath) {
 
-    this->rankPoints = vector<vector<vector<int> > >(NUMBER_OF_DAYS + 1);
+    this->rankPoints = vector<vector<vector<int>>>(NUMBER_OF_DAYS + 1);
 
     ////// INITIALISE LE VEC_3D //////
     for(int i = 0; i < NUMBER_OF_DAYS + 1; i++) // i := jours
     {
-        this->rankPoints[i] = vector<vector<int> >(NUMBER_OF_TEAMS); // initialise la 2e dim du tab
+        this->rankPoints[i] = vector<vector<int>>(NUMBER_OF_TEAMS); // initialise la 2e dim du tab
         for(int j = 0; j < NUMBER_OF_TEAMS; j++) // j := equipe
         {
             this->rankPoints[i][j] = vector<int>(2); // initialise la 3e dim du tab
@@ -41,8 +41,7 @@ LoadData::LoadData(string filePath) {
         /* explication du NUMBER_OF_DAYS+2 dans le 'for' suivant
          * on commence a NUMBER_OF_DAYS+1 dans tous les cas car len(tab) = 39
          * on saut le doublon au milieu donc +1
-         * le dernier est répété donc +1
-         * total : NUMBER_OF_DAYS+3
+         * total : NUMBER_OF_DAYS+2
          */
         for(int idx = 0; idx < NUMBER_OF_DAYS + 2; idx++) //1ere dim := jours
         {
@@ -82,20 +81,10 @@ LoadData::LoadData(string filePath) {
 
             // permet de "sauter" le milieu répété
             // et le dernier, répété aussi
-            if( (idx == 20) )// or (idx + 1 == NUMBER_OF_DAYS + 3) )
+            if( idx == 20 )// or (idx + 1 == NUMBER_OF_DAYS + 3) )
             {
                 continue;
             }
-
-
-
-            //DEBUGAGE
-            /*
-            if((idx + 1 == NUMBER_OF_DAYS + 3)) {
-                cout << index_for_tab << endl;
-                break;
-            }
-            */
 
 
             // on réajuste l'indice de remplissage du tableau
@@ -123,7 +112,6 @@ LoadData::LoadData(string filePath) {
 
     }
 
-
     myfile.close();
 }
 
@@ -149,6 +137,10 @@ float LoadData::getPointsNormalized(int team, int day) {
 
 int LoadData::cardDays() {
     return NUMBER_OF_DAYS;
+}
+
+int LoadData::cardTeams() {
+    return NUMBER_OF_TEAMS;
 }
 
 int LoadData::getMatch(int team, int day) {

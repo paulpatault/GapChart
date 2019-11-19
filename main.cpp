@@ -113,9 +113,8 @@ std::vector<float> y_Escalier(LoadData myData, int team) {
     return res;
 }
 
-void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epaisseur, vector<float>  coordCenter) {
+void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epaisseur, const float dx, vector<float>  coordCenter) {
     vec2 tot[NUMBER_OF_POINTS];
-    const float dx = (SCREEN_WIDTH-100)/(float)NUMBER_OF_POINTS;
     const float x0 = 50;
     int days = 0;
     for(int i = 0; i < NUMBER_OF_POINTS; i++)
@@ -335,30 +334,66 @@ int main(void)
 
     /// REMPLISSAGE DES TABLEAUX AVEC LES DONNÉES
     LoadData myData("../DataProjet2019/data/rankspts.csv");
+    const int NB_DAYS = myData.cardDays();
+    const int NB_TEAMS = myData.cardTeams();
+    // 4 pour les 4 coins des rectangles, NB_DAYS jours, +4 dernier rectangle
+    const int NB_POINTS = 4 * (NB_DAYS + 1);
+    const float epaisseur = ((float)SCREEN_HEIGHT/2)/NB_TEAMS;
+    const float dx = (SCREEN_WIDTH-100)/(float)NB_POINTS;
+    GLfloat t_vertex_data[NB_TEAMS][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
 
-    // 4 pour les 4 coins des rectangles, 38 jours, +4 dernier rectangle
-    const int NB_POINTS = 4 * 38 + 4;
-    const float epaisseur = ((float)SCREEN_HEIGHT/2)/20;
-    GLfloat t_vertex_data[20][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
-
-    std::vector<float> tabY(myData.cardDays());
-    std::vector<vector<float>> yEscBis(20);
-    for(int team = 0; team < 20; team++)
+    std::vector<float> tabY(NB_DAYS);
+    std::vector<vector<float>> yEscBis(NB_TEAMS);
+    for(int team = 0; team < NB_TEAMS; team++)
     {
         tabY = y_Escalier(myData, team);
         yEscBis[team] = y_Escalier(myData, team);
-        tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, tabY);
+        tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, dx, tabY);
     }
-    cout << endl << yEscBis[19][0] + 20 << endl;
+
+    // comme les pts A et B dans le sujet
+    glm::vec3 centre[NB_TEAMS][NB_DAYS + 1];
+    glm::vec3 centreDecale[NB_TEAMS][2 * NB_DAYS + 1];
+
+    for(int team = 0; team < NB_TEAMS; team++)
+    {
+        for(int day = 0; day < NB_DAYS; day++)
+        {
+            centre[team][day].x = 50 + (float)day * dx * 2;   // * 2 car on passe de A à C à E à G à etc.
+            centre[team][day].y = yEscBis[team][day] + (epaisseur / 2);
+            centre[team][day].z = 0;
+        }
+        centre[team][NB_DAYS] = centre[team][NB_DAYS - 1];
+
+
+        for(int day = 0; day < NB_DAYS * 2; day++)
+        {
+            if(day % 2 == 0)
+            {
+                centreDecale[team][day].x = centre[team][day / 2].x ;
+                centreDecale[team][day].y = centre[team][day / 2].y ;
+                centreDecale[team][day].z = centre[team][day / 2].z ;
+            } else {
+                centreDecale[team][day].x = ( centre[team][day / 2].x + centre[team][(day / 2) + 1].x ) / 2;
+                centreDecale[team][day].y = ( centre[team][day / 2].y + centre[team][(day / 2) + 1].y ) / 2;
+                centreDecale[team][day].z = ( centre[team][day / 2].z + centre[team][(day / 2) + 1].z ) / 2;
+            }
+        }
+
+        centreDecale[team][NB_DAYS * 2] = centre[team][NB_DAYS];
+
+    }
+
 
 #if defined(CYLINDRE)
 
     const int nbDivCylindre = 3;
     const float delta_epaisseur = epaisseur/nbDivCylindre;
     const float dz = 0.005f;
-    GLfloat t_vertex_data_dim3[20][nbDivCylindre][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
+    GLfloat t_vertex_data_dim3[NB_TEAMS][nbDivCylindre][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
+    glm::vec3 normals[NB_TEAMS][NB_DAYS * 2][nbDivCylindre];
 
-    for(int team = 0; team < 20; team++)
+    for(int team = 0; team < NB_TEAMS; team++)
     {
         for(int i = 0; i < NB_POINTS * 3; i += 3)
         {
@@ -376,10 +411,19 @@ int main(void)
                 }
             }
         }
+        for(int day = 0; day < NB_DAYS * 2; day++)
+        {
+            for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++)
+            {
+                normals[team][day][sous_tableau].x = t_vertex_data_dim3[team][sous_tableau][day]     - centreDecale[team][day].x;
+                normals[team][day][sous_tableau].y = t_vertex_data_dim3[team][sous_tableau][day + 1] - centreDecale[team][day].y;
+                normals[team][day][sous_tableau].z = t_vertex_data_dim3[team][sous_tableau][day + 2] - centreDecale[team][day].z;
+            }
+        }
     }
 
-    GLuint cylindre_vertexbuffer[20][nbDivCylindre];
-    for(int i = 0; i < 20; i++){
+    GLuint cylindre_vertexbuffer[NB_TEAMS][nbDivCylindre];
+    for(int i = 0; i < NB_TEAMS; i++){
         for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++) {
             glGenBuffers(1, &cylindre_vertexbuffer[i][sous_tableau]);
             glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][sous_tableau]);
@@ -424,7 +468,7 @@ int main(void)
         ImGui::NewFrame();
 
         // Draw
-        for(int i = 0; i < 20; i++)
+        for(int team = 0; team < NB_TEAMS; team++)
         {
 
 #if defined(CYLINDRE)
@@ -433,17 +477,17 @@ int main(void)
             {
                 GLint colorID = glGetUniformLocation(programID,"u_color");
                 {
-                    if(i == 0) glUniform4f(colorID, top1[0], top1[1], top1[2], top1[3] );                  // TOP 1
-                    else if(i < 4) glUniform4f(colorID, top[0], top[1], top[2], top[3] );                  // 3 suivants
-                    else if(i < 7) glUniform4f(colorID, top_mid[0], top_mid[1], top_mid[2], top_mid[3] );  // 3 suivants
-                    else if(i < 9) glUniform4f(colorID, mid[0], mid[1], mid[2], mid[3] );                  // 2 suivants
-                    else if(i < 15) glUniform4f(colorID, bot_mid[0], bot_mid[1], bot_mid[2], bot_mid[3] ); // les autres
+                    if(team == 0) glUniform4f(colorID, top1[0], top1[1], top1[2], top1[3] );                  // TOP 1
+                    else if(team < 4) glUniform4f(colorID, top[0], top[1], top[2], top[3] );                  // 3 suivants
+                    else if(team < 7) glUniform4f(colorID, top_mid[0], top_mid[1], top_mid[2], top_mid[3] );  // 3 suivants
+                    else if(team < 9) glUniform4f(colorID, mid[0], mid[1], mid[2], mid[3] );                  // 2 suivants
+                    else if(team < 15) glUniform4f(colorID, bot_mid[0], bot_mid[1], bot_mid[2], bot_mid[3] ); // les autres
                     else glUniform4f(colorID, bot[0], bot[1], bot[2], bot[3] );                            // le dernier
                 }
 
                 glEnableVertexAttribArray(0);
 
-                glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][j]);
+                glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[team][j]);
 
                 glVertexAttribPointer(
                         0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
@@ -463,34 +507,18 @@ int main(void)
 
 #elif defined(NORMAL)
             GLint colorID = glGetUniformLocation(programID,"u_color");
-            if(i == 0)
-            {
-                glUniform4f(colorID, top1[0], top1[1], top1[2], top1[3] );
-            }
-            else if(i < 4)
-            {
-                glUniform4f(colorID, top[0], top[1], top[2], top[3] );
-            }
-            else if(i < 7)
-            {
-                glUniform4f(colorID, top_mid[0], top_mid[1], top_mid[2], top_mid[3] );
-            }
-            else if(i < 9)
-            {
-                glUniform4f(colorID, mid[0], mid[1], mid[2], mid[3] );
-            }
-            else if(i < 15)
-            {
-                glUniform4f(colorID, bot_mid[0], bot_mid[1], bot_mid[2], bot_mid[3] );
-            }
-            else
-            {
-                glUniform4f(colorID, bot[0], bot[1], bot[2], bot[3] );
-            }
+                {
+                    if(team == 0) glUniform4f(colorID, top1[0], top1[1], top1[2], top1[3] );                  // TOP 1
+                    else if(team < 4) glUniform4f(colorID, top[0], top[1], top[2], top[3] );                  // 3 suivants
+                    else if(team < 7) glUniform4f(colorID, top_mid[0], top_mid[1], top_mid[2], top_mid[3] );  // 3 suivants
+                    else if(team < 9) glUniform4f(colorID, mid[0], mid[1], mid[2], mid[3] );                  // 2 suivants
+                    else if(team < 15) glUniform4f(colorID, bot_mid[0], bot_mid[1], bot_mid[2], bot_mid[3] ); // les autres
+                    else glUniform4f(colorID, bot[0], bot[1], bot[2], bot[3] );                            // le dernier
+                }
 
             glEnableVertexAttribArray(0);
 
-            glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer[i]);
+            glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer[team]);
             glVertexAttribPointer(
                     0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
                     3,                  // size

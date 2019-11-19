@@ -15,8 +15,8 @@ using namespace std;
 class LoadData {
 private:
     // rankPoints[i][j][k] := jour / equipe / {rang,points}
-    vector<vector<vector<int> > > match;
-    vector<vector<vector<int> > > rankPoints;
+    vector<vector<vector<int>>> match;
+    vector<vector<vector<int>>> rankPoints;
     const int NUMBER_OF_TEAMS = 20;
     const int NUMBER_OF_DAYS = 38;
     const int NUMBER_OF_POINTS_MAX = 98;
@@ -30,6 +30,7 @@ public:
     int getPoints(int team, int day);
     float getPointsNormalized(int team, int day);
     int cardDays();
+    int cardTeams();
     int getMatch(int team, int day);
     string getImagesPath(int index);
     void addPathToTab(string imagesPath);
