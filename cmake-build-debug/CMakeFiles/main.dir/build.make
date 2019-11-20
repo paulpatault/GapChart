@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/patault/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Users/patault/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Users/patault/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
+RM = "/Users/patault/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -70,125 +70,140 @@ CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/main.cpp -o CMakeFiles/main.dir/main.cpp.s
 
-CMakeFiles/main.dir/LoadData.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/LoadData.cpp.o: ../LoadData.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/LoadData.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/LoadData.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/LoadData.cpp
+CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o: ../src/myFiles/LoadData.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.cpp
 
-CMakeFiles/main.dir/LoadData.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/LoadData.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/LoadData.cpp > CMakeFiles/main.dir/LoadData.cpp.i
+CMakeFiles/main.dir/src/myFiles/LoadData.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/myFiles/LoadData.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.cpp > CMakeFiles/main.dir/src/myFiles/LoadData.cpp.i
 
-CMakeFiles/main.dir/LoadData.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/LoadData.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/LoadData.cpp -o CMakeFiles/main.dir/LoadData.cpp.s
+CMakeFiles/main.dir/src/myFiles/LoadData.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/myFiles/LoadData.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.cpp -o CMakeFiles/main.dir/src/myFiles/LoadData.cpp.s
 
-CMakeFiles/main.dir/imgui/imgui.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/imgui/imgui.cpp.o: ../imgui/imgui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/imgui/imgui.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/imgui/imgui.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui.cpp
+CMakeFiles/main.dir/src/imgui/imgui.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/imgui/imgui.cpp.o: ../src/imgui/imgui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/imgui/imgui.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/imgui/imgui.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui.cpp
 
-CMakeFiles/main.dir/imgui/imgui.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/imgui/imgui.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui.cpp > CMakeFiles/main.dir/imgui/imgui.cpp.i
+CMakeFiles/main.dir/src/imgui/imgui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/imgui/imgui.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui.cpp > CMakeFiles/main.dir/src/imgui/imgui.cpp.i
 
-CMakeFiles/main.dir/imgui/imgui.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/imgui/imgui.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui.cpp -o CMakeFiles/main.dir/imgui/imgui.cpp.s
+CMakeFiles/main.dir/src/imgui/imgui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/imgui/imgui.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui.cpp -o CMakeFiles/main.dir/src/imgui/imgui.cpp.s
 
-CMakeFiles/main.dir/imgui/imgui_demo.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/imgui/imgui_demo.cpp.o: ../imgui/imgui_demo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/imgui/imgui_demo.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/imgui/imgui_demo.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_demo.cpp
+CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o: ../src/imgui/imgui_demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_demo.cpp
 
-CMakeFiles/main.dir/imgui/imgui_demo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/imgui/imgui_demo.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_demo.cpp > CMakeFiles/main.dir/imgui/imgui_demo.cpp.i
+CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_demo.cpp > CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.i
 
-CMakeFiles/main.dir/imgui/imgui_demo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/imgui/imgui_demo.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_demo.cpp -o CMakeFiles/main.dir/imgui/imgui_demo.cpp.s
+CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_demo.cpp -o CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.s
 
-CMakeFiles/main.dir/imgui/imgui_draw.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/imgui/imgui_draw.cpp.o: ../imgui/imgui_draw.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/imgui/imgui_draw.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/imgui/imgui_draw.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_draw.cpp
+CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o: ../src/imgui/imgui_draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_draw.cpp
 
-CMakeFiles/main.dir/imgui/imgui_draw.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/imgui/imgui_draw.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_draw.cpp > CMakeFiles/main.dir/imgui/imgui_draw.cpp.i
+CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_draw.cpp > CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.i
 
-CMakeFiles/main.dir/imgui/imgui_draw.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/imgui/imgui_draw.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_draw.cpp -o CMakeFiles/main.dir/imgui/imgui_draw.cpp.s
+CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_draw.cpp -o CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.s
 
-CMakeFiles/main.dir/imgui/imgui_widgets.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/imgui/imgui_widgets.cpp.o: ../imgui/imgui_widgets.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/imgui/imgui_widgets.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/imgui/imgui_widgets.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_widgets.cpp
+CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o: ../src/imgui/imgui_widgets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_widgets.cpp
 
-CMakeFiles/main.dir/imgui/imgui_widgets.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/imgui/imgui_widgets.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_widgets.cpp > CMakeFiles/main.dir/imgui/imgui_widgets.cpp.i
+CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_widgets.cpp > CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.i
 
-CMakeFiles/main.dir/imgui/imgui_widgets.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/imgui/imgui_widgets.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_widgets.cpp -o CMakeFiles/main.dir/imgui/imgui_widgets.cpp.s
+CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_widgets.cpp -o CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.s
 
-CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.o: ../imgui/imgui_impl_glfw.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_glfw.cpp
+CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o: ../src/imgui/imgui_impl_glfw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_glfw.cpp
 
-CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_glfw.cpp > CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.i
+CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_glfw.cpp > CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.i
 
-CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_glfw.cpp -o CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.s
+CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_glfw.cpp -o CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.s
 
-CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.o: ../imgui/imgui_impl_opengl3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_opengl3.cpp
+CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o: ../src/imgui/imgui_impl_opengl3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_opengl3.cpp
 
-CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_opengl3.cpp > CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.i
+CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_opengl3.cpp > CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.i
 
-CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_opengl3.cpp -o CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.s
+CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_opengl3.cpp -o CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.s
+
+CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o: ../src/myFiles/Escalier.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.cpp
+
+CMakeFiles/main.dir/src/myFiles/Escalier.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/myFiles/Escalier.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.cpp > CMakeFiles/main.dir/src/myFiles/Escalier.cpp.i
+
+CMakeFiles/main.dir/src/myFiles/Escalier.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/myFiles/Escalier.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.cpp -o CMakeFiles/main.dir/src/myFiles/Escalier.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.cpp.o" \
-"CMakeFiles/main.dir/LoadData.cpp.o" \
-"CMakeFiles/main.dir/imgui/imgui.cpp.o" \
-"CMakeFiles/main.dir/imgui/imgui_demo.cpp.o" \
-"CMakeFiles/main.dir/imgui/imgui_draw.cpp.o" \
-"CMakeFiles/main.dir/imgui/imgui_widgets.cpp.o" \
-"CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.o" \
-"CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.o"
+"CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o" \
+"CMakeFiles/main.dir/src/imgui/imgui.cpp.o" \
+"CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o" \
+"CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o" \
+"CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o" \
+"CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o" \
+"CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o" \
+"CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
 main: CMakeFiles/main.dir/main.cpp.o
-main: CMakeFiles/main.dir/LoadData.cpp.o
-main: CMakeFiles/main.dir/imgui/imgui.cpp.o
-main: CMakeFiles/main.dir/imgui/imgui_demo.cpp.o
-main: CMakeFiles/main.dir/imgui/imgui_draw.cpp.o
-main: CMakeFiles/main.dir/imgui/imgui_widgets.cpp.o
-main: CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.o
-main: CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.o
+main: CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o
+main: CMakeFiles/main.dir/src/imgui/imgui.cpp.o
+main: CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o
+main: CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o
+main: CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o
+main: CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o
+main: CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o
+main: CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: /usr/local/lib/libglfw.3.3.dylib
 main: /usr/local/lib/libGLEW.dylib
 main: /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

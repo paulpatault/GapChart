@@ -4,14 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/LoadData.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/LoadData.cpp.o"
-  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui.cpp.o"
-  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_demo.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_demo.cpp.o"
-  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_draw.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_draw.cpp.o"
-  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_glfw.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.o"
-  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_opengl3.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.o"
-  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_widgets.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_widgets.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique/main.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/main.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_demo.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_draw.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_glfw.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_opengl3.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_widgets.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

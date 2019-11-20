@@ -8,23 +8,23 @@ include_directories(/usr/local/include)
 
 add_executable(main
         main.cpp
-        LoadData.cpp
-        LoadData.h
-        debugbreak.h
-        imgui/imgui.cpp
-        imgui/imgui.h
-        imgui/imgui_demo.cpp
-        imgui/imgui_draw.cpp
-        imgui/imgui_widgets.cpp
-        imgui/imgui_internal.h
-        imgui/imconfig.h
-        imgui/imstb_rectpack.h
-        imgui/imstb_textedit.h
-        imgui/imstb_truetype.h
-        imgui/imgui_impl_glfw.cpp
-        imgui/imgui_impl_glfw.h
-        imgui/imgui_impl_opengl3.cpp
-        imgui/imgui_impl_opengl3.h)
+        src/myFiles/LoadData.cpp
+        src/myFiles/LoadData.h
+        src/debugbreak.h
+        src/imgui/imgui.cpp
+        src/imgui/imgui.h
+        src/imgui/imgui_demo.cpp
+        src/imgui/imgui_draw.cpp
+        src/imgui/imgui_widgets.cpp
+        src/imgui/imgui_internal.h
+        src/imgui/imconfig.h
+        src/imgui/imstb_rectpack.h
+        src/imgui/imstb_textedit.h
+        src/imgui/imstb_truetype.h
+        src/imgui/imgui_impl_glfw.cpp
+        src/imgui/imgui_impl_glfw.h
+        src/imgui/imgui_impl_opengl3.cpp
+        src/imgui/imgui_impl_opengl3.h src/myFiles/Escalier.cpp src/myFiles/Escalier.h)
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )

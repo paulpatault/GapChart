@@ -12,11 +12,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/myFiles/Escalier.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/myFiles/Escalier.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LoadData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/LoadData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/myFiles/LoadData.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/myFiles/LoadData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/LoadData.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_demo.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_draw.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_impl_glfw.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_impl_opengl3.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/imgui/imgui_widgets.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/main.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debugbreak.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/debugbreak.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imconfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imconfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui_demo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui_demo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui_draw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui_draw.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui_impl_glfw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui_impl_glfw.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui_impl_glfw.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui_impl_glfw.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui_impl_opengl3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui_impl_opengl3.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui_impl_opengl3.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui_impl_opengl3.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui_internal.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui_internal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imgui_widgets.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui_widgets.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imstb_rectpack.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imstb_rectpack.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imstb_textedit.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imstb_textedit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui/imstb_truetype.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imstb_truetype.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,16 +98,19 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/imgui" />
-      <recent name="$PROJECT_DIR$/cmake-build-debug" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/inedit" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/imgui" />
+      <recent name="$PROJECT_DIR$/cmake-build-debug" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -139,7 +183,10 @@
       <workItem from="1573827325711" duration="616000" />
       <workItem from="1574085183808" duration="1318000" />
       <workItem from="1574093977296" duration="7932000" />
-      <workItem from="1574105167101" duration="11429000" />
+      <workItem from="1574105167101" duration="12167000" />
+      <workItem from="1574169141193" duration="10326000" />
+      <workItem from="1574217816958" duration="5062000" />
+      <workItem from="1574247855919" duration="19045000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -190,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574117229392</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add normals n0">
+      <created>1574129057480</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1574129057480</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +271,7 @@
     <MESSAGE value="change color" />
     <MESSAGE value="cylindre" />
     <MESSAGE value="code + propre" />
-    <option name="LAST_COMMIT_MESSAGE" value="code + propre" />
+    <MESSAGE value="add normals n0" />
+    <option name="LAST_COMMIT_MESSAGE" value="add normals n0" />
   </component>
 </project>

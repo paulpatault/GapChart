@@ -5,7 +5,6 @@
 #include <sstream>
 #include <iostream>
 #include <stdlib.h>
-#include <vector>
 using namespace std;
 
 // Include GLEW
@@ -20,140 +19,56 @@ using namespace std;
 using namespace glm;
 
 // Include ImGui
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw.h"
-#include "imgui/imgui_impl_opengl3.h"
+#include "src/imgui/imgui.h"
+#include "src/imgui/imgui_impl_glfw.h"
+#include "src/imgui/imgui_impl_opengl3.h"
 using namespace ImGui;
 
 // My includes
-#include "LoadData.h"
-#include "debugbreak.h"
-
-
-#define ASSERT(x) if(!(x)) debug_break();
-#define GLCall(x) GLClearError();\
-    x;\
-    ASSERT(GLLogCall(#x, __FILE__, __LINE__));
-bool GLLogCall(const char* function, const char* file, int line){
-    while (GLenum error = glGetError()){
-        std::cout << "[OpenGL Error] (" << error << ") at " << function << " in " << file << ":" << line << std::endl;
-        return false;
-    }
-    return true;
-}
-void GLClearError(){
-    while(glGetError()!= GL_NO_ERROR);
-}
+#include "src/myFiles/LoadData.h"
+#include "src/myFiles/Escalier.h"
+#include "src/debugbreak.h"
 
 
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 700
 #define FSCREEN_WIDTH 1000.f
 #define FSCREEN_HEIGHT 700.f
-#define CYLINDRE
 
-void escalier(const vec3 begin, const vec3 end, float vertices[], const int NUMBER_OF_POINTS, const float epaisseur, int winloose[]){
-    vec3 tot[NUMBER_OF_POINTS];
-    float dx = (end.x-begin.x)/(float)NUMBER_OF_POINTS;
-    float dy = 3*(end.y-begin.y)/(float)NUMBER_OF_POINTS;
 
-    int days = 0;
-    for(int i = 0; i < NUMBER_OF_POINTS; i++)
-    {
-        if(i%2 == 0) {
-            tot[i].x = begin.x + (float)i * dx;
-            if(i%4 == 0){
-                if( i == 0 ){
-                    tot[i].y = begin.y;
-                }
-                else if(winloose[days] == 0){
-                    tot[i].y =  tot[i-2].y - dy;
-                } else {
-                    tot[i].y = tot[i-2].y + dy;
-                }
-                if(i != 0) {
-                    days++;
-                }
-            } else{
-                tot[i].y = tot[i-2].y;
-            }
-            tot[i].z = 0;
-        } else {
-            tot[i].x = tot[i-1].x;
-            tot[i].y = tot[i-1].y + epaisseur;
-            tot[i].z = 0;
-        }
-    }
+glm::mat4 updateMVP(glm::mat4 Model, glm::mat4 View, glm::mat4 Projection, glm::vec3 angle, glm::vec2 zNearFar, glm::vec3 eyePos){
 
-    /// on rempli le tableau avec les pts obtenus
-    for(int i = 0; i < NUMBER_OF_POINTS; i++)
-    {
-        vertices[3*i] = tot[i].x;
-        vertices[3*i+1] = tot[i].y;
-        vertices[3*i+2] = tot[i].z;
-    }
-}
+    /// Projection Matrix ///
+    Projection = glm::perspective(glm::radians(45.f), FSCREEN_WIDTH/FSCREEN_HEIGHT, zNearFar.x, zNearFar.y );
 
-std::vector<float> y_Escalier(LoadData myData, int team) {
+    /// View Matrix ///
+    glm::vec3 eye    = glm::vec3(eyePos);
+    glm::vec3 center = glm::vec3(0.f, 0.f, zNearFar.x);
+    glm::vec3 up     = glm::vec3(0.f, 1.f, 0.f);
+    View = glm::lookAt( eye, center, up );
 
-    const int NUMBER_OF_DAYS = myData.cardDays();
+    /// Model Matrix ///
+    // rotation
+    glm::vec3 xAxis = glm::vec3(1, 0, 0);
+    glm::vec3 yAxis = glm::vec3(0, 1, 0);
+    glm::vec3 zAxis = glm::vec3(0, 0, 1);
+    Model = glm::rotate(Model, glm::radians(angle.x), xAxis);
+    Model = glm::rotate(Model, glm::radians(angle.y), yAxis);
+    Model = glm::rotate(Model, glm::radians(angle.z), zAxis);
+    Model = glm::rotate(Model, glm::radians(-90.f), xAxis);
 
-    std::vector<float> res(NUMBER_OF_DAYS);
+    // scale
+    /*
+    glm::vec3 scaleXYZ = vec3(scale);
+    Model = glm::scale(Model, scaleXYZ);
+    */
 
-    float complementaire, points;
+    // translation
+    glm::vec3 translation = glm::vec3(- FSCREEN_WIDTH/2, - FSCREEN_HEIGHT/2,0.f);
+    Model = glm::translate(Model, translation);
 
-    for(int day = 0; day < NUMBER_OF_DAYS; day++)
-    {
-        complementaire = myData.getComplementaryRankNormalized(team, day);
-        points = myData.getPointsNormalized(team, day);
-
-        res[day] = (points + complementaire) * SCREEN_HEIGHT/2.2;
-    }
-
-    return res;
-}
-
-void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epaisseur, const float dx, vector<float>  coordCenter) {
-    vec2 tot[NUMBER_OF_POINTS];
-    const float x0 = 50;
-    int days = 0;
-    for(int i = 0; i < NUMBER_OF_POINTS; i++)
-    {
-        if(i % 4 == 0)  // i divisible par 4 => debut de nouveau rectangle (->point haut gauche)
-        {
-            tot[i].x = x0 + (float) i * dx;
-            if( i == 0 ) // on prend y0 pour le premier sommet du premier rectangle (->point haut gauche)
-            {
-                tot[i].y = coordCenter[0]; // == y0 (at t = 0)
-            }
-            else
-            {
-                tot[i].y = coordCenter[days];
-            }
-
-            if(i != 0)  // on change de jour pour chaque nouveau rectangle sauf pour le premier
-            {
-                days += 1;
-            }
-        }
-        else if (i % 2 == 0) // i divisible par 2 => point haut droit du rectangle
-        {
-            tot[i].x = x0 + (float) i * dx;
-            tot[i].y = tot[i - 2].y;
-        }
-        else // i impair => les autres points (:= bas gauche ou bas droit)
-        {
-            tot[i].x = tot[i - 1].x;
-            tot[i].y = tot[i - 1].y - epaisseur;
-        }
-    }
-    /// on rempli le tableau avec les pts obtenus
-    for(int i = 0; i < NUMBER_OF_POINTS; i++)
-    {
-        vertices[3*i] = tot[i].x;
-        vertices[3*i+1] = tot[i].y + 35; // +40 pour que le plus bas ne touche pas le bas de la fenetre
-        vertices[3*i+2] = 0;
-    }
+    /// ModelViewProjection Matrix ///
+    return Projection * View * Model;
 }
 
 
@@ -311,25 +226,24 @@ int main(void)
 
     GLuint programID = LoadShaders("../SimpleVertexShader.glsl", "../SimpleFragmentShader.glsl");
 
+
     /// initialisation des matrices du modèle MVP (ModelViewProjection)
-    GLCall(GLint matrixID = glGetUniformLocation(programID, "u_MVP") );
-    glm::mat4 Projection = ortho(0.f,FSCREEN_WIDTH,0.f,FSCREEN_HEIGHT,-1.f,1.f);
-    // Camera matrix
-    const float _x = 0.f;
-    const float _y = 0.f;
-    const float _z = -1.f;
-    glm::mat4 View = glm::lookAt(
-            glm::vec3(_x, _y,_z), // Camera is at (x,y,z), in World Space
-            glm::vec3(_x + 0.f, _y + 0.f,_z - 1.f), // and looks at the origin
-            glm::vec3(0.f,1.f,0.f)  // Head is up (set to 0,-1,0 to look upside-down)
-    );
-    // Model matrix := identity matrix (model will be at the origin)
+    GLint matrixID = glGetUniformLocation(programID, "u_MVP");
+
+    glm::vec3 eyePos = glm::vec3(0.f, 0.f, 1000.f);
+    glm::vec2 zNearFar = glm::vec2(-100.f, 100.f);
+    glm::vec3 angle = glm::vec3(90.f, 0.f,0.f);
+
+    glm::mat4 Projection = glm::mat4(1.0f);
+    glm::mat4 View = glm::mat4(1.0f);
     glm::mat4 Model = glm::mat4(1.0f);
-    glm::mat4 mvp = Projection * View * Model; // Attention à bien les multiplier "à l'envers"
+    glm::mat4 mvp = updateMVP(Model, View, Projection, angle, zNearFar, eyePos);
 
     glUseProgram(programID);
     GLCall( glUniformMatrix4fv(matrixID,1,GL_FALSE,&mvp[0][0]) );
     glUseProgram(0);
+
+
 
 
     /// REMPLISSAGE DES TABLEAUX AVEC LES DONNÉES
@@ -346,8 +260,8 @@ int main(void)
     std::vector<vector<float>> yEscBis(NB_TEAMS);
     for(int team = 0; team < NB_TEAMS; team++)
     {
-        tabY = y_Escalier(myData, team);
-        yEscBis[team] = y_Escalier(myData, team);
+        tabY = y_Escalier(myData, team, FSCREEN_HEIGHT);
+        yEscBis[team] = y_Escalier(myData, team, FSCREEN_HEIGHT);
         tabEscalier(t_vertex_data[team], NB_POINTS, epaisseur, dx, tabY);
     }
 
@@ -385,11 +299,9 @@ int main(void)
     }
 
 
-#if defined(CYLINDRE)
-
     const int nbDivCylindre = 3;
     const float delta_epaisseur = epaisseur/nbDivCylindre;
-    const float dz = 0.005f;
+
     GLfloat t_vertex_data_dim3[NB_TEAMS][nbDivCylindre][NB_POINTS * 3];  // * 3 car {x,y,z} pour chaque point
     glm::vec3 normals[NB_TEAMS][NB_DAYS * 2][nbDivCylindre];
 
@@ -397,17 +309,18 @@ int main(void)
     {
         for(int i = 0; i < NB_POINTS * 3; i += 3)
         {
+
             if(i % 2 == 0 ){
                 for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
                     t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                                         // .x
                     t_vertex_data_dim3[team][sous_tableau][i + 1] = t_vertex_data[team][i + 1] - (sous_tableau * delta_epaisseur);  // .y
-                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2] - (sous_tableau * dz) ;                                     // .z
+                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2] + (sous_tableau * epaisseur / nbDivCylindre) ;              // .z
                 }
             } else {
                 for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
                     t_vertex_data_dim3[team][sous_tableau][i]     = t_vertex_data[team][i];                                                                         // .x
                     t_vertex_data_dim3[team][sous_tableau][i + 1] = t_vertex_data[team][i + 1] + ( (float)(nbDivCylindre - 1 - sous_tableau) * delta_epaisseur );   // .y
-                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2] - ( (float)(nbDivCylindre - 1 - sous_tableau) * dz );
+                    t_vertex_data_dim3[team][sous_tableau][i + 2] = t_vertex_data[team][i + 2] + ( (float)(nbDivCylindre - 1 - sous_tableau) * epaisseur / nbDivCylindre );
                 }
             }
         }
@@ -423,22 +336,16 @@ int main(void)
     }
 
     GLuint cylindre_vertexbuffer[NB_TEAMS][nbDivCylindre];
-    for(int i = 0; i < NB_TEAMS; i++){
-        for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++) {
-            glGenBuffers(1, &cylindre_vertexbuffer[i][sous_tableau]);
-            glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[i][sous_tableau]);
-            glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[i][sous_tableau]), t_vertex_data_dim3[i][sous_tableau], GL_STATIC_DRAW);
+    for(int team = 0; team < NB_TEAMS; team++){
+        for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
+            glGenBuffers(1, &cylindre_vertexbuffer[team][sous_tableau]);
+            glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[team][sous_tableau]);
+            glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[team][sous_tableau]), t_vertex_data_dim3[team][sous_tableau], GL_STATIC_DRAW);
         }
     }
 
-#elif defined(NORMAL)
-    GLuint vertexbuffer[20];
-    for(int i = 0; i < 20; i++){
-        glGenBuffers(1, &vertexbuffer[i]);
-        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer[i]);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data[i]), t_vertex_data[i], GL_STATIC_DRAW);
-    }
-#endif
+
+
 
     /// Initialisation de ImGui
     ImGui::CreateContext();
@@ -452,15 +359,27 @@ int main(void)
     glm::vec4 top_mid(236.f/255.f,238.f/255.f,26.f/255.f,1.f);
     glm::vec4 mid(194.f/255.f,194.f/255.f,194.f/255.f,1.f);
     glm::vec4 bot_mid(140.f/255.f,140.f/255.f,140.f/255.f,1.f);
-    glm::vec4 bot(231.f/255.f,97.f/255.f,97.f/255.f,1.f);
+    glm::vec4 bot(240.f/255.f,35.f/255.f,35.f/255.f,1.f);
 
     do
     {
+
         // Clear the screen
         glClear( GL_COLOR_BUFFER_BIT );
 
         // Use our shader
         glUseProgram(programID);
+
+
+        /// Move, Rotate
+        mvp = updateMVP(Model, View, Projection, angle, zNearFar, eyePos);
+        // Send new matrix
+        glUniformMatrix4fv(
+                matrixID,
+                1,
+                GL_FALSE,
+                &mvp[0][0]
+                );
 
         // ImGui loop
         ImGui_ImplOpenGL3_NewFrame();
@@ -470,9 +389,6 @@ int main(void)
         // Draw
         for(int team = 0; team < NB_TEAMS; team++)
         {
-
-#if defined(CYLINDRE)
-
             for(int j = 0; j < nbDivCylindre; j++)
             {
                 GLint colorID = glGetUniformLocation(programID,"u_color");
@@ -503,46 +419,27 @@ int main(void)
 
                 glDisableVertexAttribArray(0);
             }
+        }
 
-
-#elif defined(NORMAL)
-            GLint colorID = glGetUniformLocation(programID,"u_color");
-                {
-                    if(team == 0) glUniform4f(colorID, top1[0], top1[1], top1[2], top1[3] );                  // TOP 1
-                    else if(team < 4) glUniform4f(colorID, top[0], top[1], top[2], top[3] );                  // 3 suivants
-                    else if(team < 7) glUniform4f(colorID, top_mid[0], top_mid[1], top_mid[2], top_mid[3] );  // 3 suivants
-                    else if(team < 9) glUniform4f(colorID, mid[0], mid[1], mid[2], mid[3] );                  // 2 suivants
-                    else if(team < 15) glUniform4f(colorID, bot_mid[0], bot_mid[1], bot_mid[2], bot_mid[3] ); // les autres
-                    else glUniform4f(colorID, bot[0], bot[1], bot[2], bot[3] );                            // le dernier
-                }
-
-            glEnableVertexAttribArray(0);
-
-            glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer[team]);
-            glVertexAttribPointer(
-                    0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-                    3,                  // size
-                    GL_FLOAT,           // type
-                    GL_FALSE,           // normalized?
-                    0,                  // stride
-                    (void*)nullptr            // array buffer offset
-            );
-
-            // Draw the triangle !
-            glDrawArrays(GL_TRIANGLE_STRIP, 0, NB_POINTS);
-
-            glDisableVertexAttribArray(0);
-#endif
-
-        } // fin du for ( [0,20[ )
 
         // ImGui Edit (màj)
+        /*
         ImGui::ColorEdit3("top1 color", (float*)&top1);
         ImGui::ColorEdit3("top color", (float*)&top);
         ImGui::ColorEdit3("top_mid color", (float*)&top_mid);
         ImGui::ColorEdit3("mid color", (float*)&mid);
         ImGui::ColorEdit3("bot_mid color", (float*)&bot_mid);
         ImGui::ColorEdit3("bot color", (float*)&bot);
+        */
+
+        ImGui::SliderFloat("angleX", &angle.x, 0, 180);
+        ImGui::SliderFloat("angleY", &angle.y, 0, 360);
+        ImGui::SliderFloat("angleZ", &angle.z, 0, 360);
+        ImGui::SliderFloat2("zNearFar", &zNearFar.x, -10000, 10000);
+        ImGui::SliderFloat("eyePos.x", &eyePos.x, -1000, 1500);
+        ImGui::SliderFloat("eyePos.y", &eyePos.y, -1000, 1000);
+        ImGui::SliderFloat("eyePos.z", &eyePos.z, 0, 10000);
+
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
@@ -555,6 +452,9 @@ int main(void)
     // Loop until the user closes the window
     while( (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS) && (glfwWindowShouldClose(window) == 0) );
 
+    // Cleanup
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
     glfwTerminate( );
 
     return 0;

@@ -88,58 +88,64 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/LoadData.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/LoadData.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/debugbreak.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imconfig.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_demo.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_draw.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_glfw.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_glfw.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_opengl3.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_opengl3.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_internal.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_widgets.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imstb_rectpack.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imstb_textedit.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imstb_truetype.h">
-			<Option target="main"/>
-		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/main.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/debugbreak.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imconfig.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_demo.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_draw.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_glfw.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_glfw.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_opengl3.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_opengl3.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_internal.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_widgets.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imstb_rectpack.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imstb_textedit.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imstb_truetype.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/CMakeLists.txt">

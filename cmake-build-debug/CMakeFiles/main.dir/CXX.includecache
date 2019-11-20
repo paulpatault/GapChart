@@ -6,25 +6,49 @@
 
 #IncludeRegexTransform: 
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/LoadData.h
-string
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/main.cpp
+stdio.h
+-
+cmath
 -
 vector
 -
-fstream
+sstream
 -
 iostream
 -
+stdlib.h
+-
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+src/imgui/imgui.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui.h
+src/imgui/imgui_impl_glfw.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_glfw.h
+src/imgui/imgui_impl_opengl3.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_opengl3.h
+src/myFiles/LoadData.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.h
+src/myFiles/Escalier.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.h
+src/debugbreak.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/debugbreak.h
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/debugbreak.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/debugbreak.h
 signal.h
 -
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imconfig.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imconfig.h
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui.h
 imconfig.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imconfig.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imconfig.h
 float.h
 -
 stdarg.h
@@ -38,13 +62,13 @@ assert.h
 stdint.h
 -
 imgui_user.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_user.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_user.h
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_glfw.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_glfw.h
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_opengl3.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_opengl3.h
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/main.cpp
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.h
 stdio.h
 -
 cmath
@@ -67,16 +91,18 @@ glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
-imgui/imgui.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui.h
-imgui/imgui_impl_glfw.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_glfw.h
-imgui/imgui_impl_opengl3.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/imgui/imgui_impl_opengl3.h
 LoadData.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/LoadData.h
-debugbreak.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/debugbreak.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.h
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.h
+string
+-
+vector
+-
+fstream
+-
+iostream
+-
 
 /usr/local/include/GL/glew.h
 stddef.h

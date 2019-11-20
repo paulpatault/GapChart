@@ -154,3 +154,19 @@ __inline__ static void debug_break(void)
 #endif /* ifdef _MSC_VER */
 
 #endif /* ifndef DEBUG_BREAK_H */
+
+
+#define ASSERT(x) if(!(x)) debug_break();
+#define GLCall(x) GLClearError();\
+    x;\
+    ASSERT(GLLogCall(#x, __FILE__, __LINE__));
+bool GLLogCall(const char* function, const char* file, int line){
+    while (GLenum error = glGetError()){
+        std::cout << "[OpenGL Error] (" << error << ") at " << function << " in " << file << ":" << line << std::endl;
+        return false;
+    }
+    return true;
+}
+void GLClearError(){
+    while(glGetError()!= GL_NO_ERROR);
+}
