@@ -31,8 +31,8 @@ using namespace glm;
 
 std::vector<float> y_Escalier(LoadData myData, int team, float SCREEN_HEIGHT);
 
-void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epaisseur, const float dx, vector<float>  coordCenter);
+void tabEscalier(float vertices[], const int NUMBER_OF_POINTS, const float epaisseur, const float dx, vector<float>  coordCenter);
 
-void escalierV0(const vec3 begin, const vec3 end, float vertices[], const int NUMBER_OF_POINTS, const float epaisseur, int winloose[]);
+void escalierV0(vec3 begin, vec3 end, float vertices[], int NUMBER_OF_POINTS, float epaisseur, int winloose[]);
 
 #endif //MAIN_ESCALIER_H

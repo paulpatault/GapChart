@@ -25,7 +25,7 @@ std::vector<float> y_Escalier(LoadData myData, int team, float SCREEN_HEIGHT)
     return res;
 }
 
-void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epaisseur, const float dx, vector<float>  coordCenter)
+void tabEscalier(float vertices[], const int NUMBER_OF_POINTS, const float epaisseur, const float dx, vector<float>  coordCenter)
 {
     vec2 tot[NUMBER_OF_POINTS];
     const float x0 = 50;
@@ -67,7 +67,7 @@ void tabEscalier(GLfloat vertices[], const int NUMBER_OF_POINTS, const float epa
         //if(i > NUMBER_OF_POINTS/2) ecart = 50;
         vertices[3*i] = tot[i].x ;//+ ecart;
         vertices[3*i+1] = tot[i].y + 35; // +40 pour que le plus bas ne touche pas le bas de la fenetre
-        vertices[3*i+2] = 0.07f;
+        vertices[3*i+2] = 0.08f;
     }
 }
 
