@@ -97,6 +97,12 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Shaders.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Window.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Window.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/debugbreak.h">
 			<Option target="main"/>
 		</Unit>

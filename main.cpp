@@ -26,9 +26,9 @@ using namespace ImGui;
 
 // My includes
 #include "src/myFiles/LoadData.h"
-#include "src/myFiles/Escalier.h"
 #include "src/dirGL/debugbreak.h"
 #include "src/dirGL/Shaders.h"
+#include "src/dirGL/Window.h"
 
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 700
@@ -201,57 +201,50 @@ void loadVBO( GLuint cylindre_vertexbuffer[20][nbDivCylindre], LoadData myData, 
     }
 }
 
+void draw(GLuint programID, GLuint cylindre_vertexbuffer[20][nbDivCylindre], glm::vec4 colors[], int NB_POINTS){
+    // Draw
+    for(int team = 0; team < 20; team++)
+    {
+        GLint colorID = glGetUniformLocation(programID,"u_color");
+        {
+            if (team == 0) {
+                glUniform4f(colorID, colors[0].x, colors[0].y, colors[0].z, colors[0].w);              // TOP 1
+            } else if (team < 4) {
+                glUniform4f(colorID, colors[1].x, colors[1].y, colors[1].z, colors[1].w);              // TOP 1
+            } else if (team < 7) {
+                glUniform4f(colorID, colors[2].x, colors[2].y, colors[2].z, colors[2].w);              // TOP 1
+            } else if (team < 9) {
+                glUniform4f(colorID, colors[3].x, colors[3].y, colors[3].z, colors[3].w);              // TOP 1
+            } else if (team < 15) {
+                glUniform4f(colorID, colors[4].x, colors[4].y, colors[4].z, colors[4].w);              // TOP 1
+            } else {
+                glUniform4f(colorID, colors[5].x, colors[5].y, colors[5].z, colors[5].w);              // TOP 1
+            }
+        }
+
+        for(int j = 0; j < nbDivCylindre; j++)
+        {
+            glEnableVertexAttribArray(0);
+            glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[team][j]);
+            glVertexAttribPointer(
+                    0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+                    3,                  // size
+                    GL_FLOAT,           // type
+                    GL_FALSE,           // normalized?
+                    0,                  // stride
+                    (void*)nullptr            // array buffer offset
+            );
+            // Draw the triangle !
+            glDrawArrays(GL_TRIANGLE_STRIP, 0, NB_POINTS );
+
+            glDisableVertexAttribArray(0);
+        }
+    }
+}
+
 int main(void)
 {
-    // Initialize the library
-    if ( !glfwInit( ) )
-    {
-        std::cerr << "Failed to initialize GLFW" << std::endl;
-        return -1;
-    }
-    GLFWwindow *window;
-
-    glfwWindowHint(GLFW_SAMPLES, 4); // 4x antialiasing
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // On veut OpenGL 3.3
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // Pour rendre MacOS heureux ; ne devrait pas être nécessaire
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // On ne veut pas l'ancien OpenGL
-
-    // Create a windowed mode window and its OpenGL context
-    window = glfwCreateWindow( SCREEN_WIDTH, SCREEN_HEIGHT, "Hello World", NULL, NULL );
-
-    if ( !window )
-    {
-        glfwTerminate( );
-        std::cerr << "Fail link to window" << std::endl;
-        return -1;
-    }
-
-    // Make the window's context current
-    glfwMakeContextCurrent( window );
-
-    glewExperimental = true; // Needed for core profile
-    if (glewInit() != GLEW_OK) {
-        std::cerr << "Failed to initialize GLEW" << std::endl;
-        return -1;
-    }
-
-    //gère le transparence
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_BLEND);
-
-    std::cout << "Version == " << glGetString(GL_VERSION) << std::endl;
-
-    // Assure que l'on peut capturer la touche d'échappement enfoncée ci-dessous
-    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-
-    // Couleur de fond := blanc
-    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-
-
-    /////// FIN INIT CONTEXT ET FENETRE ///////
-
-
+    GLFWwindow *window = initWindow(SCREEN_WIDTH, SCREEN_HEIGHT);
 
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
@@ -286,15 +279,9 @@ int main(void)
     const int NB_POINTS = 4 * (NB_DAYS + 1);
     const float epaisseur = ((float)SCREEN_HEIGHT/2)/NB_TEAMS;
     const float dx = (SCREEN_WIDTH-100)/(float)NB_POINTS;
-    const int nbDivCylindre = 3;
-    const int milieu = nbDivCylindre/2;
-    const float delta_epaisseur = epaisseur/nbDivCylindre;
-
-
 
     GLuint cylindre_vertexbuffer[20][nbDivCylindre];
     loadVBO(cylindre_vertexbuffer, myData, epaisseur, dx);
-
 
     /// Initialisation de ImGui
     ImGui::CreateContext();
@@ -303,91 +290,46 @@ int main(void)
     ImGui_ImplOpenGL3_Init("#version 330 core");
 
     // Couleurs pour chaque regroupement de courbes
-    glm::vec4 top1(0.f,72.f/255.f,204.f/255.f,1.f);
-    glm::vec4 top(98.f/255.f,214.f/255.f,230.f/255.f,1.f);
-    glm::vec4 top_mid(236.f/255.f,238.f/255.f,26.f/255.f,1.f);
-    glm::vec4 mid(194.f/255.f,194.f/255.f,194.f/255.f,1.f);
-    glm::vec4 bot_mid(140.f/255.f,140.f/255.f,140.f/255.f,1.f);
-    glm::vec4 bot(240.f/255.f,35.f/255.f,35.f/255.f,1.f);
+    glm::vec4 colors[] = {
+            glm::vec4(0.f,72.f/255.f,204.f/255.f,1.f),            // top1
+            glm::vec4(98.f/255.f,214.f/255.f,230.f/255.f,1.f),    // top
+            glm::vec4 (236.f/255.f,238.f/255.f,26.f/255.f,1.f),   // top_mid
+            glm::vec4 (194.f/255.f,194.f/255.f,194.f/255.f,1.f),  // mid
+            glm::vec4 (140.f/255.f,140.f/255.f,140.f/255.f,1.f),  // bot_mid
+            glm::vec4 (240.f/255.f,35.f/255.f,35.f/255.f,1.f)     // bot
+    };
 
     do
     {
-
         // Clear the screen
         glClear( GL_COLOR_BUFFER_BIT );
 
         // Use our shader
         glUseProgram(programID);
 
-
         /// Move, Rotate
         keyboardCallback(window, angle, eyePos);
         glm::mat4 mvp = updateMVP(Model, View, Projection, angle, zNearFar, eyePos);
-        // Send new matrix
-        glUniformMatrix4fv(
-                matrixID,
-                1,
-                GL_FALSE,
-                &mvp[0][0]
-        );
+        glUniformMatrix4fv( matrixID, 1, GL_FALSE, &mvp[0][0] ); // Send new matrix
 
         // ImGui loop
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        // Draw
-        for(int team = 0; team < NB_TEAMS; team++)
-        {
-            GLint colorID = glGetUniformLocation(programID,"u_color");
-            {
-                if (team == 0) {
-                    glUniform4f(colorID, top1[0], top1[1], top1[2], top1[3]);              // TOP 1
-                } else if (team < 4) {
-                    glUniform4f(colorID, top[0], top[1], top[2], top[3]);                  // 3 suivants
-                } else if (team < 7) {
-                    glUniform4f(colorID, top_mid[0], top_mid[1], top_mid[2], top_mid[3]);  // 3 suivants
-                } else if (team < 9) {
-                    glUniform4f(colorID, mid[0], mid[1], mid[2], mid[3]);                  // 2 suivants
-                } else if (team < 15) {
-                    glUniform4f(colorID, bot_mid[0], bot_mid[1], bot_mid[2], bot_mid[3]);  // les autres
-                } else {
-                    glUniform4f(colorID, bot[0], bot[1], bot[2], bot[3]);                  // le dernier
-                }
-            }
-            for(int j = 0; j < nbDivCylindre; j++)
-            {
-
-                glEnableVertexAttribArray(0);
-                glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[team][j]);
-                glVertexAttribPointer(
-                        0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-                        3,                  // size
-                        GL_FLOAT,           // type
-                        GL_FALSE,           // normalized?
-                        0,                  // stride
-                        (void*)nullptr            // array buffer offset
-                );
-
-                // Draw the triangle !
-                glDrawArrays(GL_TRIANGLE_STRIP, 0, NB_POINTS );
-
-                glDisableVertexAttribArray(0);
-            }
-        }
+        // draw
+        draw(programID, cylindre_vertexbuffer, colors, NB_POINTS);
 
 
         // ImGui Edit (màj)
-
-        ImGui::ColorEdit3("top1 color", (float*)&top1);
-        ImGui::ColorEdit3("top color", (float*)&top);
-        ImGui::ColorEdit3("top_mid color", (float*)&top_mid);
-        ImGui::ColorEdit3("mid color", (float*)&mid);
-        ImGui::ColorEdit3("bot_mid color", (float*)&bot_mid);
-        ImGui::ColorEdit3("bot color", (float*)&bot);
-
+        ImGui::ColorEdit3("top1", (float*)&colors[0]);
+        ImGui::ColorEdit3("top", (float*)&colors[1]);
+        ImGui::ColorEdit3("top_mid", (float*)&colors[2]);
+        ImGui::ColorEdit3("mid", (float*)&colors[3]);
+        ImGui::ColorEdit3("bot_mid", (float*)&colors[4]);
+        ImGui::ColorEdit3("bot", (float*)&colors[5]);
         ImGui::SliderFloat3("angle", &angle.x, 0, 360);
-        ImGui::SliderFloat3("eyePos.x", &eyePos.x, -1000, 1500);
+        ImGui::SliderFloat3("eyePos", &eyePos.x, -1000, 1500);
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

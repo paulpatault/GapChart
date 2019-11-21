@@ -177,6 +177,33 @@ src/dirGL/Shaders.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Shaders.cpp.s
 .PHONY : src/dirGL/Shaders.cpp.s
 
+src/dirGL/Window.o: src/dirGL/Window.cpp.o
+
+.PHONY : src/dirGL/Window.o
+
+# target to build an object file
+src/dirGL/Window.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Window.cpp.o
+.PHONY : src/dirGL/Window.cpp.o
+
+src/dirGL/Window.i: src/dirGL/Window.cpp.i
+
+.PHONY : src/dirGL/Window.i
+
+# target to preprocess a source file
+src/dirGL/Window.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Window.cpp.i
+.PHONY : src/dirGL/Window.cpp.i
+
+src/dirGL/Window.s: src/dirGL/Window.cpp.s
+
+.PHONY : src/dirGL/Window.s
+
+# target to generate assembly for a file
+src/dirGL/Window.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Window.cpp.s
+.PHONY : src/dirGL/Window.cpp.s
+
 src/imgui/imgui.o: src/imgui/imgui.cpp.o
 
 .PHONY : src/imgui/imgui.o
@@ -435,6 +462,9 @@ help:
 	@echo "... src/dirGL/Shaders.o"
 	@echo "... src/dirGL/Shaders.i"
 	@echo "... src/dirGL/Shaders.s"
+	@echo "... src/dirGL/Window.o"
+	@echo "... src/dirGL/Window.i"
+	@echo "... src/dirGL/Window.s"
 	@echo "... src/imgui/imgui.o"
 	@echo "... src/imgui/imgui.i"
 	@echo "... src/imgui/imgui.s"
