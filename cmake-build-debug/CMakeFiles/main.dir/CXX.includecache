@@ -37,10 +37,30 @@ src/myFiles/LoadData.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.h
 src/myFiles/Escalier.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.h
-src/debugbreak.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/debugbreak.h
+src/dirGL/debugbreak.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/debugbreak.h
+src/dirGL/Shaders.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Shaders.h
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/debugbreak.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Shaders.h
+stdio.h
+-
+cmath
+-
+vector
+-
+fstream
+-
+sstream
+-
+iostream
+-
+stdlib.h
+-
+GL/glew.h
+-
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/debugbreak.h
 signal.h
 -
 

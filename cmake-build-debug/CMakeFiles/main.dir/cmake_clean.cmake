@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/main.cpp.o"
+  "CMakeFiles/main.dir/src/dirGL/Shaders.cpp.o"
   "CMakeFiles/main.dir/src/imgui/imgui.cpp.o"
   "CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o"
   "CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o"

@@ -10,7 +10,7 @@ add_executable(main
         main.cpp
         src/myFiles/LoadData.cpp
         src/myFiles/LoadData.h
-        src/debugbreak.h
+        src/dirGL/debugbreak.h
         src/imgui/imgui.cpp
         src/imgui/imgui.h
         src/imgui/imgui_demo.cpp
@@ -24,7 +24,12 @@ add_executable(main
         src/imgui/imgui_impl_glfw.cpp
         src/imgui/imgui_impl_glfw.h
         src/imgui/imgui_impl_opengl3.cpp
-        src/imgui/imgui_impl_opengl3.h src/myFiles/Escalier.cpp src/myFiles/Escalier.h)
+        src/imgui/imgui_impl_opengl3.h
+        src/myFiles/Escalier.cpp
+        src/myFiles/Escalier.h
+        src/dirGL/Shaders.cpp
+        src/dirGL/Shaders.h
+        )
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )

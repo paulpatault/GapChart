@@ -27,8 +27,8 @@ using namespace ImGui;
 // My includes
 #include "src/myFiles/LoadData.h"
 #include "src/myFiles/Escalier.h"
-#include "src/debugbreak.h"
-
+#include "src/dirGL/debugbreak.h"
+#include "src/dirGL/Shaders.h"
 
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 700
@@ -71,102 +71,34 @@ glm::mat4 updateMVP(glm::mat4 Model, glm::mat4 View, glm::mat4 Projection, glm::
     return Projection * View * Model;
 }
 
+void keyboardCallback(GLFWwindow *window, glm::vec3 &angle, glm::vec3 &eyePos)
+{
+    // rotation
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+        angle.x += 0.5f;
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+        angle.x -= 0.5f;
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+        angle.z += 0.5f;
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+        angle.z -= 0.5f;
 
-// Charge un programme de shaders, le compile et recupere dedans des pointeurs vers
-// les variables homogenes que nous voudront mettre a jour plus tard, a chaque dessin
-GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path){
-
-    // Create the shaders
-    GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
-    GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
-
-    // Read the Vertex Shader code from the file
-    std::string VertexShaderCode;
-    std::ifstream VertexShaderStream(vertex_file_path, std::ios::in);
-    if(VertexShaderStream.is_open()){
-        std::stringstream sstr;
-        sstr << VertexShaderStream.rdbuf();
-        VertexShaderCode = sstr.str();
-        VertexShaderStream.close();
-    }else{
-        printf("Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", vertex_file_path);
-        getchar();
-        return 0;
-    }
-
-    // Read the Fragment Shader code from the file
-    std::string FragmentShaderCode;
-    std::ifstream FragmentShaderStream(fragment_file_path, std::ios::in);
-    if(FragmentShaderStream.is_open()){
-        std::stringstream sstr;
-        sstr << FragmentShaderStream.rdbuf();
-        FragmentShaderCode = sstr.str();
-        FragmentShaderStream.close();
-    }
-
-    GLint Result = GL_FALSE;
-    int InfoLogLength;
+    // deplacement
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) // Z
+        eyePos.y += 2.f;
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) // S
+        eyePos.y -= 2.f;
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) // Q
+        eyePos.x += 2.f;
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) // D
+        eyePos.x -= 2.f;
 
 
-    // Compile Vertex Shader
-    printf("Compiling shader : %s\n", vertex_file_path);
-    char const * VertexSourcePointer = VertexShaderCode.c_str();
-    glShaderSource(VertexShaderID, 1, &VertexSourcePointer , NULL);
-    glCompileShader(VertexShaderID);
-
-    // Check Vertex Shader
-    glGetShaderiv(VertexShaderID, GL_COMPILE_STATUS, &Result);
-    glGetShaderiv(VertexShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-    if ( InfoLogLength > 0 ){
-        std::vector<char> VertexShaderErrorMessage(InfoLogLength+1);
-        glGetShaderInfoLog(VertexShaderID, InfoLogLength, NULL, &VertexShaderErrorMessage[0]);
-        printf("%s\n", &VertexShaderErrorMessage[0]);
-    }
-
-
-
-    // Compile Fragment Shader
-    printf("Compiling shader : %s\n", fragment_file_path);
-    char const * FragmentSourcePointer = FragmentShaderCode.c_str();
-    glShaderSource(FragmentShaderID, 1, &FragmentSourcePointer , NULL);
-    glCompileShader(FragmentShaderID);
-
-    // Check Fragment Shader
-    glGetShaderiv(FragmentShaderID, GL_COMPILE_STATUS, &Result);
-    glGetShaderiv(FragmentShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-    if ( InfoLogLength > 0 ){
-        std::vector<char> FragmentShaderErrorMessage(InfoLogLength+1);
-        glGetShaderInfoLog(FragmentShaderID, InfoLogLength, NULL, &FragmentShaderErrorMessage[0]);
-        printf("%s\n", &FragmentShaderErrorMessage[0]);
-    }
-
-
-
-    // Link the program
-    printf("Linking program\n");
-    GLuint ProgramID = glCreateProgram();
-    glAttachShader(ProgramID, VertexShaderID);
-    glAttachShader(ProgramID, FragmentShaderID);
-    glLinkProgram(ProgramID);
-    glValidateProgram(ProgramID);
-
-    // Check the program
-    glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
-    glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-    if ( InfoLogLength > 0 ){
-        std::vector<char> ProgramErrorMessage(InfoLogLength+1);
-        glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
-        printf("%s\n", &ProgramErrorMessage[0]);
-    }
-
-
-    glDetachShader(ProgramID, VertexShaderID);
-    glDetachShader(ProgramID, FragmentShaderID);
-
-    glDeleteShader(VertexShaderID);
-    glDeleteShader(FragmentShaderID);
-
-    return ProgramID;
+    // zoom
+    if (glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS)
+        eyePos.z += 2.f;
+    if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS)
+        eyePos.z -= 2.f;
 }
 
 int main(void)
@@ -179,17 +111,14 @@ int main(void)
     }
     GLFWwindow *window;
 
-
     glfwWindowHint(GLFW_SAMPLES, 4); // 4x antialiasing
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // On veut OpenGL 3.3
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // Pour rendre MacOS heureux ; ne devrait pas être nécessaire
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // On ne veut pas l'ancien OpenGL
 
-
     // Create a windowed mode window and its OpenGL context
     window = glfwCreateWindow( SCREEN_WIDTH, SCREEN_HEIGHT, "Hello World", NULL, NULL );
-
 
     if ( !window )
     {
@@ -224,7 +153,8 @@ int main(void)
     glGenVertexArrays(1, &VertexArrayID);
     glBindVertexArray(VertexArrayID);
 
-    GLuint programID = LoadShaders("../SimpleVertexShader.glsl", "../SimpleFragmentShader.glsl");
+
+    GLuint programID = LoadShaders("../src/dirGL/SimpleVertexShader.glsl", "../src/dirGL/SimpleFragmentShader.glsl");
 
 
     /// initialisation des matrices du modèle MVP (ModelViewProjection)
@@ -237,13 +167,6 @@ int main(void)
     glm::mat4 Projection = glm::mat4(1.0f);
     glm::mat4 View = glm::mat4(1.0f);
     glm::mat4 Model = glm::mat4(1.0f);
-    glm::mat4 mvp = updateMVP(Model, View, Projection, angle, zNearFar, eyePos);
-
-    glUseProgram(programID);
-    GLCall( glUniformMatrix4fv(matrixID,1,GL_FALSE,&mvp[0][0]) );
-    glUseProgram(0);
-
-
 
 
     /// REMPLISSAGE DES TABLEAUX AVEC LES DONNÉES
@@ -293,9 +216,7 @@ int main(void)
                 centreDecale[team][day].z = ( centre[team][day / 2].z + centre[team][(day / 2) + 1].z ) / 2;
             }
         }
-
         centreDecale[team][NB_DAYS * 2] = centre[team][NB_DAYS];
-
     }
 
 
@@ -372,14 +293,15 @@ int main(void)
 
 
         /// Move, Rotate
-        mvp = updateMVP(Model, View, Projection, angle, zNearFar, eyePos);
+        keyboardCallback(window, angle, eyePos);
+        glm::mat4 mvp = updateMVP(Model, View, Projection, angle, zNearFar, eyePos);
         // Send new matrix
         glUniformMatrix4fv(
                 matrixID,
                 1,
                 GL_FALSE,
                 &mvp[0][0]
-                );
+        );
 
         // ImGui loop
         ImGui_ImplOpenGL3_NewFrame();
@@ -389,22 +311,27 @@ int main(void)
         // Draw
         for(int team = 0; team < NB_TEAMS; team++)
         {
+            GLint colorID = glGetUniformLocation(programID,"u_color");
+            {
+                if (team == 0) {
+                    glUniform4f(colorID, top1[0], top1[1], top1[2], top1[3]);              // TOP 1
+                } else if (team < 4) {
+                    glUniform4f(colorID, top[0], top[1], top[2], top[3]);                  // 3 suivants
+                } else if (team < 7) {
+                    glUniform4f(colorID, top_mid[0], top_mid[1], top_mid[2], top_mid[3]);  // 3 suivants
+                } else if (team < 9) {
+                    glUniform4f(colorID, mid[0], mid[1], mid[2], mid[3]);                  // 2 suivants
+                } else if (team < 15) {
+                    glUniform4f(colorID, bot_mid[0], bot_mid[1], bot_mid[2], bot_mid[3]);  // les autres
+                } else {
+                    glUniform4f(colorID, bot[0], bot[1], bot[2], bot[3]);                  // le dernier
+                }
+            }
             for(int j = 0; j < nbDivCylindre; j++)
             {
-                GLint colorID = glGetUniformLocation(programID,"u_color");
-                {
-                    if(team == 0) glUniform4f(colorID, top1[0], top1[1], top1[2], top1[3] );                  // TOP 1
-                    else if(team < 4) glUniform4f(colorID, top[0], top[1], top[2], top[3] );                  // 3 suivants
-                    else if(team < 7) glUniform4f(colorID, top_mid[0], top_mid[1], top_mid[2], top_mid[3] );  // 3 suivants
-                    else if(team < 9) glUniform4f(colorID, mid[0], mid[1], mid[2], mid[3] );                  // 2 suivants
-                    else if(team < 15) glUniform4f(colorID, bot_mid[0], bot_mid[1], bot_mid[2], bot_mid[3] ); // les autres
-                    else glUniform4f(colorID, bot[0], bot[1], bot[2], bot[3] );                            // le dernier
-                }
 
                 glEnableVertexAttribArray(0);
-
                 glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[team][j]);
-
                 glVertexAttribPointer(
                         0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
                         3,                  // size
