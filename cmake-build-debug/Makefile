@@ -393,6 +393,33 @@ src/myFiles/LoadData.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myFiles/LoadData.cpp.s
 .PHONY : src/myFiles/LoadData.cpp.s
 
+src/rand.o: src/rand.cpp.o
+
+.PHONY : src/rand.o
+
+# target to build an object file
+src/rand.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/rand.cpp.o
+.PHONY : src/rand.cpp.o
+
+src/rand.i: src/rand.cpp.i
+
+.PHONY : src/rand.i
+
+# target to preprocess a source file
+src/rand.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/rand.cpp.i
+.PHONY : src/rand.cpp.i
+
+src/rand.s: src/rand.cpp.s
+
+.PHONY : src/rand.s
+
+# target to generate assembly for a file
+src/rand.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/rand.cpp.s
+.PHONY : src/rand.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -432,6 +459,9 @@ help:
 	@echo "... src/myFiles/LoadData.o"
 	@echo "... src/myFiles/LoadData.i"
 	@echo "... src/myFiles/LoadData.s"
+	@echo "... src/rand.o"
+	@echo "... src/rand.i"
+	@echo "... src/rand.s"
 .PHONY : help
 
 

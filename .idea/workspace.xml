@@ -12,12 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dirGL/Shaders.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dirGL/Shaders.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleFragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/dirGL/SimpleFragmentShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/dirGL/SimpleVertexShader.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" afterDir="false" />
@@ -34,7 +30,8 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/debugbreak.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/dirGL/debugbreak.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/dirGL/SimpleVertexShader.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myFiles/Escalier.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/myFiles/Escalier.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +160,7 @@
       <workItem from="1574169141193" duration="10326000" />
       <workItem from="1574217816958" duration="5062000" />
       <workItem from="1574247855919" duration="19719000" />
-      <workItem from="1574280003129" duration="5808000" />
+      <workItem from="1574280003129" duration="16808000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -228,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574273997425</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="keyboard + cleanup">
+      <created>1574298002453</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1574298002453</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +261,18 @@
     <MESSAGE value="code + propre" />
     <MESSAGE value="add normals n0" />
     <MESSAGE value="mvp &amp; refactor &amp; new files" />
-    <option name="LAST_COMMIT_MESSAGE" value="mvp &amp; refactor &amp; new files" />
+    <MESSAGE value="keyboard + cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="keyboard + cleanup" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/rand.cpp</url>
+          <line>57</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

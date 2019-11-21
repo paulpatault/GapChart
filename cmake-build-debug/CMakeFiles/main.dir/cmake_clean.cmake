@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o"
   "CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o"
   "CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o"
+  "CMakeFiles/main.dir/src/rand.cpp.o"
   "main"
   "main.pdb"
 )

@@ -154,6 +154,9 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/rand.cpp">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -29,7 +29,7 @@ add_executable(main
         src/myFiles/Escalier.h
         src/dirGL/Shaders.cpp
         src/dirGL/Shaders.h
-        )
+        src/rand.cpp)
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )
