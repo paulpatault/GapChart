@@ -7,21 +7,23 @@
 #IncludeRegexTransform: 
 
 /Users/patault/Documents/GitHub/ProjetInfoGraphique/main.cpp
-stdio.h
--
 cmath
 -
 vector
--
-sstream
 -
 iostream
 -
 stdlib.h
 -
+stdio.h
+-
 GL/glew.h
 -
 GLFW/glfw3.h
+-
+OpenGL/gl.h
+-
+GL/gl.h
 -
 glm/glm.hpp
 -

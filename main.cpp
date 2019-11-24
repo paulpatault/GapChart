@@ -1,10 +1,9 @@
 // Include standard headers
-#include <stdio.h>
 #include <cmath>
 #include <vector>
-#include <sstream>
 #include <iostream>
 #include <stdlib.h>
+#include <stdio.h>
 using namespace std;
 
 // Include GLEW
@@ -12,6 +11,13 @@ using namespace std;
 
 // Include GLFW
 #include <GLFW/glfw3.h>
+
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
+#include <GL/gl.h>
+#endif
 
 // Include GLM
 #include <glm/glm.hpp>
@@ -23,6 +29,8 @@ using namespace glm;
 #include "src/imgui/imgui_impl_glfw.h"
 #include "src/imgui/imgui_impl_opengl3.h"
 using namespace ImGui;
+
+
 
 // My includes
 #include "src/myFiles/LoadData.h"
@@ -36,6 +44,9 @@ using namespace ImGui;
 #define FSCREEN_HEIGHT 700.f
 
 const int nbDivCylindre = 3;
+const int NB_POINTS = 4 * (38 + 1);
+const float epaisseur = ((float)SCREEN_HEIGHT/2)/20;
+const float dx = (SCREEN_WIDTH-100)/(float)NB_POINTS;
 
 glm::mat4 updateMVP(glm::mat4 Model, glm::mat4 View, glm::mat4 Projection, glm::vec3 angle, glm::vec2 zNearFar, glm::vec3 eyePos){
 
@@ -102,10 +113,89 @@ void keyboardCallback(GLFWwindow *window, glm::vec3 &angle, glm::vec3 &eyePos)
         eyePos.z -= 2.f;
 }
 
-void loadVBO( GLuint cylindre_vertexbuffer[20][nbDivCylindre], LoadData myData, float epaisseur, float dx)
+
+void loadVBO_arc( GLuint arc_vertexbuffer[38], GLfloat t_vertex_data_dim3[20][nbDivCylindre][4 * (38 + 1) * 3], LoadData myData, int choice){
+
+    GLfloat t_vertex_arc[38][6*3];
+
+    const float sousEpaisseur = epaisseur / 6 ;
+    const float sousDx = dx * 2;
+    const float x0 = 50 + dx*3;
+
+    for(int day = 0; day < 38; day++)
+    {
+        float x = x0 + day * sousDx;
+        for(int i = 0; i < 6*3; i+=6)
+        {
+            /*
+            t_vertex_arc[day][0] = x;
+            t_vertex_arc[day][1] = t_vertex_data_dim3[choice][0][0];
+            t_vertex_arc[day][2] = 0;
+
+            t_vertex_arc[day][3] = x + sousEpaisseur;
+            t_vertex_arc[day][4] = t_vertex_arc[day][1];
+            t_vertex_arc[day][5] = 0;
+
+            t_vertex_arc[day][6] = x;
+            t_vertex_arc[day][7] = t_vertex_data_dim3[choice][0][0];
+            t_vertex_arc[day][8] = 40;
+
+            t_vertex_arc[day][9]  = x + sousEpaisseur;
+            t_vertex_arc[day][10] = t_vertex_arc[day][7];
+            t_vertex_arc[day][11] = 40;
+
+            t_vertex_arc[day][12] = x;
+            t_vertex_arc[day][13] = t_vertex_data_dim3[myData.getAdversaire(choice, day)][0][0];
+            t_vertex_arc[day][14] = 0;
+
+            t_vertex_arc[day][15] = x + sousEpaisseur;
+            t_vertex_arc[day][16] = t_vertex_arc[day][13];
+            t_vertex_arc[day][17] = 0;
+             */
+            t_vertex_arc[day][0] = x0;
+            t_vertex_arc[day][1] = 50; //t_vertex_data_dim3[choice][0][0];
+            t_vertex_arc[day][2] = epaisseur;
+
+            t_vertex_arc[day][3] = x0 + sousEpaisseur;
+            t_vertex_arc[day][4] = 50;
+            t_vertex_arc[day][5] = epaisseur;
+
+            t_vertex_arc[day][6] = x0;
+            t_vertex_arc[day][7] = 150;
+            t_vertex_arc[day][8] = epaisseur + 40;
+
+            t_vertex_arc[day][9]  = x0 + sousEpaisseur;
+            t_vertex_arc[day][10] = 150;
+            t_vertex_arc[day][11] = epaisseur + 40;
+
+            t_vertex_arc[day][12] = x0;
+            t_vertex_arc[day][13] = 250;
+            t_vertex_arc[day][14] = epaisseur;
+
+            t_vertex_arc[day][15] = x0 + sousEpaisseur;
+            t_vertex_arc[day][16] = 250;
+            t_vertex_arc[day][17] = epaisseur;
+        }
+    }
+
+    for(int day = 0; day < 38; day++){
+
+        glGenBuffers(1, &arc_vertexbuffer[0]);
+        glBindBuffer(GL_ARRAY_BUFFER, arc_vertexbuffer[0]);
+        glBufferData(
+                GL_ARRAY_BUFFER,
+                sizeof(t_vertex_arc[day]),
+                t_vertex_arc[day],
+                GL_STATIC_DRAW
+        );
+
+    }
+
+}
+
+void loadVBO( GLuint cylindre_vertexbuffer[20][nbDivCylindre], GLfloat t_vertex_data_dim3[20][nbDivCylindre][4 * (38 + 1) * 3], LoadData myData)
 {
 
-    GLfloat t_vertex_data_dim3[20][nbDivCylindre][4 * (38 + 1) * 3];  // * 3 car {x,y,z} pour chaque point
 
     myData.initVertexDataD1(FSCREEN_HEIGHT, epaisseur, dx);
 
@@ -113,9 +203,6 @@ void loadVBO( GLuint cylindre_vertexbuffer[20][nbDivCylindre], LoadData myData, 
     int milieu = nbDivCylindre/2;
 
     //glm::vec3 normals[NB_TEAMS][NB_DAYS * 2][nbDivCylindre];
-
-
-
     /*
     // comme les pts A et B dans le sujet
     glm::vec3 centre[NB_TEAMS][NB_DAYS + 1];
@@ -151,7 +238,7 @@ void loadVBO( GLuint cylindre_vertexbuffer[20][nbDivCylindre], LoadData myData, 
 
     for(int team = 0; team < 20; team++)
     {
-        for(int i = 0; i < 4 * (38 + 1) * 3; i += 3)
+        for(int i = 0; i < NB_POINTS * 3; i += 3)
         {
             if(i % 2 == 0 ){
                 for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
@@ -192,16 +279,60 @@ void loadVBO( GLuint cylindre_vertexbuffer[20][nbDivCylindre], LoadData myData, 
          */
     }
 
+
+    /*
+    int more = 37 * (nbDivCylindre + 1);
+    GLfloat t_vertex_data_superpose[20][nbDivCylindre][4 * (38 + 1) * 3 + more];  // * 3 car {x,y,z} pour chaque point
+
+    for(int team = 0; team < 20; team++)
+    {
+        int iFaux = 0;
+        for (int i = 0; i < NB_POINTS * 3 + more; i += 3)
+        {
+            if( (iFaux + 1) % 4 == 0)  // point := bas droite
+            {
+                for (int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++)
+                {
+                    float dx = (t_vertex_data_dim3[team][sous_tableau][iFaux + 3]     - t_vertex_data_dim3[team][sous_tableau][iFaux]    ) / 2;
+                    float dy = (t_vertex_data_dim3[team][sous_tableau][iFaux + 3 + 1] - t_vertex_data_dim3[team][sous_tableau][iFaux + 1]) / 2;
+                    float dz = (t_vertex_data_dim3[team][sous_tableau][iFaux + 3 + 2] - t_vertex_data_dim3[team][sous_tableau][iFaux + 2]) / 2;
+
+                    t_vertex_data_superpose[team][sous_tableau][i]     = t_vertex_data_dim3[team][sous_tableau][iFaux]     + dx;
+                    t_vertex_data_superpose[team][sous_tableau][i + 1] = t_vertex_data_dim3[team][sous_tableau][iFaux + 1] + dy;
+                    t_vertex_data_superpose[team][sous_tableau][i + 2] = t_vertex_data_dim3[team][sous_tableau][iFaux + 2] + dz;
+                }
+            }
+            else
+            {
+                for (int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++)
+                {
+                    t_vertex_data_superpose[team][sous_tableau][i]     = t_vertex_data_dim3[team][sous_tableau][iFaux]    ;
+                    t_vertex_data_superpose[team][sous_tableau][i + 1] = t_vertex_data_dim3[team][sous_tableau][iFaux + 1];
+                    t_vertex_data_superpose[team][sous_tableau][i + 2] = t_vertex_data_dim3[team][sous_tableau][iFaux + 2];
+                }
+                iFaux += 1 ;
+            }
+        }
+    }
+     */
+
     for(int team = 0; team < 20; team++){
         for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
             glGenBuffers(1, &cylindre_vertexbuffer[team][sous_tableau]);
             glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[team][sous_tableau]);
-            glBufferData(GL_ARRAY_BUFFER, sizeof(t_vertex_data_dim3[team][sous_tableau]), t_vertex_data_dim3[team][sous_tableau], GL_STATIC_DRAW);
+            glBufferData(
+                    GL_ARRAY_BUFFER,
+                    sizeof(t_vertex_data_dim3[team][sous_tableau]),
+                    t_vertex_data_dim3[team][sous_tableau],
+                    GL_STATIC_DRAW
+                    );
         }
     }
 }
 
-void draw(GLuint programID, GLuint cylindre_vertexbuffer[20][nbDivCylindre], glm::vec4 colors[], int NB_POINTS){
+
+void draw(GLuint programID, GLuint cylindre_vertexbuffer[20][nbDivCylindre], glm::vec4 colors[])
+{
     // Draw
     for(int team = 0; team < 20; team++)
     {
@@ -244,8 +375,10 @@ void draw(GLuint programID, GLuint cylindre_vertexbuffer[20][nbDivCylindre], glm
 
 int main(void)
 {
+    // Fenetre
     GLFWwindow *window = initWindow(SCREEN_WIDTH, SCREEN_HEIGHT);
 
+    // VAO
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
     glBindVertexArray(VertexArrayID);
@@ -266,31 +399,28 @@ int main(void)
     glm::mat4 Model = glm::mat4(1.0f);
 
 
-    std::cout << std::endl << "Before Load" << std::endl;
-
     LoadData myData("../DataProjet2019/data/rankspts.csv");
 
-    std::cout << "After Load" << std::endl << std::endl;
-
-    myData.getMatch(2, 2);
-
-    const int NB_DAYS = myData.cardDays();
-    const int NB_TEAMS = myData.cardTeams();
-    const int NB_POINTS = 4 * (NB_DAYS + 1);
-    const float epaisseur = ((float)SCREEN_HEIGHT/2)/NB_TEAMS;
-    const float dx = (SCREEN_WIDTH-100)/(float)NB_POINTS;
-
+    // Tab for VBO(s)
+    GLfloat t_vertex_data_dim3[20][nbDivCylindre][4 * (38 + 1) * 3];  // * 3 car {x,y,z} pour chaque point
+    // VBO
     GLuint cylindre_vertexbuffer[20][nbDivCylindre];
-    loadVBO(cylindre_vertexbuffer, myData, epaisseur, dx);
+    GLuint arc_vertexbuffer[38];
+    // Load
+    loadVBO(cylindre_vertexbuffer, t_vertex_data_dim3, myData);
+    loadVBO_arc(arc_vertexbuffer, t_vertex_data_dim3, myData, 0);
 
-    /// Initialisation de ImGui
-    ImGui::CreateContext();
-    ImGui::StyleColorsDark();
-    ImGui_ImplGlfw_InitForOpenGL(window,true);
-    ImGui_ImplOpenGL3_Init("#version 330 core");
 
-    // Couleurs pour chaque regroupement de courbes
+    // Couleurs (pour chaque regroupement de courbes)
     glm::vec4 colors[] = {
+            /*
+            glm::vec4(92.f/255.f,133.f/255.f,209.f/255.f,1.f),            // top1
+            glm::vec4(142.f/255.f,217.f/255.f,228.f/255.f,1.f),    // top
+            glm::vec4 (234.f/255.f,235.f/255.f,89.f/255.f,1.f),   // top_mid
+            glm::vec4 (213.f/255.f,213.f/255.f,213.f/255.f,1.f),  // mid
+            glm::vec4 (168.f/255.f,168.f/255.f,168.f/255.f,1.f),  // bot_mid
+            glm::vec4 (233.f/255.f,139.f/255.f,139.f/255.f,1.f)     // bot
+            */
             glm::vec4(0.f,72.f/255.f,204.f/255.f,1.f),            // top1
             glm::vec4(98.f/255.f,214.f/255.f,230.f/255.f,1.f),    // top
             glm::vec4 (236.f/255.f,238.f/255.f,26.f/255.f,1.f),   // top_mid
@@ -298,6 +428,13 @@ int main(void)
             glm::vec4 (140.f/255.f,140.f/255.f,140.f/255.f,1.f),  // bot_mid
             glm::vec4 (240.f/255.f,35.f/255.f,35.f/255.f,1.f)     // bot
     };
+
+    /// Initialisation de ImGui
+    ImGui::CreateContext();
+    ImGui::StyleColorsDark();
+    ImGui_ImplGlfw_InitForOpenGL(window,true);
+    ImGui_ImplOpenGL3_Init("#version 330 core");
+
 
     do
     {
@@ -318,8 +455,25 @@ int main(void)
         ImGui::NewFrame();
 
         // draw
-        draw(programID, cylindre_vertexbuffer, colors, NB_POINTS);
+        draw(programID, cylindre_vertexbuffer, colors);
 
+        //for(int day = 0; day < 38; day++)
+        {
+            glEnableVertexAttribArray(0);
+            glBindBuffer(GL_ARRAY_BUFFER, arc_vertexbuffer[0]);
+            glVertexAttribPointer(
+                    0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+                    3,                  // size
+                    GL_FLOAT,           // type
+                    GL_FALSE,           // normalized?
+                    0,                  // stride
+                    (void*)nullptr            // array buffer offset
+            );
+            // Draw the triangle !
+            glDrawArrays(GL_TRIANGLE_STRIP, 0, 6 ); // * 38
+
+            glDisableVertexAttribArray(0);
+        }
 
         // ImGui Edit (màj)
         ImGui::ColorEdit3("top1", (float*)&colors[0]);

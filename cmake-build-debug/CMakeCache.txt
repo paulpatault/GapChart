@@ -245,8 +245,23 @@ OPENGL_gl_LIBRARY:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.
 //GLU library for OS X (usually same as OpenGL library)
 OPENGL_glu_LIBRARY:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework
 
+//The directory containing a CMake configuration file for OpenCVConfig.cmake.
+OpenCVConfig.cmake_DIR:PATH=OpenCVConfig.cmake_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for OpenCVConfig.
+OpenCVConfig_DIR:PATH=OpenCVConfig_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=OpenCV_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for Opencv.
+Opencv_DIR:PATH=Opencv_DIR-NOTFOUND
+
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
+
+//The directory containing a CMake configuration file for eop.
+eop_DIR:PATH=eop_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for glfw3.
 glfw3_DIR:PATH=/usr/local/lib/cmake/glfw3
@@ -274,6 +289,15 @@ main_BINARY_DIR:STATIC=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake
 
 //Value Computed by CMake
 main_SOURCE_DIR:STATIC=/Users/patault/Documents/GitHub/ProjetInfoGraphique
+
+//The directory containing a CMake configuration file for open.
+open_DIR:PATH=open_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for opencv@2.
+opencv@2_DIR:PATH=opencv@2_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for opencv.
+opencv_DIR:PATH=opencv_DIR-NOTFOUND
 
 
 ########################

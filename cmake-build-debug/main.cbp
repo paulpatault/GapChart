@@ -91,13 +91,7 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/main.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Shaders.cpp">
-			<Option target="main"/>
-		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Shaders.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Window.cpp">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Window.h">
@@ -148,19 +142,10 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imstb_truetype.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.h">
-			<Option target="main"/>
-		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.cpp">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/LoadData.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/src/rand.cpp">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique/CMakeLists.txt">

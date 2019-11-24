@@ -150,60 +150,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/dirGL/Shaders.o: src/dirGL/Shaders.cpp.o
-
-.PHONY : src/dirGL/Shaders.o
-
-# target to build an object file
-src/dirGL/Shaders.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Shaders.cpp.o
-.PHONY : src/dirGL/Shaders.cpp.o
-
-src/dirGL/Shaders.i: src/dirGL/Shaders.cpp.i
-
-.PHONY : src/dirGL/Shaders.i
-
-# target to preprocess a source file
-src/dirGL/Shaders.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Shaders.cpp.i
-.PHONY : src/dirGL/Shaders.cpp.i
-
-src/dirGL/Shaders.s: src/dirGL/Shaders.cpp.s
-
-.PHONY : src/dirGL/Shaders.s
-
-# target to generate assembly for a file
-src/dirGL/Shaders.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Shaders.cpp.s
-.PHONY : src/dirGL/Shaders.cpp.s
-
-src/dirGL/Window.o: src/dirGL/Window.cpp.o
-
-.PHONY : src/dirGL/Window.o
-
-# target to build an object file
-src/dirGL/Window.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Window.cpp.o
-.PHONY : src/dirGL/Window.cpp.o
-
-src/dirGL/Window.i: src/dirGL/Window.cpp.i
-
-.PHONY : src/dirGL/Window.i
-
-# target to preprocess a source file
-src/dirGL/Window.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Window.cpp.i
-.PHONY : src/dirGL/Window.cpp.i
-
-src/dirGL/Window.s: src/dirGL/Window.cpp.s
-
-.PHONY : src/dirGL/Window.s
-
-# target to generate assembly for a file
-src/dirGL/Window.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dirGL/Window.cpp.s
-.PHONY : src/dirGL/Window.cpp.s
-
 src/imgui/imgui.o: src/imgui/imgui.cpp.o
 
 .PHONY : src/imgui/imgui.o
@@ -366,33 +312,6 @@ src/imgui/imgui_widgets.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.s
 .PHONY : src/imgui/imgui_widgets.cpp.s
 
-src/myFiles/Escalier.o: src/myFiles/Escalier.cpp.o
-
-.PHONY : src/myFiles/Escalier.o
-
-# target to build an object file
-src/myFiles/Escalier.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o
-.PHONY : src/myFiles/Escalier.cpp.o
-
-src/myFiles/Escalier.i: src/myFiles/Escalier.cpp.i
-
-.PHONY : src/myFiles/Escalier.i
-
-# target to preprocess a source file
-src/myFiles/Escalier.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myFiles/Escalier.cpp.i
-.PHONY : src/myFiles/Escalier.cpp.i
-
-src/myFiles/Escalier.s: src/myFiles/Escalier.cpp.s
-
-.PHONY : src/myFiles/Escalier.s
-
-# target to generate assembly for a file
-src/myFiles/Escalier.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myFiles/Escalier.cpp.s
-.PHONY : src/myFiles/Escalier.cpp.s
-
 src/myFiles/LoadData.o: src/myFiles/LoadData.cpp.o
 
 .PHONY : src/myFiles/LoadData.o
@@ -420,33 +339,6 @@ src/myFiles/LoadData.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myFiles/LoadData.cpp.s
 .PHONY : src/myFiles/LoadData.cpp.s
 
-src/rand.o: src/rand.cpp.o
-
-.PHONY : src/rand.o
-
-# target to build an object file
-src/rand.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/rand.cpp.o
-.PHONY : src/rand.cpp.o
-
-src/rand.i: src/rand.cpp.i
-
-.PHONY : src/rand.i
-
-# target to preprocess a source file
-src/rand.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/rand.cpp.i
-.PHONY : src/rand.cpp.i
-
-src/rand.s: src/rand.cpp.s
-
-.PHONY : src/rand.s
-
-# target to generate assembly for a file
-src/rand.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/rand.cpp.s
-.PHONY : src/rand.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -459,12 +351,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/dirGL/Shaders.o"
-	@echo "... src/dirGL/Shaders.i"
-	@echo "... src/dirGL/Shaders.s"
-	@echo "... src/dirGL/Window.o"
-	@echo "... src/dirGL/Window.i"
-	@echo "... src/dirGL/Window.s"
 	@echo "... src/imgui/imgui.o"
 	@echo "... src/imgui/imgui.i"
 	@echo "... src/imgui/imgui.s"
@@ -483,15 +369,9 @@ help:
 	@echo "... src/imgui/imgui_widgets.o"
 	@echo "... src/imgui/imgui_widgets.i"
 	@echo "... src/imgui/imgui_widgets.s"
-	@echo "... src/myFiles/Escalier.o"
-	@echo "... src/myFiles/Escalier.i"
-	@echo "... src/myFiles/Escalier.s"
 	@echo "... src/myFiles/LoadData.o"
 	@echo "... src/myFiles/LoadData.i"
 	@echo "... src/myFiles/LoadData.s"
-	@echo "... src/rand.o"
-	@echo "... src/rand.i"
-	@echo "... src/rand.s"
 .PHONY : help
 
 

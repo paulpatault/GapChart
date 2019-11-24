@@ -111,10 +111,7 @@ LoadData::LoadData(string filePath) {
         }
 
     }
-
-    std::cout << "   Loading matches ..." << endl;
     loadMatch(filePath);
-    std::cout << "   Done !" << endl;
 
     myfile.close();
 }
@@ -256,7 +253,7 @@ int LoadData::cardTeams() {
     return NUMBER_OF_TEAMS;
 }
 
-void LoadData::getMatch(int team, int day) {
+int LoadData::getAdversaire(int team, int day) {
 
     string res = "L'équipe";
 
@@ -292,6 +289,9 @@ void LoadData::getMatch(int team, int day) {
     res += inOut + ".";
     //res += " le " + to_string(day+1) + "ième jour." ;
     std::cout << res << std::endl;
+
+    int adv = getIndexByName(otherTeam);
+    return adv;
 }
 
 // fonction à lancer dès le début du programme
@@ -389,6 +389,7 @@ void LoadData::tabEscalier(float vertices[], const int NUMBER_OF_POINTS, const f
 float LoadData::getVertexDataValue(int i, int j) {
     return this->t_vertex_data[i][j];
 }
+
 
 
 

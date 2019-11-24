@@ -12,10 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dirGL/Window.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dirGL/Window.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" afterDir="false" />
@@ -28,9 +27,19 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/Shaders.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/Shaders.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/dirGL/Shaders.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/dirGL/SimpleVertexShader.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/Window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/Window.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/dirGL/Window.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myFiles/Escalier.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myFiles/Escalier.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myFiles/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/myFiles/LoadData.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myFiles/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/myFiles/LoadData.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +170,7 @@
       <workItem from="1574247855919" duration="19719000" />
       <workItem from="1574280003129" duration="17007000" />
       <workItem from="1574341559611" duration="5210000" />
-      <workItem from="1574348347478" duration="15133000" />
+      <workItem from="1574348347478" duration="34621000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -247,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574364127675</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="cleanup">
+      <created>1574369726625</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1574369726625</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

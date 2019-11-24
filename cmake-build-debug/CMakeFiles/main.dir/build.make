@@ -161,58 +161,6 @@ CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/imgui/imgui_impl_opengl3.cpp -o CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.s
 
-CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o: ../src/myFiles/Escalier.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.cpp
-
-CMakeFiles/main.dir/src/myFiles/Escalier.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/myFiles/Escalier.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.cpp > CMakeFiles/main.dir/src/myFiles/Escalier.cpp.i
-
-CMakeFiles/main.dir/src/myFiles/Escalier.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/myFiles/Escalier.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/myFiles/Escalier.cpp -o CMakeFiles/main.dir/src/myFiles/Escalier.cpp.s
-
-CMakeFiles/main.dir/src/dirGL/Shaders.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/dirGL/Shaders.cpp.o: ../src/dirGL/Shaders.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/src/dirGL/Shaders.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/dirGL/Shaders.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Shaders.cpp
-
-CMakeFiles/main.dir/src/dirGL/Shaders.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/dirGL/Shaders.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Shaders.cpp > CMakeFiles/main.dir/src/dirGL/Shaders.cpp.i
-
-CMakeFiles/main.dir/src/dirGL/Shaders.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/dirGL/Shaders.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Shaders.cpp -o CMakeFiles/main.dir/src/dirGL/Shaders.cpp.s
-
-CMakeFiles/main.dir/src/rand.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/rand.cpp.o: ../src/rand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/src/rand.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/rand.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/rand.cpp
-
-CMakeFiles/main.dir/src/rand.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/rand.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/rand.cpp > CMakeFiles/main.dir/src/rand.cpp.i
-
-CMakeFiles/main.dir/src/rand.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/rand.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/rand.cpp -o CMakeFiles/main.dir/src/rand.cpp.s
-
-CMakeFiles/main.dir/src/dirGL/Window.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/dirGL/Window.cpp.o: ../src/dirGL/Window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main.dir/src/dirGL/Window.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/dirGL/Window.cpp.o -c /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Window.cpp
-
-CMakeFiles/main.dir/src/dirGL/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/dirGL/Window.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Window.cpp > CMakeFiles/main.dir/src/dirGL/Window.cpp.i
-
-CMakeFiles/main.dir/src/dirGL/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/dirGL/Window.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/patault/Documents/GitHub/ProjetInfoGraphique/src/dirGL/Window.cpp -o CMakeFiles/main.dir/src/dirGL/Window.cpp.s
-
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.cpp.o" \
@@ -222,11 +170,7 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o" \
 "CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o" \
 "CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o" \
-"CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o" \
-"CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o" \
-"CMakeFiles/main.dir/src/dirGL/Shaders.cpp.o" \
-"CMakeFiles/main.dir/src/rand.cpp.o" \
-"CMakeFiles/main.dir/src/dirGL/Window.cpp.o"
+"CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -239,16 +183,12 @@ main: CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o
 main: CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o
 main: CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o
 main: CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o
-main: CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o
-main: CMakeFiles/main.dir/src/dirGL/Shaders.cpp.o
-main: CMakeFiles/main.dir/src/rand.cpp.o
-main: CMakeFiles/main.dir/src/dirGL/Window.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: /usr/local/lib/libglfw.3.3.dylib
 main: /usr/local/lib/libGLEW.dylib
 main: /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/patault/Documents/GitHub/ProjetInfoGraphique/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

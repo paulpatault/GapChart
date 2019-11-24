@@ -60,7 +60,7 @@ public:
     float getPointsNormalized(int team, int day);
     int cardDays();
     int cardTeams();
-    void getMatch(int team, int day);
+    int getAdversaire(int team, int day);
     string getImagesPath(int index);
     void addPathToTab(string imagesPath);
     void initVertexDataD1(float a, float b, float c);

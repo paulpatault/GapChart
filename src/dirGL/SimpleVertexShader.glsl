@@ -11,8 +11,8 @@ float scalar = position.z / 20;
 
 void main(){
     gl_Position = u_MVP * position;
-    if(position.z < 0.1){
-        mycolor = vec4(vec3(u_color*scalar), 0.9f) ;
+    if(position.z < 0.15){
+        mycolor = vec4(vec3(u_color*scalar), 1.f) ;
     }
     else{
         mycolor = u_color;
