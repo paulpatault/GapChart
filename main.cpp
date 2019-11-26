@@ -44,7 +44,7 @@ using namespace ImGui;
 #define FSCREEN_HEIGHT 700.f
 
 const int nbDivCylindre = 3;
-const int NB_POINTS = 4 * (38 + 1);
+const int NB_POINTS = 4 * (38 + 1) + (2*37);
 const float epaisseur = ((float)SCREEN_HEIGHT/2)/20;
 const float dx = (SCREEN_WIDTH-100)/(float)NB_POINTS;
 
@@ -113,6 +113,18 @@ void keyboardCallback(GLFWwindow *window, glm::vec3 &angle, glm::vec3 &eyePos)
         eyePos.z -= 2.f;
 }
 
+glm::mat4 reInitMVP(glm::mat4 &Model, glm::mat4 &View, glm::mat4 &Projection, glm::vec3 &angle, glm::vec2 &zNearFar, glm::vec3 &eyePos){
+
+    eyePos = glm::vec3(0.f, 0.f, 1000.f);
+    zNearFar = glm::vec2(-100.f, 100.f);
+    angle = glm::vec3(90.f, 0.f,0.f);
+
+    Projection = glm::mat4(1.0f);
+    View = glm::mat4(1.0f);
+    Model = glm::mat4(1.0f);
+
+    return updateMVP(Model, View, Projection, angle, zNearFar, eyePos);
+}
 
 void loadVBO_arc( GLuint arc_vertexbuffer[38], GLfloat t_vertex_data_dim3[20][nbDivCylindre][4 * (38 + 1) * 3], LoadData myData, int choice){
 
@@ -330,11 +342,149 @@ void loadVBO( GLuint cylindre_vertexbuffer[20][nbDivCylindre], GLfloat t_vertex_
     }
 }
 
+void loadVBO_double( GLuint cylindre_vertexbuffer[20][nbDivCylindre], GLfloat t_vertex_data_dim3[20][nbDivCylindre][4 * (38 + 1) * 3 + (2*37) * 3], LoadData myData)
+{
+
+
+    myData.initVertexDataD2(FSCREEN_HEIGHT, epaisseur, dx);
+
+    float delta_epaisseur = epaisseur/nbDivCylindre;
+    int milieu = nbDivCylindre/2;
+
+    //glm::vec3 normals[NB_TEAMS][NB_DAYS * 2][nbDivCylindre];
+    /*
+    // comme les pts A et B dans le sujet
+    glm::vec3 centre[NB_TEAMS][NB_DAYS + 1];
+    glm::vec3 centreDecale[NB_TEAMS][2 * NB_DAYS + 1];
+
+    for(int team = 0; team < NB_TEAMS; team++)
+    {
+        for(int day = 0; day < NB_DAYS; day++)
+        {
+            centre[team][day].x = 50 + (float)day * dx * 2;   // * 2 car on passe de A à C à E à G à etc.
+            centre[team][day].y = yEscBis[team][day] + (epaisseur / 2);
+            centre[team][day].z = 0;
+        }
+        centre[team][NB_DAYS] = centre[team][NB_DAYS - 1];
+
+
+        for(int day = 0; day < NB_DAYS * 2; day++)
+        {
+            if(day % 2 == 0)
+            {
+                centreDecale[team][day].x = centre[team][day / 2].x ;
+                centreDecale[team][day].y = centre[team][day / 2].y ;
+                centreDecale[team][day].z = centre[team][day / 2].z ;
+            } else {
+                centreDecale[team][day].x = ( centre[team][day / 2].x + centre[team][(day / 2) + 1].x ) / 2;
+                centreDecale[team][day].y = ( centre[team][day / 2].y + centre[team][(day / 2) + 1].y ) / 2;
+                centreDecale[team][day].z = ( centre[team][day / 2].z + centre[team][(day / 2) + 1].z ) / 2;
+            }
+        }
+        centreDecale[team][NB_DAYS * 2] = centre[team][NB_DAYS];
+    }
+    */
+
+    for(int team = 0; team < 20; team++)
+    {
+        for(int i = 0; i < NB_POINTS * 3; i += 3)
+        {
+            if(i % 2 == 0 ){
+                for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
+                    if(sous_tableau==milieu){
+                        continue;
+                    }
+                    t_vertex_data_dim3[team][sous_tableau][i]     = myData.getVertexDataValue_double(team, i);                                 // .x
+                    t_vertex_data_dim3[team][sous_tableau][i + 1] = myData.getVertexDataValue_double(team, i + 1) - (sous_tableau * delta_epaisseur);  // .y
+                    t_vertex_data_dim3[team][sous_tableau][i + 2] = myData.getVertexDataValue_double(team, i + 2) + (sous_tableau * epaisseur / (nbDivCylindre-1)) ;              // .z
+                }
+                t_vertex_data_dim3[team][milieu][i]     = myData.getVertexDataValue_double(team, i);                                         // .x
+                t_vertex_data_dim3[team][milieu][i + 1] = myData.getVertexDataValue_double(team, i + 1) - delta_epaisseur;  // .y
+                t_vertex_data_dim3[team][milieu][i + 2] = myData.getVertexDataValue_double(team, i + 2) + epaisseur; // .z
+            } else {
+                for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
+                    if(sous_tableau==milieu){
+                        continue;
+                    }
+                    t_vertex_data_dim3[team][sous_tableau][i]     = myData.getVertexDataValue_double(team, i);                                                                    // .x
+                    t_vertex_data_dim3[team][sous_tableau][i + 1] = myData.getVertexDataValue_double(team, i + 1) + ( (float)(nbDivCylindre - 1 - sous_tableau) * delta_epaisseur );   // .y
+                    t_vertex_data_dim3[team][sous_tableau][i + 2] = myData.getVertexDataValue_double(team, i + 2) + ( (float)(nbDivCylindre - 1 - sous_tableau) * epaisseur / (nbDivCylindre-1) );
+                }
+                t_vertex_data_dim3[team][milieu][i]     = myData.getVertexDataValue_double(team, i);                                         // .x
+                t_vertex_data_dim3[team][milieu][i + 1] = myData.getVertexDataValue_double(team, i + 1) + delta_epaisseur;  // .y
+                t_vertex_data_dim3[team][milieu][i + 2] = myData.getVertexDataValue_double(team, i + 2) + epaisseur; // .z
+            }
+        }
+        /*
+        for(int day = 0; day < NB_DAYS * 2; day++)
+        {
+            for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++)
+            {
+                normals[team][day][sous_tableau].x = t_vertex_data_dim3[team][sous_tableau][day]     - centreDecale[team][day].x;
+                normals[team][day][sous_tableau].y = t_vertex_data_dim3[team][sous_tableau][day + 1] - centreDecale[team][day].y;
+                normals[team][day][sous_tableau].z = t_vertex_data_dim3[team][sous_tableau][day + 2] - centreDecale[team][day].z;
+            }
+        }
+         */
+    }
+
+
+    /*
+    int more = 37 * (nbDivCylindre + 1);
+    GLfloat t_vertex_data_superpose[20][nbDivCylindre][4 * (38 + 1) * 3 + more];  // * 3 car {x,y,z} pour chaque point
+
+    for(int team = 0; team < 20; team++)
+    {
+        int iFaux = 0;
+        for (int i = 0; i < NB_POINTS * 3 + more; i += 3)
+        {
+            if( (iFaux + 1) % 4 == 0)  // point := bas droite
+            {
+                for (int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++)
+                {
+                    float dx = (t_vertex_data_dim3[team][sous_tableau][iFaux + 3]     - t_vertex_data_dim3[team][sous_tableau][iFaux]    ) / 2;
+                    float dy = (t_vertex_data_dim3[team][sous_tableau][iFaux + 3 + 1] - t_vertex_data_dim3[team][sous_tableau][iFaux + 1]) / 2;
+                    float dz = (t_vertex_data_dim3[team][sous_tableau][iFaux + 3 + 2] - t_vertex_data_dim3[team][sous_tableau][iFaux + 2]) / 2;
+
+                    t_vertex_data_superpose[team][sous_tableau][i]     = t_vertex_data_dim3[team][sous_tableau][iFaux]     + dx;
+                    t_vertex_data_superpose[team][sous_tableau][i + 1] = t_vertex_data_dim3[team][sous_tableau][iFaux + 1] + dy;
+                    t_vertex_data_superpose[team][sous_tableau][i + 2] = t_vertex_data_dim3[team][sous_tableau][iFaux + 2] + dz;
+                }
+            }
+            else
+            {
+                for (int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++)
+                {
+                    t_vertex_data_superpose[team][sous_tableau][i]     = t_vertex_data_dim3[team][sous_tableau][iFaux]    ;
+                    t_vertex_data_superpose[team][sous_tableau][i + 1] = t_vertex_data_dim3[team][sous_tableau][iFaux + 1];
+                    t_vertex_data_superpose[team][sous_tableau][i + 2] = t_vertex_data_dim3[team][sous_tableau][iFaux + 2];
+                }
+                iFaux += 1 ;
+            }
+        }
+    }
+     */
+
+    for(int team = 0; team < 20; team++){
+        for(int sous_tableau = 0; sous_tableau < nbDivCylindre; sous_tableau++){
+            glGenBuffers(1, &cylindre_vertexbuffer[team][sous_tableau]);
+            glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[team][sous_tableau]);
+            glBufferData(
+                    GL_ARRAY_BUFFER,
+                    sizeof(t_vertex_data_dim3[team][sous_tableau]),
+                    t_vertex_data_dim3[team][sous_tableau],
+                    GL_STATIC_DRAW
+            );
+        }
+    }
+}
+
 
 void draw(GLuint programID, GLuint cylindre_vertexbuffer[20][nbDivCylindre], glm::vec4 colors[])
 {
     // Draw
-    for(int team = 0; team < 20; team++)
+    int team = 3;
+    //for(int team = 0; team < 20; team++)
     {
         GLint colorID = glGetUniformLocation(programID,"u_color");
         {
@@ -403,12 +553,14 @@ int main(void)
 
     // Tab for VBO(s)
     GLfloat t_vertex_data_dim3[20][nbDivCylindre][4 * (38 + 1) * 3];  // * 3 car {x,y,z} pour chaque point
+    GLfloat t_vertex_data_dim3_double[20][nbDivCylindre][4 * (38 + 1) * 3 + (2*37) * 3];  // * 3 car {x,y,z} pour chaque point
     // VBO
     GLuint cylindre_vertexbuffer[20][nbDivCylindre];
     GLuint arc_vertexbuffer[38];
     // Load
-    loadVBO(cylindre_vertexbuffer, t_vertex_data_dim3, myData);
-    loadVBO_arc(arc_vertexbuffer, t_vertex_data_dim3, myData, 0);
+    // loadVBO(cylindre_vertexbuffer, t_vertex_data_dim3, myData);
+    loadVBO_double(cylindre_vertexbuffer, t_vertex_data_dim3_double, myData);
+    //loadVBO_arc(arc_vertexbuffer, t_vertex_data_dim3, myData, 0);
 
 
     // Couleurs (pour chaque regroupement de courbes)
@@ -435,7 +587,7 @@ int main(void)
     ImGui_ImplGlfw_InitForOpenGL(window,true);
     ImGui_ImplOpenGL3_Init("#version 330 core");
 
-
+    glm::mat4 mvp;
     do
     {
         // Clear the screen
@@ -446,7 +598,10 @@ int main(void)
 
         /// Move, Rotate
         keyboardCallback(window, angle, eyePos);
-        glm::mat4 mvp = updateMVP(Model, View, Projection, angle, zNearFar, eyePos);
+        if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
+            mvp = reInitMVP(Model, View, Projection, angle, zNearFar, eyePos);
+        else
+            mvp = updateMVP(Model, View, Projection, angle, zNearFar, eyePos);
         glUniformMatrix4fv( matrixID, 1, GL_FALSE, &mvp[0][0] ); // Send new matrix
 
         // ImGui loop

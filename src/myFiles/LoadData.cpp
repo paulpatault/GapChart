@@ -318,7 +318,7 @@ void LoadData::initVertexDataD1(float FSCREEN_HEIGHT, float epaisseur, float dx)
     {
         tabY = y_Escalier(team, FSCREEN_HEIGHT);
         yEscBis[team] = y_Escalier(team, FSCREEN_HEIGHT);
-        tabEscalier(this->t_vertex_data[team], (4 * (38 + 1)), epaisseur, dx, tabY);
+        tabEscalier(this->t_vertex_data[team], (4 * (NUMBER_OF_DAYS + 1)), epaisseur, dx, tabY);
     }
 }
 
@@ -382,12 +382,172 @@ void LoadData::tabEscalier(float vertices[], const int NUMBER_OF_POINTS, const f
         //if(i > NUMBER_OF_POINTS/2) ecart = 50;
         vertices[3*i] = tot[i].x ;//+ ecart;
         vertices[3*i+1] = tot[i].y + 35; // +40 pour que le plus bas ne touche pas le bas de la fenetre
+        if(i != NUMBER_OF_POINTS -1 ){
+            if(tot[i].y > tot[i + 1].y)
+                vertices[3*i+2] = -2.f * (tot[i].y - tot[i + 1].y);
+            else
+                vertices[3*i+2] = 0;
+        }
         vertices[3*i+2] = 0.08f;
+
     }
 }
 
 float LoadData::getVertexDataValue(int i, int j) {
     return this->t_vertex_data[i][j];
+}
+
+
+void LoadData::initVertexDataD2(float FSCREEN_HEIGHT, float epaisseur, float dx) {
+    std::vector<float> tabY(NUMBER_OF_DAYS);
+    std::vector<float> tabY_double(NUMBER_OF_DAYS);
+    for(int team = 0; team < NUMBER_OF_TEAMS; team++)
+    {
+        tabY = y_Escalier(team, FSCREEN_HEIGHT);
+        tabY_double = y_Escalier_double(tabY);
+        tabEscalier_double(this->t_vertex_data_double[team], epaisseur, dx, tabY_double);
+    }
+    for(int i = 0; i < (4 * (38 + 1))  + (2*37) ; i+= 3)
+    {
+        cout << this->t_vertex_data_double[0][i] << " ";
+        cout << this->t_vertex_data_double[0][i + 1] << " ";
+        cout << this->t_vertex_data_double[0][i + 2] << endl;
+    }
+}
+
+std::vector<float> LoadData::y_Escalier_double(std::vector<float> nonDouble)
+{
+    std::vector<float> res(NUMBER_OF_DAYS + NUMBER_OF_DAYS - 1);
+
+    for(int day = 0; day < NUMBER_OF_DAYS + NUMBER_OF_DAYS - 1; day += 2)
+    {
+        res[day] = nonDouble[day];
+        if(day == (NUMBER_OF_DAYS + NUMBER_OF_DAYS - 1) - 1)
+            break;
+        res[day + 1] = (nonDouble[day/2] + nonDouble[(day + 1)/2]) / 2;
+    }
+
+    return res;
+}
+
+void LoadData::tabEscalier_double(float vertices[], const float epaisseur, const float dx, vector<float>  coordCenter)
+{
+    const int NUMBER_OF_POINTS = (4 * (NUMBER_OF_DAYS + 1));
+    vec2 tot[NUMBER_OF_POINTS];
+    const float x0 = 50;
+    int days = 0;
+    for(int i = 0; i < NUMBER_OF_POINTS; i++)
+    {
+        if(i % 4 == 0)  // i divisible par 4 => debut de nouveau rectangle (->point haut gauche)
+        {
+            tot[i].x = x0 + (float) i * dx;
+            if( i == 0 ) // on prend y0 pour le premier sommet du premier rectangle (->point haut gauche)
+            {
+                tot[i].y = coordCenter[0]; // == y0 (at t = 0)
+            }
+            else
+            {
+                tot[i].y = coordCenter[days];
+            }
+
+            if(i != 0)  // on change de jour pour chaque nouveau rectangle sauf pour le premier
+            {
+                days += 1;
+            }
+        }
+        else if (i % 2 == 0) // i divisible par 2 => point haut droit du rectangle
+        {
+            tot[i].x = x0 + (float) i * dx;
+            tot[i].y = tot[i - 2].y;
+        }
+        else // i impair => les autres points (:= bas gauche ou bas droit)
+        {
+            tot[i].x = tot[i - 1].x;
+            tot[i].y = tot[i - 1].y - epaisseur;
+        }
+    }
+
+
+    vec2 ajoutPoints[(2 * NUMBER_OF_DAYS) - 1];
+
+    int ktab = 0;
+    for(int i = 0; i < (2 * NUMBER_OF_DAYS) - 1; i++)
+    {
+        if( i % 2 == 0 )
+        {
+            ajoutPoints[i].x = tot[ktab + ktab + 1].x + (tot[ktab + ktab + 1 + 3].x - tot[ktab + ktab + 1].x) / 2;
+            ajoutPoints[i].y = tot[ktab + ktab + 1].y + (tot[ktab + ktab + 1 + 3].y - tot[ktab + ktab + 1].y) / 2;
+        }
+        else
+        {
+            ajoutPoints[i].x = ajoutPoints[i - 1].x ;
+            ajoutPoints[i].y = ajoutPoints[i - 1].y - epaisseur;
+        }
+
+        ktab += 1;
+    }
+
+    cout << "______" << ajoutPoints[2 * NUMBER_OF_DAYS].x << endl;
+
+    /// on rempli le tableau avec les pts obtenus
+    //float ecart = 0;
+    /*for(int i = 0; i < NUMBER_OF_POINTS; i++)
+    {
+        //if(i > NUMBER_OF_POINTS/2) ecart = 50;
+        vertices[3*i] = tot[i].x ;//+ ecart;
+        vertices[3*i+1] = tot[i].y + 35; // +40 pour que le plus bas ne touche pas le bas de la fenetre
+        if(i != NUMBER_OF_POINTS -1 ){
+            if(tot[i].y > tot[i + 1].y)
+                vertices[3*i+2] = -2.f * (tot[i].y - tot[i + 1].y);
+            else
+                vertices[3*i+2] = 0;
+        }
+        vertices[3*i+2] = 0.08f;
+
+    }*/
+
+    int kGdTab = 0;
+    int kPtTab = 0;
+
+    for(int i = 0; i < NUMBER_OF_POINTS; i++)
+    {
+        if( (i - 4) % 6 == 0)
+        {
+            vertices[3*i]   = ajoutPoints[kPtTab].x ;
+            cout << ajoutPoints[kPtTab].x << " " << ajoutPoints[kPtTab + 1].x << endl;
+            vertices[3*i+1] = ajoutPoints[kPtTab].y + 35;
+            if(i != NUMBER_OF_POINTS -1 ){
+                if(tot[kGdTab].y > tot[kGdTab + 2].y)
+                    vertices[3*i+2] = -20;
+                else
+                    vertices[3*i+2] = 20.f;
+            }
+            i++ ;
+
+            vertices[3*i]   = ajoutPoints[kPtTab + 1].x ;
+            vertices[3*i+1] = ajoutPoints[kPtTab + 1].y + 35;
+            if(i != NUMBER_OF_POINTS -1 ){
+                if(tot[kGdTab].y > tot[kGdTab + 2].y)
+                    vertices[3*i+2] = -20;
+                else
+                    vertices[3*i+2] = 20.f;
+            }
+
+            kPtTab += 2;
+        }
+        else
+        {
+            vertices[3*i]   = tot[kGdTab].x ;
+            vertices[3*i+1] = tot[kGdTab].y + 35;
+            vertices[3*i+2] = 0.f;
+            kGdTab ++;
+        }
+    }
+    cout << endl << endl << endl;
+}
+
+float LoadData::getVertexDataValue_double(int i, int j){
+    return this->t_vertex_data_double[i][j];
 }
 
 
