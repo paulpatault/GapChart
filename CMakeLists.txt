@@ -10,7 +10,7 @@ add_executable(main
         src/main.cpp
         src/LoadData/LoadData.cpp
         src/LoadData/LoadData.h
-        src/dirGL/debugbreak.h
+        includes/debugbreak.h
         src/imgui/imgui.cpp
         src/imgui/imgui.h
         src/imgui/imgui_demo.cpp
@@ -25,8 +25,8 @@ add_executable(main
         src/imgui/imgui_impl_glfw.h
         src/imgui/imgui_impl_opengl3.cpp
         src/imgui/imgui_impl_opengl3.h
-        src/dirGL/Shaders.h
-        src/dirGL/Window.h src/LoadData/Cylinder.cpp src/LoadData/Cylinder.h)
+        src/Shaders/Shaders.h
+        src/LoadData/Cylinder.cpp src/LoadData/Cylinder.h src/MPV/MVP.cpp src/MPV/MVP.h includes/constants.h src/imgui/c_ImGui.cpp src/imgui/c_ImGui.h src/Window/Render.cpp src/Window/Render.h)
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )

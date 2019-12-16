@@ -11,65 +11,54 @@
 #include <iostream>
 using namespace std;
 
-// Include GLEW
-#include <GL/glew.h>
-
-// Include GLFW
-#include <GLFW/glfw3.h>
 
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 using namespace glm;
 
+#include "includes/constants.h"
+using namespace cst;
+
 class LoadData {
 private:
     struct Match{
-        string teamAtHome;
-        string teamAway;
+        std::string teamAtHome;
+        std::string teamAway;
         int scoreAtHome;
         int scoreAway;
         int win; // -1 defaite, 0 égalité, 1 victoire
     };
     // rankPoints[i][j] := equipe / jour
-    vector<vector<Match>> match;
+    std::vector<std::vector<Match>> match;
     // rankPoints[i][j][k] := jour / equipe / {rang,points}
-    vector<vector<vector<int>>> rankPoints;
-    std::vector<float> y_Escalier(int team, float SCREEN_HEIGHT);
-    std::vector<float> y_Escalier_double(std::vector<float> nonDouble);
-    void tabEscalier(float vertices[], int NUMBER_OF_POINTS, float epaisseur, float dx, vector<float>  coordCenter);
-    void tabEscalier_double(float vertices[], float epaisseur, float dx, vector<float>  coordCenter);
-    float t_vertex_data[20][(4 * (38 + 1)) * 3];
-    float t_vertex_data_double[20][(4 * (38 + 1)) * 3 + (2*37) * 3];
-    vector<string> teamPathPng;
-    vector<string> NAMES = {
+    std::vector<std::vector<std::vector<int>>> rankPoints;
+    std::vector<float> y_Escalier(int team);
+    void tabEscalier(float vertices[], vector<float>  coordCenter);
+    float t_vertex_data[cst::NB_TEAMS][cst::NB_POINTS * 3];
+    std::vector<std::string> teamPathPng;
+    std::vector<std::string> NAMES = {
         "Man City", "Liverpool", "Chelsea", "Tottenham", "Arsenal", "Man United", "Wolves", "Everton",
         "Leicester", "West Ham", "Watford", "Crystal Palace", "Newcastle", "Bournemouth",
         "Burnley", "Southampton", "Brighton", "Cardiff", "Fulham", "Huddersfield"
     };
 
-    int getIndexByName(string nom);
+    int getIndexByName(std::string nom);
 
 public:
 
-    static const int NUMBER_OF_TEAMS = 20;
-    static const int NUMBER_OF_DAYS = 38;
-    static const int NUMBER_OF_POINTS_MAX = 98;
-
-    LoadData(string filePath);
-    void loadMatch(string filePath);
+    LoadData(std::string filePath);
+    void loadMatch(std::string filePath);
     int getRank(int team, int day);
     int getComplementaryRank(int team, int day);
     float getComplementaryRankNormalized(int team, int day);
     int getPoints(int team, int day);
     float getPointsNormalized(int team, int day);
     int getAdversaire(int team, int day);
-    string getImagesPath(int index);
-    void addPathToTab(string imagesPath);
-    void initVertexDataD1(float FSCREEN_HEIGHT, float epaisseur, float dx);
-    void initVertexDataD2(float FSCREEN_HEIGHT, float epaisseur, float dx);
+    std::string getImagesPath(int index);
+    void addPathToTab(std::string imagesPath);
+    void initVertexDataD1();
     float getVertexDataValue(int i, int j);
-    float getVertexDataValue_double(int i, int j);
 
 
 };

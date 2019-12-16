@@ -88,6 +88,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/constants.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/debugbreak.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/Cylinder.cpp">
 			<Option target="main"/>
 		</Unit>
@@ -100,13 +106,25 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/LoadData.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/dirGL/Shaders.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/MPV/MVP.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/dirGL/Window.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/MPV/MVP.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/dirGL/debugbreak.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Shaders/Shaders.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Window/Render.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Window/Render.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/c_ImGui.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/c_ImGui.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imconfig.h">

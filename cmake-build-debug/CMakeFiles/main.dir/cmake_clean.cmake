@@ -1,6 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/LoadData/Cylinder.cpp.o"
   "CMakeFiles/main.dir/src/LoadData/LoadData.cpp.o"
+  "CMakeFiles/main.dir/src/MPV/MVP.cpp.o"
+  "CMakeFiles/main.dir/src/Window/Render.cpp.o"
+  "CMakeFiles/main.dir/src/imgui/c_ImGui.cpp.o"
   "CMakeFiles/main.dir/src/imgui/imgui.cpp.o"
   "CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o"
   "CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o"

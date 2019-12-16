@@ -177,6 +177,87 @@ src/LoadData/LoadData.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData/LoadData.cpp.s
 .PHONY : src/LoadData/LoadData.cpp.s
 
+src/MPV/MVP.o: src/MPV/MVP.cpp.o
+
+.PHONY : src/MPV/MVP.o
+
+# target to build an object file
+src/MPV/MVP.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/MPV/MVP.cpp.o
+.PHONY : src/MPV/MVP.cpp.o
+
+src/MPV/MVP.i: src/MPV/MVP.cpp.i
+
+.PHONY : src/MPV/MVP.i
+
+# target to preprocess a source file
+src/MPV/MVP.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/MPV/MVP.cpp.i
+.PHONY : src/MPV/MVP.cpp.i
+
+src/MPV/MVP.s: src/MPV/MVP.cpp.s
+
+.PHONY : src/MPV/MVP.s
+
+# target to generate assembly for a file
+src/MPV/MVP.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/MPV/MVP.cpp.s
+.PHONY : src/MPV/MVP.cpp.s
+
+src/Window/Render.o: src/Window/Render.cpp.o
+
+.PHONY : src/Window/Render.o
+
+# target to build an object file
+src/Window/Render.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Window/Render.cpp.o
+.PHONY : src/Window/Render.cpp.o
+
+src/Window/Render.i: src/Window/Render.cpp.i
+
+.PHONY : src/Window/Render.i
+
+# target to preprocess a source file
+src/Window/Render.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Window/Render.cpp.i
+.PHONY : src/Window/Render.cpp.i
+
+src/Window/Render.s: src/Window/Render.cpp.s
+
+.PHONY : src/Window/Render.s
+
+# target to generate assembly for a file
+src/Window/Render.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Window/Render.cpp.s
+.PHONY : src/Window/Render.cpp.s
+
+src/imgui/c_ImGui.o: src/imgui/c_ImGui.cpp.o
+
+.PHONY : src/imgui/c_ImGui.o
+
+# target to build an object file
+src/imgui/c_ImGui.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/c_ImGui.cpp.o
+.PHONY : src/imgui/c_ImGui.cpp.o
+
+src/imgui/c_ImGui.i: src/imgui/c_ImGui.cpp.i
+
+.PHONY : src/imgui/c_ImGui.i
+
+# target to preprocess a source file
+src/imgui/c_ImGui.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/c_ImGui.cpp.i
+.PHONY : src/imgui/c_ImGui.cpp.i
+
+src/imgui/c_ImGui.s: src/imgui/c_ImGui.cpp.s
+
+.PHONY : src/imgui/c_ImGui.s
+
+# target to generate assembly for a file
+src/imgui/c_ImGui.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/c_ImGui.cpp.s
+.PHONY : src/imgui/c_ImGui.cpp.s
+
 src/imgui/imgui.o: src/imgui/imgui.cpp.o
 
 .PHONY : src/imgui/imgui.o
@@ -381,6 +462,15 @@ help:
 	@echo "... src/LoadData/LoadData.o"
 	@echo "... src/LoadData/LoadData.i"
 	@echo "... src/LoadData/LoadData.s"
+	@echo "... src/MPV/MVP.o"
+	@echo "... src/MPV/MVP.i"
+	@echo "... src/MPV/MVP.s"
+	@echo "... src/Window/Render.o"
+	@echo "... src/Window/Render.i"
+	@echo "... src/Window/Render.s"
+	@echo "... src/imgui/c_ImGui.o"
+	@echo "... src/imgui/c_ImGui.i"
+	@echo "... src/imgui/c_ImGui.s"
 	@echo "... src/imgui/imgui.o"
 	@echo "... src/imgui/imgui.i"
 	@echo "... src/imgui/imgui.s"

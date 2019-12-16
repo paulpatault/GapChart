@@ -12,102 +12,230 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Cylinder.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cylinder.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/constants.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MPV/MVP.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MPV/MVP.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Window/Window.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/imgui/c_ImGui.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/imgui/c_ImGui.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/data/englishR.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/englishR.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/data/rankspts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/rankspts.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Arsenal.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Arsenal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Bournemouth.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Bournemouth.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Brighton.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Brighton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Burnley.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Burnley.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Cardiff.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Cardiff.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Chelsea.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Chelsea.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Crystal_P.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Crystal_P.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Crystal_Palace.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Crystal_Palace.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Everton.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Everton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Fulham.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Fulham.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Huddersfield.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Huddersfield.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Leicester.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Leicester.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Liverpool.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Liverpool.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Man_City.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Man_City.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Man_United.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Man_United.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Manchester_C.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Manchester_C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Manchester_U.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Manchester_U.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Newcastle.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Newcastle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Southampton.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Southampton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Tottenham.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Tottenham.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Watford.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Watford.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/West_Ham.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/West_Ham.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Wolverhampton.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Wolverhampton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/images/Wolves.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/Wolves.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProjet2019/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/test.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/LoadData.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/imgui/imgui.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/imgui/imgui_demo.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/imgui/imgui_draw.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/imgui/imgui_impl_glfw.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/imgui/imgui_impl_opengl3.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/imgui/imgui_widgets.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ig.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/LoadData.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/imgui/imgui.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/imgui/imgui_demo.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/imgui/imgui_draw.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/imgui/imgui_impl_glfw.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/imgui/imgui_impl_opengl3.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/imgui/imgui_widgets.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.app.dir/progress.make" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/myFiles/Escalier.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/myFiles/LoadData.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/rand.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/LoadData.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/imgui/imgui.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/imgui/imgui_demo.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/imgui/imgui_draw.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/imgui/imgui_impl_glfw.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/imgui/imgui_impl_opengl3.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/imgui/imgui_widgets.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main6.dir/progress.make" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/font.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main6copy.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainCOPY.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/regle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/myFiles/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/myFiles/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rand.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/calib3d.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/calib3d/calib3d.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/contrib/contrib.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/contrib/detection_based_tracker.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/contrib/hybridtracker.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/contrib/openfabmap.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/contrib/retina.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/affine.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/core.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/core_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/cuda_devptrs.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/devmem2d.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/eigen.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/gpumat.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/internal.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/mat.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/opengl_interop.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/opengl_interop_deprecated.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/operations.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/types_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/version.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/core/wimage.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/features2d.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/features2d/features2d.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/all_indices.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/allocator.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/any.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/autotuned_index.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/composite_index.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/defines.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/dist.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/dummy.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/dynamic_bitset.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/flann.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/flann_base.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/general.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/ground_truth.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/hdf5.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/heap.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/hierarchical_clustering_index.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/index_testing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/kdtree_index.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/kdtree_single_index.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/kmeans_index.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/linear_index.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/logger.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/lsh_index.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/lsh_table.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/matrix.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/miniflann.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/nn_index.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/object_factory.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/params.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/random.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/result_set.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/sampling.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/saving.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/simplex_downhill.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/flann/timer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/block.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/border_interpolate.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/color.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/common.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/datamov_utils.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/detail/color_detail.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/detail/reduce.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/detail/reduce_key_val.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/detail/transform_detail.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/detail/type_traits_detail.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/detail/vec_distance_detail.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/dynamic_smem.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/emulation.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/filters.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/funcattrib.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/functional.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/limits.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/reduce.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/saturate_cast.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/scan.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/simd_functions.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/static_check.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/transform.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/type_traits.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/utility.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/vec_distance.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/vec_math.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/vec_traits.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/warp.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/warp_reduce.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/device/warp_shuffle.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/devmem2d.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/gpu.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/gpumat.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/gpu/stream_accessor.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/highgui.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/highgui/cap_ios.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/highgui/highgui.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/highgui/highgui_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/highgui/ios.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/imgproc.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/imgproc/imgproc.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/imgproc/imgproc_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/imgproc/types_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/legacy/blobtrack.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/legacy/compat.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/legacy/legacy.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/legacy/streams.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ml.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ml/ml.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/nonfree/features2d.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/nonfree/gpu.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/nonfree/nonfree.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/nonfree/ocl.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/objdetect.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/objdetect/objdetect.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ocl/matrix_operations.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ocl/ocl.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/opencv.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/opencv_modules.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/photo.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/photo/photo.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/photo/photo_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/autocalib.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/blenders.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/camera.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/exposure_compensate.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/matchers.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/motion_estimators.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/seam_finders.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/util.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/util_inl.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/warpers.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/detail/warpers_inl.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/stitcher.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/stitching/warpers.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/superres.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/superres/optical_flow.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/superres/superres.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ts.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ts/gpu_perf.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ts/gpu_test.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ts/ts.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ts/ts_gtest.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/ts/ts_perf.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/video.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/video/background_segm.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/video/tracking.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/video/video.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/deblurring.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/fast_marching.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/fast_marching_inl.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/frame_source.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/global_motion.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/inpainting.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/log.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/motion_stabilizing.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/optical_flow.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/stabilizer.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencv2/videostab/videostab.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadData/Cylinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadData/Cylinder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadData/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadData/LoadData.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadData/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadData/LoadData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/Shaders.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shaders/Shaders.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/SimpleFragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shaders/SimpleFragmentShader.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shaders/SimpleVertexShader.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/Window.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window/Window.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dirGL/debugbreak.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/debugbreak.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imgui/imgui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imgui/imgui_demo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/imgui/imgui_demo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,11 +285,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/includes" />
+      <recent name="$PROJECT_DIR$/src/Window" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/LoadData" />
-      <recent name="$PROJECT_DIR$/src/Data" />
-      <recent name="$PROJECT_DIR$/src/dirGL" />
-      <recent name="$PROJECT_DIR$/src/inedit" />
+      <recent name="$PROJECT_DIR$/src/imgui" />
+      <recent name="$PROJECT_DIR$/resources/data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -246,7 +374,7 @@
       <workItem from="1576035050974" duration="252000" />
       <workItem from="1576035499931" duration="162000" />
       <workItem from="1576496226183" duration="718000" />
-      <workItem from="1576511151621" duration="1053000" />
+      <workItem from="1576511151621" duration="9689000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -339,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574369726625</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="save">
+      <created>1576512623210</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1576512623210</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,6 +506,7 @@
     <MESSAGE value="keyboard + cleanup" />
     <MESSAGE value="remise à niveau" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
+    <MESSAGE value="save" />
+    <option name="LAST_COMMIT_MESSAGE" value="save" />
   </component>
 </project>
