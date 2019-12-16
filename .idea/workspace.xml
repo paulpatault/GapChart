@@ -12,8 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Window/Render.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window/Render.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Window/Render.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window/Render.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shaders/SimpleFragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shaders/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,11 +63,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/shaders" />
       <recent name="$PROJECT_DIR$/includes" />
       <recent name="$PROJECT_DIR$/src/Window" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/imgui" />
-      <recent name="$PROJECT_DIR$/resources/data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -152,7 +152,7 @@
       <workItem from="1576035050974" duration="252000" />
       <workItem from="1576035499931" duration="162000" />
       <workItem from="1576496226183" duration="718000" />
-      <workItem from="1576511151621" duration="9976000" />
+      <workItem from="1576511151621" duration="10314000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -259,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576526149078</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="oubli intégration cst.h dans render">
+      <created>1576526331227</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1576526331227</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +300,7 @@
     <MESSAGE value="cleanup" />
     <MESSAGE value="save" />
     <MESSAGE value="clean up | separation fichiers" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up | separation fichiers" />
+    <MESSAGE value="oubli intégration cst.h dans render" />
+    <option name="LAST_COMMIT_MESSAGE" value="oubli intégration cst.h dans render" />
   </component>
 </project>
