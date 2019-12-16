@@ -245,14 +245,6 @@ int LoadData::getIndexByName(string name){
     return -1;
 }
 
-int LoadData::cardDays() {
-    return NUMBER_OF_DAYS;
-}
-
-int LoadData::cardTeams() {
-    return NUMBER_OF_TEAMS;
-}
-
 int LoadData::getAdversaire(int team, int day) {
 
     string res = "L'équipe";

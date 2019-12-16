@@ -14,7 +14,7 @@ using namespace std;
 
 
 #ifdef __APPLE__
-#include <OpenGL/gl.h>
+#include <OpenGL/OpenGL.h>
 #else
 #include <GL/gl.h>
 #endif
@@ -33,7 +33,7 @@ using namespace ImGui;
 
 
 // My includes
-#include "src/myFiles/LoadData.h"
+#include "src/LoadData/LoadData.h"
 #include "src/dirGL/debugbreak.h"
 #include "src/dirGL/Shaders.h"
 #include "src/dirGL/Window.h"
@@ -44,9 +44,10 @@ using namespace ImGui;
 #define FSCREEN_HEIGHT 700.f
 
 const int nbDivCylindre = 3;
-const int NB_POINTS = 4 * (38 + 1) + (2*37);
+const int NB_POINTS = 4 * (38 + 1); // + (2*37);
 const float epaisseur = ((float)SCREEN_HEIGHT/2)/20;
 const float dx = (SCREEN_WIDTH-100)/(float)NB_POINTS;
+
 
 glm::mat4 updateMVP(glm::mat4 Model, glm::mat4 View, glm::mat4 Projection, glm::vec3 angle, glm::vec2 zNearFar, glm::vec3 eyePos){
 
@@ -479,12 +480,11 @@ void loadVBO_double( GLuint cylindre_vertexbuffer[20][nbDivCylindre], GLfloat t_
     }
 }
 
-
 void draw(GLuint programID, GLuint cylindre_vertexbuffer[20][nbDivCylindre], glm::vec4 colors[])
 {
     // Draw
-    int team = 3;
-    //for(int team = 0; team < 20; team++)
+    //int team = 3;
+    for(int team = 0; team < 20; team++)
     {
         GLint colorID = glGetUniformLocation(programID,"u_color");
         {
@@ -558,9 +558,9 @@ int main(void)
     GLuint cylindre_vertexbuffer[20][nbDivCylindre];
     GLuint arc_vertexbuffer[38];
     // Load
-    // loadVBO(cylindre_vertexbuffer, t_vertex_data_dim3, myData);
-    loadVBO_double(cylindre_vertexbuffer, t_vertex_data_dim3_double, myData);
-    //loadVBO_arc(arc_vertexbuffer, t_vertex_data_dim3, myData, 0);
+    loadVBO(cylindre_vertexbuffer, t_vertex_data_dim3, myData);
+    //loadVBO_double(cylindre_vertexbuffer, t_vertex_data_dim3_double, myData);
+    loadVBO_arc(arc_vertexbuffer, t_vertex_data_dim3, myData, 0);
 
 
     // Couleurs (pour chaque regroupement de courbes)
@@ -612,6 +612,7 @@ int main(void)
         // draw
         draw(programID, cylindre_vertexbuffer, colors);
 
+        // ARC.S
         //for(int day = 0; day < 38; day++)
         {
             glEnableVertexAttribArray(0);

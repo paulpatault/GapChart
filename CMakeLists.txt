@@ -7,9 +7,9 @@ include_directories(.)
 include_directories(/usr/local/include)
 
 add_executable(main
-        main.cpp
-        src/myFiles/LoadData.cpp
-        src/myFiles/LoadData.h
+        src/main.cpp
+        src/LoadData/LoadData.cpp
+        src/LoadData/LoadData.h
         src/dirGL/debugbreak.h
         src/imgui/imgui.cpp
         src/imgui/imgui.h
@@ -26,7 +26,7 @@ add_executable(main
         src/imgui/imgui_impl_opengl3.cpp
         src/imgui/imgui_impl_opengl3.h
         src/dirGL/Shaders.h
-        src/dirGL/Window.h)
+        src/dirGL/Window.h src/LoadData/Cylinder.cpp src/LoadData/Cylinder.h)
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )
