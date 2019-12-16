@@ -5,7 +5,7 @@
 #include "Render.h"
 
 
-Render::Render(int SCREEN_WIDTH, int SCREEN_HEIGHT)
+Render::Render()
 {
     // Initialize the library
     if ( !glfwInit( ) )
@@ -21,7 +21,7 @@ Render::Render(int SCREEN_WIDTH, int SCREEN_HEIGHT)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // On ne veut pas l'ancien OpenGL
 
     // Create a windowed mode window and its OpenGL context
-    render = glfwCreateWindow( SCREEN_WIDTH, SCREEN_HEIGHT, "Hello World", NULL, NULL );
+    render = glfwCreateWindow( cst::SCREEN_WIDTH, cst::SCREEN_HEIGHT, "Hello World", NULL, NULL );
 
     if ( !render )
     {

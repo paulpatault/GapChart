@@ -24,10 +24,12 @@ using namespace std;
 #include <glm/gtc/matrix_transform.hpp>
 using namespace glm;
 
+#include "includes/constants.h"
+using namespace cst;
 
 class Render {
 public:
-    Render(int SCREEN_WIDTH, int SCREEN_HEIGHT);
+    Render();
 
     GLFWwindow* render;
 
