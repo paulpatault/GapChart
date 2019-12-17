@@ -5706,7 +5706,7 @@ void ImGui::ListBoxFooter()
 
     EndChildFrame();
 
-    // Redeclare item size so that it includes the label (we have stored the full size in LastItemRect)
+    // Redeclare item size so that it headers the label (we have stored the full size in LastItemRect)
     // We call SameLine() to restore DC.CurrentLine* data
     SameLine();
     parent_window->DC.CursorPos = bb.Min;

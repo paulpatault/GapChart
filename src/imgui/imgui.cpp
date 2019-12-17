@@ -85,7 +85,7 @@ CODE
  - Efficient runtime and memory consumption (NB- we do allocate when "growing" content e.g. creating a window,.
    opening a tree node for the first time, etc. but a typical frame should not allocate anything).
 
- Designed for developers and content-creators, not the typical end-user! Some of the weaknesses includes:
+ Designed for developers and content-creators, not the typical end-user! Some of the weaknesses headers:
  - Doesn't look fancy, doesn't animate.
  - Limited layout features, intricate layouts are typically crafted in code.
 

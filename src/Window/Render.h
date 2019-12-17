@@ -24,7 +24,7 @@ using namespace std;
 #include <glm/gtc/matrix_transform.hpp>
 using namespace glm;
 
-#include "includes/constants.h"
+#include "headers/constants.h"
 using namespace cst;
 
 class Render {

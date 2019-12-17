@@ -88,13 +88,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/colors.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/headers/colors.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/constants.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/headers/constants.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/debugbreak.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/headers/debugbreak.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Display/Display.cpp">

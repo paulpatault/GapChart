@@ -2644,7 +2644,7 @@ const char* ImFont::CalcWordWrapPositionA(float scale, const char* text, const c
 
     // List of hardcoded separators: .,;!?'"
 
-    // Skip extra blanks after a line returns (that includes not counting them in width computation)
+    // Skip extra blanks after a line returns (that headers not counting them in width computation)
     // e.g. "Hello    world" --> "Hello" "World"
 
     // Cut words that cannot possibly fit within one line.

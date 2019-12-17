@@ -281,7 +281,7 @@
 //     STB_TexteditState
 //
 // Definition of STB_TexteditState which you should store
-// per-textfield; it includes cursor position, selection state,
+// per-textfield; it headers cursor position, selection state,
 // and undo state.
 //
 

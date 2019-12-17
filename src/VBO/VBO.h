@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <GL/glew.h>
-#include "includes/constants.h"
+#include "headers/constants.h"
 #include "src/LoadData/LoadData.h"
 
 class VBO {

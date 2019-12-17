@@ -10,7 +10,7 @@ add_executable(main
         src/main.cpp
         src/LoadData/LoadData.cpp
         src/LoadData/LoadData.h
-        includes/debugbreak.h
+        headers/debugbreak.h
         src/imgui/imgui.cpp
         src/imgui/imgui.h
         src/imgui/imgui_demo.cpp
@@ -26,7 +26,7 @@ add_executable(main
         src/imgui/imgui_impl_opengl3.cpp
         src/imgui/imgui_impl_opengl3.h
         src/Shaders/Shaders.h
-        src/LoadData/Cylinder.cpp src/LoadData/Cylinder.h src/MPV/MVP.cpp src/MPV/MVP.h includes/constants.h src/imgui/c_ImGui.cpp src/imgui/c_ImGui.h src/Window/Render.cpp src/Window/Render.h src/LoadData2/LoadData2.cpp src/LoadData2/LoadData2.h src/VAO/VAO.cpp src/VAO/VAO.h src/VBO/VBO.cpp src/VBO/VBO.h src/Display/Display.cpp src/Display/Display.h includes/colors.h)
+        src/LoadData/Cylinder.cpp src/LoadData/Cylinder.h src/MPV/MVP.cpp src/MPV/MVP.h headers/constants.h src/imgui/c_ImGui.cpp src/imgui/c_ImGui.h src/Window/Render.cpp src/Window/Render.h src/LoadData2/LoadData2.cpp src/LoadData2/LoadData2.h src/VAO/VAO.cpp src/VAO/VAO.h src/VBO/VBO.cpp src/VBO/VBO.h src/Display/Display.cpp src/Display/Display.h headers/colors.h)
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )

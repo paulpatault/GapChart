@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-../includes/colors.h
+../headers/colors.h
 glm/glm.hpp
 -
 
-../includes/constants.h
+../headers/constants.h
 string
-../includes/string
+../headers/string
 
 ../src/Display/Display.h
 GL/glew.h
@@ -37,8 +37,8 @@ glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
-includes/constants.h
-../src/LoadData/includes/constants.h
+headers/constants.h
+../src/LoadData/headers/constants.h
 
 ../src/MPV/MVP.h
 GL/glew.h
@@ -49,8 +49,8 @@ glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
-includes/constants.h
-../src/MPV/includes/constants.h
+headers/constants.h
+../src/MPV/headers/constants.h
 
 ../src/Shaders/Shaders.h
 stdio.h
@@ -79,8 +79,8 @@ vector
 -
 GL/glew.h
 -
-includes/constants.h
-../src/VBO/includes/constants.h
+headers/constants.h
+../src/VBO/headers/constants.h
 src/LoadData/LoadData.h
 ../src/VBO/src/LoadData/LoadData.h
 
@@ -105,8 +105,8 @@ glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
-includes/constants.h
-../src/Window/includes/constants.h
+headers/constants.h
+../src/Window/headers/constants.h
 
 ../src/imgui/c_ImGui.h
 GLFW/glfw3.h
@@ -165,8 +165,8 @@ Cylinder.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/Cylinder.h
 LoadData.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/LoadData.h
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/includes/constants.h
+headers/constants.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/headers/constants.h
 
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/LoadData.cpp
 LoadData.h
@@ -185,8 +185,8 @@ glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/includes/constants.h
+headers/constants.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/headers/constants.h
 
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData2/LoadData2.cpp
 LoadData2.h
@@ -205,8 +205,8 @@ glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData2/includes/constants.h
+headers/constants.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData2/headers/constants.h
 
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/MPV/MVP.cpp
 MVP.h
@@ -221,8 +221,8 @@ glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/MPV/includes/constants.h
+headers/constants.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/MPV/headers/constants.h
 
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VBO/VBO.cpp
 VBO.h
@@ -233,8 +233,8 @@ vector
 -
 GL/glew.h
 -
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VBO/includes/constants.h
+headers/constants.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VBO/headers/constants.h
 src/LoadData/LoadData.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VBO/src/LoadData/LoadData.h
 
@@ -263,8 +263,164 @@ glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Window/includes/constants.h
+headers/constants.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Window/headers/constants.h
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imconfig.h
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui.cpp
+imgui.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui.h
+imgui_internal.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_internal.h
+ctype.h
+-
+stdio.h
+-
+stddef.h
+-
+stdint.h
+-
+imstb_sprintf.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_sprintf.h
+Windows.h
+-
+windows.h
+-
+TargetConditionals.h
+-
+Carbon/Carbon.h
+-
+imm.h
+-
+imgui_user.inl
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_user.inl
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui.h
+imconfig.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imconfig.h
+float.h
+-
+stdarg.h
+-
+stddef.h
+-
+string.h
+-
+assert.h
+-
+stdint.h
+-
+imgui_user.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_user.h
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_draw.cpp
+imgui.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui.h
+imgui_internal.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_internal.h
+stdio.h
+-
+alloca.h
+-
+malloc.h
+-
+stdlib.h
+-
+imstb_rectpack.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_rectpack.h
+imstb_truetype.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_truetype.h
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_impl_opengl3.cpp
+imgui.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui.h
+imgui_impl_opengl3.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_impl_opengl3.h
+stdio.h
+-
+stddef.h
+-
+stdint.h
+-
+TargetConditionals.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/TargetConditionals.h
+GLES2/gl2.h
+-
+OpenGLES/ES3/gl.h
+-
+GLES3/gl3.h
+-
+GL/gl3w.h
+-
+GL/glew.h
+-
+glad/glad.h
+-
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_impl_opengl3.h
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_internal.h
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
+limits.h
+-
+imstb_textedit.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_textedit.h
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_widgets.cpp
+imgui.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui.h
+imgui_internal.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_internal.h
+ctype.h
+-
+stddef.h
+-
+stdint.h
+-
+imstb_textedit.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_textedit.h
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_rectpack.h
+stdlib.h
+-
+assert.h
+-
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_textedit.h
+string.h
+-
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_truetype.h
+stb_truetype.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/stb_truetype.h
+stdio.h
+-
+stb_truetype.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/stb_truetype.h
+math.h
+-
+math.h
+-
+math.h
+-
+math.h
+-
+math.h
+-
+stdlib.h
+-
+assert.h
+-
+string.h
+-
+string.h
+-
 
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/main.cpp
 GL/glew.h
@@ -274,8 +430,6 @@ GLFW/glfw3.h
 OpenGL/OpenGL.h
 -
 GL/gl.h
--
-glm/glm.hpp
 -
 src/LoadData/LoadData.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/LoadData/LoadData.h
@@ -293,8 +447,8 @@ src/VBO/VBO.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/VBO/VBO.h
 src/Display/Display.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/Display/Display.h
-includes/colors.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/includes/colors.h
+headers/colors.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/headers/colors.h
 
 /usr/local/include/GL/glew.h
 stddef.h

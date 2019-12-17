@@ -11,7 +11,7 @@
 Index of this file:
 // Header mess
 // Forward declarations
-// STB libraries includes
+// STB libraries headers
 // Context pointer
 // Generic helpers
 // Misc data structures
@@ -106,7 +106,7 @@ typedef int ImGuiSliderFlags;           // -> enum ImGuiSliderFlags_        // F
 typedef int ImGuiTextFlags;             // -> enum ImGuiTextFlags_          // Flags: for TextEx()
 
 //-------------------------------------------------------------------------
-// STB libraries includes
+// STB libraries headers
 //-------------------------------------------------------------------------
 
 namespace ImStb

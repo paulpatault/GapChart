@@ -7,8 +7,6 @@
 #include <GL/gl.h>
 #endif
 
-#include <glm/glm.hpp>
-
 #include "src/LoadData/LoadData.h"
 #include "src/Shaders/Shaders.h"
 #include "src/MPV/MVP.h"
@@ -17,7 +15,7 @@
 #include "src/VAO/VAO.h"
 #include "src/VBO/VBO.h"
 #include "src/Display/Display.h"
-#include "includes/colors.h"
+#include "headers/colors.h"
 
 int main()
 {
