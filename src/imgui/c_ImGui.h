@@ -5,14 +5,10 @@
 #ifndef MAIN_C_IMGUI_H
 #define MAIN_C_IMGUI_H
 
-
-
 // Include GLFW
 #include <GLFW/glfw3.h>
-
 // Include GLM
 #include <glm/glm.hpp>
-
 // Include ImGui
 #include "src/imgui/imgui.h"
 #include "src/imgui/imgui_impl_glfw.h"

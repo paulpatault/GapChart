@@ -5,6 +5,7 @@
 #ifndef MAIN_CONSTANTS_H
 #define MAIN_CONSTANTS_H
 
+#include "string"
 
 namespace cst {
 
@@ -21,9 +22,19 @@ namespace cst {
     const int NB_POINTS = 4 * (38 + 1);
     const float THICKNESS = ((float)SCREEN_HEIGHT / 2) / 20;
     const float dx = (SCREEN_WIDTH-100)/(float)NB_POINTS;
-
-
 }
 
+struct DayTrip {
+    int rank;
+    int points;
+};
+
+struct Match {
+    std::string teamAtHome;
+    std::string teamAway;
+    int scoreAtHome;
+    int scoreAway;
+    int win; // -1 defaite, 0 égalité, 1 victoire
+};
 
 #endif //MAIN_CONSTANTS_H

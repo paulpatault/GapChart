@@ -97,7 +97,7 @@ Index of this file:
 #pragma GCC diagnostic ignored "-Wmisleading-indentation"       // [__GNUC__ >= 6] warning: this 'if' clause does not guard this statement      // GCC 6.0+ only. See #883 on GitHub.
 #endif
 
-// Play it nice with Windows users. Notepad in 2017 still doesn't display text data with Unix-style \n.
+// Play it nice with Windows users. Notepad in 2017 still doesn't Display text data with Unix-style \n.
 #ifdef _WIN32
 #define IM_NEWLINE  "\r\n"
 #else
@@ -136,8 +136,8 @@ static void ShowExampleAppWindowTitles(bool* p_open);
 static void ShowExampleAppCustomRendering(bool* p_open);
 static void ShowExampleMenuFile();
 
-// Helper to display a little (?) mark which shows a tooltip when hovered.
-// In your own code you may want to display an actual icon if you are using a merged icon fonts (see misc/fonts/README.txt)
+// Helper to Display a little (?) mark which shows a tooltip when hovered.
+// In your own code you may want to Display an actual icon if you are using a merged icon fonts (see misc/fonts/README.txt)
 static void HelpMarker(const char* desc)
 {
     ImGui::TextDisabled("(?)");
@@ -151,7 +151,7 @@ static void HelpMarker(const char* desc)
     }
 }
 
-// Helper to display basic user controls.
+// Helper to Display basic user controls.
 void ImGui::ShowUserGuide()
 {
     ImGuiIO& io = ImGui::GetIO();
@@ -292,7 +292,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
             ImGui::MenuItem("Log", NULL, &show_app_log);
             ImGui::MenuItem("Simple layout", NULL, &show_app_layout);
             ImGui::MenuItem("Property editor", NULL, &show_app_property_editor);
-            ImGui::MenuItem("Long text display", NULL, &show_app_long_text);
+            ImGui::MenuItem("Long text Display", NULL, &show_app_long_text);
             ImGui::MenuItem("Auto-resizing window", NULL, &show_app_auto_resize);
             ImGui::MenuItem("Constrained-resizing window", NULL, &show_app_constrained_resize);
             ImGui::MenuItem("Simple overlay", NULL, &show_app_simple_overlay);
@@ -555,15 +555,15 @@ static void ShowDemoWindowWidgets()
             static float angle = 0.0f;
             ImGui::SliderAngle("slider angle", &angle);
 
-            // Using the format string to display a name instead of an integer.
-            // Here we completely omit '%d' from the format string, so it'll only display a name.
+            // Using the format string to Display a name instead of an integer.
+            // Here we completely omit '%d' from the format string, so it'll only Display a name.
             // This technique can also be used with DragInt().
             enum Element { Element_Fire, Element_Earth, Element_Air, Element_Water, Element_COUNT };
             const char* element_names[Element_COUNT] = { "Fire", "Earth", "Air", "Water" };
             static int current_element = Element_Fire;
             const char* current_element_name = (current_element >= 0 && current_element < Element_COUNT) ? element_names[current_element] : "Unknown";
             ImGui::SliderInt("slider enum", &current_element, 0, Element_COUNT - 1, current_element_name);
-            ImGui::SameLine(); HelpMarker("Using the format string parameter to display a name instead of the underlying integer.");
+            ImGui::SameLine(); HelpMarker("Using the format string parameter to Display a name instead of the underlying integer.");
         }
 
         {
@@ -836,7 +836,7 @@ static void ShowDemoWindowWidgets()
         if (ImGui::CheckboxFlags("ImGuiComboFlags_NoPreview", (unsigned int*)&flags, ImGuiComboFlags_NoPreview))
             flags &= ~ImGuiComboFlags_NoArrowButton; // Clear the other flag, as we cannot combine both
 
-        // General BeginCombo() API, you have full control over your selection data and display type.
+        // General BeginCombo() API, you have full control over your selection data and Display type.
         // (your selection data could be an index, a pointer to the object, an id for the object, a flag stored in the object itself, etc.)
         const char* items[] = { "AAAA", "BBBB", "CCCC", "DDDD", "EEEE", "FFFF", "GGGG", "HHHH", "IIII", "JJJJ", "KKKK", "LLLLLLL", "MMMM", "OOOOOOO" };
         static const char* item_current = items[0];            // Here our selection is a single pointer stored outside the object.
@@ -858,7 +858,7 @@ static void ShowDemoWindowWidgets()
         ImGui::Combo("combo 2 (one-liner)", &item_current_2, "aaaa\0bbbb\0cccc\0dddd\0eeee\0\0");
 
         // Simplified one-liner Combo() using an array of const char*
-        static int item_current_3 = -1; // If the selection isn't within 0..count, Combo won't display a preview
+        static int item_current_3 = -1; // If the selection isn't within 0..count, Combo won't Display a preview
         ImGui::Combo("combo 3 (array)", &item_current_3, items, IM_ARRAYSIZE(items));
 
         // Simplified one-liner Combo() using an accessor function
@@ -1094,8 +1094,8 @@ static void ShowDemoWindowWidgets()
             refresh_time += 1.0f/60.0f;
         }
 
-        // Plots can display overlay texts
-        // (in this example, we will display an average value)
+        // Plots can Display overlay texts
+        // (in this example, we will Display an average value)
         {
             float average = 0.0f;
             for (int n = 0; n < IM_ARRAYSIZE(values); n++)
@@ -1266,7 +1266,7 @@ static void ShowDemoWindowWidgets()
             }
         }
         ImGui::Combo("Display Mode", &display_mode, "Auto/Current\0None\0RGB Only\0HSV Only\0Hex Only\0");
-        ImGui::SameLine(); HelpMarker("ColorEdit defaults to displaying RGB inputs if you don't specify a display mode, but the user can change it with a right-click.\n\nColorPicker defaults to displaying RGB+HSV+Hex if you don't specify a display mode.\n\nYou can change the defaults using SetColorEditOptions().");
+        ImGui::SameLine(); HelpMarker("ColorEdit defaults to displaying RGB inputs if you don't specify a Display mode, but the user can change it with a right-click.\n\nColorPicker defaults to displaying RGB+HSV+Hex if you don't specify a Display mode.\n\nYou can change the defaults using SetColorEditOptions().");
         ImGui::Combo("Picker Mode", &picker_mode, "Auto/Current\0Hue bar + SV rect\0Hue wheel + SV triangle\0");
         ImGui::SameLine(); HelpMarker("User can right-click the picker to change mode.");
         ImGuiColorEditFlags flags = misc_flags;
@@ -1276,7 +1276,7 @@ static void ShowDemoWindowWidgets()
         if (picker_mode == 1)  flags |= ImGuiColorEditFlags_PickerHueBar;
         if (picker_mode == 2)  flags |= ImGuiColorEditFlags_PickerHueWheel;
         if (display_mode == 1) flags |= ImGuiColorEditFlags_NoInputs;       // Disable all RGB/HSV/Hex displays
-        if (display_mode == 2) flags |= ImGuiColorEditFlags_DisplayRGB;     // Override display mode
+        if (display_mode == 2) flags |= ImGuiColorEditFlags_DisplayRGB;     // Override Display mode
         if (display_mode == 3) flags |= ImGuiColorEditFlags_DisplayHSV;
         if (display_mode == 4) flags |= ImGuiColorEditFlags_DisplayHex;
         ImGui::ColorPicker4("MyColor##4", (float*)&color, flags, ref_color ? &ref_color_v.x : NULL);
@@ -1548,7 +1548,7 @@ static void ShowDemoWindowWidgets()
                 if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
                 {
                     ImGui::SetDragDropPayload("DND_DEMO_CELL", &n, sizeof(int));    // Set payload to carry the index of our item (could be anything)
-                    if (mode == Mode_Copy) { ImGui::Text("Copy %s", names[n]); }    // Display preview (could be anything, e.g. when dragging an image we could decide to display the filename and a small preview of the image, etc.)
+                    if (mode == Mode_Copy) { ImGui::Text("Copy %s", names[n]); }    // Display preview (could be anything, e.g. when dragging an image we could decide to Display the filename and a small preview of the image, etc.)
                     if (mode == Mode_Move) { ImGui::Text("Move %s", names[n]); }
                     if (mode == Mode_Swap) { ImGui::Text("Swap %s", names[n]); }
                     ImGui::EndDragDropSource();
@@ -2354,7 +2354,7 @@ static void ShowDemoWindowLayout()
             HelpMarker("Test of different widgets react and impact the work rectangle growing when horizontal scrolling is enabled.\n\nUse 'Metrics->Tools->Show windows rectangles' to visualize rectangles.");
             ImGui::Checkbox("H-scrollbar", &show_h_scrollbar);
             ImGui::Checkbox("Button", &show_button);            // Will grow contents size (unless explicitly overwritten)
-            ImGui::Checkbox("Tree nodes", &show_tree_nodes);    // Will grow contents size and display highlight over full width
+            ImGui::Checkbox("Tree nodes", &show_tree_nodes);    // Will grow contents size and Display highlight over full width
             ImGui::Checkbox("Text wrapped", &show_text_wrapped);// Will grow and use contents size
             ImGui::Checkbox("Columns", &show_columns);          // Will use contents size
             ImGui::Checkbox("Tab bar", &show_tab_bar);          // Will use contents size
@@ -2905,9 +2905,9 @@ static void ShowDemoWindowMisc()
         // You may want to implement a more feature-full filtering scheme in your own application.
         static ImGuiTextFilter filter;
         ImGui::Text("Filter usage:\n"
-                    "  \"\"         display all lines\n"
-                    "  \"xxx\"      display lines containing \"xxx\"\n"
-                    "  \"xxx,yyy\"  display lines containing \"xxx\" or \"yyy\"\n"
+                    "  \"\"         Display all lines\n"
+                    "  \"xxx\"      Display lines containing \"xxx\"\n"
+                    "  \"xxx,yyy\"  Display lines containing \"xxx\" or \"yyy\"\n"
                     "  \"-xxx\"     hide lines containing \"xxx\"");
         filter.Draw();
         const char* lines[] = { "aaa1.c", "bbb1.c", "ccc1.c", "aaa2.cpp", "bbb2.cpp", "ccc2.cpp", "abc.h", "hello, world" };
@@ -3521,7 +3521,7 @@ static void ShowExampleAppMainMenuBar()
     }
 }
 
-// Note that shortcuts are currently provided for display only (future version will add flags to BeginMenu to process shortcuts)
+// Note that shortcuts are currently provided for Display only (future version will add flags to BeginMenu to process shortcuts)
 static void ShowExampleMenuFile()
 {
     ImGui::MenuItem("(dummy menu)", NULL, false, false);
@@ -3670,9 +3670,9 @@ struct ExampleAppConsole
         ImGui::TextWrapped("This example implements a console with basic coloring, completion and history. A more elaborate implementation may want to store entries along with extra data such as timestamp, emitter, etc.");
         ImGui::TextWrapped("Enter 'HELP' for help, press TAB to use text completion.");
 
-        // TODO: display items starting from the bottom
+        // TODO: Display items starting from the bottom
 
-        if (ImGui::SmallButton("Add Dummy Text"))  { AddLog("%d some text", Items.Size); AddLog("some more text"); AddLog("display very important message here!"); } ImGui::SameLine();
+        if (ImGui::SmallButton("Add Dummy Text"))  { AddLog("%d some text", Items.Size); AddLog("some more text"); AddLog("Display very important message here!"); } ImGui::SameLine();
         if (ImGui::SmallButton("Add Dummy Error")) { AddLog("[error] something went wrong"); } ImGui::SameLine();
         if (ImGui::SmallButton("Clear")) { ClearLog(); } ImGui::SameLine();
         bool copy_to_clipboard = ImGui::SmallButton("Copy");
@@ -3704,7 +3704,7 @@ struct ExampleAppConsole
 
         // Display every line as a separate entry so we can change their color or add custom widgets. If you only want raw text you can use ImGui::TextUnformatted(log.begin(), log.end());
         // NB- if you have thousands of entries this approach may be too inefficient and may require user-side clipping to only process visible items.
-        // You can seek and display only the lines that are visible using the ImGuiListClipper helper, if your elements are evenly spaced and you have cheap random access to the elements.
+        // You can seek and Display only the lines that are visible using the ImGuiListClipper helper, if your elements are evenly spaced and you have cheap random access to the elements.
         // To use the clipper we could replace the 'for (int i = 0; i < Items.Size; i++)' loop with:
         //     ImGuiListClipper clipper(Items.Size);
         //     while (clipper.Step())
@@ -3848,7 +3848,7 @@ struct ExampleAppConsole
                 }
                 else
                 {
-                    // Multiple matches. Complete as much as we can, so inputing "C" will complete to "CL" and display "CLEAR" and "CLASSIFY"
+                    // Multiple matches. Complete as much as we can, so inputing "C" will complete to "CL" and Display "CLEAR" and "CLASSIFY"
                     int match_len = (int)(word_end - word_start);
                     for (;;)
                     {
@@ -4007,14 +4007,14 @@ struct ExampleAppLog
         }
         else
         {
-            // The simplest and easy way to display the entire buffer:
+            // The simplest and easy way to Display the entire buffer:
             //   ImGui::TextUnformatted(buf_begin, buf_end);
             // And it'll just work. TextUnformatted() has specialization for large blob of text and will fast-forward to skip non-visible lines.
             // Here we instead demonstrate using the clipper to only process lines that are within the visible area.
             // If you have tens of thousands of items and their processing cost is non-negligible, coarse clipping them on your side is recommended.
             // Using ImGuiListClipper requires A) random access into your data, and B) items all being the  same height,
             // both of which we can handle since we an array pointing to the beginning of each line of text.
-            // When using the filter (in the block of code above) we don't have random access into the data to display anymore, which is why we don't use the clipper.
+            // When using the filter (in the block of code above) we don't have random access into the data to Display anymore, which is why we don't use the clipper.
             // Storing or skimming through the search result would make it possible (and would be recommended if you want to search through tens of thousands of entries)
             ImGuiListClipper clipper;
             clipper.Begin(LineOffsets.Size);
@@ -4208,7 +4208,7 @@ static void ShowExampleAppPropertyEditor(bool* p_open)
 static void ShowExampleAppLongText(bool* p_open)
 {
     ImGui::SetNextWindowSize(ImVec2(520,600), ImGuiCond_FirstUseEver);
-    if (!ImGui::Begin("Example: Long text display", p_open))
+    if (!ImGui::Begin("Example: Long text Display", p_open))
     {
         ImGui::End();
         return;
@@ -4378,9 +4378,9 @@ static void ShowExampleAppSimpleOverlay(bool* p_open)
 static void ShowExampleAppWindowTitles(bool*)
 {
     // By default, Windows are uniquely identified by their title.
-    // You can use the "##" and "###" markers to manipulate the display/ID.
+    // You can use the "##" and "###" markers to manipulate the Display/ID.
 
-    // Using "##" to display same title but have unique identifier.
+    // Using "##" to Display same title but have unique identifier.
     ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_FirstUseEver);
     ImGui::Begin("Same title as another window##1");
     ImGui::Text("This is window 1.\nMy title is the same as window 2, but my identifier is unique.");
@@ -4391,7 +4391,7 @@ static void ShowExampleAppWindowTitles(bool*)
     ImGui::Text("This is window 2.\nMy title is the same as window 1, but my identifier is unique.");
     ImGui::End();
 
-    // Using "###" to display a changing title but keep a static identifier "AnimatedTitle"
+    // Using "###" to Display a changing title but keep a static identifier "AnimatedTitle"
     char buf[128];
     sprintf(buf, "Animated title %c %d###AnimatedTitle", "|/-\\"[(int)(ImGui::GetTime() / 0.25f) & 3], ImGui::GetFrameCount());
     ImGui::SetNextWindowPos(ImVec2(100, 300), ImGuiCond_FirstUseEver);
@@ -4718,7 +4718,7 @@ void ShowExampleAppDocuments(bool* p_open)
                 ImGuiTabItemFlags tab_flags = (doc->Dirty ? ImGuiTabItemFlags_UnsavedDocument : 0);
                 bool visible = ImGui::BeginTabItem(doc->Name, &doc->Open, tab_flags);
 
-                // Cancel attempt to close when unsaved add to save queue so we can display a popup.
+                // Cancel attempt to close when unsaved add to save queue so we can Display a popup.
                 if (!doc->Open && doc->Dirty)
                 {
                     doc->Open = true;

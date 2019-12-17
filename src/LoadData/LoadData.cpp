@@ -6,16 +6,12 @@
 
 LoadData::LoadData(std::string filePath)
 {
-    this->rankPoints = std::vector<std::vector<std::vector<int>>>(cst::NB_DAYS + 1);
+    this->rankPoints = std::vector<std::vector<DayTrip>>(cst::NB_DAYS + 1);
 
     ////// INITIALISE LE VEC_3D //////
     for(int i = 0; i < cst::NB_DAYS + 1; i++) // i := jours
     {
-        this->rankPoints[i] = std::vector<std::vector<int>>(cst::NB_TEAMS); // initialise la 2e dim du tab
-        for(int j = 0; j < cst::NB_TEAMS; j++) // j := equipe
-        {
-            this->rankPoints[i][j] = std::vector<int>(2); // initialise la 3e dim du tab
-        }
+        this->rankPoints[i] = std::vector<DayTrip>(cst::NB_TEAMS);
     }
 
 
@@ -89,8 +85,8 @@ LoadData::LoadData(std::string filePath)
                 index_for_tab = 20;
             }
 
-            this->rankPoints[index_for_tab][k][0] = rank; // rang
-            this->rankPoints[index_for_tab][k][1] = points; // points
+            rankPoints[index_for_tab][k].rank = rank; // rang
+            rankPoints[index_for_tab][k].points = points; // points
 
             index_for_tab += 1;
         }
@@ -115,7 +111,7 @@ LoadData::LoadData(std::string filePath)
 
 void LoadData::loadMatch(std::string filePath)
 {
-    this->match = vector<vector<Match>>(cst::NB_TEAMS); // 38
+    match = vector<vector<Match>>(cst::NB_TEAMS); // 38
 
 
     ////// TRAVAIL SUR LE FICHIER //////   ( 6 colonnes par jour )
@@ -134,7 +130,7 @@ void LoadData::loadMatch(std::string filePath)
     /// double for 'inversé' car le fichier est organisé comme ca (i.e. 1 ligne par equipe / jours = colonnes)
     for(int team = 0; team < cst::NB_TEAMS; team++) // 2e dim := equipes
     {
-        this->match[team] = vector<Match>(cst::NB_DAYS);
+        match[team] = vector<Match>(cst::NB_DAYS);
         getline(myfile, value, c); // on passe le nom de l'équipe et le saut de ligne
         getline(myfile, value, c); // value = rang
         getline(myfile, value, c); // value = points
@@ -172,7 +168,7 @@ void LoadData::loadMatch(std::string filePath)
             indiceAtHome = getIndexByName(teamAtHome);
             indiceAway = getIndexByName(teamAway);
 
-            this->match[team][day] = {teamAtHome, teamAway, scoreAtHome, scoreAway};
+            match[team][day] = {teamAtHome, teamAway, scoreAtHome, scoreAway};
 
             if(indiceAtHome == team)
             {
@@ -190,7 +186,7 @@ void LoadData::loadMatch(std::string filePath)
                 std::cerr << "problem w/ index of teams ::" << teamAtHome << " " << teamAway << std::endl;
             }
 
-            this->match[team][day].win = win;
+            match[team][day].win = win;
 
             if( day == 21 )
             {
@@ -213,24 +209,29 @@ void LoadData::loadMatch(std::string filePath)
     myfile.close();
 }
 
+std::vector<DayTrip> LoadData::getTeam(unsigned int team)
+{
+    return rankPoints[team];
+}
+
 int LoadData::getRank(int team, int day)
 {
-    return this->rankPoints[day][team][0];
+    return rankPoints[day][team].rank;
 }
 
 int LoadData::getComplementaryRank(int team, int day)
 {
-    return 19 - this->getRank(team, day);
+    return 19 - getRank(team, day);
 }
 
 float LoadData::getComplementaryRankNormalized(int team, int day)
 {
-    return (float)this->getComplementaryRank(team, day) / 19;
+    return (float)getComplementaryRank(team, day) / 19;
 }
 
 int LoadData::getPoints(int team, int day)
 {
-    return this->rankPoints[day][team][1];
+    return rankPoints[day][team].points;
 }
 
 float LoadData::getPointsNormalized(int team, int day)

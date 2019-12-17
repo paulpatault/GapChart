@@ -11,7 +11,6 @@
 #include <iostream>
 using namespace std;
 
-
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -22,17 +21,10 @@ using namespace cst;
 
 class LoadData {
 private:
-    struct Match{
-        std::string teamAtHome;
-        std::string teamAway;
-        int scoreAtHome;
-        int scoreAway;
-        int win; // -1 defaite, 0 égalité, 1 victoire
-    };
     // rankPoints[i][j] := equipe / jour
     std::vector<std::vector<Match>> match;
     // rankPoints[i][j][k] := jour / equipe / {rang,points}
-    std::vector<std::vector<std::vector<int>>> rankPoints;
+    std::vector<std::vector<DayTrip>> rankPoints;
     std::vector<float> y_Escalier(int team);
     void tabEscalier(float vertices[], vector<float>  coordCenter);
     float t_vertex_data[cst::NB_TEAMS][cst::NB_POINTS * 3];
@@ -49,6 +41,7 @@ public:
 
     LoadData(std::string filePath);
     void loadMatch(std::string filePath);
+    std::vector<DayTrip> getTeam(unsigned int team);
     int getRank(int team, int day);
     int getComplementaryRank(int team, int day);
     float getComplementaryRankNormalized(int team, int day);

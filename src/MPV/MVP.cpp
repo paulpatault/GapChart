@@ -23,9 +23,9 @@ void MVP::keyboardCallback(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) // S
         eyePos.y -= 2.f;
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) // Q
-        eyePos.x += 2.f;
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) // D
         eyePos.x -= 2.f;
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) // D
+        eyePos.x += 2.f;
 
 
     // zoom
@@ -85,7 +85,7 @@ glm::mat4 MVP::reInitMVP()
     return updateMVP();
 }
 
-glm::mat4 MVP::actu(GLFWwindow *window)
+glm::mat4 MVP::maj(GLFWwindow *window)
 {
     keyboardCallback(window);
 
@@ -93,4 +93,20 @@ glm::mat4 MVP::actu(GLFWwindow *window)
         return MVP::reInitMVP();
 
     return MVP::updateMVP();
+}
+
+void MVP::init_MatID(GLuint programID)
+{
+    matrixID = glGetUniformLocation(programID, "u_MVP");
+}
+
+GLint MVP::getMatrixID()
+{
+    return matrixID;
+}
+
+void MVP::send_new(GLFWwindow *window)
+{
+    glm::mat4 mvp = maj(window);
+    glUniformMatrix4fv( matrixID, 1, GL_FALSE, &mvp[0][0] ); // Send new matrix
 }

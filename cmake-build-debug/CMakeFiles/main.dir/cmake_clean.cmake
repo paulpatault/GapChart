@@ -1,7 +1,11 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/src/Display/Display.cpp.o"
   "CMakeFiles/main.dir/src/LoadData/Cylinder.cpp.o"
   "CMakeFiles/main.dir/src/LoadData/LoadData.cpp.o"
+  "CMakeFiles/main.dir/src/LoadData2/LoadData2.cpp.o"
   "CMakeFiles/main.dir/src/MPV/MVP.cpp.o"
+  "CMakeFiles/main.dir/src/VAO/VAO.cpp.o"
+  "CMakeFiles/main.dir/src/VBO/VBO.cpp.o"
   "CMakeFiles/main.dir/src/Window/Render.cpp.o"
   "CMakeFiles/main.dir/src/imgui/c_ImGui.cpp.o"
   "CMakeFiles/main.dir/src/imgui/imgui.cpp.o"

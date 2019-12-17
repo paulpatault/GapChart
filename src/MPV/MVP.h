@@ -5,6 +5,9 @@
 #ifndef MAIN_MVP_H
 #define MAIN_MVP_H
 
+// Include GLEW
+#include <GL/glew.h>
+
 // Include GLFW
 #include <GLFW/glfw3.h>
 
@@ -24,6 +27,8 @@ static glm::mat4 Projection = glm::mat4(1.0f);
 static glm::mat4 View = glm::mat4(1.0f);
 static glm::mat4 Model = glm::mat4(1.0f);
 
+static GLint matrixID;
+
 class MVP {
 private:
 
@@ -34,7 +39,13 @@ private:
     static void keyboardCallback(GLFWwindow *window);
 
 public:
-    static glm::mat4 actu(GLFWwindow *window);
+    static glm::mat4 maj(GLFWwindow *window);
+
+    static void init_MatID(GLuint programID);
+
+    static GLint getMatrixID();
+
+    static void send_new(GLFWwindow *window);
 
 };
 

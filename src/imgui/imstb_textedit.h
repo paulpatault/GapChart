@@ -8,7 +8,7 @@
 // Development of this library was sponsored by RAD Game Tools
 //
 // This C header file implements the guts of a multi-line text-editing
-// widget; you implement display, word-wrapping, and low-level string
+// widget; you implement Display, word-wrapping, and low-level string
 // insertion/deletion, and stb_textedit will map user inputs into
 // insertions & deletions, plus updates to the cursor position,
 // selection state, and undo state.
@@ -392,7 +392,7 @@ typedef struct
 //      Mouse input handling
 //
 
-// traverse the layout to locate the nearest character to a display position
+// traverse the layout to locate the nearest character to a Display position
 static int stb_text_locate_coord(STB_TEXTEDIT_STRING *str, float x, float y)
 {
    StbTexteditRow r;

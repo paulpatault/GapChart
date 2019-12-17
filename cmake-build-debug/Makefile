@@ -123,6 +123,33 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+src/Display/Display.o: src/Display/Display.cpp.o
+
+.PHONY : src/Display/Display.o
+
+# target to build an object file
+src/Display/Display.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Display/Display.cpp.o
+.PHONY : src/Display/Display.cpp.o
+
+src/Display/Display.i: src/Display/Display.cpp.i
+
+.PHONY : src/Display/Display.i
+
+# target to preprocess a source file
+src/Display/Display.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Display/Display.cpp.i
+.PHONY : src/Display/Display.cpp.i
+
+src/Display/Display.s: src/Display/Display.cpp.s
+
+.PHONY : src/Display/Display.s
+
+# target to generate assembly for a file
+src/Display/Display.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Display/Display.cpp.s
+.PHONY : src/Display/Display.cpp.s
+
 src/LoadData/Cylinder.o: src/LoadData/Cylinder.cpp.o
 
 .PHONY : src/LoadData/Cylinder.o
@@ -177,6 +204,33 @@ src/LoadData/LoadData.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData/LoadData.cpp.s
 .PHONY : src/LoadData/LoadData.cpp.s
 
+src/LoadData2/LoadData2.o: src/LoadData2/LoadData2.cpp.o
+
+.PHONY : src/LoadData2/LoadData2.o
+
+# target to build an object file
+src/LoadData2/LoadData2.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData2/LoadData2.cpp.o
+.PHONY : src/LoadData2/LoadData2.cpp.o
+
+src/LoadData2/LoadData2.i: src/LoadData2/LoadData2.cpp.i
+
+.PHONY : src/LoadData2/LoadData2.i
+
+# target to preprocess a source file
+src/LoadData2/LoadData2.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData2/LoadData2.cpp.i
+.PHONY : src/LoadData2/LoadData2.cpp.i
+
+src/LoadData2/LoadData2.s: src/LoadData2/LoadData2.cpp.s
+
+.PHONY : src/LoadData2/LoadData2.s
+
+# target to generate assembly for a file
+src/LoadData2/LoadData2.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData2/LoadData2.cpp.s
+.PHONY : src/LoadData2/LoadData2.cpp.s
+
 src/MPV/MVP.o: src/MPV/MVP.cpp.o
 
 .PHONY : src/MPV/MVP.o
@@ -203,6 +257,60 @@ src/MPV/MVP.s: src/MPV/MVP.cpp.s
 src/MPV/MVP.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/MPV/MVP.cpp.s
 .PHONY : src/MPV/MVP.cpp.s
+
+src/VAO/VAO.o: src/VAO/VAO.cpp.o
+
+.PHONY : src/VAO/VAO.o
+
+# target to build an object file
+src/VAO/VAO.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VAO/VAO.cpp.o
+.PHONY : src/VAO/VAO.cpp.o
+
+src/VAO/VAO.i: src/VAO/VAO.cpp.i
+
+.PHONY : src/VAO/VAO.i
+
+# target to preprocess a source file
+src/VAO/VAO.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VAO/VAO.cpp.i
+.PHONY : src/VAO/VAO.cpp.i
+
+src/VAO/VAO.s: src/VAO/VAO.cpp.s
+
+.PHONY : src/VAO/VAO.s
+
+# target to generate assembly for a file
+src/VAO/VAO.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VAO/VAO.cpp.s
+.PHONY : src/VAO/VAO.cpp.s
+
+src/VBO/VBO.o: src/VBO/VBO.cpp.o
+
+.PHONY : src/VBO/VBO.o
+
+# target to build an object file
+src/VBO/VBO.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VBO/VBO.cpp.o
+.PHONY : src/VBO/VBO.cpp.o
+
+src/VBO/VBO.i: src/VBO/VBO.cpp.i
+
+.PHONY : src/VBO/VBO.i
+
+# target to preprocess a source file
+src/VBO/VBO.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VBO/VBO.cpp.i
+.PHONY : src/VBO/VBO.cpp.i
+
+src/VBO/VBO.s: src/VBO/VBO.cpp.s
+
+.PHONY : src/VBO/VBO.s
+
+# target to generate assembly for a file
+src/VBO/VBO.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VBO/VBO.cpp.s
+.PHONY : src/VBO/VBO.cpp.s
 
 src/Window/Render.o: src/Window/Render.cpp.o
 
@@ -456,15 +564,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... src/Display/Display.o"
+	@echo "... src/Display/Display.i"
+	@echo "... src/Display/Display.s"
 	@echo "... src/LoadData/Cylinder.o"
 	@echo "... src/LoadData/Cylinder.i"
 	@echo "... src/LoadData/Cylinder.s"
 	@echo "... src/LoadData/LoadData.o"
 	@echo "... src/LoadData/LoadData.i"
 	@echo "... src/LoadData/LoadData.s"
+	@echo "... src/LoadData2/LoadData2.o"
+	@echo "... src/LoadData2/LoadData2.i"
+	@echo "... src/LoadData2/LoadData2.s"
 	@echo "... src/MPV/MVP.o"
 	@echo "... src/MPV/MVP.i"
 	@echo "... src/MPV/MVP.s"
+	@echo "... src/VAO/VAO.o"
+	@echo "... src/VAO/VAO.i"
+	@echo "... src/VAO/VAO.s"
+	@echo "... src/VBO/VBO.o"
+	@echo "... src/VBO/VBO.i"
+	@echo "... src/VBO/VBO.s"
 	@echo "... src/Window/Render.o"
 	@echo "... src/Window/Render.i"
 	@echo "... src/Window/Render.s"

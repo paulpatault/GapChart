@@ -94,6 +94,12 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/debugbreak.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Display/Display.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Display/Display.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/Cylinder.cpp">
 			<Option target="main"/>
 		</Unit>
@@ -106,6 +112,12 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/LoadData.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData2/LoadData2.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData2/LoadData2.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/MPV/MVP.cpp">
 			<Option target="main"/>
 		</Unit>
@@ -113,6 +125,18 @@
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Shaders/Shaders.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VAO/VAO.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VAO/VAO.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VBO/VBO.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VBO/VBO.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Window/Render.cpp">
