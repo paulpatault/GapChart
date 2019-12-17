@@ -1352,6 +1352,7 @@ CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o
  /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_widgets.cpp
  /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_textedit.h
 CMakeFiles/main.dir/src/main.cpp.o
+ ../includes/colors.h
  ../includes/constants.h
  ../src/Display/Display.h
  ../src/LoadData/LoadData.h

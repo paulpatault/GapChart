@@ -1351,6 +1351,7 @@ CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o: ../src/imgui/imgui_internal.h
 CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o: ../src/imgui/imgui_widgets.cpp
 CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o: ../src/imgui/imstb_textedit.h
 
+CMakeFiles/main.dir/src/main.cpp.o: ../includes/colors.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/constants.h
 CMakeFiles/main.dir/src/main.cpp.o: ../src/Display/Display.h
 CMakeFiles/main.dir/src/main.cpp.o: ../src/LoadData/LoadData.h

@@ -31,21 +31,15 @@ static GLint matrixID;
 
 class MVP {
 private:
-
     static glm::mat4 updateMVP();
-
     static glm::mat4 reInitMVP();
-
     static void keyboardCallback(GLFWwindow *window);
 
 public:
     static glm::mat4 maj(GLFWwindow *window);
-
     static void init_MatID(GLuint programID);
-
     static GLint getMatrixID();
-
-    static void send_new(GLFWwindow *window);
+    static void send_updated(GLFWwindow *window);
 
 };
 

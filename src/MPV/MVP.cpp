@@ -105,7 +105,7 @@ GLint MVP::getMatrixID()
     return matrixID;
 }
 
-void MVP::send_new(GLFWwindow *window)
+void MVP::send_updated(GLFWwindow *window)
 {
     glm::mat4 mvp = maj(window);
     glUniformMatrix4fv( matrixID, 1, GL_FALSE, &mvp[0][0] ); // Send new matrix
