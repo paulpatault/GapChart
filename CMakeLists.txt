@@ -8,25 +8,24 @@ include_directories(/usr/local/include)
 
 add_executable(main
         src/main.cpp
-        src/LoadData/LoadData.cpp
-        src/LoadData/LoadData.h
-        headers/debugbreak.h
-        src/imgui/imgui.cpp
-        src/imgui/imgui.h
-        src/imgui/imgui_demo.cpp
-        src/imgui/imgui_draw.cpp
-        src/imgui/imgui_widgets.cpp
-        src/imgui/imgui_internal.h
-        src/imgui/imconfig.h
-        src/imgui/imstb_rectpack.h
-        src/imgui/imstb_textedit.h
-        src/imgui/imstb_truetype.h
-        src/imgui/imgui_impl_glfw.cpp
-        src/imgui/imgui_impl_glfw.h
-        src/imgui/imgui_impl_opengl3.cpp
-        src/imgui/imgui_impl_opengl3.h
-        src/Shaders/Shaders.h
-        src/LoadData/Cylinder.cpp src/LoadData/Cylinder.h src/MPV/MVP.cpp src/MPV/MVP.h headers/constants.h src/imgui/c_ImGui.cpp src/imgui/c_ImGui.h src/Window/Render.cpp src/Window/Render.h src/LoadData2/LoadData2.cpp src/LoadData2/LoadData2.h src/VAO/VAO.cpp src/VAO/VAO.h src/VBO/VBO.cpp src/VBO/VBO.h src/Display/Display.cpp src/Display/Display.h headers/colors.h)
+        src/data/LoadData.cpp
+        src/data/LoadData.h
+        includes/debugbreak.h
+        includes/imgui/imgui.cpp
+        includes/imgui/imgui.h
+        includes/imgui/imgui_demo.cpp
+        includes/imgui/imgui_draw.cpp
+        includes/imgui/imgui_widgets.cpp
+        includes/imgui/imgui_internal.h
+        includes/imgui/imconfig.h
+        includes/imgui/imstb_rectpack.h
+        includes/imgui/imstb_textedit.h
+        includes/imgui/imstb_truetype.h
+        includes/imgui/imgui_impl_glfw.cpp
+        includes/imgui/imgui_impl_glfw.h
+        includes/imgui/imgui_impl_opengl3.cpp
+        includes/imgui/imgui_impl_opengl3.h
+        src/data/Cylinder.cpp src/data/Cylinder.h src/screen/MVP.cpp src/screen/MVP.h includes/constants.h src/screen/c_ImGui.cpp src/screen/c_ImGui.h src/screen/Render.cpp src/screen/Render.h src/data/LoadData2/LoadData2.cpp src/data/LoadData2/LoadData2.h src/data/VAO.cpp src/data/VAO.h src/data/VBO.cpp src/data/VBO.h src/screen/Display.cpp src/screen/Display.h includes/colors.h src/data/Shaders.cpp src/data/Shaders.h)
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )

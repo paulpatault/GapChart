@@ -123,410 +123,329 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-src/Display/Display.o: src/Display/Display.cpp.o
+includes/imgui/imgui.o: includes/imgui/imgui.cpp.o
 
-.PHONY : src/Display/Display.o
-
-# target to build an object file
-src/Display/Display.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Display/Display.cpp.o
-.PHONY : src/Display/Display.cpp.o
-
-src/Display/Display.i: src/Display/Display.cpp.i
-
-.PHONY : src/Display/Display.i
-
-# target to preprocess a source file
-src/Display/Display.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Display/Display.cpp.i
-.PHONY : src/Display/Display.cpp.i
-
-src/Display/Display.s: src/Display/Display.cpp.s
-
-.PHONY : src/Display/Display.s
-
-# target to generate assembly for a file
-src/Display/Display.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Display/Display.cpp.s
-.PHONY : src/Display/Display.cpp.s
-
-src/LoadData/Cylinder.o: src/LoadData/Cylinder.cpp.o
-
-.PHONY : src/LoadData/Cylinder.o
+.PHONY : includes/imgui/imgui.o
 
 # target to build an object file
-src/LoadData/Cylinder.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData/Cylinder.cpp.o
-.PHONY : src/LoadData/Cylinder.cpp.o
+includes/imgui/imgui.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui.cpp.o
+.PHONY : includes/imgui/imgui.cpp.o
 
-src/LoadData/Cylinder.i: src/LoadData/Cylinder.cpp.i
+includes/imgui/imgui.i: includes/imgui/imgui.cpp.i
 
-.PHONY : src/LoadData/Cylinder.i
+.PHONY : includes/imgui/imgui.i
 
 # target to preprocess a source file
-src/LoadData/Cylinder.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData/Cylinder.cpp.i
-.PHONY : src/LoadData/Cylinder.cpp.i
+includes/imgui/imgui.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui.cpp.i
+.PHONY : includes/imgui/imgui.cpp.i
 
-src/LoadData/Cylinder.s: src/LoadData/Cylinder.cpp.s
+includes/imgui/imgui.s: includes/imgui/imgui.cpp.s
 
-.PHONY : src/LoadData/Cylinder.s
+.PHONY : includes/imgui/imgui.s
 
 # target to generate assembly for a file
-src/LoadData/Cylinder.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData/Cylinder.cpp.s
-.PHONY : src/LoadData/Cylinder.cpp.s
+includes/imgui/imgui.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui.cpp.s
+.PHONY : includes/imgui/imgui.cpp.s
 
-src/LoadData/LoadData.o: src/LoadData/LoadData.cpp.o
+includes/imgui/imgui_demo.o: includes/imgui/imgui_demo.cpp.o
 
-.PHONY : src/LoadData/LoadData.o
+.PHONY : includes/imgui/imgui_demo.o
 
 # target to build an object file
-src/LoadData/LoadData.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData/LoadData.cpp.o
-.PHONY : src/LoadData/LoadData.cpp.o
+includes/imgui/imgui_demo.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_demo.cpp.o
+.PHONY : includes/imgui/imgui_demo.cpp.o
 
-src/LoadData/LoadData.i: src/LoadData/LoadData.cpp.i
+includes/imgui/imgui_demo.i: includes/imgui/imgui_demo.cpp.i
 
-.PHONY : src/LoadData/LoadData.i
+.PHONY : includes/imgui/imgui_demo.i
 
 # target to preprocess a source file
-src/LoadData/LoadData.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData/LoadData.cpp.i
-.PHONY : src/LoadData/LoadData.cpp.i
+includes/imgui/imgui_demo.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_demo.cpp.i
+.PHONY : includes/imgui/imgui_demo.cpp.i
 
-src/LoadData/LoadData.s: src/LoadData/LoadData.cpp.s
+includes/imgui/imgui_demo.s: includes/imgui/imgui_demo.cpp.s
 
-.PHONY : src/LoadData/LoadData.s
+.PHONY : includes/imgui/imgui_demo.s
 
 # target to generate assembly for a file
-src/LoadData/LoadData.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData/LoadData.cpp.s
-.PHONY : src/LoadData/LoadData.cpp.s
+includes/imgui/imgui_demo.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_demo.cpp.s
+.PHONY : includes/imgui/imgui_demo.cpp.s
 
-src/LoadData2/LoadData2.o: src/LoadData2/LoadData2.cpp.o
+includes/imgui/imgui_draw.o: includes/imgui/imgui_draw.cpp.o
 
-.PHONY : src/LoadData2/LoadData2.o
+.PHONY : includes/imgui/imgui_draw.o
 
 # target to build an object file
-src/LoadData2/LoadData2.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData2/LoadData2.cpp.o
-.PHONY : src/LoadData2/LoadData2.cpp.o
+includes/imgui/imgui_draw.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_draw.cpp.o
+.PHONY : includes/imgui/imgui_draw.cpp.o
 
-src/LoadData2/LoadData2.i: src/LoadData2/LoadData2.cpp.i
+includes/imgui/imgui_draw.i: includes/imgui/imgui_draw.cpp.i
 
-.PHONY : src/LoadData2/LoadData2.i
+.PHONY : includes/imgui/imgui_draw.i
 
 # target to preprocess a source file
-src/LoadData2/LoadData2.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData2/LoadData2.cpp.i
-.PHONY : src/LoadData2/LoadData2.cpp.i
+includes/imgui/imgui_draw.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_draw.cpp.i
+.PHONY : includes/imgui/imgui_draw.cpp.i
 
-src/LoadData2/LoadData2.s: src/LoadData2/LoadData2.cpp.s
+includes/imgui/imgui_draw.s: includes/imgui/imgui_draw.cpp.s
 
-.PHONY : src/LoadData2/LoadData2.s
+.PHONY : includes/imgui/imgui_draw.s
 
 # target to generate assembly for a file
-src/LoadData2/LoadData2.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/LoadData2/LoadData2.cpp.s
-.PHONY : src/LoadData2/LoadData2.cpp.s
+includes/imgui/imgui_draw.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_draw.cpp.s
+.PHONY : includes/imgui/imgui_draw.cpp.s
 
-src/MPV/MVP.o: src/MPV/MVP.cpp.o
+includes/imgui/imgui_impl_glfw.o: includes/imgui/imgui_impl_glfw.cpp.o
 
-.PHONY : src/MPV/MVP.o
+.PHONY : includes/imgui/imgui_impl_glfw.o
 
 # target to build an object file
-src/MPV/MVP.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/MPV/MVP.cpp.o
-.PHONY : src/MPV/MVP.cpp.o
+includes/imgui/imgui_impl_glfw.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_impl_glfw.cpp.o
+.PHONY : includes/imgui/imgui_impl_glfw.cpp.o
 
-src/MPV/MVP.i: src/MPV/MVP.cpp.i
+includes/imgui/imgui_impl_glfw.i: includes/imgui/imgui_impl_glfw.cpp.i
 
-.PHONY : src/MPV/MVP.i
+.PHONY : includes/imgui/imgui_impl_glfw.i
 
 # target to preprocess a source file
-src/MPV/MVP.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/MPV/MVP.cpp.i
-.PHONY : src/MPV/MVP.cpp.i
+includes/imgui/imgui_impl_glfw.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_impl_glfw.cpp.i
+.PHONY : includes/imgui/imgui_impl_glfw.cpp.i
 
-src/MPV/MVP.s: src/MPV/MVP.cpp.s
+includes/imgui/imgui_impl_glfw.s: includes/imgui/imgui_impl_glfw.cpp.s
 
-.PHONY : src/MPV/MVP.s
+.PHONY : includes/imgui/imgui_impl_glfw.s
 
 # target to generate assembly for a file
-src/MPV/MVP.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/MPV/MVP.cpp.s
-.PHONY : src/MPV/MVP.cpp.s
+includes/imgui/imgui_impl_glfw.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_impl_glfw.cpp.s
+.PHONY : includes/imgui/imgui_impl_glfw.cpp.s
 
-src/VAO/VAO.o: src/VAO/VAO.cpp.o
+includes/imgui/imgui_impl_opengl3.o: includes/imgui/imgui_impl_opengl3.cpp.o
 
-.PHONY : src/VAO/VAO.o
+.PHONY : includes/imgui/imgui_impl_opengl3.o
 
 # target to build an object file
-src/VAO/VAO.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VAO/VAO.cpp.o
-.PHONY : src/VAO/VAO.cpp.o
+includes/imgui/imgui_impl_opengl3.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_impl_opengl3.cpp.o
+.PHONY : includes/imgui/imgui_impl_opengl3.cpp.o
 
-src/VAO/VAO.i: src/VAO/VAO.cpp.i
+includes/imgui/imgui_impl_opengl3.i: includes/imgui/imgui_impl_opengl3.cpp.i
 
-.PHONY : src/VAO/VAO.i
+.PHONY : includes/imgui/imgui_impl_opengl3.i
 
 # target to preprocess a source file
-src/VAO/VAO.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VAO/VAO.cpp.i
-.PHONY : src/VAO/VAO.cpp.i
+includes/imgui/imgui_impl_opengl3.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_impl_opengl3.cpp.i
+.PHONY : includes/imgui/imgui_impl_opengl3.cpp.i
 
-src/VAO/VAO.s: src/VAO/VAO.cpp.s
+includes/imgui/imgui_impl_opengl3.s: includes/imgui/imgui_impl_opengl3.cpp.s
 
-.PHONY : src/VAO/VAO.s
+.PHONY : includes/imgui/imgui_impl_opengl3.s
 
 # target to generate assembly for a file
-src/VAO/VAO.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VAO/VAO.cpp.s
-.PHONY : src/VAO/VAO.cpp.s
+includes/imgui/imgui_impl_opengl3.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_impl_opengl3.cpp.s
+.PHONY : includes/imgui/imgui_impl_opengl3.cpp.s
 
-src/VBO/VBO.o: src/VBO/VBO.cpp.o
+includes/imgui/imgui_widgets.o: includes/imgui/imgui_widgets.cpp.o
 
-.PHONY : src/VBO/VBO.o
+.PHONY : includes/imgui/imgui_widgets.o
 
 # target to build an object file
-src/VBO/VBO.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VBO/VBO.cpp.o
-.PHONY : src/VBO/VBO.cpp.o
+includes/imgui/imgui_widgets.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_widgets.cpp.o
+.PHONY : includes/imgui/imgui_widgets.cpp.o
 
-src/VBO/VBO.i: src/VBO/VBO.cpp.i
+includes/imgui/imgui_widgets.i: includes/imgui/imgui_widgets.cpp.i
 
-.PHONY : src/VBO/VBO.i
+.PHONY : includes/imgui/imgui_widgets.i
 
 # target to preprocess a source file
-src/VBO/VBO.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VBO/VBO.cpp.i
-.PHONY : src/VBO/VBO.cpp.i
+includes/imgui/imgui_widgets.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_widgets.cpp.i
+.PHONY : includes/imgui/imgui_widgets.cpp.i
 
-src/VBO/VBO.s: src/VBO/VBO.cpp.s
+includes/imgui/imgui_widgets.s: includes/imgui/imgui_widgets.cpp.s
 
-.PHONY : src/VBO/VBO.s
+.PHONY : includes/imgui/imgui_widgets.s
 
 # target to generate assembly for a file
-src/VBO/VBO.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VBO/VBO.cpp.s
-.PHONY : src/VBO/VBO.cpp.s
+includes/imgui/imgui_widgets.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_widgets.cpp.s
+.PHONY : includes/imgui/imgui_widgets.cpp.s
 
-src/Window/Render.o: src/Window/Render.cpp.o
+src/data/Cylinder.o: src/data/Cylinder.cpp.o
 
-.PHONY : src/Window/Render.o
+.PHONY : src/data/Cylinder.o
 
 # target to build an object file
-src/Window/Render.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Window/Render.cpp.o
-.PHONY : src/Window/Render.cpp.o
+src/data/Cylinder.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Cylinder.cpp.o
+.PHONY : src/data/Cylinder.cpp.o
 
-src/Window/Render.i: src/Window/Render.cpp.i
+src/data/Cylinder.i: src/data/Cylinder.cpp.i
 
-.PHONY : src/Window/Render.i
+.PHONY : src/data/Cylinder.i
 
 # target to preprocess a source file
-src/Window/Render.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Window/Render.cpp.i
-.PHONY : src/Window/Render.cpp.i
+src/data/Cylinder.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Cylinder.cpp.i
+.PHONY : src/data/Cylinder.cpp.i
 
-src/Window/Render.s: src/Window/Render.cpp.s
+src/data/Cylinder.s: src/data/Cylinder.cpp.s
 
-.PHONY : src/Window/Render.s
+.PHONY : src/data/Cylinder.s
 
 # target to generate assembly for a file
-src/Window/Render.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Window/Render.cpp.s
-.PHONY : src/Window/Render.cpp.s
+src/data/Cylinder.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Cylinder.cpp.s
+.PHONY : src/data/Cylinder.cpp.s
 
-src/imgui/c_ImGui.o: src/imgui/c_ImGui.cpp.o
+src/data/LoadData.o: src/data/LoadData.cpp.o
 
-.PHONY : src/imgui/c_ImGui.o
+.PHONY : src/data/LoadData.o
 
 # target to build an object file
-src/imgui/c_ImGui.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/c_ImGui.cpp.o
-.PHONY : src/imgui/c_ImGui.cpp.o
+src/data/LoadData.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/LoadData.cpp.o
+.PHONY : src/data/LoadData.cpp.o
 
-src/imgui/c_ImGui.i: src/imgui/c_ImGui.cpp.i
+src/data/LoadData.i: src/data/LoadData.cpp.i
 
-.PHONY : src/imgui/c_ImGui.i
+.PHONY : src/data/LoadData.i
 
 # target to preprocess a source file
-src/imgui/c_ImGui.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/c_ImGui.cpp.i
-.PHONY : src/imgui/c_ImGui.cpp.i
+src/data/LoadData.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/LoadData.cpp.i
+.PHONY : src/data/LoadData.cpp.i
 
-src/imgui/c_ImGui.s: src/imgui/c_ImGui.cpp.s
+src/data/LoadData.s: src/data/LoadData.cpp.s
 
-.PHONY : src/imgui/c_ImGui.s
+.PHONY : src/data/LoadData.s
 
 # target to generate assembly for a file
-src/imgui/c_ImGui.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/c_ImGui.cpp.s
-.PHONY : src/imgui/c_ImGui.cpp.s
+src/data/LoadData.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/LoadData.cpp.s
+.PHONY : src/data/LoadData.cpp.s
 
-src/imgui/imgui.o: src/imgui/imgui.cpp.o
+src/data/LoadData2/LoadData2.o: src/data/LoadData2/LoadData2.cpp.o
 
-.PHONY : src/imgui/imgui.o
+.PHONY : src/data/LoadData2/LoadData2.o
 
 # target to build an object file
-src/imgui/imgui.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui.cpp.o
-.PHONY : src/imgui/imgui.cpp.o
+src/data/LoadData2/LoadData2.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/LoadData2/LoadData2.cpp.o
+.PHONY : src/data/LoadData2/LoadData2.cpp.o
 
-src/imgui/imgui.i: src/imgui/imgui.cpp.i
+src/data/LoadData2/LoadData2.i: src/data/LoadData2/LoadData2.cpp.i
 
-.PHONY : src/imgui/imgui.i
+.PHONY : src/data/LoadData2/LoadData2.i
 
 # target to preprocess a source file
-src/imgui/imgui.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui.cpp.i
-.PHONY : src/imgui/imgui.cpp.i
+src/data/LoadData2/LoadData2.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/LoadData2/LoadData2.cpp.i
+.PHONY : src/data/LoadData2/LoadData2.cpp.i
 
-src/imgui/imgui.s: src/imgui/imgui.cpp.s
+src/data/LoadData2/LoadData2.s: src/data/LoadData2/LoadData2.cpp.s
 
-.PHONY : src/imgui/imgui.s
+.PHONY : src/data/LoadData2/LoadData2.s
 
 # target to generate assembly for a file
-src/imgui/imgui.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui.cpp.s
-.PHONY : src/imgui/imgui.cpp.s
+src/data/LoadData2/LoadData2.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/LoadData2/LoadData2.cpp.s
+.PHONY : src/data/LoadData2/LoadData2.cpp.s
 
-src/imgui/imgui_demo.o: src/imgui/imgui_demo.cpp.o
+src/data/Shaders.o: src/data/Shaders.cpp.o
 
-.PHONY : src/imgui/imgui_demo.o
+.PHONY : src/data/Shaders.o
 
 # target to build an object file
-src/imgui/imgui_demo.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o
-.PHONY : src/imgui/imgui_demo.cpp.o
+src/data/Shaders.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shaders.cpp.o
+.PHONY : src/data/Shaders.cpp.o
 
-src/imgui/imgui_demo.i: src/imgui/imgui_demo.cpp.i
+src/data/Shaders.i: src/data/Shaders.cpp.i
 
-.PHONY : src/imgui/imgui_demo.i
+.PHONY : src/data/Shaders.i
 
 # target to preprocess a source file
-src/imgui/imgui_demo.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.i
-.PHONY : src/imgui/imgui_demo.cpp.i
+src/data/Shaders.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shaders.cpp.i
+.PHONY : src/data/Shaders.cpp.i
 
-src/imgui/imgui_demo.s: src/imgui/imgui_demo.cpp.s
+src/data/Shaders.s: src/data/Shaders.cpp.s
 
-.PHONY : src/imgui/imgui_demo.s
+.PHONY : src/data/Shaders.s
 
 # target to generate assembly for a file
-src/imgui/imgui_demo.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.s
-.PHONY : src/imgui/imgui_demo.cpp.s
+src/data/Shaders.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shaders.cpp.s
+.PHONY : src/data/Shaders.cpp.s
 
-src/imgui/imgui_draw.o: src/imgui/imgui_draw.cpp.o
+src/data/VAO.o: src/data/VAO.cpp.o
 
-.PHONY : src/imgui/imgui_draw.o
+.PHONY : src/data/VAO.o
 
 # target to build an object file
-src/imgui/imgui_draw.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o
-.PHONY : src/imgui/imgui_draw.cpp.o
+src/data/VAO.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/VAO.cpp.o
+.PHONY : src/data/VAO.cpp.o
 
-src/imgui/imgui_draw.i: src/imgui/imgui_draw.cpp.i
+src/data/VAO.i: src/data/VAO.cpp.i
 
-.PHONY : src/imgui/imgui_draw.i
+.PHONY : src/data/VAO.i
 
 # target to preprocess a source file
-src/imgui/imgui_draw.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.i
-.PHONY : src/imgui/imgui_draw.cpp.i
+src/data/VAO.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/VAO.cpp.i
+.PHONY : src/data/VAO.cpp.i
 
-src/imgui/imgui_draw.s: src/imgui/imgui_draw.cpp.s
+src/data/VAO.s: src/data/VAO.cpp.s
 
-.PHONY : src/imgui/imgui_draw.s
+.PHONY : src/data/VAO.s
 
 # target to generate assembly for a file
-src/imgui/imgui_draw.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.s
-.PHONY : src/imgui/imgui_draw.cpp.s
+src/data/VAO.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/VAO.cpp.s
+.PHONY : src/data/VAO.cpp.s
 
-src/imgui/imgui_impl_glfw.o: src/imgui/imgui_impl_glfw.cpp.o
+src/data/VBO.o: src/data/VBO.cpp.o
 
-.PHONY : src/imgui/imgui_impl_glfw.o
+.PHONY : src/data/VBO.o
 
 # target to build an object file
-src/imgui/imgui_impl_glfw.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o
-.PHONY : src/imgui/imgui_impl_glfw.cpp.o
+src/data/VBO.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/VBO.cpp.o
+.PHONY : src/data/VBO.cpp.o
 
-src/imgui/imgui_impl_glfw.i: src/imgui/imgui_impl_glfw.cpp.i
+src/data/VBO.i: src/data/VBO.cpp.i
 
-.PHONY : src/imgui/imgui_impl_glfw.i
-
-# target to preprocess a source file
-src/imgui/imgui_impl_glfw.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.i
-.PHONY : src/imgui/imgui_impl_glfw.cpp.i
-
-src/imgui/imgui_impl_glfw.s: src/imgui/imgui_impl_glfw.cpp.s
-
-.PHONY : src/imgui/imgui_impl_glfw.s
-
-# target to generate assembly for a file
-src/imgui/imgui_impl_glfw.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.s
-.PHONY : src/imgui/imgui_impl_glfw.cpp.s
-
-src/imgui/imgui_impl_opengl3.o: src/imgui/imgui_impl_opengl3.cpp.o
-
-.PHONY : src/imgui/imgui_impl_opengl3.o
-
-# target to build an object file
-src/imgui/imgui_impl_opengl3.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o
-.PHONY : src/imgui/imgui_impl_opengl3.cpp.o
-
-src/imgui/imgui_impl_opengl3.i: src/imgui/imgui_impl_opengl3.cpp.i
-
-.PHONY : src/imgui/imgui_impl_opengl3.i
+.PHONY : src/data/VBO.i
 
 # target to preprocess a source file
-src/imgui/imgui_impl_opengl3.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.i
-.PHONY : src/imgui/imgui_impl_opengl3.cpp.i
+src/data/VBO.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/VBO.cpp.i
+.PHONY : src/data/VBO.cpp.i
 
-src/imgui/imgui_impl_opengl3.s: src/imgui/imgui_impl_opengl3.cpp.s
+src/data/VBO.s: src/data/VBO.cpp.s
 
-.PHONY : src/imgui/imgui_impl_opengl3.s
-
-# target to generate assembly for a file
-src/imgui/imgui_impl_opengl3.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.s
-.PHONY : src/imgui/imgui_impl_opengl3.cpp.s
-
-src/imgui/imgui_widgets.o: src/imgui/imgui_widgets.cpp.o
-
-.PHONY : src/imgui/imgui_widgets.o
-
-# target to build an object file
-src/imgui/imgui_widgets.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o
-.PHONY : src/imgui/imgui_widgets.cpp.o
-
-src/imgui/imgui_widgets.i: src/imgui/imgui_widgets.cpp.i
-
-.PHONY : src/imgui/imgui_widgets.i
-
-# target to preprocess a source file
-src/imgui/imgui_widgets.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.i
-.PHONY : src/imgui/imgui_widgets.cpp.i
-
-src/imgui/imgui_widgets.s: src/imgui/imgui_widgets.cpp.s
-
-.PHONY : src/imgui/imgui_widgets.s
+.PHONY : src/data/VBO.s
 
 # target to generate assembly for a file
-src/imgui/imgui_widgets.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.s
-.PHONY : src/imgui/imgui_widgets.cpp.s
+src/data/VBO.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/VBO.cpp.s
+.PHONY : src/data/VBO.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -555,6 +474,114 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/screen/Display.o: src/screen/Display.cpp.o
+
+.PHONY : src/screen/Display.o
+
+# target to build an object file
+src/screen/Display.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Display.cpp.o
+.PHONY : src/screen/Display.cpp.o
+
+src/screen/Display.i: src/screen/Display.cpp.i
+
+.PHONY : src/screen/Display.i
+
+# target to preprocess a source file
+src/screen/Display.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Display.cpp.i
+.PHONY : src/screen/Display.cpp.i
+
+src/screen/Display.s: src/screen/Display.cpp.s
+
+.PHONY : src/screen/Display.s
+
+# target to generate assembly for a file
+src/screen/Display.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Display.cpp.s
+.PHONY : src/screen/Display.cpp.s
+
+src/screen/MVP.o: src/screen/MVP.cpp.o
+
+.PHONY : src/screen/MVP.o
+
+# target to build an object file
+src/screen/MVP.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/MVP.cpp.o
+.PHONY : src/screen/MVP.cpp.o
+
+src/screen/MVP.i: src/screen/MVP.cpp.i
+
+.PHONY : src/screen/MVP.i
+
+# target to preprocess a source file
+src/screen/MVP.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/MVP.cpp.i
+.PHONY : src/screen/MVP.cpp.i
+
+src/screen/MVP.s: src/screen/MVP.cpp.s
+
+.PHONY : src/screen/MVP.s
+
+# target to generate assembly for a file
+src/screen/MVP.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/MVP.cpp.s
+.PHONY : src/screen/MVP.cpp.s
+
+src/screen/Render.o: src/screen/Render.cpp.o
+
+.PHONY : src/screen/Render.o
+
+# target to build an object file
+src/screen/Render.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Render.cpp.o
+.PHONY : src/screen/Render.cpp.o
+
+src/screen/Render.i: src/screen/Render.cpp.i
+
+.PHONY : src/screen/Render.i
+
+# target to preprocess a source file
+src/screen/Render.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Render.cpp.i
+.PHONY : src/screen/Render.cpp.i
+
+src/screen/Render.s: src/screen/Render.cpp.s
+
+.PHONY : src/screen/Render.s
+
+# target to generate assembly for a file
+src/screen/Render.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Render.cpp.s
+.PHONY : src/screen/Render.cpp.s
+
+src/screen/c_ImGui.o: src/screen/c_ImGui.cpp.o
+
+.PHONY : src/screen/c_ImGui.o
+
+# target to build an object file
+src/screen/c_ImGui.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/c_ImGui.cpp.o
+.PHONY : src/screen/c_ImGui.cpp.o
+
+src/screen/c_ImGui.i: src/screen/c_ImGui.cpp.i
+
+.PHONY : src/screen/c_ImGui.i
+
+# target to preprocess a source file
+src/screen/c_ImGui.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/c_ImGui.cpp.i
+.PHONY : src/screen/c_ImGui.cpp.i
+
+src/screen/c_ImGui.s: src/screen/c_ImGui.cpp.s
+
+.PHONY : src/screen/c_ImGui.s
+
+# target to generate assembly for a file
+src/screen/c_ImGui.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/c_ImGui.cpp.s
+.PHONY : src/screen/c_ImGui.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -564,54 +591,57 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... main"
-	@echo "... src/Display/Display.o"
-	@echo "... src/Display/Display.i"
-	@echo "... src/Display/Display.s"
-	@echo "... src/LoadData/Cylinder.o"
-	@echo "... src/LoadData/Cylinder.i"
-	@echo "... src/LoadData/Cylinder.s"
-	@echo "... src/LoadData/LoadData.o"
-	@echo "... src/LoadData/LoadData.i"
-	@echo "... src/LoadData/LoadData.s"
-	@echo "... src/LoadData2/LoadData2.o"
-	@echo "... src/LoadData2/LoadData2.i"
-	@echo "... src/LoadData2/LoadData2.s"
-	@echo "... src/MPV/MVP.o"
-	@echo "... src/MPV/MVP.i"
-	@echo "... src/MPV/MVP.s"
-	@echo "... src/VAO/VAO.o"
-	@echo "... src/VAO/VAO.i"
-	@echo "... src/VAO/VAO.s"
-	@echo "... src/VBO/VBO.o"
-	@echo "... src/VBO/VBO.i"
-	@echo "... src/VBO/VBO.s"
-	@echo "... src/Window/Render.o"
-	@echo "... src/Window/Render.i"
-	@echo "... src/Window/Render.s"
-	@echo "... src/imgui/c_ImGui.o"
-	@echo "... src/imgui/c_ImGui.i"
-	@echo "... src/imgui/c_ImGui.s"
-	@echo "... src/imgui/imgui.o"
-	@echo "... src/imgui/imgui.i"
-	@echo "... src/imgui/imgui.s"
-	@echo "... src/imgui/imgui_demo.o"
-	@echo "... src/imgui/imgui_demo.i"
-	@echo "... src/imgui/imgui_demo.s"
-	@echo "... src/imgui/imgui_draw.o"
-	@echo "... src/imgui/imgui_draw.i"
-	@echo "... src/imgui/imgui_draw.s"
-	@echo "... src/imgui/imgui_impl_glfw.o"
-	@echo "... src/imgui/imgui_impl_glfw.i"
-	@echo "... src/imgui/imgui_impl_glfw.s"
-	@echo "... src/imgui/imgui_impl_opengl3.o"
-	@echo "... src/imgui/imgui_impl_opengl3.i"
-	@echo "... src/imgui/imgui_impl_opengl3.s"
-	@echo "... src/imgui/imgui_widgets.o"
-	@echo "... src/imgui/imgui_widgets.i"
-	@echo "... src/imgui/imgui_widgets.s"
+	@echo "... includes/imgui/imgui.o"
+	@echo "... includes/imgui/imgui.i"
+	@echo "... includes/imgui/imgui.s"
+	@echo "... includes/imgui/imgui_demo.o"
+	@echo "... includes/imgui/imgui_demo.i"
+	@echo "... includes/imgui/imgui_demo.s"
+	@echo "... includes/imgui/imgui_draw.o"
+	@echo "... includes/imgui/imgui_draw.i"
+	@echo "... includes/imgui/imgui_draw.s"
+	@echo "... includes/imgui/imgui_impl_glfw.o"
+	@echo "... includes/imgui/imgui_impl_glfw.i"
+	@echo "... includes/imgui/imgui_impl_glfw.s"
+	@echo "... includes/imgui/imgui_impl_opengl3.o"
+	@echo "... includes/imgui/imgui_impl_opengl3.i"
+	@echo "... includes/imgui/imgui_impl_opengl3.s"
+	@echo "... includes/imgui/imgui_widgets.o"
+	@echo "... includes/imgui/imgui_widgets.i"
+	@echo "... includes/imgui/imgui_widgets.s"
+	@echo "... src/data/Cylinder.o"
+	@echo "... src/data/Cylinder.i"
+	@echo "... src/data/Cylinder.s"
+	@echo "... src/data/LoadData.o"
+	@echo "... src/data/LoadData.i"
+	@echo "... src/data/LoadData.s"
+	@echo "... src/data/LoadData2/LoadData2.o"
+	@echo "... src/data/LoadData2/LoadData2.i"
+	@echo "... src/data/LoadData2/LoadData2.s"
+	@echo "... src/data/Shaders.o"
+	@echo "... src/data/Shaders.i"
+	@echo "... src/data/Shaders.s"
+	@echo "... src/data/VAO.o"
+	@echo "... src/data/VAO.i"
+	@echo "... src/data/VAO.s"
+	@echo "... src/data/VBO.o"
+	@echo "... src/data/VBO.i"
+	@echo "... src/data/VBO.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/screen/Display.o"
+	@echo "... src/screen/Display.i"
+	@echo "... src/screen/Display.s"
+	@echo "... src/screen/MVP.o"
+	@echo "... src/screen/MVP.i"
+	@echo "... src/screen/MVP.s"
+	@echo "... src/screen/Render.o"
+	@echo "... src/screen/Render.i"
+	@echo "... src/screen/Render.s"
+	@echo "... src/screen/c_ImGui.o"
+	@echo "... src/screen/c_ImGui.i"
+	@echo "... src/screen/c_ImGui.s"
 .PHONY : help
 
 

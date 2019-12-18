@@ -88,115 +88,118 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/headers/colors.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/colors.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/headers/constants.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/constants.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/headers/debugbreak.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/debugbreak.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Display/Display.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imconfig.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Display/Display.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/Cylinder.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/Cylinder.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui_demo.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/LoadData.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui_draw.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData/LoadData.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui_impl_glfw.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData2/LoadData2.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui_impl_glfw.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/LoadData2/LoadData2.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui_impl_opengl3.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/MPV/MVP.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui_impl_opengl3.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/MPV/MVP.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui_internal.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Shaders/Shaders.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imgui_widgets.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VAO/VAO.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imstb_rectpack.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VAO/VAO.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imstb_textedit.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VBO/VBO.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imstb_truetype.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/VBO/VBO.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Cylinder.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Window/Render.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Cylinder.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/Window/Render.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/c_ImGui.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/c_ImGui.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData2/LoadData2.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imconfig.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData2/LoadData2.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_demo.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VAO.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_draw.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VAO.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_impl_glfw.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VBO.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_impl_glfw.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_impl_opengl3.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_impl_opengl3.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_internal.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imgui_widgets.cpp">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_rectpack.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_textedit.h">
-			<Option target="main"/>
-		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/imgui/imstb_truetype.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VBO.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/main.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/MVP.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/MVP.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/c_ImGui.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/c_ImGui.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/CMakeLists.txt">

@@ -3,54 +3,69 @@
 
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
+
 #else
 #include <GL/gl.h>
 #endif
 
-#include "src/LoadData/LoadData.h"
-#include "src/Shaders/Shaders.h"
-#include "src/MPV/MVP.h"
-#include "src/imgui/c_ImGui.h"
-#include "src/Window/Render.h"
-#include "src/VAO/VAO.h"
-#include "src/VBO/VBO.h"
-#include "src/Display/Display.h"
-#include "headers/colors.h"
+// namespace rgb
+#include "includes/colors.h"
+
+// namespace data
+#include "src/data/LoadData.h"
+#include "src/data/Cylinder.h"
+#include "src/data/Shaders.h"
+#include "src/data/VAO.h"
+#include "src/data/VBO.h"
+
+// namespace screen
+#include "src/screen/MVP.h"
+#include "src/screen/c_ImGui.h"
+#include "src/screen/Render.h"
+#include "src/screen/Display.h"
+
 
 int main()
 {
-    Render window;
+    screen::Render window;
 
-    c_ImGui::init(window.render);
+    screen::c_ImGui::init(window.render);
 
     GLuint v_ArrayID;
-    VAO m_VAO(v_ArrayID);
+    data::VAO m_VAO(v_ArrayID);
 
-    GLuint programID = LoadShaders("../resources/shaders/SimpleVertexShader.glsl", "../resources/shaders/SimpleFragmentShader.glsl");
+    GLuint programID = data::Shaders::LoadShaders("../resources/shaders/SimpleVertexShader.glsl", "../resources/shaders/SimpleFragmentShader.glsl");
 
-    MVP::init_MatID(programID);
+    screen::MVP::init_MatID(programID);
 
-    LoadData myData("../resources/data/rankspts.csv");
+    data::LoadData myData("../resources/data/rankspts.csv");
 
-    VBO m_VBO( &myData );
+    data::Cylinder m_cyl(0, &myData);
+    std::vector<glm::vec3> tab = m_cyl.makeBottom();
+
+    std::cout << tab.size() * 3 << std:: endl;
+
+    data::VBO m_VBO( &myData, tab );
 
     do
     {
-        Display::clear();
+        screen::Display::clear();
 
-        MVP::send_updated(window.render);
+        data::Shaders::bind(programID);
 
-        c_ImGui::loop();
+        screen::MVP::send_updated(window.render);
 
-        Display::draw(programID, m_VBO, rgb::colors);
+        screen::c_ImGui::loop();
 
-        c_ImGui::maj(rgb::colors);
+        screen::Display::draw(programID, m_VBO, rgb::colors);
 
-        Display::update(window);
+        screen::c_ImGui::maj(rgb::colors);
+
+        screen::Display::update(window);
     }
     while( window.shouldNotClose() );
 
-    c_ImGui::terminate();
+    //c_ImGui::terminate();
     glfwTerminate( );
 
     return 0;
