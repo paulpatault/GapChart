@@ -9,17 +9,19 @@ out vec3 frag_Position;
 out float frag_Depth;
 // end
 
-uniform mat4 u_MVP;
 uniform vec4 u_color;
+uniform mat4 u_Model;
+uniform mat4 u_View;
+uniform mat4 u_Projection;
 
 float scalar = position.z / 20;
 
 void main(){
 
-    gl_Position = u_MVP * position;
+    gl_Position = u_Projection * u_View * u_Model * position;
 
     if(position.z < 0.15){
-        mycolor = vec4(vec3(u_color*scalar), 1.f) ;
+//        mycolor = vec4(vec3(u_color*scalar), 1.f) ;
         mycolor = u_color;
     }
     else{
@@ -27,7 +29,7 @@ void main(){
     }
 
     // add
-    frag_Position = vec3(u_MVP * position);
+    frag_Position = vec3(u_Projection * u_View * u_Model * position);
     frag_Depth = gl_Position.z;
     // end
 

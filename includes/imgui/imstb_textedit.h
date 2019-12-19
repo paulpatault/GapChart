@@ -217,7 +217,7 @@
 //
 //      click:
 //          call this with the mouse x,y on a mouse down; it will update the cursor
-//          and reset the selection start/end to the cursor point. the x,y must
+//          and clear the selection start/end to the cursor point. the x,y must
 //          be relative to the text widget, with (0,0) being the top left.
 //     
 //      drag:
@@ -1335,7 +1335,7 @@ static void stb_text_makeundo_replace(STB_TEXTEDIT_STRING *str, STB_TexteditStat
    }
 }
 
-// reset the state to default
+// clear the state to default
 static void stb_textedit_clear_state(STB_TexteditState *state, int is_single_line)
 {
    state->undostate.undo_point = 0;

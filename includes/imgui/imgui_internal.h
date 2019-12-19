@@ -421,7 +421,7 @@ enum ImGuiSeparatorFlags_
     ImGuiSeparatorFlags_SpanAllColumns      = 1 << 2
 };
 
-// Transient per-window flags, reset at the beginning of the frame. For child window, inherited from parent on first Begin().
+// Transient per-window flags, clear at the beginning of the frame. For child window, inherited from parent on first Begin().
 // This is going to be exposed in imgui.h when stabilized enough.
 enum ImGuiItemFlags_
 {
@@ -680,7 +680,7 @@ struct IMGUI_API ImGuiInputTextState
     int                     BufCapacityA;           // end-user buffer capacity
     float                   ScrollX;                // horizontal scrolling/offset
     ImStb::STB_TexteditState Stb;                   // state for stb_textedit.h
-    float                   CursorAnim;             // timer for cursor blink, reset on every user action so the cursor reappears immediately
+    float                   CursorAnim;             // timer for cursor blink, clear on every user action so the cursor reappears immediately
     bool                    CursorFollow;           // set when we want scrolling to follow the current cursor position (not always!)
     bool                    SelectedAllMouseLock;   // after a double-click to select all, we ignore further mouse drags to update selection
     ImGuiInputTextFlags     UserFlags;              // Temporarily set while we call user's callback
@@ -969,7 +969,7 @@ struct ImGuiContext
     ImVector<ImGuiStyleMod> StyleModifiers;                     // Stack for PushStyleVar()/PopStyleVar()
     ImVector<ImFont*>       FontStack;                          // Stack for PushFont()/PopFont()
     ImVector<ImGuiPopupData>OpenPopupStack;                     // Which popups are open (persistent)
-    ImVector<ImGuiPopupData>BeginPopupStack;                    // Which level of BeginPopup() we are in (reset every frame)
+    ImVector<ImGuiPopupData>BeginPopupStack;                    // Which level of BeginPopup() we are in (clear every frame)
 
     // Navigation data (for gamepad/keyboard)
     ImGuiWindow*            NavWindow;                          // Focused window for navigation. Could be called 'FocusWindow'
@@ -1002,7 +1002,7 @@ struct ImGuiContext
     bool                    NavInitRequestFromMove;
     ImGuiID                 NavInitResultId;
     ImRect                  NavInitResultRectRel;
-    bool                    NavMoveFromClampedRefRect;          // Set by manual scrolling, if we scroll to a point where NavId isn't visible we reset navigation from visible items
+    bool                    NavMoveFromClampedRefRect;          // Set by manual scrolling, if we scroll to a point where NavId isn't visible we clear navigation from visible items
     bool                    NavMoveRequest;                     // Move request for this frame
     ImGuiNavMoveFlags       NavMoveRequestFlags;
     ImGuiNavForward         NavMoveRequestForward;              // None / ForwardQueued / ForwardActive (this is used to navigate sibling parent menus from a child menu)
@@ -1243,7 +1243,7 @@ struct ImGuiContext
 // ImGuiWindow
 //-----------------------------------------------------------------------------
 
-// Transient per-window data, reset at the beginning of the frame. This used to be called ImGuiDrawContext, hence the DC variable name in ImGuiWindow.
+// Transient per-window data, clear at the beginning of the frame. This used to be called ImGuiDrawContext, hence the DC variable name in ImGuiWindow.
 // FIXME: That's theory, in practice the delimitation between ImGuiWindow and ImGuiWindowTempData is quite tenuous and could be reconsidered.
 struct IMGUI_API ImGuiWindowTempData
 {
@@ -1374,7 +1374,7 @@ struct IMGUI_API ImGuiWindow
     ImVec2                  SetWindowPosPivot;                  // store window pivot for positioning. ImVec2(0,0) when positioning from top-left corner; ImVec2(0.5f,0.5f) for centering; ImVec2(1,1) for bottom right.
 
     ImVector<ImGuiID>       IDStack;                            // ID stack. ID are hashes seeded with the value at the top of the stack. (In theory this should be in the TempData structure)
-    ImGuiWindowTempData     DC;                                 // Temporary per-window data, reset at the beginning of the frame. This used to be called ImGuiDrawContext, hence the "DC" variable name.
+    ImGuiWindowTempData     DC;                                 // Temporary per-window data, clear at the beginning of the frame. This used to be called ImGuiDrawContext, hence the "DC" variable name.
 
     // The best way to understand what those rectangles are is to use the 'Metrics -> Tools -> Show windows rectangles' viewer.
     // The main 'OuterRect', omitted as a field, is window->Rect().

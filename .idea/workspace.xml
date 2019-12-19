@@ -12,69 +12,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data/Cylinder.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Shaders.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_demo.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_draw.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_impl_glfw.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_impl_opengl3.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/src/imgui/imgui_widgets.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/main.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/headers/colors.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/colors.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/headers/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/constants.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/headers/debugbreak.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/debugbreak.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/englishR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/constants.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui_impl_opengl3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_impl_opengl3.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui_internal.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_internal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui_widgets.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_widgets.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/imgui/imstb_rectpack.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imstb_rectpack.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/imgui/imstb_textedit.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imstb_textedit.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/Display.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadData/Cylinder.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadData/Cylinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadData/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadData/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadData2/LoadData2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData2/LoadData2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadData2/LoadData2.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData2/LoadData2.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MPV/MVP.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MPV/MVP.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shaders/Shaders.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Shaders.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VAO/VAO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VAO.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VAO/VAO.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VAO.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VBO/VBO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VBO/VBO.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Window/Render.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Render.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Window/Render.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Render.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/c_ImGui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/c_ImGui.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/c_ImGui.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/c_ImGui.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imconfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imconfig.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui_demo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_demo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui_draw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_draw.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui_impl_glfw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_impl_glfw.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui_impl_glfw.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_impl_glfw.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui_impl_opengl3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_impl_opengl3.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui_impl_opengl3.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_impl_opengl3.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui_internal.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_internal.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imgui_widgets.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_widgets.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imstb_rectpack.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imstb_rectpack.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imstb_textedit.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imstb_textedit.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imgui/imstb_truetype.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imstb_truetype.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Cylinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Cylinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/VBO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/VBO.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Display.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/MVP.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/MVP.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Render.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Render.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +69,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/screen" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -120,16 +81,17 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/screen" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/includes" />
       <recent name="$PROJECT_DIR$/src/screen" />
       <recent name="$PROJECT_DIR$/src/data" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/resources/shaders" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -215,7 +177,8 @@
       <workItem from="1576035499931" duration="162000" />
       <workItem from="1576496226183" duration="718000" />
       <workItem from="1576511151621" duration="26499000" />
-      <workItem from="1576555804381" duration="14466000" />
+      <workItem from="1576555804381" duration="33341000" />
+      <workItem from="1576684880440" duration="15211000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -357,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576554653459</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="cleanup">
+      <created>1576627862654</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1576627862654</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,7 +358,6 @@
     <MESSAGE value="mvp &amp; refactor &amp; new files" />
     <MESSAGE value="keyboard + cleanup" />
     <MESSAGE value="remise à niveau" />
-    <MESSAGE value="cleanup" />
     <MESSAGE value="save" />
     <MESSAGE value="clean up | separation fichiers" />
     <MESSAGE value="oubli intégration cst.h dans render" />
@@ -396,6 +365,7 @@
     <MESSAGE value="rangement" />
     <MESSAGE value="séparation vec4 colors[]" />
     <MESSAGE value="rename dir" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename dir" />
+    <MESSAGE value="cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
   </component>
 </project>

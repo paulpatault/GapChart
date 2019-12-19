@@ -20,11 +20,13 @@ namespace data {
 
     public:
         Cylinder(int teamNumber, LoadData* data);
-        ~Cylinder();
-        std::vector<glm::vec3> makeBottom();
-        void makeCylinder();
-        void makeNormals();
 
+        ~Cylinder();
+        std::vector<glm::vec3> makeBackFace();
+        std::vector<glm::vec3> makeHalfCircles(std::vector<glm::vec3> backFace, bool arc_only);
+        std::vector<glm::vec3> makeLinkCircles(std::vector<glm::vec3> halfCircles);
+        std::vector<glm::vec3> makeCombinedCylinder();
+        void makeNormals();
 
 
     };

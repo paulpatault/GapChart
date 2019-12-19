@@ -18,22 +18,19 @@ namespace screen {
     static glm::vec2 zNearFar = glm::vec2(-100.f, 100.f);
     static glm::vec3 angle = glm::vec3(90.f, 0.f,0.f);
 
-    static glm::mat4 Projection = glm::mat4(1.0f);
-    static glm::mat4 View = glm::mat4(1.0f);
-    static glm::mat4 Model = glm::mat4(1.0f);
-
-    static GLint matrixID;
+    static GLint model_id;
+    static GLint view_id;
+    static GLint projection_id;
 
     class MVP {
     private:
-        static glm::mat4 updateMVP();
-        static glm::mat4 reInitMVP();
+        static void updateMVP(glm::mat4[]);
+        static void reInitMVP(glm::mat4[]);
+        static void maj(GLFWwindow *window, glm::mat4[]);
         static void keyboardCallback(GLFWwindow *window);
 
     public:
-        static glm::mat4 maj(GLFWwindow *window);
-        static void init_MatID(GLuint programID);
-        static GLint getMatrixID();
+        static void setLocation(GLuint programID);
         static void send_updated(GLFWwindow *window);
 
     };

@@ -36,80 +36,73 @@ namespace screen {
             eyePos.z -= 2.f;
     }
 
-    glm::mat4 MVP::updateMVP()
+    void MVP::updateMVP(glm::mat4 MPV[])
     {
-        /// Projection Matrix ///
-        float ratio = (float)cst::FSCREEN_WIDTH/cst::FSCREEN_HEIGHT;
-        glm::mat4 _projection = glm::perspective(glm::radians(45.f), ratio, zNearFar.x, zNearFar.y );
-
-        /// View Matrix ///
-        glm::vec3 eye    = glm::vec3(eyePos);
-        glm::vec3 center = glm::vec3(0.f, 0.f, zNearFar.x);
-        glm::vec3 up     = glm::vec3(0.f, 1.f, 0.f);
-        glm::mat4 _view = glm::lookAt( eye, center, up );
-
         /// Model Matrix ///
         // rotation
         glm::vec3 xAxis = glm::vec3(1, 0, 0);
         glm::vec3 yAxis = glm::vec3(0, 1, 0);
         glm::vec3 zAxis = glm::vec3(0, 0, 1);
-        glm::mat4 _model;
-        _model = glm::rotate(Model, glm::radians(angle.x), xAxis);
-        _model = glm::rotate(_model, glm::radians(angle.y), yAxis);
-        _model = glm::rotate(_model, glm::radians(angle.z), zAxis);
-        _model = glm::rotate(_model, glm::radians(-90.f), xAxis);
 
-        // scale
-        /*
-        glm::vec3 scaleXYZ = vec3(scale);
-        Model = glm::scale(Model, scaleXYZ);
-        */
+        MPV[0] = glm::rotate(glm::mat4(1.0f), glm::radians(angle.x), xAxis);
+        MPV[0] = glm::rotate(MPV[0], glm::radians(angle.y), yAxis);
+        MPV[0] = glm::rotate(MPV[0], glm::radians(angle.z), zAxis);
+        MPV[0] = glm::rotate(MPV[0], glm::radians(-90.f), xAxis);
 
         // translation
         glm::vec3 translation = glm::vec3(- cst::FSCREEN_WIDTH/2, - cst::FSCREEN_HEIGHT/2,0.f);
-        _model = glm::translate(_model, translation);
+        MPV[0] = glm::translate(MPV[0], translation);
 
-        /// ModelViewProjection Matrix ///
-        return _projection * _view * _model;
+        /// View Matrix ///
+        glm::vec3 eye    = glm::vec3(eyePos);
+        glm::vec3 center = glm::vec3(0.f, 0.f, zNearFar.x);
+        glm::vec3 up     = glm::vec3(0.f, 1.f, 0.f);
+        MPV[1] = glm::lookAt( eye, center, up );
+
+
+        /// Projection Matrix ///
+        float ratio = (float)cst::FSCREEN_WIDTH/cst::FSCREEN_HEIGHT;
+        MPV[2] = glm::perspective(glm::radians(45.f), ratio, zNearFar.x, zNearFar.y );
+
     }
 
-    glm::mat4 MVP::reInitMVP()
+    void MVP::reInitMVP(glm::mat4 MPV[])
     {
         eyePos = glm::vec3(0.f, 0.f, 1000.f);
         zNearFar = glm::vec2(-100.f, 100.f);
         angle = glm::vec3(90.f, 0.f,0.f);
 
-        Projection = glm::mat4(1.0f);
-        View = glm::mat4(1.0f);
-        Model = glm::mat4(1.0f);
+        MPV[0] = glm::mat4(1.0f);
+        MPV[1] = glm::mat4(1.0f);
+        MPV[2] = glm::mat4(1.0f);
 
-        return updateMVP();
+        updateMVP(MPV);
     }
 
-    glm::mat4 MVP::maj(GLFWwindow *window)
+    void MVP::maj(GLFWwindow *window, glm::mat4 MPV[])
     {
         keyboardCallback(window);
 
         if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
-            return MVP::reInitMVP();
-
-        return MVP::updateMVP();
+            MVP::reInitMVP(MPV);
+        else
+            MVP::updateMVP(MPV);
     }
 
-    void MVP::init_MatID(GLuint programID)
+    void MVP::setLocation(GLuint programID)
     {
-        matrixID = glGetUniformLocation(programID, "u_MVP");
-    }
-
-    GLint MVP::getMatrixID()
-    {
-        return matrixID;
+        model_id = glGetUniformLocation(programID, "u_Model");
+        view_id = glGetUniformLocation(programID, "u_View");
+        projection_id = glGetUniformLocation(programID, "u_Projection");
     }
 
     void MVP::send_updated(GLFWwindow *window)
     {
-        glm::mat4 mvp = maj(window);
-        glUniformMatrix4fv( matrixID, 1, GL_FALSE, &mvp[0][0] ); // Send new matrix
+        glm::mat4 mvp[3];
+        maj(window, mvp);
+        glUniformMatrix4fv(model_id, 1, GL_FALSE, &mvp[0][0][0] );
+        glUniformMatrix4fv(view_id, 1, GL_FALSE, &mvp[1][0][0] );
+        glUniformMatrix4fv(projection_id, 1, GL_FALSE, &mvp[2][0][0] );
     }
 
 

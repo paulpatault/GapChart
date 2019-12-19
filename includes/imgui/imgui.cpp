@@ -1334,10 +1334,10 @@ ImU32 ImHashData(const void* data_p, size_t data_size, ImU32 seed)
     return ~crc;
 }
 
-// Zero-terminated string hash, with support for ### to reset back to seed value
+// Zero-terminated string hash, with support for ### to clear back to seed value
 // We support a syntax of "label###id" where only "###id" is included in the hash, and only "label" gets displayed.
 // Because this syntax is rarely used we are optimizing for the common case.
-// - If we reach ### in the string we discard the hash so far and reset to the seed.
+// - If we reach ### in the string we discard the hash so far and clear to the seed.
 // - We don't do 'current += 2; continue;' after handling ### to keep the code smaller/faster (measured ~10% diff in Debug build)
 // FIXME-OPT: Replace with e.g. FNV1a hash? CRC32 pretty much randomly access 1KB. Need to do proper measurements.
 ImU32 ImHashStr(const char* data_p, size_t data_size, ImU32 seed)
@@ -4381,7 +4381,7 @@ void ImGui::ResetMouseDragDelta(int button)
 {
     ImGuiContext& g = *GImGui;
     IM_ASSERT(button >= 0 && button < IM_ARRAYSIZE(g.IO.MouseDown));
-    // NB: We don't need to reset g.IO.MouseDragMaxDistanceSqr
+    // NB: We don't need to clear g.IO.MouseDragMaxDistanceSqr
     g.IO.MouseClickedPos[button] = g.IO.MousePos;
 }
 
@@ -5390,7 +5390,7 @@ bool ImGui::Begin(const char* name, bool* p_open, ImGuiWindowFlags flags)
             window->HiddenFramesCannotSkipItems = 1;
 
         // Hide popup/tooltip window when re-opening while we measure size (because we recycle the windows)
-        // We reset Size/ContentSize for reappearing popups/tooltips early in this function, so further code won't be tempted to use the old size.
+        // We clear Size/ContentSize for reappearing popups/tooltips early in this function, so further code won't be tempted to use the old size.
         if (window_just_activated_by_user && (flags & (ImGuiWindowFlags_Popup | ImGuiWindowFlags_Tooltip)) != 0)
         {
             window->HiddenFramesCannotSkipItems = 1;
@@ -7213,7 +7213,7 @@ void ImGui::BeginTooltipEx(ImGuiWindowFlags extra_flags, bool override_previous_
         if (ImGuiWindow* window = FindWindowByName(window_name))
             if (window->Active)
             {
-                // Hide previous tooltip from being displayed. We can't easily "reset" the content of a window so we create a new one.
+                // Hide previous tooltip from being displayed. We can't easily "clear" the content of a window so we create a new one.
                 window->Hidden = true;
                 window->HiddenFramesCanSkipItems = 1;
                 ImFormatString(window_name, IM_ARRAYSIZE(window_name), "##Tooltip_%02d", ++g.TooltipOverrideCount);
@@ -7282,7 +7282,7 @@ void ImGui::OpenPopup(const char* str_id)
 // Mark popup as open (toggle toward open state).
 // Popups are closed when user click outside, or activate a pressable item, or CloseCurrentPopup() is called within a BeginPopup()/EndPopup() block.
 // Popup identifiers are relative to the current ID-stack (so OpenPopup and BeginPopup needs to be at the same level).
-// One open popup per level of the popup hierarchy (NB: when assigning we reset the Render member of ImGuiPopupRef to NULL)
+// One open popup per level of the popup hierarchy (NB: when assigning we clear the Render member of ImGuiPopupRef to NULL)
 void ImGui::OpenPopupEx(ImGuiID id)
 {
     ImGuiContext& g = *GImGui;
@@ -8509,7 +8509,7 @@ static void NavUpdateWindowingHighlightWindow(int focus_change_dir)
     ImGuiWindow* window_target = FindWindowNavFocusable(i_current + focus_change_dir, -INT_MAX, focus_change_dir);
     if (!window_target)
         window_target = FindWindowNavFocusable((focus_change_dir < 0) ? (g.WindowsFocusOrder.Size - 1) : 0, i_current, focus_change_dir);
-    if (window_target) // Don't reset windowing target if there's a single window in the list
+    if (window_target) // Don't clear windowing target if there's a single window in the list
         g.NavWindowingTarget = g.NavWindowingTargetAnim = window_target;
     g.NavWindowingToggleLayer = false;
 }

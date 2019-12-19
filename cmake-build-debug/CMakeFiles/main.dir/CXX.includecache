@@ -99,6 +99,8 @@ LoadData.h
 ../src/data/LoadData.h
 
 ../src/screen/Display.h
+vector
+-
 GL/glew.h
 -
 glm/glm.hpp
@@ -157,28 +159,6 @@ includes/imgui/imgui_impl_glfw.h
 ../src/screen/includes/imgui/imgui_impl_glfw.h
 includes/imgui/imgui_impl_opengl3.h
 ../src/screen/includes/imgui/imgui_impl_opengl3.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.cpp
-Shaders.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.h
-stdio.h
--
-cmath
--
-vector
--
-fstream
--
-sstream
--
-iostream
--
-stdlib.h
--
-GL/glew.h
--
 
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/main.cpp
 GL/glew.h

@@ -17,7 +17,6 @@ namespace data {
 
     class VBO {
     private:
-        //std::vector<std::vector<GLuint>> cylindre_vertexbuffer;
         LoadData *m_data;
     public:
         VBO(LoadData* data);

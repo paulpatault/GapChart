@@ -18,10 +18,11 @@ namespace cst {
     const int FSCREEN_WIDTH = 1000.f;
     const int FSCREEN_HEIGHT = 700.f;
 
-    const int DIV_CYLINDER = 1;
+    const int DIV_CYLINDER = 10;
     const int NB_POINTS = 4 * (38 + 1);
-    const float THICKNESS = ((float)SCREEN_HEIGHT / 2) / 20;
-    const float dx = (SCREEN_WIDTH-100)/(float)NB_POINTS;
+    const float THICKNESS = ( (float) FSCREEN_HEIGHT / 2 ) / 20;
+    const float dx = (float) (SCREEN_WIDTH - 100) / NB_POINTS;
+    const float dz = 1;
     const float x0 = 50;
 }
 

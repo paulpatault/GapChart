@@ -41,9 +41,12 @@ namespace screen {
             exit(-1);
         }
 
-        //gère le transparence
+        // transparence
         glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_BLEND);
+
+        glEnable(GL_DEPTH_TEST);
+
 
         std::cout << "Version == " << glGetString(GL_VERSION) << std::endl;
 
@@ -52,6 +55,9 @@ namespace screen {
 
         // Couleur de fond := blanc
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
+
+
 
     }
 

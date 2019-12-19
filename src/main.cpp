@@ -24,10 +24,37 @@
 #include "src/screen/Render.h"
 #include "src/screen/Display.h"
 
+std::vector<glm::vec3> pusher(std::vector<glm::vec3> begin, std::vector<glm::vec3> end)
+{
+    for(int i = 0; i < end.size(); i++)
+    {
+        begin.push_back(end[i]);
+    }
+    return begin;
+}
+
+std::vector<data::VBO> makeVBO(data::LoadData myData)
+{
+    std::vector<data::VBO> res;
+
+    for(int team = 0; team < cst::NB_TEAMS; team++)
+    {
+        data::Cylinder cyl(team, &myData);
+
+        std::vector<glm::vec3> combined = cyl.makeCombinedCylinder();
+
+        data::VBO m_VBO( &myData , combined);
+
+        res.push_back(m_VBO);
+    }
+
+    return res;
+}
 
 int main()
 {
     screen::Render window;
+
 
     screen::c_ImGui::init(window.render);
 
@@ -36,16 +63,11 @@ int main()
 
     GLuint programID = data::Shaders::LoadShaders("../resources/shaders/SimpleVertexShader.glsl", "../resources/shaders/SimpleFragmentShader.glsl");
 
-    screen::MVP::init_MatID(programID);
+    screen::MVP::setLocation(programID);
 
     data::LoadData myData("../resources/data/rankspts.csv");
 
-    data::Cylinder m_cyl(0, &myData);
-    std::vector<glm::vec3> tab = m_cyl.makeBottom();
-
-    std::cout << tab.size() * 3 << std:: endl;
-
-    data::VBO m_VBO( &myData, tab );
+    std::vector<data::VBO> vecVBO = makeVBO(myData);
 
     do
     {
@@ -57,7 +79,7 @@ int main()
 
         screen::c_ImGui::loop();
 
-        screen::Display::draw(programID, m_VBO, rgb::colors);
+        screen::Display::draw(programID, vecVBO, rgb::colors);
 
         screen::c_ImGui::maj(rgb::colors);
 
@@ -65,7 +87,9 @@ int main()
     }
     while( window.shouldNotClose() );
 
-    //c_ImGui::terminate();
+    screen::c_ImGui::terminate();
+    glDeleteVertexArrays(1, &v_ArrayID);
+    ///glDeleteBuffers(1, &v_ArrayID);
     glfwTerminate( );
 
     return 0;

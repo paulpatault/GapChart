@@ -6953,7 +6953,7 @@ bool    ImGui::TabItemEx(ImGuiTabBar* tab_bar, const char* label, bool* p_open, 
     tab->NameOffset = tab_bar->TabsNames.size();
     tab_bar->TabsNames.append(label, label + strlen(label) + 1);
 
-    // If we are not reorderable, always reset offset based on submission order.
+    // If we are not reorderable, always clear offset based on submission order.
     // (We already handled layout and sizing using the previous known order, but sizing is not affected by order!)
     if (!tab_appearing && !(tab_bar->Flags & ImGuiTabBarFlags_Reorderable))
     {

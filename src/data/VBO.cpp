@@ -7,6 +7,7 @@
 
 namespace data {
 
+
     VBO::VBO(LoadData* data)
     {
         //cylindre_vertexbuffer = std::vector<std::vector<GLuint>>(cst::NB_TEAMS);
@@ -132,7 +133,7 @@ namespace data {
 
         GLuint res_VBO[points.size() * 3];
 
-        cylindre_vb = std::vector<GLuint> (2016);
+        cylindre_vb = std::vector<GLuint> (points.size() * 3);
 
         glGenBuffers(1, &cylindre_vb[0]);
         glBindBuffer(GL_ARRAY_BUFFER, cylindre_vb[0]);
@@ -228,5 +229,6 @@ namespace data {
         }
 
     }
+
 
 }
