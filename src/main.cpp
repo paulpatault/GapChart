@@ -24,14 +24,6 @@
 #include "src/screen/Render.h"
 #include "src/screen/Display.h"
 
-std::vector<glm::vec3> pusher(std::vector<glm::vec3> begin, std::vector<glm::vec3> end)
-{
-    for(int i = 0; i < end.size(); i++)
-    {
-        begin.push_back(end[i]);
-    }
-    return begin;
-}
 
 std::vector<data::VBO> makeVBO(data::LoadData myData)
 {
@@ -43,7 +35,16 @@ std::vector<data::VBO> makeVBO(data::LoadData myData)
 
         std::vector<glm::vec3> combined = cyl.makeCombinedCylinder();
 
-        data::VBO m_VBO( &myData , combined);
+        std::vector<float> cylinder;
+        for(int i = 0; i < combined.size(); i++)
+        {
+            cylinder.push_back(combined[i].x);
+            cylinder.push_back(combined[i].y);
+            cylinder.push_back(combined[i].z);
+        }
+
+        std::vector<float> normals = cyl.makeNormals(cylinder);
+        data::VBO m_VBO( &myData , cylinder , normals);
 
         res.push_back(m_VBO);
     }

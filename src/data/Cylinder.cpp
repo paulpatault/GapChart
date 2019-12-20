@@ -151,13 +151,8 @@ namespace data {
                     backFace.push_back(s_topLeft);
                     backFace.push_back(s_botLeft);
                 }
-
-
             }
-
-
         }
-
         return backFace;
     }
 
@@ -255,9 +250,10 @@ namespace data {
         return begin;
     }
 
-    std::vector<glm::vec3> Cylinder::makeCombinedCylinder() {
-
+    std::vector<glm::vec3> Cylinder::makeCombinedCylinder()
+    {
         std::vector<glm::vec3> backFace = makeBackFace();
+        std::cout << backFace.size() / (cst::NB_DAYS * 2 - 1) << std::endl;
         std::vector<glm::vec3> halfCyl = makeHalfCircles(backFace, false);
         std::vector<glm::vec3> link = makeLinkCircles(backFace);
 
@@ -266,6 +262,63 @@ namespace data {
         combined = pusher(combined, link);
 
         return combined;
+        // "son message il est super et je le comprends, elle a raison"
+    }
+
+    std::vector<float> Cylinder::makeNormals(std::vector<float> cylinder) {
+
+        std::vector<float> normals;
+
+        //1 triangle = 9 coordonnées
+        for (int i = 0; i < cylinder.size() / 9; ++i) {
+            float x1 = cylinder[(9 * i) + 0];
+            float y1 = cylinder[(9 * i) + 1];
+            float z1 = cylinder[(9 * i) + 2];
+
+            float x2 = cylinder[(9 * i) + 3];
+            float y2 = cylinder[(9 * i) + 4];
+            float z2 = cylinder[(9 * i) + 5];
+
+            float x3 = cylinder[(9 * i) + 6];
+            float y3 = cylinder[(9 * i) + 7];
+            float z3 = cylinder[(9 * i) + 8];
+
+            if (i < 224){  // Nombre de triangles pour la backface := signe des normals différent
+                glm::vec3 A(x1, y1, z1), B(x2, y2, z2), C(x3, y3, z3);
+                glm::vec3 normal = glm::cross(C - A, B - A);
+                normals.push_back(normal.x);
+                normals.push_back(normal.y);
+                normals.push_back(normal.z);
+
+                normal = glm::cross(A - B, C - B);
+                normals.push_back(normal.x);
+                normals.push_back(normal.y);
+                normals.push_back(normal.z);
+
+                normal = glm::cross(B - C, A - C);
+                normals.push_back(normal.x);
+                normals.push_back(normal.y);
+                normals.push_back(normal.z);
+            } else {
+                glm::vec3 A(x1, y1, z1), B(x2, y2, z2), C(x3, y3, z3);
+                glm::vec3 normal = glm::cross(B - A, C - A);
+                normals.push_back(normal.x);
+                normals.push_back(normal.y);
+                normals.push_back(normal.z);
+
+                normal = glm::cross(C - B, A - B);
+                normals.push_back(normal.x);
+                normals.push_back(normal.y);
+                normals.push_back(normal.z);
+
+                normal = glm::cross(A - C, B - C);
+                normals.push_back(normal.x);
+                normals.push_back(normal.y);
+                normals.push_back(normal.z);
+            }
+        }
+
+        return normals;
     }
 
 

@@ -7,144 +7,38 @@
 
 namespace data {
 
-
-    VBO::VBO(LoadData* data)
+    VBO::VBO(LoadData* data, std::vector<float> cylinder, std::vector<float> normals)
     {
-        //cylindre_vertexbuffer = std::vector<std::vector<GLuint>>(cst::NB_TEAMS);
         m_data = data;
-        loadVBO();
-        loadVBO_arc();
-    }
-
-    VBO::VBO(LoadData* data, std::vector<glm::vec3> vec)
-    {
-        //cylindre_vertexbuffer = std::vector<std::vector<GLuint>>(cst::NB_TEAMS);
-        m_data = data;
-        load_c_VBO(vec);
+        load_VBO(cylinder, normals);
         loadVBO_arc();
     }
 
     VBO::~VBO() = default;
 
-    void VBO::loadVBO()
+    void VBO::load_VBO(std::vector<float> cylinder, std::vector<float> normals)
     {
-        GLfloat t_vertex_data_dim3[cst::NB_TEAMS][cst::DIV_CYLINDER][cst::NB_POINTS * 3];
-
-        m_data->initVertexDataD1();
-
-        float delta_ep = cst::THICKNESS / cst::DIV_CYLINDER;
-        int milieu = cst::DIV_CYLINDER / 2;
-
-        //glm::vec3 normals[NB_TEAMS][NB_DAYS * 2][cst::DIV_CYLINDER];
-        /*
-        // comme les pts A et B dans le sujet
-        glm::vec3 centre[NB_TEAMS][NB_DAYS + 1];
-        glm::vec3 centreDecale[NB_TEAMS][2 * NB_DAYS + 1];
-
-        for(int team = 0; team < NB_TEAMS; team++)
-        {
-            for(int day = 0; day < NB_DAYS; day++)
-            {
-                centre[team][day].x = 50 + (float)day * dx * 2;   // * 2 car on passe de A à C à E à G à etc.
-                centre[team][day].y = yEscBis[team][day] + (THICKNESS / 2);
-                centre[team][day].z = 0;
-            }
-            centre[team][NB_DAYS] = centre[team][NB_DAYS - 1];
-
-
-            for(int day = 0; day < NB_DAYS * 2; day++)
-            {
-                if(day % 2 == 0)
-                {
-                    centreDecale[team][day].x = centre[team][day / 2].x ;
-                    centreDecale[team][day].y = centre[team][day / 2].y ;
-                    centreDecale[team][day].z = centre[team][day / 2].z ;
-                } else {
-                    centreDecale[team][day].x = ( centre[team][day / 2].x + centre[team][(day / 2) + 1].x ) / 2;
-                    centreDecale[team][day].y = ( centre[team][day / 2].y + centre[team][(day / 2) + 1].y ) / 2;
-                    centreDecale[team][day].z = ( centre[team][day / 2].z + centre[team][(day / 2) + 1].z ) / 2;
-                }
-            }
-            centreDecale[team][NB_DAYS * 2] = centre[team][NB_DAYS];
-        }
-        */
-
-        for(int team = 0; team < cst::NB_TEAMS; team++)
-        {
-            for(int i = 0; i < cst::NB_POINTS * 3; i += 3)
-            {
-                if(i % 2 == 0 ){
-                    for(int sous_tableau = 0; sous_tableau < cst::DIV_CYLINDER; sous_tableau++){
-                        if(sous_tableau==milieu){
-                            continue;
-                        }
-                        t_vertex_data_dim3[team][sous_tableau][i]     = m_data->getVertexDataValue(team, i);                                 // .x
-                        t_vertex_data_dim3[team][sous_tableau][i + 1] = m_data->getVertexDataValue(team, i + 1) - (sous_tableau * delta_ep);  // .y
-                        t_vertex_data_dim3[team][sous_tableau][i + 2] = m_data->getVertexDataValue(team, i + 2) + (sous_tableau * cst::THICKNESS / (cst::DIV_CYLINDER-1)) ;              // .z
-                    }
-                    t_vertex_data_dim3[team][milieu][i]     = m_data->getVertexDataValue(team, i);                                         // .x
-                    t_vertex_data_dim3[team][milieu][i + 1] = m_data->getVertexDataValue(team, i + 1) - delta_ep;  // .y
-                    t_vertex_data_dim3[team][milieu][i + 2] = m_data->getVertexDataValue(team, i + 2) + cst::THICKNESS; // .z
-                } else {
-                    for(int sous_tableau = 0; sous_tableau < cst::DIV_CYLINDER; sous_tableau++){
-                        if(sous_tableau==milieu){
-                            continue;
-                        }
-                        t_vertex_data_dim3[team][sous_tableau][i]     = m_data->getVertexDataValue(team, i);                                                                    // .x
-                        t_vertex_data_dim3[team][sous_tableau][i + 1] = m_data->getVertexDataValue(team, i + 1) + ( (float)(cst::DIV_CYLINDER - 1 - sous_tableau) * delta_ep );   // .y
-                        t_vertex_data_dim3[team][sous_tableau][i + 2] = m_data->getVertexDataValue(team, i + 2) + ( (float)(cst::DIV_CYLINDER - 1 - sous_tableau) * cst::THICKNESS / (cst::DIV_CYLINDER-1) );
-                    }
-                    t_vertex_data_dim3[team][milieu][i]     = m_data->getVertexDataValue(team, i);                                         // .x
-                    t_vertex_data_dim3[team][milieu][i + 1] = m_data->getVertexDataValue(team, i + 1) + delta_ep;  // .y
-                    t_vertex_data_dim3[team][milieu][i + 2] = m_data->getVertexDataValue(team, i + 2) + cst::THICKNESS; // .z
-                }
-            }
-        }
-
-
-
-        for(int team = 0; team < cst::NB_TEAMS; team++)
-        {
-            for(int sous_tableau = 0; sous_tableau < cst::DIV_CYLINDER; sous_tableau++)
-            {
-                glGenBuffers(1, &cylindre_vertexbuffer[team][sous_tableau]);
-                glBindBuffer(GL_ARRAY_BUFFER, cylindre_vertexbuffer[team][sous_tableau]);
-                glBufferData(
-                        GL_ARRAY_BUFFER,
-                        sizeof(t_vertex_data_dim3[team][sous_tableau]),
-                        t_vertex_data_dim3[team][sous_tableau],
-                        GL_STATIC_DRAW
-                );
-            }
-        }
-
-    }
-
-    void VBO::load_c_VBO(std::vector<glm::vec3> points)
-    {
-
-        std::vector<float> conv_points;
-        for(int i = 0; i < points.size(); i++)
-        {
-            conv_points.push_back(points[i].x);
-            conv_points.push_back(points[i].y);
-            conv_points.push_back(points[i].z);
-        }
-
-        GLuint res_VBO[points.size() * 3];
-
-        cylindre_vb = std::vector<GLuint> (points.size() * 3);
+        cylindre_vb = std::vector<GLuint> (cylinder.size() * 3);
 
         glGenBuffers(1, &cylindre_vb[0]);
         glBindBuffer(GL_ARRAY_BUFFER, cylindre_vb[0]);
         glBufferData(
                 GL_ARRAY_BUFFER,
-                sizeof(float) * conv_points.size(),
-                &conv_points[0],
+                sizeof(float) * cylinder.size(),
+                &cylinder[0],
                 GL_STATIC_DRAW
         );
 
+        normals_vb = std::vector<GLuint> (normals.size() * 3);
 
+        glGenBuffers(1, &normals_vb[0]);
+        glBindBuffer(GL_ARRAY_BUFFER, normals_vb[0]);
+        glBufferData(
+                GL_ARRAY_BUFFER,
+                sizeof(float) * normals.size(),
+                &normals[0],
+                GL_STATIC_DRAW
+        );
 
     }
 

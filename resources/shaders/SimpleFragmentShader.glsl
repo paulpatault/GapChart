@@ -6,6 +6,7 @@ in vec3 frag_Position;
 // end
 
 in vec4 mycolor;
+in vec3 frag_Normal;
 
 out vec4 color;
 
@@ -20,8 +21,10 @@ float LinearizeDepth(float depth)
 }
 
 void main(){
+
     color = mycolor;
-    vec3 position = frag_Position;
+
+    // anciennement := color = mycolor;
 
     float depth = LinearizeDepth(frag_Depth) / far; // divide by far for demonstration
     //color = vec4(vec3(depth), 1.0);

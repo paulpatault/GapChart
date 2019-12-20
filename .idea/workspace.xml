@@ -14,16 +14,7 @@
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/constants.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui_impl_opengl3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_impl_opengl3.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui_internal.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_internal.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui_widgets.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_widgets.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/imgui/imstb_rectpack.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imstb_rectpack.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/imgui/imstb_textedit.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imstb_textedit.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/Cylinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.cpp" afterDir="false" />
@@ -32,10 +23,6 @@
       <change beforePath="$PROJECT_DIR$/src/data/VBO.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screen/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Display.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/MVP.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/MVP.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Render.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Render.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +165,7 @@
       <workItem from="1576496226183" duration="718000" />
       <workItem from="1576511151621" duration="26499000" />
       <workItem from="1576555804381" duration="33341000" />
-      <workItem from="1576684880440" duration="15211000" />
+      <workItem from="1576684880440" duration="23510000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -327,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576627862654</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="make cylinder">
+      <created>1576797540468</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1576797540468</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,6 +360,7 @@
     <MESSAGE value="séparation vec4 colors[]" />
     <MESSAGE value="rename dir" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
+    <MESSAGE value="make cylinder" />
+    <option name="LAST_COMMIT_MESSAGE" value="make cylinder" />
   </component>
 </project>
