@@ -12,7 +12,7 @@ namespace data {
         _myData = data;
     }
 
-    std::vector<glm::vec3> Cylinder::makeBackFace()
+    std::vector<glm::vec3> Cylinder::makeBackFace(bool front)
     {
         float complementaire,
                 points,
@@ -56,6 +56,13 @@ namespace data {
                 botRight.y = topLeft.y - cst::THICKNESS;
                 botRight.z = 0;
 
+                if(front) {
+                    topLeft.z += cst::add_z;
+                    botLeft.z += cst::add_z;
+                    topRight.z += cst::add_z;
+                    botRight.z += cst::add_z;
+                }
+
                 /**
                 * TopLeft . BotLeft . BotRight => triangle bas gauche
                 **/
@@ -90,6 +97,7 @@ namespace data {
                 topMid.y = moy_y;
                 topMid.z = delta_y < 0 ? cst::dz : - cst::dz ;
 
+
                 botMid.x = botRight.x + cst::dx;
                 botMid.y = moy_y - cst::THICKNESS;
                 botMid.z = delta_y < 0 ? cst::dz : - cst::dz ;
@@ -97,6 +105,11 @@ namespace data {
                 if(delta_y == 0) {
                     topMid.z = 0;
                     botMid.z = 0;
+                }
+
+                if(front){
+                    topMid.z += cst::add_z;
+                    botMid.z += cst::add_z;
                 }
 
                 /**
@@ -136,6 +149,11 @@ namespace data {
                 s_botLeft.y = s_topLeft.y - cst::THICKNESS;
                 s_botLeft.z = 0;
 
+                if(front){
+                    s_topLeft.z += cst::add_z;
+                    s_botLeft.z += cst::add_z;
+                }
+
                 {
                     /**
                      * TopMid . BotMid . s_BotLeft => triangle bas gauche
@@ -171,7 +189,7 @@ namespace data {
             float theta = half_pi;
             std::vector<glm::vec3> arc;
             glm::vec3 point;
-            glm::vec3 centre;  // vue de profile => {x := z, y := y}
+            glm::vec3 centre;
             centre.x = backFace[i].x;
             centre.y = backFace[i].y - r;
             centre.z = backFace[i].z;
@@ -250,9 +268,9 @@ namespace data {
         return begin;
     }
 
-    std::vector<glm::vec3> Cylinder::makeCombinedCylinder()
+    std::vector<glm::vec3> Cylinder::makeCombinedCylinder(bool front)
     {
-        std::vector<glm::vec3> backFace = makeBackFace();
+        std::vector<glm::vec3> backFace = makeBackFace(front);
 
         std::vector<glm::vec3> halfCyl = makeHalfCircles(backFace, false);
         std::vector<glm::vec3> link = makeLinkCircles(backFace);
@@ -270,7 +288,7 @@ namespace data {
         std::vector<float> normals;
 
         //1 triangle = 9 coordonnées
-        for (int i = 0; i < cylinder.size() / 9; ++i) {
+        for (int i = 0; i < cylinder.size() / 9; i++) {
             float x1 = cylinder[(9 * i) + 0];
             float y1 = cylinder[(9 * i) + 1];
             float z1 = cylinder[(9 * i) + 2];
@@ -283,7 +301,7 @@ namespace data {
             float y3 = cylinder[(9 * i) + 7];
             float z3 = cylinder[(9 * i) + 8];
 
-            if (i < 224){  // Nombre de triangles pour la backface := signe des normals différent
+            if (i < 0){ // 224){  // Nombre de triangles pour la backface -> signe des normals différent
                 glm::vec3 A(x1, y1, z1), B(x2, y2, z2), C(x3, y3, z3);
                 glm::vec3 normal = glm::cross(C - A, B - A);
                 normals.push_back(normal.x);

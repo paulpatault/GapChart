@@ -285,6 +285,33 @@ includes/imgui/imgui_widgets.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/includes/imgui/imgui_widgets.cpp.s
 .PHONY : includes/imgui/imgui_widgets.cpp.s
 
+src/data/Arc.o: src/data/Arc.cpp.o
+
+.PHONY : src/data/Arc.o
+
+# target to build an object file
+src/data/Arc.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Arc.cpp.o
+.PHONY : src/data/Arc.cpp.o
+
+src/data/Arc.i: src/data/Arc.cpp.i
+
+.PHONY : src/data/Arc.i
+
+# target to preprocess a source file
+src/data/Arc.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Arc.cpp.i
+.PHONY : src/data/Arc.cpp.i
+
+src/data/Arc.s: src/data/Arc.cpp.s
+
+.PHONY : src/data/Arc.s
+
+# target to generate assembly for a file
+src/data/Arc.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Arc.cpp.s
+.PHONY : src/data/Arc.cpp.s
+
 src/data/Cylinder.o: src/data/Cylinder.cpp.o
 
 .PHONY : src/data/Cylinder.o
@@ -609,6 +636,9 @@ help:
 	@echo "... includes/imgui/imgui_widgets.o"
 	@echo "... includes/imgui/imgui_widgets.i"
 	@echo "... includes/imgui/imgui_widgets.s"
+	@echo "... src/data/Arc.o"
+	@echo "... src/data/Arc.i"
+	@echo "... src/data/Arc.s"
 	@echo "... src/data/Cylinder.o"
 	@echo "... src/data/Cylinder.i"
 	@echo "... src/data/Cylinder.s"

@@ -18,6 +18,7 @@ namespace data {
     class VBO {
     private:
         LoadData *m_data;
+
     public:
         VBO(LoadData *data, std::vector<float> cylinder, std::vector<float> normals);
 
@@ -25,8 +26,8 @@ namespace data {
         GLuint arc_vertexbuffer[cst::NB_DAYS];
         ~VBO();
         void load_VBO(std::vector<float> vec3_cylinder, std::vector<float> vec3_normals);
-        std::vector<GLuint> cylindre_vb;
         std::vector<GLuint> normals_vb;
+        std::vector<GLuint> t_combined_data;
 
         void loadVBO_arc();
 

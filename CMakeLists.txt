@@ -25,7 +25,7 @@ add_executable(main
         includes/imgui/imgui_impl_glfw.h
         includes/imgui/imgui_impl_opengl3.cpp
         includes/imgui/imgui_impl_opengl3.h
-        src/data/Cylinder.cpp src/data/Cylinder.h src/screen/MVP.cpp src/screen/MVP.h includes/constants.h src/screen/c_ImGui.cpp src/screen/c_ImGui.h src/screen/Render.cpp src/screen/Render.h src/data/LoadData2/LoadData2.cpp src/data/LoadData2/LoadData2.h src/data/VAO.cpp src/data/VAO.h src/data/VBO.cpp src/data/VBO.h src/screen/Display.cpp src/screen/Display.h includes/colors.h src/data/Shaders.cpp src/data/Shaders.h)
+        src/data/Cylinder.cpp src/data/Cylinder.h src/screen/MVP.cpp src/screen/MVP.h includes/constants.h src/screen/c_ImGui.cpp src/screen/c_ImGui.h src/screen/Render.cpp src/screen/Render.h src/data/LoadData2/LoadData2.cpp src/data/LoadData2/LoadData2.h src/data/VAO.cpp src/data/VAO.h src/data/VBO.cpp src/data/VBO.h src/screen/Display.cpp src/screen/Display.h includes/colors.h src/data/Shaders.cpp src/data/Shaders.h src/data/Arc.cpp src/data/Arc.h)
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )

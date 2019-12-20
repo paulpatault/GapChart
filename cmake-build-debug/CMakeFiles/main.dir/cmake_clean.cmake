@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/includes/imgui/imgui_impl_glfw.cpp.o"
   "CMakeFiles/main.dir/includes/imgui/imgui_impl_opengl3.cpp.o"
   "CMakeFiles/main.dir/includes/imgui/imgui_widgets.cpp.o"
+  "CMakeFiles/main.dir/src/data/Arc.cpp.o"
   "CMakeFiles/main.dir/src/data/Cylinder.cpp.o"
   "CMakeFiles/main.dir/src/data/LoadData.cpp.o"
   "CMakeFiles/main.dir/src/data/LoadData2/LoadData2.cpp.o"

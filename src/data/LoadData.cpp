@@ -287,7 +287,8 @@ namespace data {
         res += to_string(this->match[team][day].scoreAtHome) + " à " + to_string(this->match[team][day].scoreAway);
         res += inOut + ".";
         //res += " le " + to_string(day+1) + "ième jour." ;
-        std::cout << res << std::endl;
+
+        //std::cout << res << std::endl;
 
         int adv = getIndexByName(otherTeam);
         return adv;
@@ -311,17 +312,6 @@ namespace data {
     std::string LoadData::getImagesPath(int index)
     {
         return this->teamPathPng[index];
-    }
-
-    void LoadData::initVertexDataD1()
-    {
-        std::vector<float> tabY(cst::NB_DAYS);
-
-        for(int team = 0; team < cst::NB_TEAMS; team++)
-        {
-            tabY = y_Escalier(team);
-            tabEscalier(this->t_vertex_data[team], (tabY));
-        }
     }
 
     std::vector<float> LoadData::y_Escalier(int team)
@@ -397,6 +387,10 @@ namespace data {
     float LoadData::getVertexDataValue(int i, int j)
     {
         return this->t_vertex_data[i][j];
+    }
+
+    std::vector<Match> LoadData::getMatchs(int team) {
+        return match[team];
     }
 
 

@@ -12,13 +12,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/data/Arc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/Arc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/main.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/constants.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/Cylinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Cylinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/VBO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/VBO.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screen/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Display.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +181,7 @@
       <workItem from="1576496226183" duration="718000" />
       <workItem from="1576511151621" duration="26499000" />
       <workItem from="1576555804381" duration="33341000" />
-      <workItem from="1576684880440" duration="28098000" />
+      <workItem from="1576684880440" duration="40290000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -352,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576856259911</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="maj *.glsl">
+      <created>1576858698939</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1576858698939</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,6 +423,7 @@
     <MESSAGE value="vbo vao" />
     <MESSAGE value="miss" />
     <MESSAGE value="size_of_cylinder" />
-    <option name="LAST_COMMIT_MESSAGE" value="size_of_cylinder" />
+    <MESSAGE value="maj *.glsl" />
+    <option name="LAST_COMMIT_MESSAGE" value="maj *.glsl" />
   </component>
 </project>

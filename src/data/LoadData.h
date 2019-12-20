@@ -48,6 +48,9 @@ namespace data {
         float getComplementaryRankNormalized(int team, int day);
         int getPoints(int team, int day);
         float getPointsNormalized(int team, int day);
+
+        std::vector<Match> getMatchs(int team);
+
         int getAdversaire(int team, int day);
         std::string getImagesPath(int index);
         void addPathToTab(std::string imagesPath);
