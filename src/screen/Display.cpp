@@ -136,8 +136,6 @@ namespace screen {
                     0,                  // stride
                     (void*)nullptr      // array buffer offset
             );
-            glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].cylindre_vb.size());
-
             glDisableVertexAttribArray(1);
 
 

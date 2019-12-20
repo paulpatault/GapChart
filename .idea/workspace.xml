@@ -11,13 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/colors.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/colors.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/debugbreak.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/debugbreak.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/VBO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +153,7 @@
       <workItem from="1576496226183" duration="718000" />
       <workItem from="1576511151621" duration="26499000" />
       <workItem from="1576555804381" duration="33341000" />
-      <workItem from="1576684880440" duration="25358000" />
+      <workItem from="1576684880440" duration="25599000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -322,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576853674350</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="vbo vao">
+      <created>1576855796023</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1576855796023</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,6 +364,7 @@
     <MESSAGE value="cleanup" />
     <MESSAGE value="make cylinder" />
     <MESSAGE value="maj" />
-    <option name="LAST_COMMIT_MESSAGE" value="maj" />
+    <MESSAGE value="vbo vao" />
+    <option name="LAST_COMMIT_MESSAGE" value="vbo vao" />
   </component>
 </project>
