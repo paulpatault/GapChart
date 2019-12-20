@@ -124,7 +124,7 @@ namespace screen {
             );
 
 
-            glDisableVertexAttribArray(0);
+            //glDisableVertexAttribArray(0);
 
             glEnableVertexAttribArray(vec_VBO[team].size_of_cylinder * sizeof(float));
             glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].cylindre_vb[0]);
@@ -136,7 +136,7 @@ namespace screen {
                     0,                  // stride
                     (void*)nullptr      // array buffer offset
             );
-            glDisableVertexAttribArray(vec_VBO[team].size_of_cylinder * sizeof(float));
+            //glDisableVertexAttribArray(vec_VBO[team].size_of_cylinder * sizeof(float));
 
 
             glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].cylindre_vb.size());

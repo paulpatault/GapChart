@@ -253,7 +253,7 @@ namespace data {
     std::vector<glm::vec3> Cylinder::makeCombinedCylinder()
     {
         std::vector<glm::vec3> backFace = makeBackFace();
-        std::cout << backFace.size() / (cst::NB_DAYS * 2 - 1) << std::endl;
+
         std::vector<glm::vec3> halfCyl = makeHalfCircles(backFace, false);
         std::vector<glm::vec3> link = makeLinkCircles(backFace);
 
