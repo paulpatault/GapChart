@@ -122,11 +122,11 @@ namespace screen {
                     0,                  // stride
                     (void*)nullptr      // array buffer offset
             );
-            glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].cylindre_vb.size());
+
 
             glDisableVertexAttribArray(0);
 
-            /*glEnableVertexAttribArray(1);
+            glEnableVertexAttribArray(1);
             glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].cylindre_vb[0]);
             glVertexAttribPointer(
                     1,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
@@ -139,7 +139,9 @@ namespace screen {
             glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].cylindre_vb.size());
 
             glDisableVertexAttribArray(1);
-             */
+
+
+            glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].cylindre_vb.size());
         }
     }
 

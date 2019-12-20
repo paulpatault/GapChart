@@ -9,7 +9,7 @@
 
 namespace rgb{
     glm::vec4 colors[] = {
-            /*
+            /* // pastel
             glm::vec4(92.f/255.f,133.f/255.f,209.f/255.f,1.f),            // top1
             glm::vec4(142.f/255.f,217.f/255.f,228.f/255.f,1.f),    // top
             glm::vec4 (234.f/255.f,235.f/255.f,89.f/255.f,1.f),   // top_mid

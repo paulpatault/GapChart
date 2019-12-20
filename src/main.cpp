@@ -68,7 +68,7 @@ int main()
 
     data::LoadData myData("../resources/data/rankspts.csv");
 
-    std::vector<data::VBO> vecVBO = makeVBO(myData);
+    std::vector<data::VBO> t_VBO = makeVBO(myData);
 
     do
     {
@@ -80,7 +80,7 @@ int main()
 
         screen::c_ImGui::loop();
 
-        screen::Display::draw(programID, vecVBO, rgb::colors);
+        screen::Display::draw(programID, t_VBO, rgb::colors);
 
         screen::c_ImGui::maj(rgb::colors);
 

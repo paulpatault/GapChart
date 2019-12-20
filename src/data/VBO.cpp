@@ -18,9 +18,10 @@ namespace data {
 
     void VBO::load_VBO(std::vector<float> cylinder, std::vector<float> normals)
     {
-        cylindre_vb = std::vector<GLuint> (cylinder.size() * 3);
+        /*cylindre_vb = std::vector<GLuint>(cylinder.size() * 3);
 
         glGenBuffers(1, &cylindre_vb[0]);
+
         glBindBuffer(GL_ARRAY_BUFFER, cylindre_vb[0]);
         glBufferData(
                 GL_ARRAY_BUFFER,
@@ -29,7 +30,7 @@ namespace data {
                 GL_STATIC_DRAW
         );
 
-        normals_vb = std::vector<GLuint> (normals.size() * 3);
+        normals_vb = std::vector<GLuint>(normals.size() * 3);
 
         glGenBuffers(1, &normals_vb[0]);
         glBindBuffer(GL_ARRAY_BUFFER, normals_vb[0]);
@@ -38,7 +39,33 @@ namespace data {
                 sizeof(float) * normals.size(),
                 &normals[0],
                 GL_STATIC_DRAW
+        );*/
+
+        glGenBuffers(1, &cylindre_vb[0]);
+
+        glBindBuffer(GL_ARRAY_BUFFER, cylindre_vb[0]);
+
+        glBufferData(
+                GL_ARRAY_BUFFER,
+                sizeof(float) * (cylinder.size() + normals.size()),
+                nullptr,
+                GL_STATIC_DRAW
         );
+
+        glBufferSubData(
+                GL_ARRAY_BUFFER,
+                0,
+                sizeof(float) * cylinder.size(),
+                &cylinder[0]
+                );
+
+        glBufferSubData(
+                GL_ARRAY_BUFFER,
+                sizeof(float) * cylinder.size(),
+                sizeof(float) * normals.size(),
+                &normals[0]
+        );
+
 
     }
 
