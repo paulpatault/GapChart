@@ -29,6 +29,8 @@ namespace data {
         std::vector<GLuint> normals_vb;
 
         void loadVBO_arc();
+
+        int size_of_cylinder;
     };
 
 }

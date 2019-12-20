@@ -40,7 +40,7 @@ namespace data {
                 &normals[0],
                 GL_STATIC_DRAW
         );*/
-
+        size_of_cylinder = cylinder.size() * 3;
         cylindre_vb = std::vector<GLuint>(cylinder.size() * 3 + normals.size() * 3);
 
         glGenBuffers(1, &cylindre_vb[0]);
