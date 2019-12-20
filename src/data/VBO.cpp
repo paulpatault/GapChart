@@ -41,6 +41,8 @@ namespace data {
                 GL_STATIC_DRAW
         );*/
 
+        cylindre_vb = std::vector<GLuint>(cylinder.size() * 3 + normals.size() * 3);
+
         glGenBuffers(1, &cylindre_vb[0]);
 
         glBindBuffer(GL_ARRAY_BUFFER, cylindre_vb[0]);
