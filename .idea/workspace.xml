@@ -12,31 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/main.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/colors.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/colors.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/constants.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Cylinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Shaders.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Shaders.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/VAO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VAO.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/VBO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Arc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Arc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Display.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/MVP.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Render.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Render.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/c_ImGui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/c_ImGui.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/c_ImGui.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/c_ImGui.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -179,7 +160,7 @@
       <workItem from="1576496226183" duration="718000" />
       <workItem from="1576511151621" duration="26499000" />
       <workItem from="1576555804381" duration="33341000" />
-      <workItem from="1576684880440" duration="44925000" />
+      <workItem from="1576684880440" duration="46432000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -384,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576884730812</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fully commented">
+      <created>1576889307675</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1576889307675</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,6 +418,7 @@
     <MESSAGE value="size_of_cylinder" />
     <MESSAGE value="maj *.glsl" />
     <MESSAGE value="team selector" />
-    <option name="LAST_COMMIT_MESSAGE" value="team selector" />
+    <MESSAGE value="fully commented" />
+    <option name="LAST_COMMIT_MESSAGE" value="fully commented" />
   </component>
 </project>

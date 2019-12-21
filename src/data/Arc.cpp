@@ -5,8 +5,6 @@
 #include "Arc.h"
 
 namespace data {
-
-
     Arc::Arc(int teamNumber, LoadData *data)
     {
         _teamNumber = teamNumber;

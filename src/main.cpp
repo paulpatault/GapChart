@@ -38,7 +38,9 @@ int main()
     GLuint v_ArrayID;
     data::VAO m_VAO(v_ArrayID);
 
-    GLuint programID = data::Shaders::LoadShaders("../resources/shaders/SimpleVertexShader.glsl", "../resources/shaders/SimpleFragmentShader.glsl");
+    GLuint programID = data::Shaders::LoadShaders(
+            "../resources/shaders/SimpleVertexShader.glsl",
+            "../resources/shaders/SimpleFragmentShader.glsl");
 
     screen::MVP::setLocation(programID);
 

@@ -248,36 +248,6 @@ glm/gtc/matrix_transform.hpp
 includes/constants.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData2/includes/constants.h
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.cpp
-Shaders.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.h
-stdio.h
--
-cmath
--
-vector
--
-fstream
--
-sstream
--
-iostream
--
-stdlib.h
--
-GL/glew.h
--
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VAO.cpp
-VAO.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VAO.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VAO.h
-GL/glew.h
--
-
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VBO.cpp
 VBO.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VBO.h
@@ -389,22 +359,6 @@ glm/gtc/matrix_transform.hpp
 -
 includes/constants.h
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/constants.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/c_ImGui.cpp
-c_ImGui.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/c_ImGui.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/c_ImGui.h
-GLFW/glfw3.h
--
-glm/glm.hpp
--
-includes/imgui/imgui.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/imgui/imgui.h
-includes/imgui/imgui_impl_glfw.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/imgui/imgui_impl_glfw.h
-includes/imgui/imgui_impl_opengl3.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/imgui/imgui_impl_opengl3.h
 
 /usr/local/include/GL/glew.h
 stddef.h

@@ -25,6 +25,7 @@ namespace cst {
     const float dz = 1;
     const float x0 = 50;
     const float add_z = - dz * 3;
+
 }
 
 struct DayTrip {
