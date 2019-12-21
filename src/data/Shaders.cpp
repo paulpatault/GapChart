@@ -7,6 +7,12 @@
 
 namespace data {
 
+    /**
+     * Compilation des shaders
+     * @param vertex_file_path  chemin du vertex shader
+     * @param fragment_file_path chemin du fragment shader
+     * @return ProgramID
+     */
     GLuint Shaders::LoadShaders(const char * vertex_file_path,const char * fragment_file_path)
     {
         // Create the shaders
@@ -102,6 +108,10 @@ namespace data {
         return ProgramID;
     }
 
+    /**
+     * Liaison des shaders avec le programID
+     * @param programID
+     */
     void Shaders::bind(GLuint programID)
     {
         glUseProgram(programID);

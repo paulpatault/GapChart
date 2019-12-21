@@ -139,6 +139,9 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imstb_truetype.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/utils.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Arc.cpp">
 			<Option target="main"/>
 		</Unit>

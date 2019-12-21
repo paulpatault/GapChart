@@ -6,6 +6,10 @@
 
 namespace data {
 
+    /**
+     * Constructor de la VOA
+     * @param vaid := Vertex Array ID
+     */
     VAO::VAO(GLuint vaid) {
         VertexArrayID = vaid;
         generation();

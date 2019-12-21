@@ -6,12 +6,23 @@
 
 namespace data {
 
+    /**
+     * constructor pour la classe cylinder
+     * @param teamNumber, numéro (dans [0, 20]) de l'équipe associée a ce cylindre
+     * @param data, instance de la classe loadData
+     */
     Cylinder::Cylinder(int teamNumber, LoadData *data)
     {
         _teamNumber = teamNumber;
         _myData = data;
     }
 
+    /**
+     * fabrique la face arrière "plate" du cylindre
+     * @param front, true si l'équipe est selectionnée, false sinon
+     *               permet de mettre le cylindre au premier plan
+     * @return vector des points qui décrivent les triangles constituant la backFace
+     */
     std::vector<glm::vec3> Cylinder::makeBackFace(bool front)
     {
         float complementaire,
@@ -174,6 +185,13 @@ namespace data {
         return backFace;
     }
 
+    /**
+     * Fabrique les demi disques qui "fermeront" chaque bout de cylindre
+     * @param backFace face arrière (plate) du demi cylindre
+     * @param arc_only true si on ne veut pas remplir le disque := décris juste l'arc de cercle et non le demi disque
+     *                 false sinon := on rempli le demi disque
+     * @return vector des points qui décrivent les triangles constituant les demi disques
+     */
     std::vector<glm::vec3> Cylinder::makeHalfCircles(std::vector<glm::vec3> backFace, bool arc_only)
     {
         std::vector<glm::vec3> halfCircle;
@@ -220,6 +238,11 @@ namespace data {
         return halfCircle;
     }
 
+    /**
+     * Fabrique les cylindres creux entre deux demi disques
+     * @param backFace face arrière (plate) du demi cylindre
+     * @return vector des points qui décrivent les cylindres creux
+     */
     std::vector<glm::vec3> Cylinder::makeLinkCircles(std::vector<glm::vec3> backFace)
     {
 
@@ -259,6 +282,12 @@ namespace data {
         return tubes;
     }
 
+    /**
+     * Ajoute le vector end a la suite de begin
+     * @param begin vector a compléter
+     * @param end vector qui complete
+     * @return le total
+     */
     std::vector<glm::vec3> pusher(std::vector<glm::vec3> begin, std::vector<glm::vec3> end)
     {
         for(int i = 0; i < end.size(); i++)
@@ -268,6 +297,12 @@ namespace data {
         return begin;
     }
 
+    /**
+     * Combine backFace + demi disques + cylindres creux
+     * @param front true si l'équipe est selectionnée, false sinon
+     *               permet de mettre le cylindre au premier plan
+     * @return la combinaison
+     */
     std::vector<glm::vec3> Cylinder::makeCombinedCylinder(bool front)
     {
         std::vector<glm::vec3> backFace = makeBackFace(front);
@@ -283,6 +318,11 @@ namespace data {
         // "son message il est super et je le comprends, elle a raison"
     }
 
+    /**
+     * Fabrique le vector des normals pour chaque triangle du cylindre
+     * @param cylinder vector qui comprend backFace + demi disques + cylindres creux
+     * @return vector des normals associées a chaque triangle
+     */
     std::vector<float> Cylinder::makeNormals(std::vector<float> cylinder) {
 
         std::vector<float> normals;
@@ -339,7 +379,9 @@ namespace data {
         return normals;
     }
 
-
+    /**
+     * default destructor, non implementé
+     */
     Cylinder::~Cylinder() = default;
 
 }

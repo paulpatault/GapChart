@@ -6,14 +6,19 @@
 
 namespace data {
 
+    /**
+     * Constructor
+     * Chargement des rangs et des points du fichier .csv dans le vector rankPoints
+     * @param filePath chemin du fichier .csv
+     */
     LoadData::LoadData(std::string filePath)
     {
-        this->rankPoints = std::vector<std::vector<DayTrip>>(cst::NB_DAYS + 1);
+        rankPoints = std::vector<std::vector<DayTrip>>(cst::NB_DAYS + 1);
 
         ////// INITIALISE LE VEC_3D //////
         for(int i = 0; i < cst::NB_DAYS + 1; i++) // i := jours
         {
-            this->rankPoints[i] = std::vector<DayTrip>(cst::NB_TEAMS);
+            rankPoints[i] = std::vector<DayTrip>(cst::NB_TEAMS);
         }
 
 
@@ -111,6 +116,10 @@ namespace data {
         std::cout << "Data well loaded" << std::endl;
     }
 
+    /**
+     * Chargement des matchs du fichier .csv dans match ( vector de structure Match)
+     * @param filePath chemin du fichier .csv
+     */
     void LoadData::loadMatch(std::string filePath)
     {
         match = vector<vector<Match>>(cst::NB_TEAMS); // 38
@@ -211,36 +220,66 @@ namespace data {
         myfile.close();
     }
 
-    std::vector<DayTrip> LoadData::getTeam(unsigned int team)
-    {
-        return rankPoints[team];
-    }
-
+    /**
+     * Getter basic
+     * @param team équipe demandé
+     * @param day jour demandé
+     * @return le rank pour l'équipe team au jour day
+     */
     int LoadData::getRank(int team, int day)
     {
         return rankPoints[day][team].rank;
     }
 
+    /**
+     * Getter basic
+     * @param team équipe demandé
+     * @param day jour demandé
+     * @return le rank complémentaire pour l'équipe team au jour day
+     */
     int LoadData::getComplementaryRank(int team, int day)
     {
         return 19 - getRank(team, day);
     }
 
+    /**
+     * Getter basic
+     * @param team équipe demandé
+     * @param day jour demandé
+     * @return le rank complémentaire normalisé pour l'équipe team au jour day
+     */
     float LoadData::getComplementaryRankNormalized(int team, int day)
     {
         return (float)getComplementaryRank(team, day) / 19;
     }
 
+    /**
+     * Getter basic
+     * @param team équipe demandé
+     * @param day jour demandé
+     * @return le nombre de points pour l'équipe team au jour day
+     */
     int LoadData::getPoints(int team, int day)
     {
         return rankPoints[day][team].points;
     }
 
+    /**
+     * Getter basic
+     * @param team équipe demandé
+     * @param day jour demandé
+     * @return le nombre de points normalisés pour l'équipe team au jour day
+     */
     float LoadData::getPointsNormalized(int team, int day)
     {
         return (float)getPoints(team, day) / (float)cst::MAX_POINTS;
     }
 
+    /**
+     * Getter basic
+     * @param name string du nom de l'équipe
+     * @return l'indice de l'équipe (dans [0, 20])
+     */
     int LoadData::getIndexByName(std::string name)
     {
         for(int i = 0; i < cst::NB_TEAMS; i++)
@@ -251,6 +290,12 @@ namespace data {
         return -1;
     }
 
+    /**
+     * Getter basic
+     * @param team équipe demandé
+     * @param day jour demandé
+     * @return l'adversaire de l'équipe team pour le match du jour day
+     */
     int LoadData::getAdversaire(int team, int day)
     {
 
@@ -389,6 +434,11 @@ namespace data {
         return this->t_vertex_data[i][j];
     }
 
+    /**
+     * Getter basic
+     * @param team équipe demandé
+     * @return l'ensemble des matchs joués par l'équipe team
+     */
     std::vector<Match> LoadData::getMatchs(int team) {
         return match[team];
     }

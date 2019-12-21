@@ -7,6 +7,12 @@
 
 namespace data {
 
+    /**
+     * VBO constructor
+     * @param data, instance de la classe loadData
+     * @param cylinder, vector de la liste des coordonnées des points d'un cylindre
+     * @param normals, vector de la liste des normals des triangle qui constituent un cylindre
+     */
     VBO::VBO(LoadData* data, std::vector<float> cylinder, std::vector<float> normals)
     {
         m_data = data;
@@ -14,8 +20,16 @@ namespace data {
         loadVBO_arc();
     }
 
+    /**
+     * default destructor, non implementé
+     */
     VBO::~VBO() = default;
 
+    /**
+     * chargement des données dans les VBO
+     * @param cylinder, vector de la liste des coordonnées des points d'un cylindre
+     * @param normals, vector de la liste des normals des triangle qui constituent un cylindre
+     */
     void VBO::load_VBO(std::vector<float> cylinder, std::vector<float> normals)
     {
         /*t_combined_data = std::vector<GLuint>(cylinder.size() * 3);

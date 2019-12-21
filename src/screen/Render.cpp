@@ -7,6 +7,9 @@
 
 namespace screen {
 
+    /**
+     * Initialise le contexte GL par le constructeur de la classe Render
+     */
     Render::Render()
     {
         // Initialize the library
@@ -56,20 +59,25 @@ namespace screen {
         // Couleur de fond := blanc
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
-
-
-
     }
 
+    /**
+     * Echange l'écran actuel avec le prochain
+     * et gère les évenements
+     */
     void Render::update()
     {
         glfwSwapBuffers( render );
         glfwPollEvents( );
     }
 
+    /**
+     * Condition de fermeture de la fenetre := touche (echap) ou ( + q) par exemple
+     */
     bool Render::shouldNotClose()
     {
-        return (glfwGetKey(render, GLFW_KEY_ESCAPE) != GLFW_PRESS) && (glfwWindowShouldClose(render) == 0);
+        return (glfwGetKey(render, GLFW_KEY_ESCAPE) != GLFW_PRESS)
+                    and (glfwWindowShouldClose(render) == 0);
     }
 
 }

@@ -24,7 +24,7 @@ namespace cst {
     const float dx = (float) (SCREEN_WIDTH - 100) / NB_POINTS;
     const float dz = 1;
     const float x0 = 50;
-    const float add_z = -dz*3;
+    const float add_z = - dz * 3;
 }
 
 struct DayTrip {
@@ -37,7 +37,7 @@ struct Match {
     std::string teamAway;
     int scoreAtHome;
     int scoreAway;
-    int win; // -1 defaite, 0 égalité, 1 victoire
+    int win; /// -1 defaite, 0 égalité, 1 victoire
 };
 
 #endif //MAIN_CONSTANTS_H

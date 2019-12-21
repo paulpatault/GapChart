@@ -42,7 +42,6 @@ namespace data {
 
         LoadData(std::string filePath);
         void loadMatch(std::string filePath);
-        std::vector<DayTrip> getTeam(unsigned int team);
         int getRank(int team, int day);
         int getComplementaryRank(int team, int day);
         float getComplementaryRankNormalized(int team, int day);

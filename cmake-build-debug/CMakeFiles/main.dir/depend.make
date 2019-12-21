@@ -871,6 +871,7 @@ CMakeFiles/main.dir/src/main.cpp.o: ../includes/imgui/imconfig.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/imgui/imgui.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/imgui/imgui_impl_glfw.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/imgui/imgui_impl_opengl3.h
+CMakeFiles/main.dir/src/main.cpp.o: ../includes/utils.h
 CMakeFiles/main.dir/src/main.cpp.o: ../src/data/Arc.h
 CMakeFiles/main.dir/src/main.cpp.o: ../src/data/Cylinder.h
 CMakeFiles/main.dir/src/main.cpp.o: ../src/data/LoadData.h

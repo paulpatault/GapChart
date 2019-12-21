@@ -17,7 +17,7 @@ namespace screen {
     class Display {
     public:
         static int teamSelectCallBack(GLFWwindow *window);
-        static void draw(GLuint programID, std::vector<data::VBO> vec_VBO, glm::vec4 colors[], int selected);
+        static void draw(GLuint programID, std::vector<data::VBO> vec_VBO, glm::vec3 colors[], int selected);
         static void clear();
         static int update(Render window);
     };

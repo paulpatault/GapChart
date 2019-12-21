@@ -18,7 +18,7 @@ namespace screen {
     public:
         static void init(GLFWwindow *window);
         static void loop();
-        static void maj(glm::vec4 colors[]);
+        static void maj(glm::vec3 colors[]);
         static void terminate();
     };
 

@@ -6,6 +6,10 @@
 
 namespace screen {
 
+    /**
+     * Gere des evenements clavier qui actualise la matrice Model View Projection
+     * @param window fenetre de travail
+     */
     void MVP::keyboardCallback(GLFWwindow *window)
     {
         // rotation
@@ -36,6 +40,10 @@ namespace screen {
             eyePos.z -= 2.f;
     }
 
+    /**
+     * Mise a jour de la matrice MVP après modification de ces paramètres par keyboardCallback
+     * @param MPV matrice Model View Projection
+     */
     void MVP::updateMVP(glm::mat4 MPV[])
     {
         /// Model Matrix ///
@@ -66,6 +74,10 @@ namespace screen {
 
     }
 
+    /**
+     * Remets MVP "à zéro" := position de base lorsqu'on lance le programme
+     * @param MPV matrice Model View Projection
+     */
     void MVP::reInitMVP(glm::mat4 MPV[])
     {
         eyePos = glm::vec3(0.f, 0.f, 1000.f);
@@ -79,6 +91,11 @@ namespace screen {
         updateMVP(MPV);
     }
 
+    /**
+     * Mise a jour de MVP après sa réinitialisatio ou modification par keyboardCallback
+     * @param window fenetre de travail
+     * @param MPV matrice Model View Projection
+     */
     void MVP::maj(GLFWwindow *window, glm::mat4 MPV[])
     {
         keyboardCallback(window);
@@ -89,6 +106,10 @@ namespace screen {
             MVP::updateMVP(MPV);
     }
 
+    /**
+     * Associe les matrices Model, View et Projection au shaders
+     * @param programID
+     */
     void MVP::setLocation(GLuint programID)
     {
         model_id = glGetUniformLocation(programID, "u_Model");
@@ -96,6 +117,10 @@ namespace screen {
         projection_id = glGetUniformLocation(programID, "u_Projection");
     }
 
+    /**
+     * Envoie les matrices Model, View et Projection aux shaders
+     * @param window fenetre de travail
+     */
     void MVP::send_updated(GLFWwindow *window)
     {
         glm::mat4 mvp[3];

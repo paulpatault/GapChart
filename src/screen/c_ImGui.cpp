@@ -7,6 +7,10 @@
 
 namespace screen {
 
+    /**
+     * Initialisaiton du contexte ImGui
+     * @param window fenetre sur laquel le contexte est initialisé
+     */
     void c_ImGui::init(GLFWwindow *window)
     {
         ImGui::CreateContext();
@@ -15,6 +19,9 @@ namespace screen {
         ImGui_ImplOpenGL3_Init("#version 330 core");
     }
 
+    /**
+     * Le contexte ImGui reste dans la fenetre
+     */
     void c_ImGui::loop()
     {
         ImGui_ImplOpenGL3_NewFrame();
@@ -22,7 +29,11 @@ namespace screen {
         ImGui::NewFrame();
     }
 
-    void c_ImGui::maj(glm::vec4 colors[])
+    /**
+     * Actualise les couleurs possiblement changées par le contexte ImGui
+     * @param colors, tableau des vec3 de couleurs pour les cylindres
+     */
+    void c_ImGui::maj(glm::vec3 colors[])
     {
         // ImGui Edit (màj)
         ImGui::ColorEdit3("top1", (float*)&colors[0]);
@@ -36,6 +47,9 @@ namespace screen {
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     }
 
+    /**
+     * Fermeture du contexte
+     */
     void c_ImGui::terminate() {
         ImGui_ImplGlfw_Shutdown();
         ImGui::DestroyContext();

@@ -1,8 +1,7 @@
 #version 330 core
 
-uniform vec4 u_color;
+uniform vec3 u_color;
 
-in vec4 mycolor;
 in vec3 frag_Normal;
 in vec3 frag_Position;
 
@@ -11,7 +10,6 @@ out vec4 color;
 
 void main(){
 
-    color = mycolor;
 
     vec3 lightColor = vec3(1.0, 1.0, 1.0);
 
@@ -31,7 +29,7 @@ void main(){
     float diff = max(dot(normal, lightDir), 0.0);
     vec3 diffuse = diff * lightColor;
 
-    vec3 result = (ambient) * vec3(u_color);
+    vec3 result = (ambient) * u_color;
 
     color = vec4(result, 1.f);
 

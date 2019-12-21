@@ -6,7 +6,14 @@
 
 namespace screen {
 
-    void Display::draw(GLuint programID, std::vector<data::VBO> vec_VBO, glm::vec4 *colors, int selected)
+    /**
+     * Envoie puis dessine les cylindres avec leur couleur associé
+     * @param programID
+     * @param vec_VBO tableau des 20 VBO
+     * @param colors couleurs des cylindres
+     * @param selected indice de l'équipe selectinnée
+     */
+    void Display::draw(GLuint programID, std::vector<data::VBO> vec_VBO, glm::vec3 *colors, int selected)
     {
         //int team = 0;
         for(int team = 0; team < cst::NB_TEAMS; team++)
@@ -14,19 +21,19 @@ namespace screen {
             GLint colorID = glGetUniformLocation(programID,"u_color");
             {
                 if( team == selected)
-                    glUniform4f(colorID, 0.2, 0.9, 0.2, 1.f);
+                    glUniform3f(colorID, 0.2, 0.9, 0.2);
                 else if (team == 0) {
-                    glUniform4f(colorID, colors[0].x, colors[0].y, colors[0].z, colors[0].w);              // TOP 1
+                    glUniform3f(colorID, colors[0].x, colors[0].y, colors[0].z);              // TOP 1
                 } else if (team < 4) {
-                    glUniform4f(colorID, colors[1].x, colors[1].y, colors[1].z, colors[1].w);              // TOP 1
+                    glUniform3f(colorID, colors[1].x, colors[1].y, colors[1].z);              // TOP 1
                 } else if (team < 7) {
-                    glUniform4f(colorID, colors[2].x, colors[2].y, colors[2].z, colors[2].w);              // TOP 1
+                    glUniform3f(colorID, colors[2].x, colors[2].y, colors[2].z);              // TOP 1
                 } else if (team < 9) {
-                    glUniform4f(colorID, colors[3].x, colors[3].y, colors[3].z, colors[3].w);              // TOP 1
+                    glUniform3f(colorID, colors[3].x, colors[3].y, colors[3].z);              // TOP 1
                 } else if (team < 15) {
-                    glUniform4f(colorID, colors[4].x, colors[4].y, colors[4].z, colors[4].w);              // TOP 1
+                    glUniform3f(colorID, colors[4].x, colors[4].y, colors[4].z);              // TOP 1
                 } else {
-                    glUniform4f(colorID, colors[5].x, colors[5].y, colors[5].z, colors[5].w);              // TOP 1
+                    glUniform3f(colorID, colors[5].x, colors[5].y, colors[5].z);              // TOP 1
                 }
             }
 
@@ -56,6 +63,10 @@ namespace screen {
         }
     }
 
+    /**
+     * Clear la fenetre avec la couleur glClearColor renseignée précédemment
+     * et "relance" glDepth
+     */
     void Display::clear()
     {
         //glClear( GL_COLOR_BUFFER_BIT );
@@ -64,6 +75,11 @@ namespace screen {
         glDepthFunc(GL_LESS);
     }
 
+    /**
+     * Regarde les évenements qui influent sur l'affiche actuel
+     * @param window classe de la fenetre sur laquel on travail
+     * @return l'indice de l'éuipe séléctionnée (si une l'a été), -1 sinon
+     */
     int Display::update(Render window)
     {
         int selected = teamSelectCallBack(window.render);
@@ -71,6 +87,11 @@ namespace screen {
         return selected;
     }
 
+    /**
+     * Séléction d'une équipe a afficher au premier plan
+     * @param window fenetre sur laquelle on travail
+     * @return l'indice de l'éuipe séléctionnée (si une l'a été), -1 sinon
+     */
     int Display::teamSelectCallBack(GLFWwindow *window) {
         int selected = -1;
         if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS) selected = 0;
