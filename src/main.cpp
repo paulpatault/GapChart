@@ -1,36 +1,7 @@
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
-#ifdef __APPLE__
-#include <OpenGL/OpenGL.h>
-
-#else
-#include <GL/gl.h>
-#endif
-
-// namespace rgb
-#include "includes/colors.h"
-#include "includes/utils.h"
-
-// namespace data
-#include "src/data/LoadData.h"
-#include "src/data/Cylinder.h"
-#include "src/data/Arc.h"
-#include "src/data/Shaders.h"
-#include "src/data/VAO.h"
-#include "src/data/VBO.h"
-
-// namespace screen
-#include "src/screen/MVP.h"
-#include "src/screen/c_ImGui.h"
-#include "src/screen/Render.h"
-#include "src/screen/Display.h"
-
+#include "includes/main_includes.h"
 
 int main()
 {
-    int selected = -1;
-
     /// Instance of the class Render that manages the window
     screen::Render window;
 
@@ -54,8 +25,8 @@ int main()
 
     /// Vector of 20 VBOs
     /// Usable VBOs in t_VBO and t_VBO_0 saving
-    std::vector<data::VBO> t_VBO_0 = makeVBO(myData);
-    std::vector<data::VBO> t_VBO = t_VBO_0;
+    var::t_VBO = utils::makeVBOs(myData);
+    var::t_VBO_0 = var::t_VBO;
 
     /// Main loop
     do
@@ -68,14 +39,15 @@ int main()
 
         screen::c_ImGui::loop();
 
-        screen::Display::draw(programID, t_VBO, rgb::colors, selected);
+        screen::Display::selectionCallBack(window.render, var::selector);
 
-        screen::c_ImGui::maj(rgb::colors);
+        utils::majVBOs(var::t_VBO, var::selector, &myData);
 
-        selected = screen::Display::update(window);
+        screen::Display::draw(programID, var::t_VBO, var::colors, var::selector.selected);
 
-        t_VBO = updateVBO(myData, t_VBO_0, selected);
+        screen::c_ImGui::maj(var::colors);
 
+        screen::Display::update(window);
     }
     while( window.shouldNotClose() );
 

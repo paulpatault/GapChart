@@ -91,8 +91,8 @@ namespace data {
         GLfloat t_vertex_arc[cst::NB_DAYS][6*3];
 
         const float sousEpaisseur = cst::THICKNESS / 6 ;
-        const float sousDx = cst::dx * 2;
-        const float x0 = 50 + cst::dx *3;
+        const float sousDx = cst::DELTA_X * 2;
+        const float x0 = 50 + cst::DELTA_X * 3;
 
         for(int day = 0; day < 38; day++)
         {

@@ -385,7 +385,7 @@ namespace data {
         {
             if(i % 4 == 0)  // i divisible par 4 => debut de nouveau rectangle (->point haut gauche)
             {
-                tot[i].x = x0 + (float) i * cst::dx;
+                tot[i].x = x0 + (float) i * cst::DELTA_X;
                 if( i == 0 ) // on prend y0 pour le premier sommet du premier rectangle (->point haut gauche)
                 {
                     tot[i].y = coordCenter[0]; // == y0 (at t = 0)
@@ -402,7 +402,7 @@ namespace data {
             }
             else if (i % 2 == 0) // i divisible par 2 => point haut droit du rectangle
             {
-                tot[i].x = x0 + (float) i * cst::dx;
+                tot[i].x = x0 + (float) i * cst::DELTA_X;
                 tot[i].y = tot[i - 2].y;
             }
             else // i impair => les autres points (:= bas gauche ou bas droit)

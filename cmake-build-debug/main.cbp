@@ -88,9 +88,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/colors.h">
-			<Option target="main"/>
-		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/constants.h">
 			<Option target="main"/>
 		</Unit>
@@ -139,7 +136,13 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/imgui/imstb_truetype.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/main_includes.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/utils.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes/variables.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Arc.cpp">

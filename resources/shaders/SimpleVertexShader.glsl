@@ -10,7 +10,7 @@ uniform mat4 u_Projection;
 out vec3 frag_Normal;
 out vec3 frag_Position;
 
-void main(){
+void main() {
 
     frag_Position = vec3(u_Model * vec4(in_Position, 1.f));
     frag_Normal = mat3(transpose(inverse(u_Model))) * in_Normal;

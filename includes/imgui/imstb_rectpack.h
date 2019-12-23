@@ -304,7 +304,7 @@ static int stbrp__skyline_find_min_y(stbrp_context *c, stbrp_node *first, int x0
 
    #if 0
    // skip in case we're past the node
-   while (node->next->x <= x0)
+   while (node->next->x <= X_AT_0)
       ++node;
    #else
    STBRP_ASSERT(node->next->x > x0); // we ended up handling this in the caller for efficiency

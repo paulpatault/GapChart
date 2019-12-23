@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../includes/colors.h
-glm/glm.hpp
--
-
 ../includes/constants.h
 string
 ../includes/string
@@ -38,6 +34,40 @@ imgui_user.h
 
 ../includes/imgui/imgui_impl_opengl3.h
 
+../includes/main_includes.h
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+OpenGL/OpenGL.h
+-
+GL/gl.h
+-
+includes/variables.h
+../includes/includes/variables.h
+includes/utils.h
+../includes/includes/utils.h
+src/data/LoadData.h
+../includes/src/data/LoadData.h
+src/data/Cylinder.h
+../includes/src/data/Cylinder.h
+src/data/Arc.h
+../includes/src/data/Arc.h
+src/data/Shaders.h
+../includes/src/data/Shaders.h
+src/data/VAO.h
+../includes/src/data/VAO.h
+src/data/VBO.h
+../includes/src/data/VBO.h
+src/screen/MVP.h
+../includes/src/screen/MVP.h
+src/screen/c_ImGui.h
+../includes/src/screen/c_ImGui.h
+src/screen/Render.h
+../includes/src/screen/Render.h
+src/screen/Display.h
+../includes/src/screen/Display.h
+
 ../includes/utils.h
 vector
 -
@@ -47,6 +77,14 @@ src/data/Cylinder.h
 ../includes/src/data/Cylinder.h
 src/data/Arc.h
 ../includes/src/data/Arc.h
+
+../includes/variables.h
+glm/glm.hpp
+-
+vector
+-
+src/data/VBO.h
+../includes/src/data/VBO.h
 
 ../src/data/Arc.h
 LoadData.h
@@ -180,185 +218,9 @@ includes/imgui/imgui_impl_glfw.h
 includes/imgui/imgui_impl_opengl3.h
 ../src/screen/includes/imgui/imgui_impl_opengl3.h
 
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Arc.cpp
-Arc.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Arc.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Arc.h
-LoadData.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData.h
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/includes/constants.h
-glm/glm.hpp
--
-vector
--
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Cylinder.cpp
-Cylinder.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Cylinder.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Cylinder.h
-vector
--
-LoadData.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData.h
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/includes/constants.h
-glm/glm.hpp
--
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData.cpp
-LoadData.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData.h
-string
--
-vector
--
-fstream
--
-iostream
--
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/includes/constants.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData2/LoadData2.cpp
-LoadData2.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData2/LoadData2.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData2/LoadData2.h
-string
--
-vector
--
-fstream
--
-iostream
--
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData2/includes/constants.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VBO.cpp
-VBO.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VBO.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VBO.h
-vector
--
-GL/glew.h
--
-glm/glm.hpp
--
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/includes/constants.h
-LoadData.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData.h
-
 /Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/main.cpp
-GL/glew.h
--
-GLFW/glfw3.h
--
-OpenGL/OpenGL.h
--
-GL/gl.h
--
-includes/colors.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/includes/colors.h
-includes/utils.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/includes/utils.h
-src/data/LoadData.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/data/LoadData.h
-src/data/Cylinder.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/data/Cylinder.h
-src/data/Arc.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/data/Arc.h
-src/data/Shaders.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/data/Shaders.h
-src/data/VAO.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/data/VAO.h
-src/data/VBO.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/data/VBO.h
-src/screen/MVP.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/screen/MVP.h
-src/screen/c_ImGui.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/screen/c_ImGui.h
-src/screen/Render.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/screen/Render.h
-src/screen/Display.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/src/screen/Display.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.cpp
-Display.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.h
-vector
--
-GL/glew.h
--
-glm/glm.hpp
--
-Render.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.h
-src/data/VBO.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/src/data/VBO.h
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/constants.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/MVP.cpp
-MVP.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/MVP.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/MVP.h
-GL/glew.h
--
-GLFW/glfw3.h
--
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/constants.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.cpp
-Render.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.h
-stdio.h
--
-cmath
--
-vector
--
-sstream
--
-iostream
--
-stdlib.h
--
-GL/glew.h
--
-GLFW/glfw3.h
--
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-includes/constants.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/constants.h
+includes/main_includes.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/includes/main_includes.h
 
 /usr/local/include/GL/glew.h
 stddef.h

@@ -206,9 +206,9 @@
 //
 //  Displaying a character:
 //    Compute the bounding box of the character. It will contain signed values
-//    relative to <current_point, baseline>. I.e. if it returns x0,y0,x1,y1,
+//    relative to <current_point, baseline>. I.e. if it returns X_AT_0,y0,x1,y1,
 //    then the character should be displayed in the rectangle from
-//    <current_point+SF*x0, baseline+SF*y0> to <current_point+SF*x1,baseline+SF*y1).
+//    <current_point+SF*X_AT_0, baseline+SF*y0> to <current_point+SF*x1,baseline+SF*y1).
 //
 //  Advancing for the next character:
 //    Call GlyphHMetrics, and compute 'current_point += SF * advance'.
@@ -309,10 +309,10 @@ void my_stbtt_print(float x, float y, char *text)
       if (*text >= 32 && *text < 128) {
          stbtt_aligned_quad q;
          stbtt_GetBakedQuad(cdata, 512,512, *text-32, &x,&y,&q,1);//1=opengl & d3d10+,0=d3d9
-         glTexCoord2f(q.s0,q.t1); glVertex2f(q.x0,q.y0);
+         glTexCoord2f(q.s0,q.t1); glVertex2f(q.X_AT_0,q.y0);
          glTexCoord2f(q.s1,q.t1); glVertex2f(q.x1,q.y0);
          glTexCoord2f(q.s1,q.t0); glVertex2f(q.x1,q.y1);
-         glTexCoord2f(q.s0,q.t0); glVertex2f(q.x0,q.y1);
+         glTexCoord2f(q.s0,q.t0); glVertex2f(q.X_AT_0,q.y1);
       }
       ++text;
    }
@@ -388,11 +388,11 @@ int main(int arg, char **argv)
    baseline = (int) (ascent*scale);
 
    while (text[ch]) {
-      int advance,lsb,x0,y0,x1,y1;
+      int advance,lsb,X_AT_0,y0,x1,y1;
       float x_shift = xpos - (float) floor(xpos);
       stbtt_GetCodepointHMetrics(&font, text[ch], &advance, &lsb);
-      stbtt_GetCodepointBitmapBoxSubpixel(&font, text[ch], scale,scale,x_shift,0, &x0,&y0,&x1,&y1);
-      stbtt_MakeCodepointBitmapSubpixel(&font, &screen[baseline + y0][(int) xpos + x0], x1-x0,y1-y0, 79, scale,scale,x_shift,0, text[ch]);
+      stbtt_GetCodepointBitmapBoxSubpixel(&font, text[ch], scale,scale,x_shift,0, &X_AT_0,&y0,&x1,&y1);
+      stbtt_MakeCodepointBitmapSubpixel(&font, &screen[baseline + y0][(int) xpos + X_AT_0], x1-X_AT_0,y1-y0, 79, scale,scale,x_shift,0, text[ch]);
       // note that this stomps the old data, so where character boxes overlap (e.g. 'lj') it's wrong
       // because this API is really for baking character bitmaps into textures. if you want to render
       // a sequence of characters, you really need to render each bitmap to a temp buffer, then
@@ -2722,7 +2722,7 @@ typedef struct stbtt__active_edge
 {
    struct stbtt__active_edge *next;
    #if STBTT_RASTERIZER_VERSION==1
-   int x,dx;
+   int x,DELTA_X;
    float ey;
    int direction;
    #elif STBTT_RASTERIZER_VERSION==2
@@ -2743,17 +2743,17 @@ typedef struct stbtt__active_edge
 static stbtt__active_edge *stbtt__new_active(stbtt__hheap *hh, stbtt__edge *e, int off_x, float start_point, void *userdata)
 {
    stbtt__active_edge *z = (stbtt__active_edge *) stbtt__hheap_alloc(hh, sizeof(*z), userdata);
-   float dxdy = (e->x1 - e->x0) / (e->y1 - e->y0);
+   float dxdy = (e->x1 - e->X_AT_0) / (e->y1 - e->y0);
    STBTT_assert(z != NULL);
    if (!z) return z;
    
-   // round dx down to avoid overshooting
+   // round DELTA_X down to avoid overshooting
    if (dxdy < 0)
-      z->dx = -STBTT_ifloor(STBTT_FIX * -dxdy);
+      z->DELTA_X = -STBTT_ifloor(STBTT_FIX * -dxdy);
    else
-      z->dx = STBTT_ifloor(STBTT_FIX * dxdy);
+      z->DELTA_X = STBTT_ifloor(STBTT_FIX * dxdy);
 
-   z->x = STBTT_ifloor(STBTT_FIX * e->x0 + z->dx * (start_point - e->y0)); // use z->dx so when we offset later it's by the same amount
+   z->x = STBTT_ifloor(STBTT_FIX * e->X_AT_0 + z->DELTA_X * (start_point - e->y0)); // use z->DELTA_X so when we offset later it's by the same amount
    z->x -= off_x * STBTT_FIX;
 
    z->ey = e->y1;
@@ -2790,26 +2790,26 @@ static stbtt__active_edge *stbtt__new_active(stbtt__hheap *hh, stbtt__edge *e, i
 static void stbtt__fill_active_edges(unsigned char *scanline, int len, stbtt__active_edge *e, int max_weight)
 {
    // non-zero winding fill
-   int x0=0, w=0;
+   int X_AT_0=0, w=0;
 
    while (e) {
       if (w == 0) {
          // if we're currently at zero, we need to record the edge start point
-         x0 = e->x; w += e->direction;
+         X_AT_0 = e->x; w += e->direction;
       } else {
          int x1 = e->x; w += e->direction;
          // if we went to zero, we need to draw
          if (w == 0) {
-            int i = x0 >> STBTT_FIXSHIFT;
+            int i = X_AT_0 >> STBTT_FIXSHIFT;
             int j = x1 >> STBTT_FIXSHIFT;
 
             if (i < len && j >= 0) {
                if (i == j) {
-                  // x0,x1 are the same pixel, so compute combined coverage
-                  scanline[i] = scanline[i] + (stbtt_uint8) ((x1 - x0) * max_weight >> STBTT_FIXSHIFT);
+                  // X_AT_0,x1 are the same pixel, so compute combined coverage
+                  scanline[i] = scanline[i] + (stbtt_uint8) ((x1 - X_AT_0) * max_weight >> STBTT_FIXSHIFT);
                } else {
-                  if (i >= 0) // add antialiasing for x0
-                     scanline[i] = scanline[i] + (stbtt_uint8) (((STBTT_FIX - (x0 & STBTT_FIXMASK)) * max_weight) >> STBTT_FIXSHIFT);
+                  if (i >= 0) // add antialiasing for X_AT_0
+                     scanline[i] = scanline[i] + (stbtt_uint8) (((STBTT_FIX - (X_AT_0 & STBTT_FIXMASK)) * max_weight) >> STBTT_FIXSHIFT);
                   else
                      i = -1; // clip
 
@@ -2818,7 +2818,7 @@ static void stbtt__fill_active_edges(unsigned char *scanline, int len, stbtt__ac
                   else
                      j = len; // clip
 
-                  for (++i; i < j; ++i) // fill pixels between x0 and x1
+                  for (++i; i < j; ++i) // fill pixels between X_AT_0 and x1
                      scanline[i] = scanline[i] + (stbtt_uint8) max_weight;
                }
             }
@@ -2863,7 +2863,7 @@ static void stbtt__rasterize_sorted_edges(stbtt__bitmap *result, stbtt__edge *e,
                z->direction = 0;
                stbtt__hheap_free(&hh, z);
             } else {
-               z->x += z->dx; // advance to position for current scanline
+               z->x += z->DELTA_X; // advance to position for current scanline
                step = &((*step)->next); // advance through list
             }
          }
@@ -3000,7 +3000,7 @@ static void stbtt__fill_active_edges_new(float *scanline, float *scanline_fill, 
          STBTT_assert(e->sy <= y_bottom && e->ey >= y_top);
 
          // compute endpoints of line segment clipped to this scanline (if the
-         // line segment starts on this scanline. x0 is the intersection of the
+         // line segment starts on this scanline. X_AT_0 is the intersection of the
          // line with y_top, but that may be off the line segment.
          if (e->sy > y_top) {
             x_top = x0 + dx * (e->sy - y_top);
@@ -3097,9 +3097,9 @@ static void stbtt__fill_active_edges_new(float *scanline, float *scanline_fill, 
                float x3 = xb;
                float y3 = y_bottom;
 
-               // x = e->x + e->dx * (y-y_top)
-               // (y-y_top) = (x - e->x) / e->dx
-               // y = (x - e->x) / e->dx + y_top
+               // x = e->x + e->DELTA_X * (y-y_top)
+               // (y-y_top) = (x - e->x) / e->DELTA_X
+               // y = (x - e->x) / e->DELTA_X + y_top
                float y1 = (x - x0) / dx + y_top;
                float y2 = (x+1 - x0) / dx + y_top;
 
@@ -4490,18 +4490,18 @@ STBTT_DEF unsigned char * stbtt_GetGlyphSDF(const stbtt_fontinfo *info, float sc
                   float x1 = verts[i-1].x*scale_x, y1 = verts[i-1].y*scale_y;
 
                   // coarse culling against bbox
-                  //if (sx > STBTT_min(x0,x1)-min_dist && sx < STBTT_max(x0,x1)+min_dist &&
+                  //if (sx > STBTT_min(X_AT_0,x1)-min_dist && sx < STBTT_max(X_AT_0,x1)+min_dist &&
                   //    sy > STBTT_min(y0,y1)-min_dist && sy < STBTT_max(y0,y1)+min_dist)
                   float dist = (float) STBTT_fabs((x1-x0)*(y0-sy) - (y1-y0)*(x0-sx)) * precompute[i];
                   STBTT_assert(i != 0);
                   if (dist < min_dist) {
                      // check position along line
-                     // x' = x0 + t*(x1-x0), y' = y0 + t*(y1-y0)
+                     // x' = X_AT_0 + t*(x1-X_AT_0), y' = y0 + t*(y1-y0)
                      // minimize (x'-sx)*(x'-sx)+(y'-sy)*(y'-sy)
                      float dx = x1-x0, dy = y1-y0;
                      float px = x0-sx, py = y0-sy;
-                     // minimize (px+t*dx)^2 + (py+t*dy)^2 = px*px + 2*px*dx*t + t^2*dx*dx + py*py + 2*py*dy*t + t^2*dy*dy
-                     // derivative: 2*px*dx + 2*py*dy + (2*dx*dx+2*dy*dy)*t, set to 0 and solve
+                     // minimize (px+t*DELTA_X)^2 + (py+t*dy)^2 = px*px + 2*px*DELTA_X*t + t^2*DELTA_X*DELTA_X + py*py + 2*py*dy*t + t^2*dy*dy
+                     // derivative: 2*px*DELTA_X + 2*py*dy + (2*DELTA_X*DELTA_X+2*dy*dy)*t, set to 0 and solve
                      float t = -(px*dx + py*dy) / (dx*dx + dy*dy);
                      if (t >= 0.0f && t <= 1.0f)
                         min_dist = dist;

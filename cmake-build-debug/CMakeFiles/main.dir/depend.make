@@ -865,13 +865,14 @@ CMakeFiles/main.dir/src/data/VBO.cpp.o: /usr/local/include/glm/vec3.hpp
 CMakeFiles/main.dir/src/data/VBO.cpp.o: /usr/local/include/glm/vec4.hpp
 CMakeFiles/main.dir/src/data/VBO.cpp.o: /usr/local/include/glm/vector_relational.hpp
 
-CMakeFiles/main.dir/src/main.cpp.o: ../includes/colors.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/constants.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/imgui/imconfig.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/imgui/imgui.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/imgui/imgui_impl_glfw.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/imgui/imgui_impl_opengl3.h
+CMakeFiles/main.dir/src/main.cpp.o: ../includes/main_includes.h
 CMakeFiles/main.dir/src/main.cpp.o: ../includes/utils.h
+CMakeFiles/main.dir/src/main.cpp.o: ../includes/variables.h
 CMakeFiles/main.dir/src/main.cpp.o: ../src/data/Arc.h
 CMakeFiles/main.dir/src/main.cpp.o: ../src/data/Cylinder.h
 CMakeFiles/main.dir/src/main.cpp.o: ../src/data/LoadData.h

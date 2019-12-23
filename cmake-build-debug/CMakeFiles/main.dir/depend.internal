@@ -866,13 +866,14 @@ CMakeFiles/main.dir/src/data/VBO.cpp.o
  /usr/local/include/glm/vec4.hpp
  /usr/local/include/glm/vector_relational.hpp
 CMakeFiles/main.dir/src/main.cpp.o
- ../includes/colors.h
  ../includes/constants.h
  ../includes/imgui/imconfig.h
  ../includes/imgui/imgui.h
  ../includes/imgui/imgui_impl_glfw.h
  ../includes/imgui/imgui_impl_opengl3.h
+ ../includes/main_includes.h
  ../includes/utils.h
+ ../includes/variables.h
  ../src/data/Arc.h
  ../src/data/Cylinder.h
  ../src/data/LoadData.h

@@ -7,6 +7,9 @@
 
 #include "string"
 
+/**
+ * Constantes utilisées dans tout le projet
+ */
 namespace cst {
 
     const int NB_DAYS = 38;
@@ -18,19 +21,25 @@ namespace cst {
     const int FSCREEN_WIDTH = 1000.f;
     const int FSCREEN_HEIGHT = 700.f;
 
-    const int DIV_CYLINDER = 10;
+    const int DIV_CYLINDER = 8;
     const int NB_POINTS = 4 * (38 + 1);
     const float THICKNESS = ( (float) FSCREEN_HEIGHT / 2 ) / 20;
-    const float dx = (float) (SCREEN_WIDTH - 100) / NB_POINTS;
-    const float dz = 1;
-    const float x0 = 50;
-    const float add_z = - dz * 3;
+    const float DELTA_X = (float) (SCREEN_WIDTH - 100) / NB_POINTS;
+    const float DELTA_MID = 50;
+    const float DELTA_Z = 1;
+    const float X_AT_0 = 50;
+    const float FRONT_Z = - DELTA_Z * 3;
 
 }
 
 struct DayTrip {
     int rank;
     int points;
+};
+
+struct Selection {
+    int selected;
+    bool changed;
 };
 
 struct Match {
