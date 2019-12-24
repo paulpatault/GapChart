@@ -162,7 +162,7 @@
       <workItem from="1576555804381" duration="33341000" />
       <workItem from="1576684880440" duration="48018000" />
       <workItem from="1576933218835" duration="23722000" />
-      <workItem from="1577184371517" duration="6963000" />
+      <workItem from="1577184371517" duration="15373000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -409,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577202028540</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="save">
+      <created>1577202895283</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1577202895283</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +447,6 @@
     <MESSAGE value="mvp &amp; refactor &amp; new files" />
     <MESSAGE value="keyboard + cleanup" />
     <MESSAGE value="remise à niveau" />
-    <MESSAGE value="save" />
     <MESSAGE value="clean up | separation fichiers" />
     <MESSAGE value="oubli intégration cst.h dans render" />
     <MESSAGE value="move" />
@@ -458,6 +464,7 @@
     <MESSAGE value="main.cpp comments" />
     <MESSAGE value="clean up" />
     <MESSAGE value="maj" />
-    <option name="LAST_COMMIT_MESSAGE" value="maj" />
+    <MESSAGE value="save" />
+    <option name="LAST_COMMIT_MESSAGE" value="save" />
   </component>
 </project>

@@ -194,13 +194,14 @@ namespace data {
      *                 false sinon := on rempli le demi disque
      * @return vector des points qui décrivent les triangles constituant les demi disques
      */
-    std::vector<glm::vec3> Cylinder::makeHalfCircles(std::vector<glm::vec3> backFace, bool arc_only)
+    std::vector<glm::vec3> Cylinder::makeHalfCircles(const std::vector<glm::vec3>& backFace, bool arc_only)
     {
         std::vector<glm::vec3> halfCircle;
 
         float half_pi = 1.57079632679489661923132169163975144; // == (float) glm::half_pi
         float r = cst::THICKNESS / 2;
         float angle = 3.14159265358979323846264338327950288 / cst::DIV_CYLINDER; // == (float) glm::pi
+        float theta;
 
         int index_mid_add = 348;
         int index_end_add = 666;
@@ -209,12 +210,14 @@ namespace data {
 
         for(int i = 0; i < backFace.size(); i += 6)
         {
-            float theta = half_pi;
             std::vector<glm::vec3> arc;
-            std::vector<glm::vec3> arc_added;
             glm::vec3 point;
             glm::vec3 centre;
+
             glm::vec3 centre_added;
+            std::vector<glm::vec3> arc_added;
+
+            theta = half_pi;
             centre.x = backFace[i].x;
             centre.y = backFace[i].y - r;
             centre.z = backFace[i].z;
@@ -224,13 +227,15 @@ namespace data {
                 /// ajout de demi disque au milieu gauche (== moitié inf)
                 if(i == index_mid_add)
                 {
-                    centre_added.x = backFace[i].x - (cst::DELTA_MID + 2 * cst::DELTA_X);
-                    centre_added.y = backFace[i].y - r;
-                    centre_added.z = backFace[i].z;
-                    point.x = centre_added.x;
-                    point.y = centre_added.y + r * glm::sin(theta);
-                    point.z = centre_added.z + r * glm::cos(theta);
-                    arc_added.push_back(point);
+                    glm::vec3 point_added;
+                    centre_added.x = centre.x - (cst::DELTA_MID + 2 * cst::DELTA_X);
+                    centre_added.y = centre.y;
+                    centre_added.z = centre.z;
+
+                    point_added.x = centre_added.x;
+                    point_added.y = centre_added.y + r * glm::sin(theta);
+                    point_added.z = centre_added.z + r * glm::cos(theta);
+                    arc_added.push_back(point_added);
                 }
 
                 point.x = centre.x;
@@ -242,13 +247,15 @@ namespace data {
                 /// ajout de demi disque a la fin
                 if(i == index_end_add)
                 {
-                    centre_added.x = backFace[i].x + 2 * cst::DELTA_X;
-                    centre_added.y = backFace[i].y - r;
-                    centre_added.z = backFace[i].z;
-                    point.x = centre_added.x;
-                    point.y = centre_added.y + r * glm::sin(theta);
-                    point.z = centre_added.z + r * glm::cos(theta);
-                    arc_added.push_back(point);
+                    glm::vec3 point_added;
+                    centre_added.x = centre.x + 2 * cst::DELTA_X;
+                    centre_added.y = centre.y;
+                    centre_added.z = centre.z;
+
+                    point_added.x = centre_added.x;
+                    point_added.y = centre_added.y + r * glm::sin(theta);
+                    point_added.z = centre_added.z + r * glm::cos(theta);
+                    arc_added.push_back(point_added);
                 }
 
                 theta -= angle; // descend le cercle trigo par la droite
@@ -265,6 +272,8 @@ namespace data {
                     arcs.push_back(arc_added[j]);
                 }
                 if(arc_only) arcs.push_back(arc_added[cst::DIV_CYLINDER]);
+                if(arc_only and this->_teamNumber == 0)
+                    std::cout << arcs.size() - 1 << "          := " << arcs[arcs.size() - 1].x << std::endl;
             }
 
             for(int j = 0; j < cst::DIV_CYLINDER; j++)
@@ -275,6 +284,8 @@ namespace data {
                 arcs.push_back(arc[j]);
             }
             if(arc_only) arcs.push_back(arc[cst::DIV_CYLINDER]);
+            if(arc_only and this->_teamNumber == 0)
+                std::cout << arcs.size() - 1 << " := " << arcs[arcs.size() - 1].x << std::endl;
 
             /// ajout de demi disque a la fin
             if(i == index_end_add)
@@ -287,11 +298,14 @@ namespace data {
                     arcs.push_back(arc_added[j]);
                 }
                 if(arc_only) arcs.push_back(arc_added[cst::DIV_CYLINDER]);
+                if(arc_only and this->_teamNumber == 0)
+                    std::cout << arcs.size() - 1 << "          := " << arcs[arcs.size() - 1].x << std::endl;
+
             }
+
         }
 
         if(arc_only) return arcs;
-
         return halfCircle;
     }
 
@@ -300,7 +314,7 @@ namespace data {
      * @param backFace face arrière (plate) du demi cylindre
      * @return vector des points qui décrivent les cylindres creux
      */
-    std::vector<glm::vec3> Cylinder::makeLinkCircles(std::vector<glm::vec3> backFace)
+    std::vector<glm::vec3> Cylinder::makeLinkCircles(const std::vector<glm::vec3>& backFace)
     {
         std::vector<glm::vec3> linkCircles;
         std::vector<glm::vec3> arcs = makeHalfCircles(backFace, true);
@@ -309,22 +323,19 @@ namespace data {
 
         /// SWAP ///
 
-        for(int i = 0; i < 8; i++){
-            swap(arcs[520 + i], arcs[520 + 8 + i]);
+        for(int i = 0; i < cst::DIV_CYLINDER; i++){
+            swap(arcs[(59 * cst::DIV_CYLINDER + 58) + i], arcs[(59 * cst::DIV_CYLINDER + 58) + cst::DIV_CYLINDER + i]);
         }
 
-        for(int i = 504; i < arcs.size(); i++){
-            arcs[i] = arcs[i+1];
-        }
+        int nbr = arcs.size() / (cst::DIV_CYLINDER) ;
+        int total = 0; //= 62 * cst::DIV_CYLINDER;
 
-        int nbr = arcs.size() / (cst::DIV_CYLINDER)  ;
-        int total = 0;
-
-        int mid = 65; // on veut 63
+        int mid = 60; // on veut 63
         // 58 _ 56
-        for(int i = 0; i < nbr - 1; i++) // each arc
+        for(int i = 0; i < nbr - 1; i++) // nbr - 1; i++) // each arc //
+        //int i = 50;
         {
-            if(not (mid * cst::DIV_CYLINDER <= total and total <= (mid + 10) * cst::DIV_CYLINDER))
+            if(not (mid * cst::DIV_CYLINDER <= total and total <= (mid + 6) * cst::DIV_CYLINDER))
             {
                 for(int div = total ; div < total + cst::DIV_CYLINDER; div++)
                 {
@@ -339,13 +350,11 @@ namespace data {
                     // TopLeft TopRight BotRigth
                     tubes.push_back(topLeft );
                     tubes.push_back(topRight);
-                    tubes.push_back(botRight );
-
+                    tubes.push_back(botRight);
                 }
             } else {
-                std::cout << i << ".x = "<< arcs[total + 0].x << " , total = " << total << std::endl;
+                //std::cout << i << ".x = "<< arcs[total + 0].x << " , total = " << total << std::endl;
                 // inversement 66 et 65 => 520 et 528
-
             }
             total += cst::DIV_CYLINDER;
         }
