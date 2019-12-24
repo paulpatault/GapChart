@@ -14,23 +14,10 @@
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/constants.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Arc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Arc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Arc.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Arc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/Cylinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/Cylinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/VBO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/VBO.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Display.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/MVP.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +162,7 @@
       <workItem from="1576555804381" duration="33341000" />
       <workItem from="1576684880440" duration="48018000" />
       <workItem from="1576933218835" duration="23722000" />
-      <workItem from="1577184371517" duration="6099000" />
+      <workItem from="1577184371517" duration="6963000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -415,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577092248249</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="maj">
+      <created>1577202028540</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1577202028540</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +449,6 @@
     <MESSAGE value="rename dir" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="make cylinder" />
-    <MESSAGE value="maj" />
     <MESSAGE value="vbo vao" />
     <MESSAGE value="miss" />
     <MESSAGE value="size_of_cylinder" />
@@ -464,6 +457,7 @@
     <MESSAGE value="fully commented" />
     <MESSAGE value="main.cpp comments" />
     <MESSAGE value="clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
+    <MESSAGE value="maj" />
+    <option name="LAST_COMMIT_MESSAGE" value="maj" />
   </component>
 </project>

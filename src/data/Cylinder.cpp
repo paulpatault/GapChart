@@ -302,9 +302,6 @@ namespace data {
      */
     std::vector<glm::vec3> Cylinder::makeLinkCircles(std::vector<glm::vec3> backFace)
     {
-
-
-
         std::vector<glm::vec3> linkCircles;
         std::vector<glm::vec3> arcs = makeHalfCircles(backFace, true);
         std::vector<glm::vec3> tubes;
@@ -351,9 +348,7 @@ namespace data {
 
             }
             total += cst::DIV_CYLINDER;
-
         }
-
         return tubes;
     }
 

@@ -21,6 +21,10 @@ namespace screen {
             angle.z += 0.5f;
         if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
             angle.z -= 0.5f;
+        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) // A
+            angle.y += 2.f;
+        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) // E
+            angle.y -= 2.f;
 
         // deplacement
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) // Z

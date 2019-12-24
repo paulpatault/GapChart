@@ -20,16 +20,15 @@ namespace data {
 
     public:
         Cylinder(int teamNumber, LoadData* data);
-
         ~Cylinder();
+        std::vector<float> yByDay;
+
         std::vector<glm::vec3> makeBackFace(bool front);
         std::vector<glm::vec3> makeHalfCircles(std::vector<glm::vec3> backFace, bool arc_only);
         std::vector<glm::vec3> makeLinkCircles(std::vector<glm::vec3> halfCircles);
         std::vector<glm::vec3> makeCombinedCylinder(bool front);
+
         std::vector<float> makeNormals(std::vector<float> cylinder);
-        std::vector<float> yByDay;
-
-
     };
 }
 
