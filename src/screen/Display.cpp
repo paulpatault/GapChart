@@ -13,14 +13,15 @@ namespace screen {
      * @param colors couleurs des cylindres
      * @param selected indice de l'équipe selectinnée
      */
-    void Display::draw(GLuint programID, std::vector<data::VBO> vec_VBO, glm::vec3 *colors, int select)
+    void Display::draw(GLuint programID, const std::vector<data::VBO>& vec_VBO, glm::vec3 *colors, const Selection& select)
     {
-        //int team = 0;
-        for(int team = 0; team < cst::NB_TEAMS; team++)
+        //int team = 15;
+        //for(int team = 0; team < cst::NB_TEAMS; team++)
+        for(int team = 0; team < cst::NB_TEAMS; team += 4)
         {
             GLint colorID = glGetUniformLocation(programID,"u_color");
             {
-                if( team == select)
+                if( team == select.selected)
                     glUniform3f(colorID, 0.2, 0.9, 0.2);
                 else if (team == 0) {
                     glUniform3f(colorID, colors[0].x, colors[0].y, colors[0].z);              // TOP 1
@@ -61,6 +62,27 @@ namespace screen {
 
             glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].t_combined_data.size());
         }
+
+        // ARC.S
+        //for(int day = 0; day < cst::NB_DAYS; day++)
+        if(select.arcs)
+        {
+            glEnableVertexAttribArray(0);
+            glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[select.selected].arc_vertexbuffer[0]); // O/day
+            glVertexAttribPointer(
+                    0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+                    3,                  // size
+                    GL_FLOAT,           // type
+                    GL_FALSE,           // normalized?
+                    0,                  // stride
+                    (void*)nullptr      // array buffer offset
+            );
+            // Draw the triangle !
+            glDrawArrays(GL_TRIANGLE_STRIP, 0, 60 ); // * 38
+            glDisableVertexAttribArray(0);
+        }
+
+
     }
 
     /**
@@ -107,6 +129,9 @@ namespace screen {
 
         if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS and n_selected != -1)
             n_selected += 10;
+
+
+        last_selection.arcs = glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS;
 
         last_selection.changed = n_selected != last_selection.selected;
         last_selection.selected = n_selected;

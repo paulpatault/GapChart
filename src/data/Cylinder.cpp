@@ -87,6 +87,8 @@ namespace data {
                 backFace.push_back(topLeft);
                 backFace.push_back(topRight);
                 backFace.push_back(botRight);
+
+                yByDay.push_back((topLeft.y - botLeft.y) / 2) ;
             }
             else // end bout rec => new entre deux
             {
@@ -248,9 +250,11 @@ namespace data {
                     point.z = centre_added.z + r * glm::cos(theta);
                     arc_added.push_back(point);
                 }
+
                 theta -= angle; // descend le cercle trigo par la droite
             }
 
+            /// ajout de demi disque au milieu gauche (== moitié inf)
             if(i == index_mid_add)
             {
                 for(int j = 0; j < cst::DIV_CYLINDER; j++)
@@ -260,6 +264,7 @@ namespace data {
                     halfCircle.push_back(arc_added[j + 1]);
                     arcs.push_back(arc_added[j]);
                 }
+                if(arc_only) arcs.push_back(arc_added[cst::DIV_CYLINDER]);
             }
 
             for(int j = 0; j < cst::DIV_CYLINDER; j++)
@@ -269,7 +274,9 @@ namespace data {
                 halfCircle.push_back(arc[j + 1]);
                 arcs.push_back(arc[j]);
             }
+            if(arc_only) arcs.push_back(arc[cst::DIV_CYLINDER]);
 
+            /// ajout de demi disque a la fin
             if(i == index_end_add)
             {
                 for(int j = 0; j < cst::DIV_CYLINDER; j++)
@@ -279,6 +286,7 @@ namespace data {
                     halfCircle.push_back(arc_added[j + 1]);
                     arcs.push_back(arc_added[j]);
                 }
+                if(arc_only) arcs.push_back(arc_added[cst::DIV_CYLINDER]);
             }
         }
 
@@ -295,24 +303,37 @@ namespace data {
     std::vector<glm::vec3> Cylinder::makeLinkCircles(std::vector<glm::vec3> backFace)
     {
 
+
+
         std::vector<glm::vec3> linkCircles;
         std::vector<glm::vec3> arcs = makeHalfCircles(backFace, true);
         std::vector<glm::vec3> tubes;
 
-        int nbr = arcs.size() / (cst::DIV_CYLINDER) - 1 ;
+
+        /// SWAP ///
+
+        for(int i = 0; i < 8; i++){
+            swap(arcs[520 + i], arcs[520 + 8 + i]);
+        }
+
+        for(int i = 504; i < arcs.size(); i++){
+            arcs[i] = arcs[i+1];
+        }
+
+        int nbr = arcs.size() / (cst::DIV_CYLINDER)  ;
         int total = 0;
-        int mid = 57; // was 55
+
+        int mid = 65; // on veut 63
+        // 58 _ 56
         for(int i = 0; i < nbr - 1; i++) // each arc
         {
-
-            int div;
-            if(total < mid * cst::DIV_CYLINDER or total >= (mid + 1) * cst::DIV_CYLINDER)
+            if(not (mid * cst::DIV_CYLINDER <= total and total <= (mid + 10) * cst::DIV_CYLINDER))
             {
-                for(div = total ; div < total + cst::DIV_CYLINDER; div++)
+                for(int div = total ; div < total + cst::DIV_CYLINDER; div++)
                 {
-                    glm::vec3 topLeft = arcs[div];
-                    glm::vec3 botLeft = arcs[div + 1];
-                    glm::vec3 topRight = arcs[div + cst::DIV_CYLINDER];
+                    glm::vec3 topLeft  = arcs[div + 0];
+                    glm::vec3 botLeft  = arcs[div + 1];
+                    glm::vec3 topRight = arcs[div + cst::DIV_CYLINDER + 0];
                     glm::vec3 botRight = arcs[div + cst::DIV_CYLINDER + 1];
                     // TopLeft BotLeft BotRight
                     tubes.push_back(topLeft );
@@ -324,6 +345,10 @@ namespace data {
                     tubes.push_back(botRight );
 
                 }
+            } else {
+                std::cout << i << ".x = "<< arcs[total + 0].x << " , total = " << total << std::endl;
+                // inversement 66 et 65 => 520 et 528
+
             }
             total += cst::DIV_CYLINDER;
 
@@ -363,7 +388,7 @@ namespace data {
         std::vector<glm::vec3> back_and_half = pusher(backFace, halfDisk);
         std::vector<glm::vec3> combined = pusher(back_and_half, link);
 
-        return back_and_half;
+        return combined;
     }
 
     /**

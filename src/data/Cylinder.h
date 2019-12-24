@@ -27,6 +27,7 @@ namespace data {
         std::vector<glm::vec3> makeLinkCircles(std::vector<glm::vec3> halfCircles);
         std::vector<glm::vec3> makeCombinedCylinder(bool front);
         std::vector<float> makeNormals(std::vector<float> cylinder);
+        std::vector<float> yByDay;
 
 
     };

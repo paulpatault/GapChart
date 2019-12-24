@@ -282,10 +282,10 @@ namespace data {
      */
     int LoadData::getIndexByName(std::string name)
     {
-        for(int i = 0; i < cst::NB_TEAMS; i++)
+        for(int team = 0; team < cst::NB_TEAMS; team++)
         {
-            if(name == " " + NAMES[i])
-                return i;
+            if(name == " " + NAMES[team])
+                return team;
         }
         return -1;
     }
@@ -301,20 +301,20 @@ namespace data {
 
         string res = "L'équipe";
 
-        string askedTeam  = this->match[team][day].teamAtHome;
-        string otherTeam = this->match[team][day].teamAway;
+        string askedTeam  = match[team][day].teamAtHome;
+        string otherTeam = match[team][day].teamAway;
         string inOut = " à domicile";
 
-        if(getIndexByName(this->match[team][day].teamAway) == team )  // At Home
+        if(getIndexByName(match[team][day].teamAway) == team )  // At Home
         {
-            askedTeam = this->match[team][day].teamAway;
-            otherTeam = this->match[team][day].teamAtHome;
+            askedTeam = match[team][day].teamAway;
+            otherTeam = match[team][day].teamAtHome;
             inOut = " à l'extérieur";
         }
 
         res += askedTeam;
 
-        switch(this->match[team][day].win)
+        switch(match[team][day].win)
         {
             case 1:
                 res += " a gagné";
@@ -329,7 +329,7 @@ namespace data {
                 break;
         }
         res += " contre l'équipe" + otherTeam + " avec le score de ";
-        res += to_string(this->match[team][day].scoreAtHome) + " à " + to_string(this->match[team][day].scoreAway);
+        res += to_string(match[team][day].scoreAtHome) + " à " + to_string(match[team][day].scoreAway);
         res += inOut + ".";
         //res += " le " + to_string(day+1) + "ième jour." ;
 
@@ -349,89 +349,14 @@ namespace data {
                 "Everton.png", "Leicester.png", "West_Ham.png", "Watford.png", "Crystal_Palace.png", "Newcastle.png", "Bournemouth.png",
                 "Burnley.png", "Southampton.png", "Brighton.png", "Cardiff.png", "Fulham.png", "Huddersfield.png"
         };*/
-        for(int i = 0; i < cst::NB_TEAMS; i++){
-            this->teamPathPng[i] = imagesPath + this->teamPathPng[i];
+        for(int team = 0; team < cst::NB_TEAMS; team++){
+            teamPathPng[team] = imagesPath + teamPathPng[team];
         }
     }
 
     std::string LoadData::getImagesPath(int index)
     {
-        return this->teamPathPng[index];
-    }
-
-    std::vector<float> LoadData::y_Escalier(int team)
-    {
-        std::vector<float> res(cst::NB_DAYS);
-
-        float complementaire, points;
-
-        for(int day = 0; day < cst::NB_DAYS; day++)
-        {
-            complementaire = this->getComplementaryRankNormalized(team, day);
-            points = this->getPointsNormalized(team, day);
-
-            res[day] = (points + complementaire) * cst::SCREEN_HEIGHT/2.2;
-        }
-
-        return res;
-    }
-
-    void LoadData::tabEscalier(float vertices[], vector<float>  coordCenter)
-    {
-        vec2 tot[cst::NB_POINTS];
-        const float x0 = 50;
-        int days = 0;
-        for(int i = 0; i < cst::NB_POINTS; i++)
-        {
-            if(i % 4 == 0)  // i divisible par 4 => debut de nouveau rectangle (->point haut gauche)
-            {
-                tot[i].x = x0 + (float) i * cst::DELTA_X;
-                if( i == 0 ) // on prend y0 pour le premier sommet du premier rectangle (->point haut gauche)
-                {
-                    tot[i].y = coordCenter[0]; // == y0 (at t = 0)
-                }
-                else
-                {
-                    tot[i].y = coordCenter[days];
-                }
-
-                if(i != 0)  // on change de jour pour chaque nouveau rectangle sauf pour le premier
-                {
-                    days += 1;
-                }
-            }
-            else if (i % 2 == 0) // i divisible par 2 => point haut droit du rectangle
-            {
-                tot[i].x = x0 + (float) i * cst::DELTA_X;
-                tot[i].y = tot[i - 2].y;
-            }
-            else // i impair => les autres points (:= bas gauche ou bas droit)
-            {
-                tot[i].x = tot[i - 1].x;
-                tot[i].y = tot[i - 1].y - cst::THICKNESS;
-            }
-        }
-        /// on rempli le tableau avec les pts obtenus
-        //float ecart = 0;
-        for(int i = 0; i < cst::NB_POINTS; i++)
-        {
-            //if(i > NUMBER_OF_POINTS/2) ecart = 50;
-            vertices[3*i] = tot[i].x ;//+ ecart;
-            vertices[3*i+1] = tot[i].y + 35; // +40 pour que le plus bas ne touche pas le bas de la fenetre
-            if(i != cst::NB_POINTS -1 ){
-                if(tot[i].y > tot[i + 1].y)
-                    vertices[3*i+2] = -2.f * (tot[i].y - tot[i + 1].y);
-                else
-                    vertices[3*i+2] = 0;
-            }
-            vertices[3*i+2] = 0.08f;
-
-        }
-    }
-
-    float LoadData::getVertexDataValue(int i, int j)
-    {
-        return this->t_vertex_data[i][j];
+        return teamPathPng[index];
     }
 
     /**
@@ -439,7 +364,8 @@ namespace data {
      * @param team équipe demandé
      * @return l'ensemble des matchs joués par l'équipe team
      */
-    std::vector<Match> LoadData::getMatchs(int team) {
+    std::vector<Match> LoadData::getMatchs(int team)
+    {
         return match[team];
     }
 

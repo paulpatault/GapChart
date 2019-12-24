@@ -22,13 +22,11 @@ namespace data {
 
     class LoadData {
     private:
-        // rankPoints[i][j] := equipe / jour
+        // match[i][j] := [equipe][jour] .{teamAtHome, teamAway, scoreAtHome, scoreAway, win}
         std::vector<std::vector<Match>> match;
-        // rankPoints[i][j][k] := jour / equipe / {rang,points}
+        // rankPoints[i][j] := [jour][equipe] .{rang,points}
         std::vector<std::vector<DayTrip>> rankPoints;
-        std::vector<float> y_Escalier(int team);
-        void tabEscalier(float vertices[], vector<float>  coordCenter);
-        float t_vertex_data[cst::NB_TEAMS][cst::NB_POINTS * 3];
+
         std::vector<std::string> teamPathPng;
         std::vector<std::string> NAMES = {
                 "Man City", "Liverpool", "Chelsea", "Tottenham", "Arsenal", "Man United", "Wolves", "Everton",
@@ -42,20 +40,17 @@ namespace data {
 
         LoadData(std::string filePath);
         void loadMatch(std::string filePath);
+
         int getRank(int team, int day);
         int getComplementaryRank(int team, int day);
         float getComplementaryRankNormalized(int team, int day);
         int getPoints(int team, int day);
         float getPointsNormalized(int team, int day);
-
+        int getAdversaire(int team, int day);
         std::vector<Match> getMatchs(int team);
 
-        int getAdversaire(int team, int day);
         std::string getImagesPath(int index);
         void addPathToTab(std::string imagesPath);
-        void initVertexDataD1();
-        float getVertexDataValue(int i, int j);
-
 
     };
 

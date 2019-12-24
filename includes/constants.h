@@ -39,6 +39,7 @@ struct DayTrip {
 
 struct Selection {
     int selected;
+    bool arcs;
     bool changed;
 };
 

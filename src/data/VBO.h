@@ -20,16 +20,16 @@ namespace data {
         LoadData *m_data;
 
     public:
-        VBO(LoadData *data, std::vector<float> cylinder, std::vector<float> normals);
+        VBO(LoadData *data, const std::vector<float>& cylinder, const std::vector<float>& normals, const std::vector<std::vector<float>>& combined_arcs);
 
         GLuint cylindre_vertexbuffer[cst::NB_TEAMS][cst::DIV_CYLINDER];
         GLuint arc_vertexbuffer[cst::NB_DAYS];
         ~VBO();
-        void load_VBO(std::vector<float> vec3_cylinder, std::vector<float> vec3_normals);
+        void load_VBO(const std::vector<float>& vec3_cylinder, const std::vector<float>& vec3_normals);
         std::vector<GLuint> normals_vb;
         std::vector<GLuint> t_combined_data;
 
-        void loadVBO_arc();
+        void loadVBO_arc(const std::vector<std::vector<float>>& combined_arcs);
 
         int size_of_cylinder;
     };

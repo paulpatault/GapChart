@@ -43,7 +43,7 @@ int main()
 
         utils::majVBOs(var::t_VBO, var::selector, &myData);
 
-        screen::Display::draw(programID, var::t_VBO, var::colors, var::selector.selected);
+        screen::Display::draw(programID, var::t_VBO, var::colors, var::selector);
 
         screen::c_ImGui::maj(var::colors);
 

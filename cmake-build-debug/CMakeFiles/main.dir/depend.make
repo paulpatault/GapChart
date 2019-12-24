@@ -41,6 +41,7 @@ CMakeFiles/main.dir/includes/imgui/imgui_widgets.cpp.o: ../includes/imgui/imstb_
 CMakeFiles/main.dir/src/data/Arc.cpp.o: ../includes/constants.h
 CMakeFiles/main.dir/src/data/Arc.cpp.o: ../src/data/Arc.cpp
 CMakeFiles/main.dir/src/data/Arc.cpp.o: ../src/data/Arc.h
+CMakeFiles/main.dir/src/data/Arc.cpp.o: ../src/data/Cylinder.h
 CMakeFiles/main.dir/src/data/Arc.cpp.o: ../src/data/LoadData.h
 CMakeFiles/main.dir/src/data/Arc.cpp.o: /usr/local/include/glm/common.hpp
 CMakeFiles/main.dir/src/data/Arc.cpp.o: /usr/local/include/glm/detail/_fixes.hpp

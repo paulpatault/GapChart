@@ -6,6 +6,7 @@
 #define MAIN_ARC_H
 
 #include "LoadData.h"
+#include "Cylinder.h"
 #include "includes/constants.h"
 #include <glm/glm.hpp>
 #include <vector>
@@ -19,7 +20,7 @@ namespace data {
     public:
         Arc(int teamNumber, LoadData* data);
         ~Arc();
-        std::vector<glm::vec3> makeArcs(std::vector<glm::vec3> cylinder);
+        std::vector<std::vector<glm::vec3>> makeArcs(std::vector<glm::vec3> cylinder, std::vector<data::Cylinder> v_cyl);
     };
 
 }
