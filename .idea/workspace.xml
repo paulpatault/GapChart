@@ -15,9 +15,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/constants.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/Cylinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/Cylinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/MVP.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +163,7 @@
       <workItem from="1576555804381" duration="33341000" />
       <workItem from="1576684880440" duration="48018000" />
       <workItem from="1576933218835" duration="23722000" />
-      <workItem from="1577184371517" duration="15373000" />
+      <workItem from="1577184371517" duration="21370000" />
     </task>
     <task id="LOCAL-00001" summary="change color">
       <created>1573675982116</created>
@@ -416,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577202895283</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="2150l">
+      <created>1577212280245</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1577212280245</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +448,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
-    <MESSAGE value="change color" />
     <MESSAGE value="cylindre" />
     <MESSAGE value="code + propre" />
     <MESSAGE value="add normals n0" />
@@ -465,6 +472,7 @@
     <MESSAGE value="clean up" />
     <MESSAGE value="maj" />
     <MESSAGE value="save" />
-    <option name="LAST_COMMIT_MESSAGE" value="save" />
+    <MESSAGE value="2150l" />
+    <option name="LAST_COMMIT_MESSAGE" value="2150l" />
   </component>
 </project>

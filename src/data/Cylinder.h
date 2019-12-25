@@ -6,9 +6,9 @@
 #define MAIN_CYLINDER_H
 
 #include <vector>
+#include <glm/glm.hpp>
 #include "LoadData.h"
 #include "includes/constants.h"
-#include <glm/glm.hpp>
 
 
 namespace data {
@@ -28,7 +28,7 @@ namespace data {
         vector<glm::vec3> makeLinkCircles(const vector<glm::vec3>& backFace);
         std::vector<glm::vec3> makeCombinedCylinder(bool front);
 
-        std::vector<float> makeNormals(std::vector<float> cylinder);
+        static std::vector<float> makeNormals(const std::vector<float>& cylinder);
 
     };
 }

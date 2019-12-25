@@ -16,8 +16,8 @@ namespace screen {
     void Display::draw(GLuint programID, const std::vector<data::VBO>& vec_VBO, glm::vec3 *colors, const Selection& select)
     {
         //int team = 15;
-        //for(int team = 0; team < cst::NB_TEAMS; team++)
-        for(int team = 0; team < cst::NB_TEAMS; team += 4)
+        for(int team = 0; team < cst::NB_TEAMS; team++)
+        //for(int team = 0; team < cst::NB_TEAMS; team += 4)
         {
             GLint colorID = glGetUniformLocation(programID,"u_color");
             {

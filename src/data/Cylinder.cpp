@@ -40,7 +40,7 @@ namespace data {
 
         std::vector<glm::vec3> backFace; // tableau de triangle (non strip)
 
-        for(int day = 0; day < cst::NB_DAYS * 2 - 1; day++)
+        for(unsigned long day = 0; day < cst::NB_DAYS * 2 - 1; day++)
         {
             if(day == 38)
                 decale = cst::DELTA_MID;
@@ -208,7 +208,7 @@ namespace data {
 
         std::vector<glm::vec3> arcs;
 
-        for(int i = 0; i < backFace.size(); i += 6)
+        for(unsigned long i = 0; i < backFace.size(); i += 6)
         {
             std::vector<glm::vec3> arc;
             glm::vec3 point;
@@ -272,8 +272,6 @@ namespace data {
                     arcs.push_back(arc_added[j]);
                 }
                 if(arc_only) arcs.push_back(arc_added[cst::DIV_CYLINDER]);
-                if(arc_only and this->_teamNumber == 0)
-                    std::cout << arcs.size() - 1 << "          := " << arcs[arcs.size() - 1].x << std::endl;
             }
 
             for(int j = 0; j < cst::DIV_CYLINDER; j++)
@@ -284,8 +282,6 @@ namespace data {
                 arcs.push_back(arc[j]);
             }
             if(arc_only) arcs.push_back(arc[cst::DIV_CYLINDER]);
-            if(arc_only and this->_teamNumber == 0)
-                std::cout << arcs.size() - 1 << " := " << arcs[arcs.size() - 1].x << std::endl;
 
             /// ajout de demi disque a la fin
             if(i == index_end_add)
@@ -298,15 +294,22 @@ namespace data {
                     arcs.push_back(arc_added[j]);
                 }
                 if(arc_only) arcs.push_back(arc_added[cst::DIV_CYLINDER]);
-                if(arc_only and this->_teamNumber == 0)
-                    std::cout << arcs.size() - 1 << "          := " << arcs[arcs.size() - 1].x << std::endl;
-
             }
 
         }
 
         if(arc_only) return arcs;
         return halfCircle;
+    }
+
+    std::vector<glm::vec3> p_swap(std::vector<glm::vec3> arcs, int index)
+    {
+        for(int i = index; i < index + cst::DIV_CYLINDER + 1; i++)
+        {
+            swap(arcs[i],arcs[i + cst::DIV_CYLINDER + 1]);
+        }
+
+        return arcs;
     }
 
     /**
@@ -320,24 +323,20 @@ namespace data {
         std::vector<glm::vec3> arcs = makeHalfCircles(backFace, true);
         std::vector<glm::vec3> tubes;
 
+        arcs = p_swap(arcs, 57 * (cst::DIV_CYLINDER + 1) );
 
-        /// SWAP ///
 
-        for(int i = 0; i < cst::DIV_CYLINDER; i++){
-            swap(arcs[(59 * cst::DIV_CYLINDER + 58) + i], arcs[(59 * cst::DIV_CYLINDER + 58) + cst::DIV_CYLINDER + i]);
-        }
-
-        int nbr = arcs.size() / (cst::DIV_CYLINDER) ;
+        int nbr = arcs.size() / (cst::DIV_CYLINDER + 1) ; /// +1 ?
         int total = 0; //= 62 * cst::DIV_CYLINDER;
 
-        int mid = 60; // on veut 63
-        // 58 _ 56
-        for(int i = 0; i < nbr - 1; i++) // nbr - 1; i++) // each arc //
-        //int i = 50;
+        int mid = 57; /// 63
+        for(unsigned long i = 0; i < nbr - 1; i++) /// -1 ou -2
         {
-            if(not (mid * cst::DIV_CYLINDER <= total and total <= (mid + 6) * cst::DIV_CYLINDER))
+            /// +1 ??
+
+            if(not (mid * (cst::DIV_CYLINDER + 1) <= total and total < (mid + 1) * (cst::DIV_CYLINDER + 1)))
             {
-                for(int div = total ; div < total + cst::DIV_CYLINDER; div++)
+                for(int div = total ; div < total + cst::DIV_CYLINDER + 1; div++) /// +1 ou ø
                 {
                     glm::vec3 topLeft  = arcs[div + 0];
                     glm::vec3 botLeft  = arcs[div + 1];
@@ -352,11 +351,8 @@ namespace data {
                     tubes.push_back(topRight);
                     tubes.push_back(botRight);
                 }
-            } else {
-                //std::cout << i << ".x = "<< arcs[total + 0].x << " , total = " << total << std::endl;
-                // inversement 66 et 65 => 520 et 528
             }
-            total += cst::DIV_CYLINDER;
+            total += cst::DIV_CYLINDER + 1;
         }
         return tubes;
     }
@@ -367,7 +363,7 @@ namespace data {
      * @param end vector qui complete
      * @return le total
      */
-    std::vector<glm::vec3> pusher(std::vector<glm::vec3> begin, std::vector<glm::vec3> end)
+    std::vector<glm::vec3> pusher(const std::vector<glm::vec3>& begin, const std::vector<glm::vec3>& end)
     {
         std::vector<glm::vec3> res = begin;
         for(auto point : end)
@@ -400,13 +396,13 @@ namespace data {
      * @param cylinder vector qui comprend backFace + demi disques + cylindres creux
      * @return vector des normals associées a chaque triangle
      */
-    std::vector<float> Cylinder::makeNormals(std::vector<float> cylinder) {
+    std::vector<float> Cylinder::makeNormals(const std::vector<float>& cylinder) {
 
         std::vector<float> normals;
         glm::vec3 normal;
 
         //1 triangle = 9 coordonnées
-        for (int i = 0; i < cylinder.size() / 9; i++) {
+        for (unsigned long i = 0; i < cylinder.size() / 9; i++) {
             float x1 = cylinder[(9 * i) + 0];
             float y1 = cylinder[(9 * i) + 1];
             float z1 = cylinder[(9 * i) + 2];
