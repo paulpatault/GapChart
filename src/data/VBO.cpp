@@ -78,7 +78,7 @@ namespace data {
                 0,
                 sizeof(float) * cylinder.size(),
                 &cylinder[0]
-                );
+        );
 
         glBufferSubData(
                 GL_ARRAY_BUFFER,

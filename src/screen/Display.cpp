@@ -37,7 +37,6 @@ namespace screen {
                 }
             }
 
-            glEnableVertexAttribArray(0);
             glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].t_combined_data[0]);
             glVertexAttribPointer(
                     0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
@@ -47,8 +46,8 @@ namespace screen {
                     0,                  // stride
                     (void*)nullptr      // array buffer offset
             );
+            glEnableVertexAttribArray(0);
 
-            glEnableVertexAttribArray(1);
             glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].t_combined_data[0]);
             glVertexAttribPointer(
                     1,                  // attribute 1 match the layout in the shader.
@@ -56,10 +55,11 @@ namespace screen {
                     GL_FLOAT,           // type
                     GL_FALSE,           // normalized?
                     0,                  // stride
-                    (void*)(vec_VBO[team].t_combined_data[0] * sizeof(float))      // array buffer offset
+                    (void*)((vec_VBO[team].size_of_cylinder  / 3) * sizeof(float))      // array buffer offset
             );
+            glEnableVertexAttribArray(1);
 
-            glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].t_combined_data.size());
+            glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].size_of_cylinder);
         }
 
         // ARC.S
@@ -77,8 +77,7 @@ namespace screen {
                     (void*)nullptr      // array buffer offset
             );
             // Draw the triangle !
-            glDrawArrays(GL_TRIANGLE_STRIP, 0, 60 ); // * 38
-            glDisableVertexAttribArray(0);
+            glDrawArrays(GL_TRIANGLE_STRIP, 0, vec_VBO[select.selected].t_combined_data.size()); // * 38
         }
 
 
