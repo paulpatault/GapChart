@@ -56,10 +56,12 @@ namespace screen {
         glm::vec3 yAxis = glm::vec3(0, 1, 0);
         glm::vec3 zAxis = glm::vec3(0, 0, 1);
 
-        MPV[0] = glm::rotate(glm::mat4(1.0f), glm::radians(angle.x), xAxis);
-        MPV[0] = glm::rotate(MPV[0], glm::radians(angle.y), yAxis);
-        MPV[0] = glm::rotate(MPV[0], glm::radians(angle.z), zAxis);
-        MPV[0] = glm::rotate(MPV[0], glm::radians(-90.f), xAxis);
+        glm::mat4 rotation = glm::rotate(glm::mat4(1.0f), glm::radians(angle.x), xAxis);
+        rotation = glm::rotate(rotation, glm::radians(angle.y), yAxis);
+        rotation = glm::rotate(rotation, glm::radians(angle.z), zAxis);
+        rotation = glm::rotate(rotation,glm::radians(-90.f), xAxis);
+
+        MPV[1] = rotation;
 
         // translation
         glm::vec3 translation = glm::vec3(- cst::FSCREEN_WIDTH/2, - cst::FSCREEN_HEIGHT/2,0.f);
@@ -69,12 +71,12 @@ namespace screen {
         glm::vec3 eye    = glm::vec3(eyePos);
         glm::vec3 center = glm::vec3(0.f, 0.f, zNearFar.x);
         glm::vec3 up     = glm::vec3(0.f, 1.f, 0.f);
-        MPV[1] = glm::lookAt( eye, center, up );
+        MPV[2] = glm::lookAt( eye, center, up );
 
 
         /// Projection Matrix ///
         float ratio = (float)cst::FSCREEN_WIDTH/cst::FSCREEN_HEIGHT;
-        MPV[2] = glm::perspective(glm::radians(45.f), ratio, zNearFar.x, zNearFar.y );
+        MPV[3] = glm::perspective(glm::radians(45.f), ratio, zNearFar.x, zNearFar.y );
 
     }
 
@@ -91,6 +93,7 @@ namespace screen {
         MPV[0] = glm::mat4(1.0f);
         MPV[1] = glm::mat4(1.0f);
         MPV[2] = glm::mat4(1.0f);
+        MPV[3] = glm::mat4(1.0f);
 
         updateMVP(MPV);
     }
@@ -100,7 +103,7 @@ namespace screen {
      * @param window fenetre de travail
      * @param MPV matrice Model View Projection
      */
-    void MVP::maj(GLFWwindow *window, glm::mat4* MPV)
+    void MVP::maj(GLFWwindow* window, glm::mat4* MPV)
     {
         keyboardCallback(window);
 
@@ -116,10 +119,11 @@ namespace screen {
      */
     void MVP::send_updated(GLFWwindow* window, data::Shader* shader)
     {
-        glm::mat4 mvp[3];
+        glm::mat4 mvp[4];
         maj(window, mvp);
         shader->setMat4("u_Model", mvp[0]);
-        shader->setMat4("u_View", mvp[1]);
-        shader->setMat4("u_Projection", mvp[2]);
+        shader->setMat4("u_Rotate", mvp[1]);
+        shader->setMat4("u_View", mvp[2]);
+        shader->setMat4("u_Projection", mvp[3]);
     }
 }
