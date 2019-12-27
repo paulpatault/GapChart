@@ -34,7 +34,7 @@ void main() {
     vec3 specular = specularStrength * spec *lightColor;
 
 
-    vec3 result = (ambient + diffuse + specular) * u_color;
+    vec3 result = (ambient + diffuse) * u_color;
 
     color = vec4(result, 1.f);
 

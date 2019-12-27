@@ -397,7 +397,7 @@ namespace data {
             float y3 = cylinder[(9 * i) + 7];
             float z3 = cylinder[(9 * i) + 8];
 
-            if (i >= 0) { // < 224){  // Nombre de triangles pour la backface -> signe des normals différent
+            if (i < 224) { // < 224){  // Nombre de triangles pour la backface -> signe des normals différent
                 glm::vec3 A(x1, y1, z1), B(x2, y2, z2), C(x3, y3, z3);
 
                 glm::vec3 AC = C - A;
@@ -447,8 +447,6 @@ namespace data {
                 normals.push_back(normal.z);
             }
         }
-
-        ///std::cout << normals.size() / 3 << std::endl;
 
         return normals;
     }
