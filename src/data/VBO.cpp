@@ -59,8 +59,8 @@ namespace data {
                 GL_STATIC_DRAW
         );*/
 
-        size_of_cylinder = cylinder.size() * 3;
-        t_combined_data = std::vector<GLuint>(cylinder.size() * 3 + normals.size() * 3);
+        size_of_cylinder = cylinder.size() ;
+        t_combined_data = std::vector<GLuint>(cylinder.size()  + normals.size() );
 
         glGenBuffers(1, &t_combined_data[0]);
 

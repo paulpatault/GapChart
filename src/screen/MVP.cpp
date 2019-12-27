@@ -85,7 +85,7 @@ namespace screen {
     void MVP::reInitMVP(glm::mat4* MPV)
     {
         eyePos = glm::vec3(0.f, 0.f, 1000.f);
-        zNearFar = glm::vec2(-100.f, 100.f);
+        zNearFar = glm::vec2(100.f, -100.f);
         angle = glm::vec3(90.f, 0.f,0.f);
 
         MPV[0] = glm::mat4(1.0f);

@@ -26,9 +26,9 @@ namespace cst {
     const float THICKNESS = ( (float) FSCREEN_HEIGHT / 2 ) / 20;
     const float DELTA_X = (float) (SCREEN_WIDTH - 100) / NB_POINTS;
     const float DELTA_MID = 50;
-    const float DELTA_Z = 1;
+    const float DELTA_Z = 2;
     const float X_AT_0 = 50;
-    const float FRONT_Z = - DELTA_Z * 3;
+    const float FRONT_Z = 3;
 
 }
 
