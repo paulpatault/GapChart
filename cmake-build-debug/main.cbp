@@ -169,10 +169,10 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData2/LoadData2.h">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.cpp">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shader.cpp">
 			<Option target="main"/>
 		</Unit>
-		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.h">
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shader.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VAO.cpp">

@@ -24,7 +24,7 @@
 #include "src/data/LoadData.h"
 #include "src/data/Cylinder.h"
 #include "src/data/Arc.h"
-#include "src/data/Shaders.h"
+#include "src/data/Shader.h"
 #include "src/data/VAO.h"
 #include "src/data/VBO.h"
 

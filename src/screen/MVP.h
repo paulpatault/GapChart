@@ -10,6 +10,7 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <src/data/Shader.h>
 #include "includes/constants.h"
 
 namespace screen {
@@ -18,20 +19,14 @@ namespace screen {
     static glm::vec2 zNearFar = glm::vec2(-100.f, 100.f);
     static glm::vec3 angle = glm::vec3(90.f, 0.f,0.f);
 
-    static GLint model_id;
-    static GLint view_id;
-    static GLint projection_id;
-
     class MVP {
     private:
-        static void updateMVP(glm::mat4[]);
-        static void reInitMVP(glm::mat4[]);
-        static void maj(GLFWwindow *window, glm::mat4[]);
-        static void keyboardCallback(GLFWwindow *window);
-
+        static void updateMVP(glm::mat4* mvp);
+        static void reInitMVP(glm::mat4* mvp);
+        static void maj(GLFWwindow* window, glm::mat4* mvp);
+        static void keyboardCallback(GLFWwindow* window);
     public:
-        static void setLocation(GLuint programID);
-        static void send_updated(GLFWwindow *window);
+        static void send_updated(GLFWwindow* window, data::Shader* shader);
 
     };
 

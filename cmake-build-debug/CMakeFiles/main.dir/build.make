@@ -265,18 +265,18 @@ CMakeFiles/main.dir/src/screen/Display.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/screen/Display.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.cpp" -o CMakeFiles/main.dir/src/screen/Display.cpp.s
 
-CMakeFiles/main.dir/src/data/Shaders.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/data/Shaders.cpp.o: ../src/data/Shaders.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/main.dir/src/data/Shaders.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/data/Shaders.cpp.o -c "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.cpp"
+CMakeFiles/main.dir/src/data/Shader.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/data/Shader.cpp.o: ../src/data/Shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/main.dir/src/data/Shader.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/data/Shader.cpp.o -c "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shader.cpp"
 
-CMakeFiles/main.dir/src/data/Shaders.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/data/Shaders.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.cpp" > CMakeFiles/main.dir/src/data/Shaders.cpp.i
+CMakeFiles/main.dir/src/data/Shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/data/Shader.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shader.cpp" > CMakeFiles/main.dir/src/data/Shader.cpp.i
 
-CMakeFiles/main.dir/src/data/Shaders.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/data/Shaders.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shaders.cpp" -o CMakeFiles/main.dir/src/data/Shaders.cpp.s
+CMakeFiles/main.dir/src/data/Shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/data/Shader.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shader.cpp" -o CMakeFiles/main.dir/src/data/Shader.cpp.s
 
 CMakeFiles/main.dir/src/data/Arc.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/data/Arc.cpp.o: ../src/data/Arc.cpp
@@ -309,7 +309,7 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/src/data/VAO.cpp.o" \
 "CMakeFiles/main.dir/src/data/VBO.cpp.o" \
 "CMakeFiles/main.dir/src/screen/Display.cpp.o" \
-"CMakeFiles/main.dir/src/data/Shaders.cpp.o" \
+"CMakeFiles/main.dir/src/data/Shader.cpp.o" \
 "CMakeFiles/main.dir/src/data/Arc.cpp.o"
 
 # External object files for target main
@@ -331,7 +331,7 @@ main: CMakeFiles/main.dir/src/data/LoadData2/LoadData2.cpp.o
 main: CMakeFiles/main.dir/src/data/VAO.cpp.o
 main: CMakeFiles/main.dir/src/data/VBO.cpp.o
 main: CMakeFiles/main.dir/src/screen/Display.cpp.o
-main: CMakeFiles/main.dir/src/data/Shaders.cpp.o
+main: CMakeFiles/main.dir/src/data/Shader.cpp.o
 main: CMakeFiles/main.dir/src/data/Arc.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: /usr/local/lib/libglfw.3.3.dylib

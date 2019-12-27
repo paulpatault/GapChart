@@ -9,7 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/data/Cylinder.cpp.o"
   "CMakeFiles/main.dir/src/data/LoadData.cpp.o"
   "CMakeFiles/main.dir/src/data/LoadData2/LoadData2.cpp.o"
-  "CMakeFiles/main.dir/src/data/Shaders.cpp.o"
+  "CMakeFiles/main.dir/src/data/Shader.cpp.o"
   "CMakeFiles/main.dir/src/data/VAO.cpp.o"
   "CMakeFiles/main.dir/src/data/VBO.cpp.o"
   "CMakeFiles/main.dir/src/main.cpp.o"

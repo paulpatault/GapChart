@@ -33,7 +33,7 @@ namespace screen {
      * Actualise les couleurs possiblement changées par le contexte ImGui
      * @param colors, tableau des vec3 de couleurs pour les cylindres
      */
-    void c_ImGui::maj(glm::vec3 colors[])
+    void c_ImGui::maj(glm::vec3 *colors, glm::vec3& lp)
     {
         // ImGui Edit (màj)
         ImGui::ColorEdit3("top1", (float*)&colors[0]);
@@ -42,6 +42,10 @@ namespace screen {
         ImGui::ColorEdit3("mid", (float*)&colors[3]);
         ImGui::ColorEdit3("bot_mid", (float*)&colors[4]);
         ImGui::ColorEdit3("bot", (float*)&colors[5]);
+
+        ImGui::SliderFloat("x", &lp.x, 0, 1000);
+        ImGui::SliderFloat("y", &lp.y, 0, 1000);
+        ImGui::SliderFloat("z", &lp.z, 0, 1000);
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

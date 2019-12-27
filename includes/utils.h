@@ -31,7 +31,8 @@ namespace utils {
                 cylinder.push_back(point.z);
             }
 
-            std::vector<float> normals = cyl.makeNormals(cylinder);
+            std::vector<float> normals = data::Cylinder::makeNormals(cylinder);
+
             data::VBO m_VBO(&myData , cylinder , normals, null );
 
             res.push_back(m_VBO);

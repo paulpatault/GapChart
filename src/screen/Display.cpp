@@ -13,9 +13,8 @@ namespace screen {
      * @param colors couleurs des cylindres
      * @param selected indice de l'équipe selectinnée
      */
-    void Display::draw(GLuint programID, const std::vector<data::VBO>& vec_VBO, glm::vec3 *colors, const Selection& select)
+    void Display::draw(GLuint programID, const std::vector<data::VBO>& vec_VBO, const glm::vec3 *colors, const Selection& select)
     {
-        //int team = 15;
         for(int team = 0; team < cst::NB_TEAMS; team++)
         //for(int team = 0; team < cst::NB_TEAMS; team += 4)
         {
@@ -52,7 +51,7 @@ namespace screen {
             glEnableVertexAttribArray(vec_VBO[team].size_of_cylinder * sizeof(float));
             glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].t_combined_data[0]);
             glVertexAttribPointer(
-                    1,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+                    1,                  // attribute 1 match the layout in the shader.
                     3,                  // size
                     GL_FLOAT,           // type
                     GL_FALSE,           // normalized?

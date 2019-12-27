@@ -393,32 +393,32 @@ src/data/LoadData2/LoadData2.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/LoadData2/LoadData2.cpp.s
 .PHONY : src/data/LoadData2/LoadData2.cpp.s
 
-src/data/Shaders.o: src/data/Shaders.cpp.o
+src/data/Shader.o: src/data/Shader.cpp.o
 
-.PHONY : src/data/Shaders.o
+.PHONY : src/data/Shader.o
 
 # target to build an object file
-src/data/Shaders.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shaders.cpp.o
-.PHONY : src/data/Shaders.cpp.o
+src/data/Shader.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shader.cpp.o
+.PHONY : src/data/Shader.cpp.o
 
-src/data/Shaders.i: src/data/Shaders.cpp.i
+src/data/Shader.i: src/data/Shader.cpp.i
 
-.PHONY : src/data/Shaders.i
+.PHONY : src/data/Shader.i
 
 # target to preprocess a source file
-src/data/Shaders.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shaders.cpp.i
-.PHONY : src/data/Shaders.cpp.i
+src/data/Shader.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shader.cpp.i
+.PHONY : src/data/Shader.cpp.i
 
-src/data/Shaders.s: src/data/Shaders.cpp.s
+src/data/Shader.s: src/data/Shader.cpp.s
 
-.PHONY : src/data/Shaders.s
+.PHONY : src/data/Shader.s
 
 # target to generate assembly for a file
-src/data/Shaders.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shaders.cpp.s
-.PHONY : src/data/Shaders.cpp.s
+src/data/Shader.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shader.cpp.s
+.PHONY : src/data/Shader.cpp.s
 
 src/data/VAO.o: src/data/VAO.cpp.o
 
@@ -648,9 +648,9 @@ help:
 	@echo "... src/data/LoadData2/LoadData2.o"
 	@echo "... src/data/LoadData2/LoadData2.i"
 	@echo "... src/data/LoadData2/LoadData2.s"
-	@echo "... src/data/Shaders.o"
-	@echo "... src/data/Shaders.i"
-	@echo "... src/data/Shaders.s"
+	@echo "... src/data/Shader.o"
+	@echo "... src/data/Shader.i"
+	@echo "... src/data/Shader.s"
 	@echo "... src/data/VAO.o"
 	@echo "... src/data/VAO.i"
 	@echo "... src/data/VAO.s"

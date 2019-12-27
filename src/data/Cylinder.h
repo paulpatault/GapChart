@@ -24,8 +24,8 @@ namespace data {
         std::vector<float> yByDay;
 
         std::vector<glm::vec3> makeBackFace(bool front);
-        std::vector<glm::vec3> makeHalfCircles(const std::vector<glm::vec3>& backFace, bool arc_only);
-        vector<glm::vec3> makeLinkCircles(const vector<glm::vec3>& backFace);
+        static std::vector<glm::vec3> makeHalfCircles(const std::vector<glm::vec3>& backFace, bool arc_only);
+        static vector<glm::vec3> makeLinkCircles(const vector<glm::vec3>& backFace);
         std::vector<glm::vec3> makeCombinedCylinder(bool front);
 
         static std::vector<float> makeNormals(const std::vector<float>& cylinder);

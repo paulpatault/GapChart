@@ -12,13 +12,12 @@ int main()
     GLuint v_ArrayID;
     data::VAO m_VAO(v_ArrayID);
 
-    /// Set Program ID
-    GLuint programID = data::Shaders::LoadShaders(
-            "../resources/shaders/SimpleVertexShader.glsl",
-            "../resources/shaders/SimpleFragmentShader.glsl");
+    /// Load Shaders
+    data::Shader shaders("../resources/shaders/SimpleVertexShader.glsl",
+                         "../resources/shaders/SimpleFragmentShader.glsl");
 
     /// Model View Projection Location
-    screen::MVP::setLocation(programID);
+    //screen::MVP::setLocation(shaders.ID);
 
     /// Instance of the class LoadData that manages the .csv
     data::LoadData myData("../resources/data/rankspts.csv");
@@ -28,14 +27,19 @@ int main()
     var::t_VBO = utils::makeVBOs(myData);
     var::t_VBO_0 = var::t_VBO;
 
+    glm::vec3 lp;
+    lp.x = 500.f;
+    lp.y = 350.f;
+    lp.z = 1000.f;
+
     /// Main loop
     do
     {
         screen::Display::clear();
 
-        data::Shaders::bind(programID);
+        data::Shader::use(shaders);
 
-        screen::MVP::send_updated(window.render);
+        screen::MVP::send_updated(window.render, &shaders);
 
         screen::c_ImGui::loop();
 
@@ -43,9 +47,11 @@ int main()
 
         utils::majVBOs(var::t_VBO, var::selector, &myData);
 
-        screen::Display::draw(programID, var::t_VBO, var::colors, var::selector);
+        shaders.setVec3("u_lightPos", lp);
+        
+        screen::Display::draw(shaders.ID, var::t_VBO, var::colors, var::selector);
 
-        screen::c_ImGui::maj(var::colors);
+        screen::c_ImGui::maj(var::colors, lp);
 
         screen::Display::update(window);
     }

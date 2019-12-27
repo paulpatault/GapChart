@@ -26,17 +26,17 @@ namespace data {
     std::vector<glm::vec3> Cylinder::makeBackFace(bool front)
     {
         float complementaire,
-                points,
-                s_complementaire, // s pour suivant
-                s_points,
-                y_res,
-                s_y_res,
-                decale = 0;
+            points,
+            s_complementaire, // s pour suivant
+            s_points,
+            y_res,
+            s_y_res,
+            decale = 0;
 
         glm::vec3 topLeft,
-                botLeft,
-                topRight,
-                botRight;
+            botLeft,
+            topRight,
+            botRight;
 
         std::vector<glm::vec3> backFace; // tableau de triangle (non strip)
 
@@ -46,12 +46,12 @@ namespace data {
                 decale = cst::DELTA_MID;
             if( day % 2 == 0 ) // new bout rec
             {
-                complementaire = _myData->getComplementaryRankNormalized(_teamNumber, day/2);
-                points = _myData->getPointsNormalized(_teamNumber, day/2);
+                complementaire = _myData->getComplementaryRankNormalized(_teamNumber, day / 2);
+                points = _myData->getPointsNormalized(_teamNumber, day / 2);
                 y_res = (points + complementaire) * cst::SCREEN_HEIGHT / 2.2;
 
                 // TopLeft
-                topLeft.x = cst::X_AT_0 + day * 2 * cst::DELTA_X + decale;
+                topLeft.x = cst::X_AT_0 + (float)day * 2 * cst::DELTA_X + decale;
                 topLeft.y = y_res;
                 topLeft.z = 0;
                 // BotLeft
@@ -74,16 +74,12 @@ namespace data {
                     botRight.z += cst::FRONT_Z;
                 }
 
-                /**
-                * TopLeft . BotLeft . BotRight => triangle bas gauche
-                **/
+                /// TopLeft . BotLeft . BotRight => triangle bas gauche
                 backFace.push_back(topLeft);
                 backFace.push_back(botLeft);
                 backFace.push_back(botRight);
 
-                /**
-                 * TopLeft . TopRight . BotRight => triangle haut droit
-                **/
+                /// TopLeft . TopRight . BotRight => triangle haut droit
                 backFace.push_back(topLeft);
                 backFace.push_back(topRight);
                 backFace.push_back(botRight);
@@ -102,14 +98,13 @@ namespace data {
                 float moy_y = (s_y_res + y_res) / 2;
 
                 glm::vec3 topMid,
-                        botMid,
-                        s_topLeft,
-                        s_botLeft;
+                    botMid,
+                    s_topLeft,
+                    s_botLeft;
 
                 topMid.x = topRight.x + cst::DELTA_X;
                 topMid.y = moy_y;
                 topMid.z = delta_y < 0 ? cst::DELTA_Z : - cst::DELTA_Z ;
-
 
                 botMid.x = botRight.x + cst::DELTA_X;
                 botMid.y = moy_y - cst::THICKNESS;
@@ -125,33 +120,26 @@ namespace data {
                     botMid.z += cst::FRONT_Z;
                 }
 
-                /**
-                 * ///////////////////
-                 * Premier demi ecart
-                 * ///////////////////
-                 */
 
+                 ///////////////////////////////
+                 ///   Premier demi ecart    ///
+                 ///////////////////////////////
                 {
-                    /**
-                     * TopRight . BotRight . BotMid => triangle bas gauche
-                    **/
+                    ///TopRight . BotRight . BotMid => triangle bas gauche
                     backFace.push_back(topRight);
                     backFace.push_back(botRight);
                     backFace.push_back(botMid);
 
-                    /**
-                     * TopRight . TopMid . BotMid => triangle haut droit
-                    **/
+                    ///TopRight . TopMid . BotMid => triangle haut droit
                     backFace.push_back(topRight);
                     backFace.push_back(topMid);
                     backFace.push_back(botMid);
                 }
 
-                /**
-                 * ///////////////////
-                 * Second demi ecart
-                 * ///////////////////
-                 */
+
+                //////////////////////////////
+                ///   Second demi ecart    ///
+                //////////////////////////////
 
                 // TopLeft
                 s_topLeft.x = cst::X_AT_0 + (float)(day + 1) * 2 * cst::DELTA_X + decale;
@@ -168,16 +156,12 @@ namespace data {
                 }
 
                 {
-                    /**
-                     * TopMid . BotMid . s_BotLeft => triangle bas gauche
-                    **/
+                    /// TopMid . BotMid . s_BotLeft => triangle bas gauche
                     backFace.push_back(topMid);
                     backFace.push_back(botMid);
                     backFace.push_back(s_botLeft);
 
-                    /**
-                     * TopMid . s_TopLeft . s_BotLeft  => triangle haut droit
-                    **/
+                    /// TopMid . s_TopLeft . s_BotLeft  => triangle haut droit
                     backFace.push_back(topMid);
                     backFace.push_back(s_topLeft);
                     backFace.push_back(s_botLeft);
@@ -323,18 +307,16 @@ namespace data {
         std::vector<glm::vec3> arcs = makeHalfCircles(backFace, true);
         std::vector<glm::vec3> tubes;
 
-        arcs = p_swap(arcs, 57 * (cst::DIV_CYLINDER + 1) );
+        int nbr = arcs.size() / (cst::DIV_CYLINDER + 1);
+        int mid = nbr/2;
+        int total = 0;
 
+        arcs = p_swap(arcs, mid * (cst::DIV_CYLINDER + 1) );
 
-        int nbr = arcs.size() / (cst::DIV_CYLINDER + 1) ; /// +1 ?
-        int total = 0; //= 62 * cst::DIV_CYLINDER;
-
-        int mid = 57; /// 63
-        for(unsigned long i = 0; i < nbr - 1; i++) /// -1 ou -2
+        for(unsigned long i = 0; i < nbr - 1; i++)
         {
-            /// +1 ??
-
-            if(not (mid * (cst::DIV_CYLINDER + 1) <= total and total < (mid + 1) * (cst::DIV_CYLINDER + 1)))
+            //if(not (mid * (cst::DIV_CYLINDER + 1) <= total and total < (mid + 1) * (cst::DIV_CYLINDER + 1)))
+            if(total < mid * (cst::DIV_CYLINDER + 1) or (mid + 1) * (cst::DIV_CYLINDER + 1) <= total)
             {
                 for(int div = total ; div < total + cst::DIV_CYLINDER + 1; div++) /// +1 ou ø
                 {
@@ -415,45 +397,54 @@ namespace data {
             float y3 = cylinder[(9 * i) + 7];
             float z3 = cylinder[(9 * i) + 8];
 
-            if (i < 0) { // < 224){  // Nombre de triangles pour la backface -> signe des normals différent
+            if (i >= 0) { // < 224){  // Nombre de triangles pour la backface -> signe des normals différent
                 glm::vec3 A(x1, y1, z1), B(x2, y2, z2), C(x3, y3, z3);
 
-                normal = glm::cross(C - A, B - A);
+                glm::vec3 AC = C - A;
+                glm::vec3 AB = B - A;
+
+                normal = glm::cross(AC, AB);
+                for(int j = 0; j < 3; j++){
+                    normals.push_back(normal.x);
+                    normals.push_back(normal.y);
+                    normals.push_back(normal.z);
+                }
+
+                /*normal = glm::cross(BA, BC);
                 normals.push_back(normal.x);
                 normals.push_back(normal.y);
                 normals.push_back(normal.z);
 
-                normal = glm::cross(A - B, C - B);
+                normal = glm::cross(CB, CA);
                 normals.push_back(normal.x);
                 normals.push_back(normal.y);
-                normals.push_back(normal.z);
-
-                normal = glm::cross(B - C, A - C);
-                normals.push_back(normal.x);
-                normals.push_back(normal.y);
-                normals.push_back(normal.z);
+                normals.push_back(normal.z);*/
             } else {
                 glm::vec3 A(x1, y1, z1), B(x2, y2, z2), C(x3, y3, z3);
 
-                normal = glm::cross(B - A, C - A);
+                glm::vec3 AC = C - A;
+                glm::vec3 AB = B - A;
+
+                normal = glm::cross(AB, AC);
+                for(int j = 0; j < 3; j++){
+                    normals.push_back(normal.x);
+                    normals.push_back(normal.y);
+                    normals.push_back(normal.z);
+                }
+
+                /*normal = glm::cross(BC, BA);
                 normals.push_back(normal.x);
                 normals.push_back(normal.y);
                 normals.push_back(normal.z);
 
-                normal = glm::cross(C - B, A - B);
+                normal = glm::cross(CA, CB);
                 normals.push_back(normal.x);
                 normals.push_back(normal.y);
-                normals.push_back(normal.z);
-
-                normal = glm::cross(A - C, B - C);
-                normals.push_back(normal.x);
-                normals.push_back(normal.y);
-                normals.push_back(normal.z);
+                normals.push_back(normal.z);*/
             }
         }
 
         ///std::cout << normals.size() / 3 << std::endl;
-            // == 10'512
 
         return normals;
     }

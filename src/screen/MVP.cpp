@@ -10,7 +10,7 @@ namespace screen {
      * Gere des evenements clavier qui actualise la matrice Model View Projection
      * @param window fenetre de travail
      */
-    void MVP::keyboardCallback(GLFWwindow *window)
+    void MVP::keyboardCallback(GLFWwindow* window)
     {
         // rotation
         if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
@@ -48,7 +48,7 @@ namespace screen {
      * Mise a jour de la matrice MVP après modification de ces paramètres par keyboardCallback
      * @param MPV matrice Model View Projection
      */
-    void MVP::updateMVP(glm::mat4 MPV[])
+    void MVP::updateMVP(glm::mat4* MPV)
     {
         /// Model Matrix ///
         // rotation
@@ -82,7 +82,7 @@ namespace screen {
      * Remets MVP "à zéro" := position de base lorsqu'on lance le programme
      * @param MPV matrice Model View Projection
      */
-    void MVP::reInitMVP(glm::mat4 MPV[])
+    void MVP::reInitMVP(glm::mat4* MPV)
     {
         eyePos = glm::vec3(0.f, 0.f, 1000.f);
         zNearFar = glm::vec2(-100.f, 100.f);
@@ -100,7 +100,7 @@ namespace screen {
      * @param window fenetre de travail
      * @param MPV matrice Model View Projection
      */
-    void MVP::maj(GLFWwindow *window, glm::mat4 MPV[])
+    void MVP::maj(GLFWwindow *window, glm::mat4* MPV)
     {
         keyboardCallback(window);
 
@@ -111,28 +111,15 @@ namespace screen {
     }
 
     /**
-     * Associe les matrices Model, View et Projection au shaders
-     * @param programID
-     */
-    void MVP::setLocation(GLuint programID)
-    {
-        model_id = glGetUniformLocation(programID, "u_Model");
-        view_id = glGetUniformLocation(programID, "u_View");
-        projection_id = glGetUniformLocation(programID, "u_Projection");
-    }
-
-    /**
      * Envoie les matrices Model, View et Projection aux shaders
      * @param window fenetre de travail
      */
-    void MVP::send_updated(GLFWwindow *window)
+    void MVP::send_updated(GLFWwindow* window, data::Shader* shader)
     {
         glm::mat4 mvp[3];
         maj(window, mvp);
-        glUniformMatrix4fv(model_id, 1, GL_FALSE, &mvp[0][0][0] );
-        glUniformMatrix4fv(view_id, 1, GL_FALSE, &mvp[1][0][0] );
-        glUniformMatrix4fv(projection_id, 1, GL_FALSE, &mvp[2][0][0] );
+        shader->setMat4("u_Model", mvp[0]);
+        shader->setMat4("u_View", mvp[1]);
+        shader->setMat4("u_Projection", mvp[2]);
     }
-
-
 }
