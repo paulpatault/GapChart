@@ -17,7 +17,7 @@ void main() {
     vec3 position = frag_Position;
 
     // Ambient
-    float ambientStrength = 0.7f; // 0.1f;
+    float ambientStrength = 0.1f; // 0.1f;
     vec3 ambient = ambientStrength * lightColor;
 
     // Diffuse

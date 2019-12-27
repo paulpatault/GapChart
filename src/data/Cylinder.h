@@ -26,7 +26,7 @@ namespace data {
         std::vector<glm::vec3> makeBackFace(bool front);
         static std::vector<glm::vec3> makeHalfCircles(const std::vector<glm::vec3>& backFace, bool arc_only);
         static vector<glm::vec3> makeLinkCircles(const vector<glm::vec3>& backFace);
-        std::vector<glm::vec3> makeCombinedCylinder(bool front);
+        std::vector<float> makeCombinedCylinder(bool front);
 
         static std::vector<float> makeNormals(const std::vector<float>& cylinder);
 

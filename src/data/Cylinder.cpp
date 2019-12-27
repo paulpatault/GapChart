@@ -361,7 +361,7 @@ namespace data {
      *               permet de mettre le cylindre au premier plan
      * @return la combinaison
      */
-    std::vector<glm::vec3> Cylinder::makeCombinedCylinder(bool front)
+    std::vector<float> Cylinder::makeCombinedCylinder(bool front)
     {
         std::vector<glm::vec3> backFace = makeBackFace(front); // backFace.size() = 672
         std::vector<glm::vec3> halfDisk = makeHalfCircles(backFace, false); // halfCyl.size() = 3360
@@ -370,7 +370,15 @@ namespace data {
         std::vector<glm::vec3> back_and_half = pusher(backFace, halfDisk);
         std::vector<glm::vec3> combined = pusher(back_and_half, link);
 
-        return combined;
+        std::vector<float> cylinder;
+        for(auto & point : combined)
+        {
+            cylinder.push_back(point.x);
+            cylinder.push_back(point.y);
+            cylinder.push_back(point.z);
+        }
+
+        return cylinder;
     }
 
     /**

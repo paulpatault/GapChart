@@ -20,15 +20,7 @@ namespace utils {
         {
             data::Cylinder cyl(team, &myData);
 
-            std::vector<glm::vec3> combined = cyl.makeCombinedCylinder(false);
-
-            std::vector<float> cylinder;
-            for(auto & point : combined)
-            {
-                cylinder.push_back(point.x);
-                cylinder.push_back(point.y);
-                cylinder.push_back(point.z);
-            }
+            std::vector<float> cylinder = cyl.makeCombinedCylinder(false);
 
             std::vector<float> normals = data::Cylinder::makeNormals(cylinder);
             vector<vector<float>> null;
@@ -68,15 +60,8 @@ namespace utils {
                 if(team == select.selected){
                     front = true;
                 }
-                std::vector<glm::vec3> combined = v_cyl[team].makeCombinedCylinder(front);
+                std::vector<float> cylinder = v_cyl[team].makeCombinedCylinder(front);
 
-                std::vector<float> cylinder;
-                for(auto & point: combined)
-                {
-                    cylinder.push_back(point.x);
-                    cylinder.push_back(point.y);
-                    cylinder.push_back(point.z);
-                }
 
                 std::vector<std::vector<float>> combined_arcs;
                 if(select.arcs and team == select.selected)
