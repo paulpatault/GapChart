@@ -56,7 +56,7 @@ namespace screen {
                     GL_FLOAT,           // type
                     GL_FALSE,           // normalized?
                     0,                  // stride
-                    (void*)(vec_VBO[team].t_combined_data[0] * sizeof(float))      // array buffer offset
+                    (void*)(vec_VBO[team].t_combined_data[vec_VBO[team].size_of_cylinder] * sizeof(float))      // array buffer offset
             );
 
             glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].t_combined_data.size());
