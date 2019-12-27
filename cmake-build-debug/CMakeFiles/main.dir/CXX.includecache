@@ -38,11 +38,11 @@ includes/constants.h
 LoadData.h
 ../src/data/LoadData.h
 
-/Volumes/LaCie/DL2MI/Paul/ProjetInfoGraphique/src/screen/Display.cpp
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.cpp
 Display.h
-/Volumes/LaCie/DL2MI/Paul/ProjetInfoGraphique/src/screen/Display.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.h
 
-/Volumes/LaCie/DL2MI/Paul/ProjetInfoGraphique/src/screen/Display.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.h
 vector
 -
 GL/glew.h
@@ -50,13 +50,13 @@ GL/glew.h
 glm/glm.hpp
 -
 Render.h
-/Volumes/LaCie/DL2MI/Paul/ProjetInfoGraphique/src/screen/Render.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.h
 src/data/VBO.h
-/Volumes/LaCie/DL2MI/Paul/ProjetInfoGraphique/src/screen/src/data/VBO.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/src/data/VBO.h
 includes/constants.h
-/Volumes/LaCie/DL2MI/Paul/ProjetInfoGraphique/src/screen/includes/constants.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/constants.h
 
-/Volumes/LaCie/DL2MI/Paul/ProjetInfoGraphique/src/screen/Render.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.h
 stdio.h
 -
 cmath
@@ -78,7 +78,7 @@ glm/glm.hpp
 glm/gtc/matrix_transform.hpp
 -
 includes/constants.h
-/Volumes/LaCie/DL2MI/Paul/ProjetInfoGraphique/src/screen/includes/constants.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/constants.h
 
 /usr/local/include/GL/glew.h
 stddef.h
