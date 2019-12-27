@@ -104,11 +104,11 @@ namespace data {
 
                 topMid.x = topRight.x + cst::DELTA_X;
                 topMid.y = moy_y;
-                topMid.z = delta_y < 0 ? - cst::DELTA_Z : cst::DELTA_Z ;
+                topMid.z = delta_y > 0 ? cst::DELTA_Z : - cst::DELTA_Z ;
 
                 botMid.x = botRight.x + cst::DELTA_X;
                 botMid.y = moy_y - cst::THICKNESS;
-                botMid.z = delta_y < 0 ? - cst::DELTA_Z : cst::DELTA_Z ;
+                botMid.z = delta_y > 0 ? cst::DELTA_Z : - cst::DELTA_Z ;
 
                 if(delta_y == 0) {
                     topMid.z = 0;
