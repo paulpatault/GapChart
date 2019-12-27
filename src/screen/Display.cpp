@@ -79,8 +79,6 @@ namespace screen {
             // Draw the triangle !
             glDrawArrays(GL_TRIANGLE_STRIP, 0, vec_VBO[select.selected].t_combined_data.size()); // * 38
         }
-
-
     }
 
     /**
