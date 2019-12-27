@@ -402,15 +402,17 @@ namespace data {
 
                 glm::vec3 AC = C - A;
                 glm::vec3 AB = B - A;
+                glm::vec3 BC = C - B;
+                glm::vec3 BA = -AB;
+                glm::vec3 CA = -AC;
+                glm::vec3 CB = -BC;
 
                 normal = glm::cross(AC, AB);
-                for(int j = 0; j < 3; j++){
-                    normals.push_back(normal.x);
-                    normals.push_back(normal.y);
-                    normals.push_back(normal.z);
-                }
+                normals.push_back(normal.x);
+                normals.push_back(normal.y);
+                normals.push_back(normal.z);
 
-                /*normal = glm::cross(BA, BC);
+                normal = glm::cross(BA, BC);
                 normals.push_back(normal.x);
                 normals.push_back(normal.y);
                 normals.push_back(normal.z);
@@ -418,21 +420,23 @@ namespace data {
                 normal = glm::cross(CB, CA);
                 normals.push_back(normal.x);
                 normals.push_back(normal.y);
-                normals.push_back(normal.z);*/
+                normals.push_back(normal.z);
             } else {
                 glm::vec3 A(x1, y1, z1), B(x2, y2, z2), C(x3, y3, z3);
 
                 glm::vec3 AC = C - A;
                 glm::vec3 AB = B - A;
+                glm::vec3 BC = C - B;
+                glm::vec3 BA = -AB;
+                glm::vec3 CA = -AC;
+                glm::vec3 CB = -BC;
 
                 normal = glm::cross(AB, AC);
-                for(int j = 0; j < 3; j++){
-                    normals.push_back(normal.x);
-                    normals.push_back(normal.y);
-                    normals.push_back(normal.z);
-                }
+                normals.push_back(normal.x);
+                normals.push_back(normal.y);
+                normals.push_back(normal.z);
 
-                /*normal = glm::cross(BC, BA);
+                normal = glm::cross(BC, BA);
                 normals.push_back(normal.x);
                 normals.push_back(normal.y);
                 normals.push_back(normal.z);
@@ -440,7 +444,7 @@ namespace data {
                 normal = glm::cross(CA, CB);
                 normals.push_back(normal.x);
                 normals.push_back(normal.y);
-                normals.push_back(normal.z);*/
+                normals.push_back(normal.z);
             }
         }
 

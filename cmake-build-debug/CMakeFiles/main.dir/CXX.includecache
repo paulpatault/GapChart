@@ -10,104 +10,6 @@
 string
 ../includes/string
 
-../includes/imgui/imconfig.h
-
-../includes/imgui/imgui.h
-imconfig.h
-../includes/imgui/imconfig.h
-float.h
--
-stdarg.h
--
-stddef.h
--
-string.h
--
-assert.h
--
-stdint.h
--
-imgui_user.h
-../includes/imgui/imgui_user.h
-
-../includes/imgui/imgui_impl_glfw.h
-
-../includes/imgui/imgui_impl_opengl3.h
-
-../includes/main_includes.h
-GL/glew.h
--
-GLFW/glfw3.h
--
-OpenGL/OpenGL.h
--
-GL/gl.h
--
-includes/variables.h
-../includes/includes/variables.h
-includes/utils.h
-../includes/includes/utils.h
-src/data/LoadData.h
-../includes/src/data/LoadData.h
-src/data/Cylinder.h
-../includes/src/data/Cylinder.h
-src/data/Arc.h
-../includes/src/data/Arc.h
-src/data/Shader.h
-../includes/src/data/Shader.h
-src/data/VAO.h
-../includes/src/data/VAO.h
-src/data/VBO.h
-../includes/src/data/VBO.h
-src/screen/MVP.h
-../includes/src/screen/MVP.h
-src/screen/c_ImGui.h
-../includes/src/screen/c_ImGui.h
-src/screen/Render.h
-../includes/src/screen/Render.h
-src/screen/Display.h
-../includes/src/screen/Display.h
-
-../includes/utils.h
-vector
--
-src/data/VBO.h
-../includes/src/data/VBO.h
-src/data/Cylinder.h
-../includes/src/data/Cylinder.h
-src/data/Arc.h
-../includes/src/data/Arc.h
-
-../includes/variables.h
-glm/glm.hpp
--
-vector
--
-src/data/VBO.h
-../includes/src/data/VBO.h
-
-../src/data/Arc.h
-LoadData.h
-../src/data/LoadData.h
-Cylinder.h
-../src/data/Cylinder.h
-includes/constants.h
-../src/data/includes/constants.h
-glm/glm.hpp
--
-vector
--
-
-../src/data/Cylinder.h
-vector
--
-glm/glm.hpp
--
-LoadData.h
-../src/data/LoadData.h
-includes/constants.h
-../src/data/includes/constants.h
-
 ../src/data/LoadData.h
 string
 -
@@ -124,30 +26,6 @@ glm/gtc/matrix_transform.hpp
 includes/constants.h
 ../src/data/includes/constants.h
 
-../src/data/Shader.h
-stdio.h
--
-cmath
--
-vector
--
-fstream
--
-sstream
--
-iostream
--
-stdlib.h
--
-GL/glew.h
--
-glm/glm.hpp
--
-
-../src/data/VAO.h
-GL/glew.h
--
-
 ../src/data/VBO.h
 vector
 -
@@ -160,7 +38,11 @@ includes/constants.h
 LoadData.h
 ../src/data/LoadData.h
 
-../src/screen/Display.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.cpp
+Display.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.h
+
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.h
 vector
 -
 GL/glew.h
@@ -168,27 +50,13 @@ GL/glew.h
 glm/glm.hpp
 -
 Render.h
-../src/screen/Render.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.h
 src/data/VBO.h
-../src/screen/src/data/VBO.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/src/data/VBO.h
 includes/constants.h
-../src/screen/includes/constants.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/constants.h
 
-../src/screen/MVP.h
-GL/glew.h
--
-GLFW/glfw3.h
--
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-src/data/Shader.h
--
-includes/constants.h
-../src/screen/includes/constants.h
-
-../src/screen/Render.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.h
 stdio.h
 -
 cmath
@@ -210,23 +78,7 @@ glm/glm.hpp
 glm/gtc/matrix_transform.hpp
 -
 includes/constants.h
-../src/screen/includes/constants.h
-
-../src/screen/c_ImGui.h
-GLFW/glfw3.h
--
-glm/glm.hpp
--
-includes/imgui/imgui.h
-../src/screen/includes/imgui/imgui.h
-includes/imgui/imgui_impl_glfw.h
-../src/screen/includes/imgui/imgui_impl_glfw.h
-includes/imgui/imgui_impl_opengl3.h
-../src/screen/includes/imgui/imgui_impl_opengl3.h
-
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/main.cpp
-includes/main_includes.h
-/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/includes/main_includes.h
+/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/includes/constants.h
 
 /usr/local/include/GL/glew.h
 stddef.h

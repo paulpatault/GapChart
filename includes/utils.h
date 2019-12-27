@@ -21,7 +21,6 @@ namespace utils {
             data::Cylinder cyl(team, &myData);
 
             std::vector<glm::vec3> combined = cyl.makeCombinedCylinder(false);
-            vector<vector<float>> null ;
 
             std::vector<float> cylinder;
             for(auto & point : combined)
@@ -32,8 +31,9 @@ namespace utils {
             }
 
             std::vector<float> normals = data::Cylinder::makeNormals(cylinder);
+            vector<vector<float>> null ;
 
-            data::VBO m_VBO(&myData , cylinder , normals, null );
+            data::VBO m_VBO(&myData , cylinder , normals, null);
 
             res.push_back(m_VBO);
         }

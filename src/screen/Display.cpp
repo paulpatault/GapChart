@@ -48,7 +48,7 @@ namespace screen {
                     (void*)nullptr      // array buffer offset
             );
 
-            glEnableVertexAttribArray(vec_VBO[team].size_of_cylinder * sizeof(float));
+            glEnableVertexAttribArray(1);
             glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].t_combined_data[0]);
             glVertexAttribPointer(
                     1,                  // attribute 1 match the layout in the shader.
@@ -56,7 +56,7 @@ namespace screen {
                     GL_FLOAT,           // type
                     GL_FALSE,           // normalized?
                     0,                  // stride
-                    (void*)nullptr      // array buffer offset
+                    (void*)(vec_VBO[team].t_combined_data[0] * sizeof(float))      // array buffer offset
             );
 
             glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].t_combined_data.size());

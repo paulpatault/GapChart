@@ -117,61 +117,127 @@ namespace data {
         glUseProgram(sh.ID);
     }
 
+    /**
+     * Envoie un boolean au shader
+     * @param name nom dans le shader
+     * @param value bool a envoyer
+     */
     void Shader::setBool(const std::string &name, bool value) const
     {
         glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
     }
 
+    /**
+     * Envoie un int au shader
+     * @param name nom dans le shader
+     * @param value int a envoyer
+     */
     void Shader::setInt(const std::string &name, int value) const
     {
         glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
     }
 
+    /**
+     * Envoie un float au shader
+     * @param name nom dans le shader
+     * @param value float a envoyer
+     */
     void Shader::setFloat(const std::string &name, float value) const
     {
         glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
     }
 
+    /**
+     * Envoie un vec2 au shader
+     * @param name nom dans le shader
+     * @param value vector a envoyer
+     */
     void Shader::setVec2(const std::string &name, const glm::vec2 &value) const
     {
         glUniform2fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
     }
 
+    /**
+     * Envoie un vec2 au shader
+     * @param name nom dans le shader
+     * @param x 1ere coord du vec2
+     * @param y 2eme coord du vec2
+     */
     void Shader::setVec2(const std::string &name, float x, float y) const
     {
         glUniform2f(glGetUniformLocation(ID, name.c_str()), x, y);
     }
 
+    /**
+     * Envoie un vec3 au shader
+     * @param name nom dans le shader
+     * @param value vector a envoyer
+     */
     void Shader::setVec3(const std::string &name, const glm::vec3 &value) const
     {
         glUniform3fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
     }
 
+    /**
+     * Envoie un vec3 au shader
+     * @param name nom dans le shader
+     * @param x 1ere coord du vec3
+     * @param y 2eme coord du vec3
+     * @param z 3eme coord du vec3
+     */
     void Shader::setVec3(const std::string &name, float x, float y, float z) const
     {
         glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
     }
 
+    /**
+     * Envoie un vec4 au shader
+     * @param name nom dans le shader
+     * @param value vector a envoyer
+     */
     void Shader::setVec4(const std::string &name, const glm::vec4 &value) const
     {
         glUniform4fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
     }
 
+    /**
+     * Envoie un vec4 au shader
+     * @param name nom dans le shader
+     * @param x 1ere coord du vec4
+     * @param y 2eme coord du vec4
+     * @param z 3eme coord du vec4
+     * @param w 4eme coord du vec4
+     */
     void Shader::setVec4(const std::string &name, float x, float y, float z, float w)
     {
         glUniform4f(glGetUniformLocation(ID, name.c_str()), x, y, z, w);
     }
 
+    /**
+     * Envoie une mat2 au shader
+     * @param name nom dans le shader
+     * @param mat matrice a envoyer
+     */
     void Shader::setMat2(const std::string &name, const glm::mat2 &mat) const
     {
         glUniformMatrix2fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
     }
 
+    /**
+     * Envoie une mat3 au shader
+     * @param name nom dans le shader
+     * @param mat matrice a envoyer
+     */
     void Shader::setMat3(const std::string &name, const glm::mat3 &mat) const
     {
         glUniformMatrix3fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
     }
 
+    /**
+     * Envoie une mat4 au shader
+     * @param name nom dans le shader
+     * @param mat matrice a envoyer
+     */
     void Shader::setMat4(const std::string &name, const glm::mat4 &mat) const
     {
         glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
