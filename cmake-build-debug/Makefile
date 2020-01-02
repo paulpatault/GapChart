@@ -420,6 +420,33 @@ src/data/Shader.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Shader.cpp.s
 .PHONY : src/data/Shader.cpp.s
 
+src/data/Texture.o: src/data/Texture.cpp.o
+
+.PHONY : src/data/Texture.o
+
+# target to build an object file
+src/data/Texture.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Texture.cpp.o
+.PHONY : src/data/Texture.cpp.o
+
+src/data/Texture.i: src/data/Texture.cpp.i
+
+.PHONY : src/data/Texture.i
+
+# target to preprocess a source file
+src/data/Texture.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Texture.cpp.i
+.PHONY : src/data/Texture.cpp.i
+
+src/data/Texture.s: src/data/Texture.cpp.s
+
+.PHONY : src/data/Texture.s
+
+# target to generate assembly for a file
+src/data/Texture.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/data/Texture.cpp.s
+.PHONY : src/data/Texture.cpp.s
+
 src/data/VAO.o: src/data/VAO.cpp.o
 
 .PHONY : src/data/VAO.o
@@ -501,6 +528,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/screen/Camera.o: src/screen/Camera.cpp.o
+
+.PHONY : src/screen/Camera.o
+
+# target to build an object file
+src/screen/Camera.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Camera.cpp.o
+.PHONY : src/screen/Camera.cpp.o
+
+src/screen/Camera.i: src/screen/Camera.cpp.i
+
+.PHONY : src/screen/Camera.i
+
+# target to preprocess a source file
+src/screen/Camera.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Camera.cpp.i
+.PHONY : src/screen/Camera.cpp.i
+
+src/screen/Camera.s: src/screen/Camera.cpp.s
+
+.PHONY : src/screen/Camera.s
+
+# target to generate assembly for a file
+src/screen/Camera.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Camera.cpp.s
+.PHONY : src/screen/Camera.cpp.s
+
 src/screen/Display.o: src/screen/Display.cpp.o
 
 .PHONY : src/screen/Display.o
@@ -527,6 +581,33 @@ src/screen/Display.s: src/screen/Display.cpp.s
 src/screen/Display.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Display.cpp.s
 .PHONY : src/screen/Display.cpp.s
+
+src/screen/Lamp.o: src/screen/Lamp.cpp.o
+
+.PHONY : src/screen/Lamp.o
+
+# target to build an object file
+src/screen/Lamp.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Lamp.cpp.o
+.PHONY : src/screen/Lamp.cpp.o
+
+src/screen/Lamp.i: src/screen/Lamp.cpp.i
+
+.PHONY : src/screen/Lamp.i
+
+# target to preprocess a source file
+src/screen/Lamp.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Lamp.cpp.i
+.PHONY : src/screen/Lamp.cpp.i
+
+src/screen/Lamp.s: src/screen/Lamp.cpp.s
+
+.PHONY : src/screen/Lamp.s
+
+# target to generate assembly for a file
+src/screen/Lamp.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/screen/Lamp.cpp.s
+.PHONY : src/screen/Lamp.cpp.s
 
 src/screen/MVP.o: src/screen/MVP.cpp.o
 
@@ -651,6 +732,9 @@ help:
 	@echo "... src/data/Shader.o"
 	@echo "... src/data/Shader.i"
 	@echo "... src/data/Shader.s"
+	@echo "... src/data/Texture.o"
+	@echo "... src/data/Texture.i"
+	@echo "... src/data/Texture.s"
 	@echo "... src/data/VAO.o"
 	@echo "... src/data/VAO.i"
 	@echo "... src/data/VAO.s"
@@ -660,9 +744,15 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/screen/Camera.o"
+	@echo "... src/screen/Camera.i"
+	@echo "... src/screen/Camera.s"
 	@echo "... src/screen/Display.o"
 	@echo "... src/screen/Display.i"
 	@echo "... src/screen/Display.s"
+	@echo "... src/screen/Lamp.o"
+	@echo "... src/screen/Lamp.i"
+	@echo "... src/screen/Lamp.s"
 	@echo "... src/screen/MVP.o"
 	@echo "... src/screen/MVP.i"
 	@echo "... src/screen/MVP.s"

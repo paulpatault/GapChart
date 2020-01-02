@@ -6,6 +6,17 @@
 
 namespace screen {
 
+    MVP::MVP()
+    {
+        eyePos = glm::vec3(0.f, 0.f, 1000.f);
+        angle = glm::vec3(90.f, 0.f,0.f);
+
+        model = glm::mat4(1.0f);
+        rotation = glm::mat4(1.0f);
+        view = glm::mat4(1.0f);
+        projection = glm::mat4(1.0f);
+    }
+
     /**
      * Gere des evenements clavier qui actualise la matrice Model View Projection
      * @param window fenetre de travail
@@ -13,42 +24,25 @@ namespace screen {
     void MVP::keyboardCallback(GLFWwindow* window)
     {
         // rotation
-        if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+        if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
             angle.x += 0.5f;
-        if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+        if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
             angle.x -= 0.5f;
-        if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+        if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
             angle.z += 0.5f;
-        if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+        if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
             angle.z -= 0.5f;
-        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) // A
+        if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
             angle.y += 0.5f;
-        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) // E
+        if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
             angle.y -= 0.5f;
 
-        // deplacement
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) // Z
-            eyePos.y += 2.f;
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) // S
-            eyePos.y -= 2.f;
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) // Q
-            eyePos.x -= 2.f;
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) // D
-            eyePos.x += 2.f;
-
-
-        // zoom
-        if (glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS)
-            eyePos.z += 2.f;
-        if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS)
-            eyePos.z -= 2.f;
     }
 
     /**
      * Mise a jour de la matrice MVP après modification de ces paramètres par keyboardCallback
-     * @param MPV matrice Model View Projection
      */
-    void MVP::updateMVP(glm::mat4* MPV)
+    void MVP::updateMVP()
     {
         /// Model Matrix ///
         // rotation
@@ -56,61 +50,53 @@ namespace screen {
         glm::vec3 yAxis = glm::vec3(0, 1, 0);
         glm::vec3 zAxis = glm::vec3(0, 0, 1);
 
-        glm::mat4 rotation = glm::rotate(glm::mat4(1.0f), glm::radians(angle.x), xAxis);
+        rotation = glm::mat4(1.0f);
+        rotation = glm::rotate(rotation, glm::radians(angle.x), xAxis);
         rotation = glm::rotate(rotation, glm::radians(angle.y), yAxis);
         rotation = glm::rotate(rotation, glm::radians(angle.z), zAxis);
-        rotation = glm::rotate(rotation,glm::radians(-90.f), xAxis);
-
-        MPV[1] = rotation;
+        rotation = glm::rotate(rotation, glm::radians(-90.f), xAxis);
 
         // translation
         glm::vec3 translation = glm::vec3(- cst::FSCREEN_WIDTH/2, - cst::FSCREEN_HEIGHT/2,0.f);
-        MPV[0] = glm::translate(MPV[0], translation);
+        model = glm::translate(glm::mat4(1.0f), translation);
+
 
         /// View Matrix ///
         glm::vec3 eye    = glm::vec3(eyePos);
-        glm::vec3 center = glm::vec3(0.f, 0.f, zNearFar.x);
+        glm::vec3 center = glm::vec3(0.f, 0.f, cst::Z_NEAR);
         glm::vec3 up     = glm::vec3(0.f, 1.f, 0.f);
-        MPV[2] = glm::lookAt( eye, center, up );
+        view = glm::lookAt( eye, center, up );
 
 
         /// Projection Matrix ///
-        float ratio = (float)cst::FSCREEN_WIDTH/cst::FSCREEN_HEIGHT;
-        MPV[3] = glm::perspective(glm::radians(45.f), ratio, zNearFar.x, zNearFar.y );
+        float ratio = (float) cst::FSCREEN_WIDTH / cst::FSCREEN_HEIGHT;
+        projection = glm::perspective(glm::radians(45.f), ratio, cst::Z_NEAR, cst::Z_FAR );
 
     }
 
     /**
-     * Remets MVP "à zéro" := position de base lorsqu'on lance le programme
-     * @param MPV matrice Model View Projection
+     * Remets MVP "à zéro" := position de base lorsqu'on lance le code
      */
-    void MVP::reInitMVP(glm::mat4* MPV)
+    void MVP::reInitMVP()
     {
         eyePos = glm::vec3(0.f, 0.f, 1000.f);
-        zNearFar = glm::vec2(100.f, -100.f);
         angle = glm::vec3(90.f, 0.f,0.f);
 
-        MPV[0] = glm::mat4(1.0f);
-        MPV[1] = glm::mat4(1.0f);
-        MPV[2] = glm::mat4(1.0f);
-        MPV[3] = glm::mat4(1.0f);
-
-        updateMVP(MPV);
+        updateMVP();
     }
 
     /**
      * Mise a jour de MVP après sa réinitialisatio ou modification par keyboardCallback
      * @param window fenetre de travail
-     * @param MPV matrice Model View Projection
      */
-    void MVP::maj(GLFWwindow* window, glm::mat4* MPV)
+    void MVP::maj(GLFWwindow* window)
     {
         keyboardCallback(window);
 
         if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
-            MVP::reInitMVP(MPV);
+            reInitMVP();
         else
-            MVP::updateMVP(MPV);
+            updateMVP();
     }
 
     /**
@@ -119,11 +105,26 @@ namespace screen {
      */
     void MVP::send_updated(GLFWwindow* window, data::Shader* shader)
     {
-        glm::mat4 mvp[4];
-        maj(window, mvp);
-        shader->setMat4("u_Model", mvp[0]);
-        shader->setMat4("u_Rotate", mvp[1]);
-        shader->setMat4("u_View", mvp[2]);
-        shader->setMat4("u_Projection", mvp[3]);
+        maj(window);
+        shader->setMat4("u_Model", model);
+        shader->setMat4("u_Rotate", rotation);
+        shader->setMat4("u_View", view);
+        shader->setMat4("u_Projection", projection);
     }
+
+    glm::mat4* MVP::getModelMatrix()
+    {
+        return &model;
+    }
+
+    glm::mat4* MVP::getRotationMatrix()
+    {
+        return &rotation;
+    }
+
+    glm::mat4* MVP::getProjectionMatrix()
+    {
+        return &projection;
+    }
+
 }

@@ -10,10 +10,10 @@ namespace screen {
     /**
      * Initialise le contexte GL par le constructeur de la classe Render
      */
-    Render::Render()
+    Render::Render(const char* title, glm::vec4 clearColor)
     {
         // Initialize the library
-        if ( !glfwInit( ) )
+        if ( !glfwInit() )
         {
             std::cerr << "Failed to initialize GLFW" << std::endl;
             exit(-1);
@@ -26,17 +26,17 @@ namespace screen {
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // On ne veut pas l'ancien OpenGL
 
         // Create a windowed mode window and its OpenGL context
-        render = glfwCreateWindow( cst::SCREEN_WIDTH, cst::SCREEN_HEIGHT, "Hello World", NULL, NULL );
+        screen = glfwCreateWindow(cst::SCREEN_WIDTH, cst::SCREEN_HEIGHT, title, nullptr, nullptr);
 
-        if ( !render )
+        if ( !screen )
         {
-            glfwTerminate( );
+            glfwTerminate();
             std::cerr << "Fail link to window" << std::endl;
             exit(-1);
         }
 
         // Make the window's context current
-        glfwMakeContextCurrent( render );
+        glfwMakeContextCurrent(screen );
 
         glewExperimental = true; // Needed for core profile
         if (glewInit() != GLEW_OK) {
@@ -50,15 +50,15 @@ namespace screen {
 
         glEnable(GL_DEPTH_TEST);
 
-
         std::cout << "Version == " << glGetString(GL_VERSION) << std::endl;
 
         // Assure que l'on peut capturer la touche d'échappement enfoncée ci-dessous
-        glfwSetInputMode(render, GLFW_STICKY_KEYS, GL_TRUE);
+        glfwSetInputMode(screen, GLFW_STICKY_KEYS, GL_TRUE);
 
         // Couleur de fond := blanc
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-
+        //glClearColor(1, 1, 1, 1);
+        //glClearColor(0.8, 0.8, 0.8, 0.8);
+        glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
     }
 
     /**
@@ -67,7 +67,7 @@ namespace screen {
      */
     void Render::update()
     {
-        glfwSwapBuffers( render );
+        glfwSwapBuffers(screen );
         glfwPollEvents( );
     }
 
@@ -76,8 +76,8 @@ namespace screen {
      */
     bool Render::shouldNotClose()
     {
-        return (glfwGetKey(render, GLFW_KEY_ESCAPE) != GLFW_PRESS)
-                    and (glfwWindowShouldClose(render) == 0);
+        return (glfwGetKey(screen, GLFW_KEY_ESCAPE) != GLFW_PRESS)
+                    and (glfwWindowShouldClose(screen) == 0);
     }
 
 }

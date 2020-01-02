@@ -356,6 +356,22 @@ namespace data {
     }
 
     /**
+     * Ajoute le vector end a la suite de begin
+     * @param begin vector a compléter
+     * @param end vector qui complete
+     * @return le total
+     */
+    std::vector<float> Cylinder::pusher2(const std::vector<float>& begin, const std::vector<float>& end)
+    {
+        std::vector<float> res = begin;
+        for(auto point : end)
+        {
+            res.push_back(point);
+        }
+        return res;
+    }
+
+    /**
      * Combine backFace + demi disques + cylindres creux
      * @param front true si l'équipe est selectionnée, false sinon
      *               permet de mettre le cylindre au premier plan
@@ -390,22 +406,22 @@ namespace data {
 
         std::vector<float> normals;
         glm::vec3 normal;
-
         //1 triangle = 9 coordonnées
         for (unsigned long i = 0; i < cylinder.size() / 9; i++) {
-            float x1 = cylinder[(9 * i) + 0];
-            float y1 = cylinder[(9 * i) + 1];
-            float z1 = cylinder[(9 * i) + 2];
+            float x1 = cylinder[(9 * i) + 0],
+                y1 = cylinder[(9 * i) + 1],
+                z1 = cylinder[(9 * i) + 2];
 
-            float x2 = cylinder[(9 * i) + 3];
-            float y2 = cylinder[(9 * i) + 4];
-            float z2 = cylinder[(9 * i) + 5];
+            float x2 = cylinder[(9 * i) + 3],
+                y2 = cylinder[(9 * i) + 4],
+                z2 = cylinder[(9 * i) + 5];
 
-            float x3 = cylinder[(9 * i) + 6];
-            float y3 = cylinder[(9 * i) + 7];
-            float z3 = cylinder[(9 * i) + 8];
+            float x3 = cylinder[(9 * i) + 6],
+                y3 = cylinder[(9 * i) + 7],
+                z3 = cylinder[(9 * i) + 8];
 
-            if (i < 224) { // < 224){  // Nombre de triangles pour la backface -> signe des normals différent
+            if (i < 224)  // < 224){  // Nombre de triangles pour la backface -> signe des normals différent
+            {
                 glm::vec3 A(x1, y1, z1), B(x2, y2, z2), C(x3, y3, z3);
 
                 glm::vec3 AC = C - A;
@@ -455,7 +471,6 @@ namespace data {
                 normals.push_back(normal.z);
             }
         }
-
         return normals;
     }
 

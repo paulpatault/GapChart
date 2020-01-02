@@ -6,5 +6,5 @@ CXX_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sd
 
 CXX_DEFINES = -DGLFW_DLL
 
-CXX_INCLUDES = -I"/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/." -isystem /usr/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks -isystem /usr/local/Cellar/glfw/3.3/include 
+CXX_INCLUDES = -I"/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/." -I"/usr/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes" -I/usr/local/Cellar/opencv@2/2.4.13.7_6/include -isystem /usr/local/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks -isystem /usr/local/Cellar/glfw/3.3/include 
 

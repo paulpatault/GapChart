@@ -46,6 +46,8 @@
 				<Compiler>
 					<Add option="-DGLFW_DLL"/>
 					<Add directory="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/."/>
+					<Add directory="/usr/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes"/>
+					<Add directory="/usr/local/Cellar/opencv@2/2.4.13.7_6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/usr/local/Cellar/glfw/3.3/include"/>
@@ -71,6 +73,8 @@
 				<Compiler>
 					<Add option="-DGLFW_DLL"/>
 					<Add directory="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/."/>
+					<Add directory="/usr/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes"/>
+					<Add directory="/usr/local/Cellar/opencv@2/2.4.13.7_6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/usr/local/Cellar/glfw/3.3/include"/>
@@ -175,6 +179,12 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shader.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Texture.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Texture.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VAO.cpp">
 			<Option target="main"/>
 		</Unit>
@@ -190,10 +200,22 @@
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/main.cpp">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Camera.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Camera.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.cpp">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Lamp.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Lamp.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/MVP.cpp">

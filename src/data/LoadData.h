@@ -27,7 +27,6 @@ namespace data {
         // rankPoints[i][j] := [jour][equipe] .{rang,points}
         std::vector<std::vector<DayTrip>> rankPoints;
 
-        std::vector<std::string> teamPathPng;
         std::vector<std::string> NAMES = {
                 "Man City", "Liverpool", "Chelsea", "Tottenham", "Arsenal", "Man United", "Wolves", "Everton",
                 "Leicester", "West Ham", "Watford", "Crystal Palace", "Newcastle", "Bournemouth",
@@ -38,8 +37,8 @@ namespace data {
 
     public:
 
-        LoadData(std::string filePath);
-        void loadMatch(std::string filePath);
+        LoadData(const std::string& filePath);
+        void loadMatch(const std::string& filePath);
 
         int getRank(int team, int day);
         int getComplementaryRank(int team, int day);
@@ -49,8 +48,7 @@ namespace data {
         int getAdversaire(int team, int day);
         std::vector<Match> getMatchs(int team);
 
-        std::string getImagesPath(int index);
-        void addPathToTab(std::string imagesPath);
+        const char * getImagesPath(int index);
 
     };
 

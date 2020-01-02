@@ -13,12 +13,18 @@ namespace data {
     class VAO {
     private:
         GLuint VertexArrayID;
+
         void generation();
+
         void bind();
 
     public:
         explicit VAO(GLuint vaid);
-        GLuint getVArrayID();
+
+        GLuint getVArrayID() const;
+
+        static void destroy(VAO* vao);
+
     };
 
 }

@@ -11,7 +11,7 @@ namespace data {
      * Chargement des rangs et des points du fichier .csv dans le vector rankPoints
      * @param filePath chemin du fichier .csv
      */
-    LoadData::LoadData(std::string filePath)
+    LoadData::LoadData(const std::string& filePath)
     {
         rankPoints = std::vector<std::vector<DayTrip>>(cst::NB_DAYS + 1);
 
@@ -120,7 +120,7 @@ namespace data {
      * Chargement des matchs du fichier .csv dans match ( vector de structure Match)
      * @param filePath chemin du fichier .csv
      */
-    void LoadData::loadMatch(std::string filePath)
+    void LoadData::loadMatch(const std::string& filePath)
     {
         match = vector<vector<Match>>(cst::NB_TEAMS); // 38
 
@@ -339,24 +339,57 @@ namespace data {
         return adv;
     }
 
-    void LoadData::addPathToTab(std::string imagesPath)
+    /**
+     * Getter basic
+     * @param index de l'equipe demandée
+     * @return chemin du .png de la texture
+     */
+    const char * LoadData::getImagesPath(int index)
     {
-        // fonction à lancer dès le début du programme
-        // sert simplement à ne pas écrire le chemin des images (noms des équiques )
-
-        /*this->teamPathPng = {
-                "Man_City.png", "Liverpool.png", "Chelsea.png", "Tottenham.png", "Arsenal.png", "Man_United.png", "Wolves.png",
-                "Everton.png", "Leicester.png", "West_Ham.png", "Watford.png", "Crystal_Palace.png", "Newcastle.png", "Bournemouth.png",
-                "Burnley.png", "Southampton.png", "Brighton.png", "Cardiff.png", "Fulham.png", "Huddersfield.png"
-        };*/
-        for(int team = 0; team < cst::NB_TEAMS; team++){
-            teamPathPng[team] = imagesPath + teamPathPng[team];
+        switch (index){
+            case 0:
+                return "resources/textures/Man_City.png";
+            case 1:
+                return "resources/textures/Liverpool.png";
+            case 2:
+                return "resources/textures/Chelsea.png";
+            case 3:
+                return "resources/textures/Tottenham.png";
+            case 4:
+                return "resources/textures/Arsenal.png";
+            case 5:
+                return "resources/textures/Man_United.png";
+            case 6:
+                return "resources/textures/Wolves.png";
+            case 7:
+                return "resources/textures/Everton.png";
+            case 8:
+                return "resources/textures/Leicester.png";
+            case 9:
+                return "resources/textures/West_Ham.png";
+            case 10:
+                return "resources/textures/Watford.png";
+            case 11:
+                return "resources/textures/Crystal_Palace.png";
+            case 12:
+                return "resources/textures/Newcastle.png";
+            case 13:
+                return "resources/textures/Bournemouth.png";
+            case 14:
+                return "resources/textures/Burnley.png";
+            case 15:
+                return "resources/textures/Southampton.png";
+            case 16:
+                return "resources/textures/Brighton.png";
+            case 17:
+                return "resources/textures/Cardiff.png";
+            case 18:
+                return "resources/textures/Fulham.png";
+            case 19 :
+                return "resources/textures/Huddersfield.png";
+            default:
+                exit(-1);
         }
-    }
-
-    std::string LoadData::getImagesPath(int index)
-    {
-        return teamPathPng[index];
     }
 
     /**

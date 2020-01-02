@@ -10,10 +10,9 @@
 #include <GLFW/glfw3.h>
 
 #ifdef __APPLE__
-#include <OpenGL/OpenGL.h>
-
+    #include <OpenGL/OpenGL.h>
 #else
-#include <GL/gl.h>
+    #include <GL/gl.h>
 #endif
 
 // namespace var
@@ -27,12 +26,16 @@
 #include "src/data/Shader.h"
 #include "src/data/VAO.h"
 #include "src/data/VBO.h"
+#include "src/data/Texture.h"
 
 // namespace screen
 #include "src/screen/MVP.h"
 #include "src/screen/c_ImGui.h"
 #include "src/screen/Render.h"
 #include "src/screen/Display.h"
+#include "src/screen/Lamp.h"
+#include "src/screen/Camera.h"
+
 
 #endif //MAIN_MAIN_INCLUDES_H
 

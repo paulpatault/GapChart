@@ -15,18 +15,22 @@
 
 namespace screen {
 
-    static glm::vec3 eyePos = glm::vec3(0.f, 0.f, 1000.f);
-    static glm::vec2 zNearFar = glm::vec2(100.f, -100.f);
-    static glm::vec3 angle = glm::vec3(90.f, 0.f,0.f);
-
     class MVP {
     private:
-        static void updateMVP(glm::mat4* mvp);
-        static void reInitMVP(glm::mat4* mvp);
-        static void maj(GLFWwindow* window, glm::mat4* mvp);
-        static void keyboardCallback(GLFWwindow* window);
+        glm::vec3 eyePos, angle;
+        glm::mat4 model, rotation, view, projection;
+
+        void updateMVP();
+        void reInitMVP();
+        void keyboardCallback(GLFWwindow* window);
+
     public:
-        static void send_updated(GLFWwindow* window, data::Shader* shader);
+        MVP();
+        void maj(GLFWwindow* window);
+        void send_updated(GLFWwindow* window, data::Shader* shader);
+        glm::mat4* getModelMatrix() ;
+        glm::mat4* getRotationMatrix() ;
+        glm::mat4* getProjectionMatrix() ;
 
     };
 

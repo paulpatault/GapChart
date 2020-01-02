@@ -15,10 +15,13 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/data/LoadData.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/LoadData2/LoadData2.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/data/LoadData2/LoadData2.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Shader.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/data/Shader.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/Texture.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/data/Texture.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VAO.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/data/VAO.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/data/VBO.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/data/VBO.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/main.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/main.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Camera.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/screen/Camera.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Display.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/screen/Display.cpp.o"
+  "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Lamp.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/screen/Lamp.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/MVP.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/screen/MVP.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/Render.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/screen/Render.cpp.o"
   "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/src/screen/c_ImGui.cpp" "/Users/patault/Documents/GitHub/ProjetInfoGraphique jet1/cmake-build-debug/CMakeFiles/main.dir/src/screen/c_ImGui.cpp.o"
@@ -33,6 +36,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../."
+  "/usr/patault/Documents/GitHub/ProjetInfoGraphique jet1/includes"
+  "/usr/local/Cellar/opencv@2/2.4.13.7_6/include"
   "/usr/local/include"
   "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework"
   "/usr/local/Cellar/glfw/3.3/include"

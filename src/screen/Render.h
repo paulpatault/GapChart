@@ -10,7 +10,7 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -25,9 +25,9 @@ namespace screen {
 
     class Render {
     public:
-        Render();
+        explicit Render(const char* title, glm::vec4 clearColor);
 
-        GLFWwindow* render;
+        GLFWwindow* screen;
 
         void update();
 

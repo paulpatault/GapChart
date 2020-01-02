@@ -12,6 +12,7 @@
 
 
 namespace utils {
+
     inline std::vector<data::VBO> makeVBOs(data::LoadData myData)
     {
         std::vector<data::VBO> res;
@@ -22,7 +23,44 @@ namespace utils {
 
             std::vector<float> cylinder = cyl.makeCombinedCylinder(false);
 
+            //////////
+            std::vector<glm::vec3> backFace = cyl.makeBackFace(false);
+            std::vector<float> f_backFace;
+            for(auto & point : backFace)
+            {
+                f_backFace.push_back(point.x);
+                f_backFace.push_back(point.y);
+                f_backFace.push_back(point.z);
+            }
+            std::vector<float> normals1 = data::Cylinder::makeNormals(f_backFace);
+
+            std::vector<glm::vec3> halfDisk = data::Cylinder::makeHalfCircles(backFace, false);
+            std::vector<float> f_halfDisk;
+            for(auto & point : backFace)
+            {
+                f_halfDisk.push_back(point.x);
+                f_halfDisk.push_back(point.y);
+                f_halfDisk.push_back(point.z);
+            }
+            std::vector<float> normals2 = data::Cylinder::makeNormals(f_halfDisk);
+
+            std::vector<glm::vec3> link = data::Cylinder::makeLinkCircles(backFace);
+            std::vector<float> f_link;
+            for(auto & point : backFace)
+            {
+                f_link.push_back(point.x);
+                f_link.push_back(point.y);
+                f_link.push_back(point.z);
+            }
+            std::vector<float> normals3 = data::Cylinder::makeNormals(f_link);
+
+            std::vector<float> normals0 = data::Cylinder::pusher2(normals1, normals2);
+            normals0 = data::Cylinder::pusher2(normals0, normals3);
+
+            //////////
+
             std::vector<float> normals = data::Cylinder::makeNormals(cylinder);
+
             vector<vector<float>> null;
 
             data::VBO m_VBO(&myData , cylinder , normals, null);
@@ -98,6 +136,14 @@ namespace utils {
             updateVBOs(VBO, myData, selection);
         }
     }
+
+    inline void updateTime(float& deltaTime, float& lastFrame)
+    {
+        auto currentFrame = (float)glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+    }
+
 }
 
 

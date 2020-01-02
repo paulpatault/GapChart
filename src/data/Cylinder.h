@@ -30,6 +30,7 @@ namespace data {
 
         static std::vector<float> makeNormals(const std::vector<float>& cylinder);
 
+        static vector<float> pusher2(const vector<float> &begin, const vector<float> &end);
     };
 }
 
