@@ -4373,7 +4373,7 @@ static void ShowExampleAppSimpleOverlay(bool* p_open)
 // [SECTION] Example App: Manipulating Render Titles / ShowExampleAppWindowTitles()
 //-----------------------------------------------------------------------------
 
-// Demonstrate using "##" and "###" in identifiers to manipulate ID generation.
+// Demonstrate using "##" and "###" in identifiers to manipulate ID __generation.
 // This apply to all regular items as well. Read FAQ section "How can I have multiple widgets with the same label? Can I have widget without a label? (Yes). A primer on the purpose of labels/IDs." for details.
 static void ShowExampleAppWindowTitles(bool*)
 {

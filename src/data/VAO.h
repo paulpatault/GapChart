@@ -14,9 +14,9 @@ namespace data {
     private:
         GLuint VertexArrayID;
 
-        void generation();
+        void __generation();
 
-        void bind();
+        void __bind();
 
     public:
         explicit VAO(GLuint vaid);

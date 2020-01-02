@@ -9,23 +9,45 @@
 #include <opencv2/core/core.hpp>
 
 #include <GL/glew.h>
+#include <glm/glm.hpp>
+#include <glm/ext/matrix_transform.hpp>
 
-
+#include "LoadData.h"
+#include "includes/constants.h"
 
 namespace data {
 
+    static const float vertices[] = {
+            // positions          // texture coords
+            0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
+            0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
+            -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+            -0.5f,  0.5f, 0.0f,   0.0f, 1.0f  // top left
+    };
+
+    static const unsigned int indices[] = {
+            0, 1, 3, // first triangle
+            1, 2, 3  // second triangle
+    };
+
     class Texture {
-
     private:
-        GLuint ID;
-        std::string filePath;
+        GLuint ID, VBO, VAO, EBO;
+
+        GLuint LoadTexture(const char* fileName);
+
     public:
-        Texture(GLuint ID, const std::string& filePath);
+        Texture(const char* filePath);
+
+        static GLuint getID(Texture *t);
+
         ~Texture();
-        static void push(Texture* t);
-        static void bind(Texture* t);
 
+        glm::mat4 modelMatrix;
 
+        static void draw(Texture *t, int team);
+
+        static void update(Texture *t, LoadData* data, Selection* selector);
     };
 
 }

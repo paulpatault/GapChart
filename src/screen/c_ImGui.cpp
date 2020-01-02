@@ -36,14 +36,14 @@ namespace screen {
     void c_ImGui::maj(glm::vec3 *colors, glm::vec3& lp)
     {
         // ImGui Edit (màj)
-        /*
+
         ImGui::ColorEdit3("top1", (float*)&colors[0]);
         ImGui::ColorEdit3("top", (float*)&colors[1]);
         ImGui::ColorEdit3("top_mid", (float*)&colors[2]);
         ImGui::ColorEdit3("mid", (float*)&colors[3]);
         ImGui::ColorEdit3("bot_mid", (float*)&colors[4]);
         ImGui::ColorEdit3("bot", (float*)&colors[5]);
-         */
+
 
         ImGui::SliderFloat("x", &lp.x, -1000, 2000);
         ImGui::SliderFloat("y", &lp.y, -1000, 2000);
@@ -56,7 +56,8 @@ namespace screen {
     /**
      * Fermeture du contexte
      */
-    void c_ImGui::terminate() {
+    void c_ImGui::terminate()
+    {
         ImGui_ImplGlfw_Shutdown();
         ImGui::DestroyContext();
     }

@@ -31,10 +31,13 @@ namespace screen {
                 float yaw = YAW,
                 float pitch = PITCH
                         );
-        Camera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch);
+
         void ProcessKeyboard(Camera_Movement direction, float deltaTime);
+
         static void processInput(Camera* cam, GLFWwindow *window, float deltaTime);
-        glm::mat4 getViewMatrix();
+
+        glm::mat4 getViewMatrix() const;
+
         glm::vec3* getPosition();
 
     private:
@@ -44,11 +47,13 @@ namespace screen {
             Up,
             Right,
             WorldUp;
+
         float Yaw,
             Pitch,
             MovementSpeed = SPEED;
 
         void reinit();
+
         void updateCameraVectors();
     };
 }

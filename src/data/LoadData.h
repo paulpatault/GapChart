@@ -33,22 +33,28 @@ namespace data {
                 "Burnley", "Southampton", "Brighton", "Cardiff", "Fulham", "Huddersfield"
         };
 
-        int getIndexByName(std::string nom);
+        int __getIndexByName(std::string nom) const;
+
+        int __getRank(int team, int day) const;
+
+        int __getPoints(int team, int day) const;
 
     public:
+        explicit LoadData(const std::string& filePath);
 
-        LoadData(const std::string& filePath);
         void loadMatch(const std::string& filePath);
 
-        int getRank(int team, int day);
-        int getComplementaryRank(int team, int day);
-        float getComplementaryRankNormalized(int team, int day);
-        int getPoints(int team, int day);
-        float getPointsNormalized(int team, int day);
-        int getAdversaire(int team, int day);
-        std::vector<Match> getMatchs(int team);
+        int getComplementaryRank(int team, int day) const;
 
-        const char * getImagesPath(int index);
+        float getComplementaryRankNormalized(int team, int day) const;
+
+        float getPointsNormalized(int team, int day) const;
+
+        int getAdversary(int team, int day) const;
+
+        std::vector<Match> getMatchs(int team) const;
+
+        const char* getImagesPath(int index) const;
 
     };
 

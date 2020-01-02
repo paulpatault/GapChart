@@ -19,20 +19,8 @@ namespace screen {
         updateCameraVectors();
     }
 
-    // Constructor with scalar values
-    Camera::Camera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch)
-    {
-        Front = glm::vec3(0.0f, 0.0f, -1.0f);
-        Position = glm::vec3(posX, posY, posZ);
-        Position0 = glm::vec3(posX, posY, posZ);
-        WorldUp = glm::vec3(upX, upY, upZ);
-        Yaw = yaw;
-        Pitch = pitch;
-        updateCameraVectors();
-    }
-
     // Returns the view matrix calculated using Euler Angles and the LookAt Matrix
-    glm::mat4 Camera::getViewMatrix()
+    glm::mat4 Camera::getViewMatrix() const
     {
         return glm::lookAt(Position, Position + Front, Up);
     }

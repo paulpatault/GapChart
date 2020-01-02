@@ -355,21 +355,6 @@ namespace data {
         return res;
     }
 
-    /**
-     * Ajoute le vector end a la suite de begin
-     * @param begin vector a compléter
-     * @param end vector qui complete
-     * @return le total
-     */
-    std::vector<float> Cylinder::pusher2(const std::vector<float>& begin, const std::vector<float>& end)
-    {
-        std::vector<float> res = begin;
-        for(auto point : end)
-        {
-            res.push_back(point);
-        }
-        return res;
-    }
 
     /**
      * Combine backFace + demi disques + cylindres creux

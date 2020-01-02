@@ -40,7 +40,7 @@ namespace data {
 
             Match match = t_matchs[day];
 
-            adv = _myData->getAdversaire(_teamNumber, day);
+            adv = _myData->getAdversary(_teamNumber, day);
             y_adv = v_cyl[adv].yByDay[day];
 
             r = glm::abs(point_ref.y - y_adv) / 2;

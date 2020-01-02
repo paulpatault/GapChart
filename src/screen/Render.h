@@ -29,9 +29,9 @@ namespace screen {
 
         GLFWwindow* screen;
 
-        void update();
+        void update() const;
 
-        bool shouldNotClose();
+        bool shouldNotClose() const;
 
     };
 

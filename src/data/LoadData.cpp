@@ -176,8 +176,8 @@ namespace data {
                 getline(myfile, value, c); // value = name
                 teamAway = value;
 
-                indiceAtHome = getIndexByName(teamAtHome);
-                indiceAway = getIndexByName(teamAway);
+                indiceAtHome = __getIndexByName(teamAtHome);
+                indiceAway = __getIndexByName(teamAway);
 
                 match[team][day] = {teamAtHome, teamAway, scoreAtHome, scoreAway};
 
@@ -226,7 +226,7 @@ namespace data {
      * @param day jour demandé
      * @return le rank pour l'équipe team au jour day
      */
-    int LoadData::getRank(int team, int day)
+    int LoadData::__getRank(int team, int day) const
     {
         return rankPoints[day][team].rank;
     }
@@ -237,9 +237,9 @@ namespace data {
      * @param day jour demandé
      * @return le rank complémentaire pour l'équipe team au jour day
      */
-    int LoadData::getComplementaryRank(int team, int day)
+    int LoadData::getComplementaryRank(int team, int day) const
     {
-        return 19 - getRank(team, day);
+        return 19 - __getRank(team, day);
     }
 
     /**
@@ -248,7 +248,7 @@ namespace data {
      * @param day jour demandé
      * @return le rank complémentaire normalisé pour l'équipe team au jour day
      */
-    float LoadData::getComplementaryRankNormalized(int team, int day)
+    float LoadData::getComplementaryRankNormalized(int team, int day) const
     {
         return (float)getComplementaryRank(team, day) / 19;
     }
@@ -259,7 +259,7 @@ namespace data {
      * @param day jour demandé
      * @return le nombre de points pour l'équipe team au jour day
      */
-    int LoadData::getPoints(int team, int day)
+    int LoadData::__getPoints(int team, int day) const
     {
         return rankPoints[day][team].points;
     }
@@ -270,21 +270,21 @@ namespace data {
      * @param day jour demandé
      * @return le nombre de points normalisés pour l'équipe team au jour day
      */
-    float LoadData::getPointsNormalized(int team, int day)
+    float LoadData::getPointsNormalized(int team, int day) const
     {
-        return (float)getPoints(team, day) / (float)cst::MAX_POINTS;
+        return (float) __getPoints(team, day) / (float)cst::MAX_POINTS;
     }
 
     /**
      * Getter basic
-     * @param name string du nom de l'équipe
+     * @param nom string du nom de l'équipe
      * @return l'indice de l'équipe (dans [0, 20])
      */
-    int LoadData::getIndexByName(std::string name)
+    int LoadData::__getIndexByName(std::string nom) const
     {
         for(int team = 0; team < cst::NB_TEAMS; team++)
         {
-            if(name == " " + NAMES[team])
+            if(nom == " " + NAMES[team])
                 return team;
         }
         return -1;
@@ -296,7 +296,7 @@ namespace data {
      * @param day jour demandé
      * @return l'adversaire de l'équipe team pour le match du jour day
      */
-    int LoadData::getAdversaire(int team, int day)
+    int LoadData::getAdversary(int team, int day) const
     {
 
         string res = "L'équipe";
@@ -305,7 +305,7 @@ namespace data {
         string otherTeam = match[team][day].teamAway;
         string inOut = " à domicile";
 
-        if(getIndexByName(match[team][day].teamAway) == team )  // At Home
+        if(__getIndexByName(match[team][day].teamAway) == team )  // At Home
         {
             askedTeam = match[team][day].teamAway;
             otherTeam = match[team][day].teamAtHome;
@@ -335,7 +335,7 @@ namespace data {
 
         //std::cout << res << std::endl;
 
-        int adv = getIndexByName(otherTeam);
+        int adv = __getIndexByName(otherTeam);
         return adv;
     }
 
@@ -344,49 +344,49 @@ namespace data {
      * @param index de l'equipe demandée
      * @return chemin du .png de la texture
      */
-    const char * LoadData::getImagesPath(int index)
+    const char* LoadData::getImagesPath(int index) const
     {
-        switch (index){
+        switch (index) {
             case 0:
-                return "resources/textures/Man_City.png";
+                return "../resources/images/Man_City.png";
             case 1:
-                return "resources/textures/Liverpool.png";
+                return "../resources/images/Liverpool.png";
             case 2:
-                return "resources/textures/Chelsea.png";
+                return "../resources/images/Chelsea.png";
             case 3:
-                return "resources/textures/Tottenham.png";
+                return "../resources/images/Tottenham.png";
             case 4:
-                return "resources/textures/Arsenal.png";
+                return "../resources/images/Arsenal.png";
             case 5:
-                return "resources/textures/Man_United.png";
+                return "../resources/images/Man_United.png";
             case 6:
-                return "resources/textures/Wolves.png";
+                return "../resources/images/Wolves.png";
             case 7:
-                return "resources/textures/Everton.png";
+                return "../resources/images/Everton.png";
             case 8:
-                return "resources/textures/Leicester.png";
+                return "../resources/images/Leicester.png";
             case 9:
-                return "resources/textures/West_Ham.png";
+                return "../resources/images/West_Ham.png";
             case 10:
-                return "resources/textures/Watford.png";
+                return "../resources/images/Watford.png";
             case 11:
-                return "resources/textures/Crystal_Palace.png";
+                return "../resources/images/Crystal_Palace.png";
             case 12:
-                return "resources/textures/Newcastle.png";
+                return "../resources/images/Newcastle.png";
             case 13:
-                return "resources/textures/Bournemouth.png";
+                return "../resources/images/Bournemouth.png";
             case 14:
-                return "resources/textures/Burnley.png";
+                return "../resources/images/Burnley.png";
             case 15:
-                return "resources/textures/Southampton.png";
+                return "../resources/images/Southampton.png";
             case 16:
-                return "resources/textures/Brighton.png";
+                return "../resources/images/Brighton.png";
             case 17:
-                return "resources/textures/Cardiff.png";
+                return "../resources/images/Cardiff.png";
             case 18:
-                return "resources/textures/Fulham.png";
+                return "../resources/images/Fulham.png";
             case 19 :
-                return "resources/textures/Huddersfield.png";
+                return "../resources/images/Huddersfield.png";
             default:
                 exit(-1);
         }
@@ -397,7 +397,7 @@ namespace data {
      * @param team équipe demandé
      * @return l'ensemble des matchs joués par l'équipe team
      */
-    std::vector<Match> LoadData::getMatchs(int team)
+    std::vector<Match> LoadData::getMatchs(int team) const
     {
         return match[team];
     }

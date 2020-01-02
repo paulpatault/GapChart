@@ -6,6 +6,7 @@ uniform vec3 u_CameraPos;
 
 in vec3 frag_Position;
 in vec3 frag_Normal;
+smooth in float depth;
 
 
 out vec4 color;
@@ -17,7 +18,7 @@ void main() {
 
 
     // Ambient light
-    float ambientStrength = 0.1f;
+    float ambientStrength = 0.6f;
     vec3 ambient = ambientStrength * lightColor;
 
     // Diffuse light
@@ -27,7 +28,7 @@ void main() {
     vec3 diffuse = diff * lightColor;
 
     // specular light
-    float specularStrength = 0.1;
+    float specularStrength = 0.5;
     vec3 viewDir = normalize(u_CameraPos - frag_Position);
     vec3 reflectDir = reflect(-lightDir, normal);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 64);
@@ -38,4 +39,5 @@ void main() {
 
     color = vec4(result, 1.f);
 
+    //gl_FragDepth = 100-depth/10;
 }

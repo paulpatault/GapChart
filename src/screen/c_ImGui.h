@@ -17,9 +17,13 @@ namespace screen {
     class c_ImGui {
     public:
         static void init(GLFWwindow* window);
+
         static void loop();
+
         static void maj(glm::vec3* colors, glm::vec3& lp);
+
         static void terminate();
+
     };
 
 }

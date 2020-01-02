@@ -13,14 +13,14 @@ namespace data {
     VAO::VAO(GLuint vaid)
     {
         VertexArrayID = vaid;
-        generation();
-        bind();
+        __generation();
+        __bind();
     }
 
     /**
      * generation of 1 vertex array by gl function
      */
-    void VAO::generation()
+    void VAO::__generation()
     {
         glGenVertexArrays(1, &VertexArrayID);
     }
@@ -28,7 +28,7 @@ namespace data {
     /**
      * binding a vertex array by gl function
      */
-    void VAO::bind()
+    void VAO::__bind()
     {
         glBindVertexArray(VertexArrayID);
     }

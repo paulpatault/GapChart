@@ -55,9 +55,7 @@ namespace screen {
         // Assure que l'on peut capturer la touche d'échappement enfoncée ci-dessous
         glfwSetInputMode(screen, GLFW_STICKY_KEYS, GL_TRUE);
 
-        // Couleur de fond := blanc
-        //glClearColor(1, 1, 1, 1);
-        //glClearColor(0.8, 0.8, 0.8, 0.8);
+        // Couleur de fond
         glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
     }
 
@@ -65,16 +63,16 @@ namespace screen {
      * Echange l'écran actuel avec le prochain
      * et gère les évenements
      */
-    void Render::update()
+    void Render::update() const
     {
-        glfwSwapBuffers(screen );
-        glfwPollEvents( );
+        glfwSwapBuffers(screen);
+        glfwPollEvents();
     }
 
     /**
      * Condition de fermeture de la fenetre := touche (echap) ou ( + q) par exemple
      */
-    bool Render::shouldNotClose()
+    bool Render::shouldNotClose() const
     {
         return (glfwGetKey(screen, GLFW_KEY_ESCAPE) != GLFW_PRESS)
                     and (glfwWindowShouldClose(screen) == 0);
