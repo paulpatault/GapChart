@@ -100,6 +100,21 @@ namespace screen {
     }
 
     /**
+     * Mise a jour de MVP après sa réinitialisatio ou modification par keyboardCallback
+     * @param mvp instance de MVP
+     * @param window fenetre de travail
+     */
+    void MVP::maj_stat(MVP* mvp, GLFWwindow* window)
+    {
+        mvp->keyboardCallback(window);
+
+        if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
+            mvp->reInitMVP();
+        else
+            mvp->updateMVP();
+    }
+
+    /**
      * Envoie les matrices Model, View et Projection aux shaders
      * @param window fenetre de travail
      */

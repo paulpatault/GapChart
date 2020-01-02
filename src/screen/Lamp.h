@@ -16,20 +16,35 @@ namespace screen {
     class Lamp {
     public:
         explicit Lamp(glm::vec3 pos = glm::vec3(cst::FSCREEN_WIDTH / 2, 5000, 1000.f), bool toDisplay = true);
-        glm::vec3 getPosition() const;
+
         void setPosition(glm::vec3 apos);
+
         bool isDisplayable() const;
+
         GLuint getVAO_ID() const;
+
+        glm::vec3 getPosition() const;
+
         glm::mat4 getModelMatrix() const;
+
         static void update(Lamp* lamp);
-        static void draw(Lamp* lamp);
+
+        static void draw_stat(Lamp* lamp);
+
+        static void destroy(Lamp* lamp);
+
         std::vector<float> vertices;
 
+        ~Lamp();
+
     private:
-        GLuint VAO_ID;
-        GLuint VBO_ID;
+        GLuint VAO_ID,
+            VBO_ID;
+
         glm::vec3 position;
+
         bool toDisplay;
+
         glm::mat4 model;
 
     };

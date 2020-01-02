@@ -27,6 +27,7 @@ namespace screen {
     public:
         MVP();
         void maj(GLFWwindow* window);
+        static void maj_stat(MVP* mvp, GLFWwindow* window);
         void send_updated(GLFWwindow* window, data::Shader* shader);
         glm::mat4* getModelMatrix() ;
         glm::mat4* getRotationMatrix() ;

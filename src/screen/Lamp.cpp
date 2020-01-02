@@ -11,8 +11,8 @@ namespace screen {
     {
         position = pos;
         toDisplay = t_toDisplay;
-        VAO_ID = (GLuint());
-        VBO_ID = (GLuint());
+        //VAO_ID = (GLuint());
+        //VBO_ID = (GLuint());
         model = (glm::mat4());
         vertices = {
                 -0.5f, -0.5f, -0.5f,
@@ -91,7 +91,7 @@ namespace screen {
 
     }
 
-    void Lamp::draw(Lamp *lamp)
+    void Lamp::draw_stat(Lamp* lamp)
     {
         if(lamp->isDisplayable())
         {
@@ -123,6 +123,16 @@ namespace screen {
     {
         position = apos;
     }
+
+    void Lamp::destroy(Lamp *lamp)
+    {
+        lamp->vertices.clear();
+        lamp->vertices.reserve(0);
+        glDeleteVertexArrays(1, &lamp->VAO_ID);
+        glDeleteBuffers(1, &lamp->VBO_ID);
+    }
+
+    Lamp::~Lamp() = default;
 
 
 }

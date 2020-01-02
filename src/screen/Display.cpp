@@ -16,13 +16,12 @@ namespace screen {
     void Display::draw(GLuint programID, const std::vector<data::VBO>& vec_VBO, const glm::vec3 *colors, const Selection& select)
     {
         for(int team = 0; team < cst::NB_TEAMS; team++)
-        //for(int team = 0; team < cst::NB_TEAMS; team += 4)
         {
             GLint colorID = glGetUniformLocation(programID,"u_color");
             {
-                if( team == select.selected)
-                    glUniform3f(colorID, 0.2, 0.9, 0.2);
-                else if (team == 0) {
+                if( team == select.selected) {
+                    glUniform3f(colorID, 0.1, 0.6, 0.1);
+                } else if (team == 0) {
                     glUniform3f(colorID, colors[0].x, colors[0].y, colors[0].z);              // TOP 1
                 } else if (team < 4) {
                     glUniform3f(colorID, colors[1].x, colors[1].y, colors[1].z);              // TOP 1
@@ -93,9 +92,7 @@ namespace screen {
      */
     void Display::clear()
     {
-        //glClear( GL_COLOR_BUFFER_BIT );
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        //glDepthFunc(GL_ALWAYS);
         glDepthFunc(GL_LESS);
     }
 
@@ -114,8 +111,8 @@ namespace screen {
      * @param window fenetre sur laquelle on travail
      * var::selected = l'indice de l'éuipe séléctionnée (si une l'a été), -1 sinon
      */
-    void Display::selectionCallBack(GLFWwindow* window, Selection& last_selection) {
-
+    void Display::selectionCallBack(GLFWwindow* window, Selection& last_selection)
+    {
         int n_selected = -1;
 
         if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS) n_selected = 0;
@@ -131,7 +128,6 @@ namespace screen {
 
         if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS and n_selected != -1)
             n_selected += 10;
-
 
         last_selection.arcs = glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS;
 
