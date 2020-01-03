@@ -12,41 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c6041a-5342-4e7d-947c-e845727d6741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/shaders/title_fs.glsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/shaders/title_vs.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/imgui/imgui_demo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/includes/imgui/imgui_demo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/variables.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/variables.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleFragmentShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/SimpleVertexShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Arc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Arc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Cylinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Cylinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Cylinder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/LoadData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/LoadData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/LoadData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Shader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Shader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Shader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Shader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Texture.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Texture.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Texture.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Texture.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/VAO.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VAO.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/VAO.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VAO.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/VBO.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/VBO.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Camera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Camera.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screen/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Display.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Display.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/MVP.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/MVP.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Render.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Render.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/Render.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/Render.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/c_ImGui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/c_ImGui.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/c_ImGui.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/c_ImGui.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -193,14 +163,7 @@
       <workItem from="1576684880440" duration="48018000" />
       <workItem from="1576933218835" duration="23722000" />
       <workItem from="1577184371517" duration="36602000" />
-      <workItem from="1577464690621" duration="71151000" />
-    </task>
-    <task id="LOCAL-00002" summary="cylindre">
-      <created>1574097314308</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1574097314308</updated>
+      <workItem from="1577464690621" duration="72282000" />
     </task>
     <task id="LOCAL-00003" summary="code + propre">
       <created>1574100109096</created>
@@ -538,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578007736569</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="maj 03/01 23:31">
+      <created>1578090706738</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1578090706738</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +532,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
-    <MESSAGE value="remise à niveau" />
     <MESSAGE value="clean up | separation fichiers" />
     <MESSAGE value="oubli intégration cst.h dans render" />
     <MESSAGE value="move" />
@@ -587,6 +556,7 @@
     <MESSAGE value="update shaders" />
     <MESSAGE value="maj" />
     <MESSAGE value="clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
+    <MESSAGE value="maj 03/01 23:31" />
+    <option name="LAST_COMMIT_MESSAGE" value="maj 03/01 23:31" />
   </component>
 </project>
