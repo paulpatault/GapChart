@@ -1,9 +1,5 @@
 #include "includes/main_includes.h"
 
-
-// Charge une texture et retourne l'identifiant openGL
-
-
 int main()
 {
     /// Instance of the class Render that manages the window + initialise GL
