@@ -31,7 +31,7 @@ int main()
             );
 
     /// Lamp for lighting
-    screen::Lamp lamp(glm::vec3(2000.f, 288.f, 3718.f));
+    screen::Lamp lamp(glm::vec3(1000.f, 100.f, 2000.f));
 
     /// Camera
     auto* pCamera = new screen::Camera(glm::vec3(0.0f, 0.0f, 1000.0f));
