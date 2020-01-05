@@ -27,7 +27,7 @@ namespace data {
 
         Shader(const char * vertex_file_path, const char * fragment_file_path);
 
-        static void use(Shader);
+        static void use(Shader*);
 
         void setBool(const std::string &name, bool value) const;
 
@@ -57,6 +57,7 @@ namespace data {
 
         static void setMat4_stat(Shader* shader, const std::string &name, const glm::mat4 &mat);
 
+        static void destroy(const Shader* shader);
     };
 
 

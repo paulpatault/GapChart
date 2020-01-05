@@ -42,6 +42,8 @@ namespace screen {
 
         glm::mat4* getProjectionMatrix();
 
+        static void destroy(const MVP* pMVP);
+
     };
 
 }

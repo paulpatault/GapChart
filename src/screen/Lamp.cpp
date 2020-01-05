@@ -11,8 +11,6 @@ namespace screen {
     {
         position = pos;
         toDisplay = t_toDisplay;
-        //VAO_ID = (GLuint());
-        //VBO_ID = (GLuint());
         model = (glm::mat4());
         vertices = {
                 -0.5f, -0.5f, -0.5f,

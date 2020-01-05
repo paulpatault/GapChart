@@ -114,9 +114,9 @@ namespace data {
      * Liaison des shaders avec le programID
      * @param programID
      */
-    void Shader::use(Shader sh)
+    void Shader::use(Shader* sh)
     {
-        glUseProgram(sh.ID);
+        glUseProgram(sh->ID);
     }
 
     /**
@@ -253,6 +253,11 @@ namespace data {
     void Shader::setMat4_stat(Shader *shader, const std::string &name, const glm::mat4 &mat)
     {
         shader->setMat4(name, mat);
+    }
+
+    void Shader::destroy(const Shader* shader)
+    {
+        delete shader;
     }
 
 

@@ -142,4 +142,9 @@ namespace screen {
         return &projection;
     }
 
+    void MVP::destroy(const MVP* pMVP)
+    {
+        delete pMVP;
+    }
+
 }

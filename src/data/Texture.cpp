@@ -54,16 +54,16 @@ namespace data {
         return tId;
     }
 
-    void Texture::draw(data::Texture *t, int team)
+    void Texture::draw(const data::Texture *pTexture, int team)
     {
         if(team != -1 )
         {
-            glBindVertexArray(t->VAO);
+            glBindVertexArray(pTexture->VAO);
 
-            glBindBuffer(GL_ARRAY_BUFFER, t->VBO);
+            glBindBuffer(GL_ARRAY_BUFFER, pTexture->VBO);
             glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, t->EBO);
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, pTexture->EBO);
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
             // position attribute
@@ -74,7 +74,7 @@ namespace data {
             glEnableVertexAttribArray(1);
 
             // bind Texture
-            glBindTexture(GL_TEXTURE_2D, t->ID);
+            glBindTexture(GL_TEXTURE_2D, pTexture->ID);
 
             // render container
 
@@ -83,25 +83,30 @@ namespace data {
         }
     }
 
-    GLuint Texture::getID(Texture *t)
+    GLuint Texture::getID(const Texture *t)
     {
         return t->ID;
     }
 
-    void Texture::update(Texture *t, LoadData* data, Selection* selector)
+    void Texture::update(Texture *texture, const LoadData* data, const Selection* selector)
     {
         if(selector->selected != -1 and selector->changed )
         {
             const char* fileName = data->getImagesPath(selector->selected);
-            t->ID = t->LoadTexture(fileName);
-            glDeleteVertexArrays(1, &t->VAO);
-            glDeleteBuffers(1, &t->VBO);
-            glDeleteBuffers(1, &t->EBO);
+            texture->ID = texture->LoadTexture(fileName);
+            glDeleteVertexArrays(1, &texture->VAO);
+            glDeleteBuffers(1, &texture->VBO);
+            glDeleteBuffers(1, &texture->EBO);
 
-            glGenVertexArrays(1, &t->VAO);
-            glGenBuffers(1, &t->VBO);
-            glGenBuffers(1, &t->EBO);
+            glGenVertexArrays(1, &texture->VAO);
+            glGenBuffers(1, &texture->VBO);
+            glGenBuffers(1, &texture->EBO);
         }
+    }
+
+    void Texture::destroy(const Texture *texture)
+    {
+        delete texture;
     }
 
     Texture::~Texture() = default;

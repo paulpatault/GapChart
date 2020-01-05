@@ -25,6 +25,12 @@ namespace screen {
         return glm::lookAt(Position, Position + Front, Up);
     }
 
+    /**
+     * Gere le déplacement de la camera
+     * @param cam la camera a deplacer
+     * @param window fenetre de travail
+     * @param deltaTime
+     */
     void Camera::processInput(Camera* cam, GLFWwindow *window, float deltaTime)
     {
         /// ZQSD
@@ -40,7 +46,7 @@ namespace screen {
             cam->ProcessKeyboard(RIGHT, deltaTime);
 
         /// UP DOWN
-        if (glfwGetKey(window, GLFW_KEY_CAPS_LOCK) == GLFW_PRESS)
+        if (glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS)
             cam->ProcessKeyboard(DOWN, deltaTime);
         if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
             cam->ProcessKeyboard(UP, deltaTime);
@@ -68,6 +74,9 @@ namespace screen {
         cam->updateCameraVectors();
     }
 
+    /**
+     * Replace la camera a sa position initiale et réinitialise la vitesse de déplacement
+     */
     void Camera::reinit()
     {
         MovementSpeed = SPEED;
@@ -108,9 +117,17 @@ namespace screen {
         Up    = glm::normalize(glm::cross(Right, Front));
     }
 
+    /**
+     * @return Position actuelle de la camera
+     */
     glm::vec3* Camera::getPosition()
     {
         return &Position;
+    }
+
+    void Camera::destroy(Camera* cam)
+    {
+        delete cam;
     }
 
 }

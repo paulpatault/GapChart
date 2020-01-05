@@ -37,17 +37,19 @@ namespace data {
         GLuint LoadTexture(const char* fileName);
 
     public:
-        Texture(const char* filePath);
+        explicit Texture(const char* filePath);
 
-        static GLuint getID(Texture *t);
+        static GLuint getID(const Texture *texture);
 
         ~Texture();
 
         glm::mat4 modelMatrix;
 
-        static void draw(Texture *t, int team);
+        static void draw(const Texture* texture, int team);
 
-        static void update(Texture *t, LoadData* data, Selection* selector);
+        static void update(Texture* texture, const LoadData* data, const Selection* selector);
+
+        static void destroy(const Texture* texture);
     };
 
 }

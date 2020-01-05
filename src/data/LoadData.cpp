@@ -402,6 +402,11 @@ namespace data {
         return match[team];
     }
 
+    void LoadData::destroy(const LoadData *pData)
+    {
+        delete pData;
+    }
+
 
 }
 

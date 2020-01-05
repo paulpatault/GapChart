@@ -40,6 +40,8 @@ namespace screen {
 
         glm::vec3* getPosition();
 
+        static void destroy(Camera* cam);
+
     private:
         glm::vec3 Position,
             Position0,

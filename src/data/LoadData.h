@@ -56,6 +56,8 @@ namespace data {
 
         const char* getImagesPath(int index) const;
 
+        static void destroy(const LoadData* pData);
+
     };
 
 

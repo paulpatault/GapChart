@@ -15,7 +15,7 @@ namespace data {
 
     class Cylinder {
     private:
-        LoadData *_myData;
+        LoadData* _myData;
 
         int _teamNumber;
 

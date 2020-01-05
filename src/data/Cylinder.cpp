@@ -11,7 +11,7 @@ namespace data {
      * @param teamNumber, numéro (dans [0, 20]) de l'équipe associée a ce cylindre
      * @param data, instance de la classe loadData
      */
-    Cylinder::Cylinder(int teamNumber, LoadData *data)
+    Cylinder::Cylinder(int teamNumber, LoadData* data)
     {
         _teamNumber = teamNumber;
         _myData = data;

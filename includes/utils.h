@@ -13,13 +13,13 @@
 
 namespace utils {
 
-    inline std::vector<data::VBO> makeVBOs(data::LoadData myData)
+    inline std::vector<data::VBO> makeVBOs(data::LoadData* myData)
     {
         std::vector<data::VBO> res;
 
         for(int team = 0; team < cst::NB_TEAMS; team++)
         {
-            data::Cylinder cyl(team, &myData);
+            data::Cylinder cyl(team, myData);
 
             std::vector<float> cylinder = cyl.makeCombinedCylinder(false);
 
@@ -27,7 +27,7 @@ namespace utils {
 
             vector<vector<float>> null;
 
-            data::VBO m_VBO(&myData , cylinder , normals, null);
+            data::VBO m_VBO(myData , cylinder , normals, null);
 
             res.push_back(m_VBO);
         }
@@ -35,7 +35,7 @@ namespace utils {
         return res;
     }
 
-    inline void updateVBOs(std::vector<data::VBO> &VBO, data::LoadData *myData, Selection select)
+    inline void updateVBOs(std::vector<data::VBO> &VBO, data::LoadData* myData, Selection select)
     {
         if(select.selected == -1)
         {
@@ -94,7 +94,7 @@ namespace utils {
 
     }
 
-    inline void majVBOs(std::vector<data::VBO> &VBO, Selection selection, data::LoadData *myData)
+    inline void majVBOs(std::vector<data::VBO>& VBO, Selection selection, data::LoadData* myData)
     {
         if(selection.changed){
             updateVBOs(VBO, myData, selection);
