@@ -12,14 +12,16 @@
 namespace var {
 
     /// Pour la séléction d'équipe à mettre au premier plan
-    Selection selector = {-1,false};
+    Selection selector = {-1, false};
 
-    std::vector<data::VBO> t_VBO_0;
+    /// vector des 20 VBO (1 par cylindre)
     std::vector<data::VBO> t_VBO;
+    /// vector des 20 VBO à "t = 0" (:= c'est une sauvegarde)
+    std::vector<data::VBO> t_VBO_0;
 
-    /// tableau des couleurs qui seront assignées a chaque cylindre
+    /// tableau des couleurs qui seront assignées à chaque cylindre
     glm::vec3 colors[] = {
-            /* // pastel
+            /* // couleurs plus "pastel" comme dans le sujet du projet
             glm::vec3(92.f/255.f,133.f/255.f,209.f/255.f),    // top1
             glm::vec3(142.f/255.f,217.f/255.f,228.f/255.f),   // top
             glm::vec3(234.f/255.f,235.f/255.f,89.f/255.f),   // top_mid

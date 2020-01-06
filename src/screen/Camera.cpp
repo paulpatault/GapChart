@@ -7,7 +7,14 @@
 
 namespace screen {
 
-    // Constructor with vectors
+
+    /**
+     * Constructeur de la classe
+     * @param position initiale
+     * @param up sens
+     * @param yaw angle selon y
+     * @param pitch angle selon x
+     */
     Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch)
     {
         Front = glm::vec3(0.0f, 0.0f, -1.0f);
@@ -19,7 +26,10 @@ namespace screen {
         updateCameraVectors();
     }
 
-    // Returns the view matrix calculated using Euler Angles and the LookAt Matrix
+    /**
+     * Matrice de vue calculée avec les angles d'euler et la matrice LookAt
+     * @return view matrix
+     */
     glm::mat4 Camera::getViewMatrix() const
     {
         return glm::lookAt(Position, Position + Front, Up);
@@ -29,10 +39,12 @@ namespace screen {
      * Gere le déplacement de la camera
      * @param cam la camera a deplacer
      * @param window fenetre de travail
-     * @param deltaTime
      */
     void Camera::processInput(Camera* cam, GLFWwindow *window, float deltaTime)
     {
+        // réajustement de la vitesse de déplacement
+        deltaTime *= 10;
+
         /// ZQSD
         if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(window, true);
@@ -62,7 +74,7 @@ namespace screen {
             cam->Pitch += 0.01f * cam->MovementSpeed;
 
         /// increase MovementSpeed
-        if (glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS and cam->MovementSpeed > 0.2f)
+        if (glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS and cam->MovementSpeed > 0.2f) // > 0.2 pour ne pas avoir une vitesse négative
             cam->MovementSpeed -= 0.1f;
         if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS)
             cam->MovementSpeed += 0.1f;
@@ -85,6 +97,11 @@ namespace screen {
         Pitch = PITCH;
     }
 
+    /**
+     * Update la position de la camera en fonction de l'input clavier
+     * @param direction de déplacement
+     * @param deltaTime pour la vitesse de déplacement
+     */
     void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime)
     {
         float velocity = MovementSpeed * deltaTime;
@@ -104,27 +121,36 @@ namespace screen {
 
     }
 
+    /**
+     * Uptades des attributs de la camera
+     */
     void Camera::updateCameraVectors()
     {
-        // Calculate the new Front vector
+        // On calcule le nouveau vec3 front
         glm::vec3 front;
         front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
         front.y = sin(glm::radians(Pitch));
         front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
         Front = glm::normalize(front);
-        // Also re-calculate the Right and Up vector
-        Right = glm::normalize(glm::cross(Front, WorldUp));  // Normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+
+        // idem pour right et up
+        // -> Normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+        Right = glm::normalize(glm::cross(Front, WorldUp));
         Up    = glm::normalize(glm::cross(Right, Front));
     }
 
     /**
      * @return Position actuelle de la camera
      */
-    glm::vec3* Camera::getPosition()
+    glm::vec3 Camera::getPosition() const
     {
-        return &Position;
+        return Position;
     }
 
+    /**
+     * delete
+     * @param cam a détruire
+     */
     void Camera::destroy(Camera* cam)
     {
         delete cam;

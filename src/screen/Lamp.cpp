@@ -7,11 +7,22 @@
 
 namespace screen {
 
-    Lamp::Lamp(glm::vec3 pos, bool t_toDisplay)
+    /**
+     * Contructeur
+     * @param pos initial de la lampe
+     * @param in_lightColor couleur d'éclairage de la lampe
+     * @param color couleur de la lampe
+     * @param t_toDisplay boolean: true si on veut afficher la lampe, false sinon
+     */
+    Lamp::Lamp(glm::vec3 pos, glm::vec3 in_lightColor, glm::vec3 in_color, bool t_toDisplay)
     {
         position = pos;
+        lightColor = in_lightColor;
+        color = in_color;
         toDisplay = t_toDisplay;
-        model = (glm::mat4());
+
+        update(this);
+
         vertices = {
                 -0.5f, -0.5f, -0.5f,
                 0.5f, -0.5f, -0.5f,
@@ -56,11 +67,24 @@ namespace screen {
                 -0.5f,  0.5f, -0.5f,
         };
 
+        glGenBuffers(1, &VBO_ID);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO_ID);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
     }
 
     glm::vec3 Lamp::getPosition() const
     {
         return position;
+    }
+
+    glm::vec3 Lamp::getLightColor() const
+    {
+        return lightColor;
+    }
+
+    glm::vec3 Lamp::getColor() const
+    {
+        return color;
     }
 
     bool Lamp::isDisplayable() const
@@ -93,16 +117,8 @@ namespace screen {
     {
         if(lamp->isDisplayable())
         {
-            glGenBuffers(1, &lamp->VBO_ID);
-
+            glBindVertexArray(lamp->VAO_ID);
             glBindBuffer(GL_ARRAY_BUFFER, lamp->VBO_ID);
-            glBufferData(GL_ARRAY_BUFFER, sizeof(float) * lamp->vertices.size(), &lamp->vertices[0], GL_STATIC_DRAW);
-
-            glBindVertexArray(lamp->getVAO_ID());
-
-            glBindBuffer(GL_ARRAY_BUFFER, lamp->VBO_ID);
-
-            // position attribute
             glVertexAttribPointer(
                     0,
                     3,
@@ -122,10 +138,8 @@ namespace screen {
         position = apos;
     }
 
-    void Lamp::destroy(Lamp *lamp)
+    void Lamp::destroy(Lamp* lamp)
     {
-        lamp->vertices.clear();
-        lamp->vertices.reserve(0);
         glDeleteVertexArrays(1, &lamp->VAO_ID);
         glDeleteBuffers(1, &lamp->VBO_ID);
     }

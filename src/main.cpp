@@ -1,9 +1,39 @@
-#include "includes/main_includes.h"
+//
+// Created by paul patault on 15/12/2019.
+//
+
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
+#ifdef __APPLE__
+#include <OpenGL/OpenGL.h>
+#else
+#include <GL/gl.h>
+#endif
+
+// namespace var
+#include "includes/variables.h"
+#include "includes/utils.h"
+
+// namespace data
+#include "src/data/LoadData.h"
+#include "src/data/Shader.h"
+#include "src/data/VAO.h"
+#include "src/data/Texture.h"
+
+// namespace screen
+#include "src/screen/MVP.h"
+#include "src/screen/c_ImGui.h"
+#include "src/screen/Render.h"
+#include "src/screen/Display.h"
+#include "src/screen/Lamp.h"
+#include "src/screen/Camera.h"
+
 
 int main()
 {
     /// Instance of the class Render that manages the window + initialise GL
-    screen::Render window("Projet IGSD", vec4(1.f));
+    screen::Render window("Projet IGSD", glm::vec4(1.f));
 
     /// ImGui context
     screen::c_ImGui::init(window.screen);
@@ -31,7 +61,11 @@ int main()
             );
 
     /// Lamp for lighting
-    screen::Lamp lamp(glm::vec3(1000.f, 100.f, 2000.f));
+    screen::Lamp lamp(
+            glm::vec3(glm::vec3(1000.f, 100.f, 2000.f)),
+            glm::vec3(glm::vec3(1.f)),
+            glm::vec3(glm::vec3(0.9f, 0.5f, 0.f))
+            );
 
     /// Camera
     auto* pCamera = new screen::Camera(glm::vec3(0.0f, 0.0f, 1000.0f));
@@ -53,8 +87,6 @@ int main()
     /// Main loop
     do
     {
-        utils::updateTime(var::deltaTime, var::lastFrame);
-
         screen::Display::clear();
 
         screen::c_ImGui::loop();
@@ -65,8 +97,9 @@ int main()
         data::Shader::setMat4_stat(pProgramShader, "u_Rotate", *pMVP->getRotationMatrix());
         data::Shader::setMat4_stat(pProgramShader, "u_View", pCamera->getViewMatrix());
         data::Shader::setMat4_stat(pProgramShader, "u_Projection", *pMVP->getProjectionMatrix());
-        data::Shader::setVec3_stat(pProgramShader, "u_CameraPos", *pCamera->getPosition());
+        data::Shader::setVec3_stat(pProgramShader, "u_CameraPos", pCamera->getPosition());
         data::Shader::setVec3_stat(pProgramShader, "u_lightPos", lamp.getPosition());
+        data::Shader::setVec3_stat(pProgramShader, "u_lightColor", lamp.getLightColor());
         screen::Display::draw(pProgramShader->ID, var::t_VBO, var::colors, var::selector);
 
         ///--------- textures ---------///
@@ -81,18 +114,18 @@ int main()
         data::Shader::setMat4_stat(pLampShader, "projection", *pMVP->getProjectionMatrix());
         data::Shader::setMat4_stat(pLampShader, "view", pCamera->getViewMatrix());
         data::Shader::setMat4_stat(pLampShader, "model", lamp.getModelMatrix());
+        data::Shader::setVec3_stat(pLampShader, "u_color", lamp.getColor());
         screen::Lamp::draw_stat(&lamp);
 
         ///--------- keyboard callback ---------///
-        screen::Camera::processInput(pCamera, window.screen, 10 * var::deltaTime);
-        screen::MVP::maj_stat(pMVP, window.screen);
+        screen::Camera::processInput(pCamera, window.screen, var::deltaTime);
         screen::Display::selectionCallBack(window.screen, var::selector);
-        utils::majVBOs(var::t_VBO, var::selector, pData);
-        screen::Lamp::update(&lamp);
 
-        glm::vec3 lp = lamp.getPosition();
-        screen::c_ImGui::maj(var::colors, lp);
-        lamp.setPosition(lp);
+        ///--------- updates ---------///
+        screen::MVP::maj_stat(pMVP, window.screen);
+        screen::c_ImGui::maj(var::colors);
+        utils::majVBOs(var::t_VBO, var::selector, pData);
+        utils::updateTime(var::deltaTime, var::lastFrame);
 
         screen::Display::update(window);
 

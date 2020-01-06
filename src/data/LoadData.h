@@ -9,12 +9,10 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
-using namespace std;
 
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-using namespace glm;
 
 #include "includes/constants.h"
 
@@ -49,10 +47,6 @@ namespace data {
         float getComplementaryRankNormalized(int team, int day) const;
 
         float getPointsNormalized(int team, int day) const;
-
-        int getAdversary(int team, int day) const;
-
-        std::vector<Match> getMatchs(int team) const;
 
         const char* getImagesPath(int index) const;
 

@@ -245,11 +245,17 @@ namespace data {
         glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
     }
 
+    /**
+     * Idem que setVec3 sauf que la methode est static
+     */
     void Shader::setVec3_stat(Shader *shader, const std::string &name, const glm::vec3 &value)
     {
         shader->setVec3(name, value);
     }
 
+    /**
+     * Idem que setMat4 sauf que la methode est static
+     */
     void Shader::setMat4_stat(Shader *shader, const std::string &name, const glm::mat4 &mat)
     {
         shader->setMat4(name, mat);

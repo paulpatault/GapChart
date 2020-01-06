@@ -15,12 +15,12 @@ namespace data {
 
     class Cylinder {
     private:
-        LoadData* _myData;
+        const LoadData* _myData;
 
         int _teamNumber;
 
     public:
-        Cylinder(int teamNumber, LoadData* data);
+        Cylinder(int teamNumber, const LoadData* data);
 
         std::vector<float> yByDay;
 
@@ -30,7 +30,7 @@ namespace data {
 
         static std::vector<glm::vec3> makeHalfCircles(const std::vector<glm::vec3>& backFace, bool arc_only);
 
-        static vector<glm::vec3> makeLinkCircles(const vector<glm::vec3>& backFace);
+        static std::vector<glm::vec3> makeLinkCircles(const std::vector<glm::vec3>& backFace);
 
         std::vector<float> makeCombinedCylinder(bool front);
 

@@ -6,6 +6,10 @@
 
 namespace data {
 
+    /**
+     * Constructeur banal
+     * @param filePath chemin de l'image
+     */
     Texture::Texture(const char* filePath)
     {
         ID = LoadTexture(filePath);
@@ -21,6 +25,11 @@ namespace data {
         glGenBuffers(1, &EBO);
     }
 
+    /**
+     * Charge la texture et retourne son ID
+     * @param fileName chemin de l'image
+     * @return GLuint texture.ID
+     */
     GLuint Texture::LoadTexture(const char* fileName)
     {
         GLuint tId = -1;
@@ -54,6 +63,11 @@ namespace data {
         return tId;
     }
 
+    /**
+     * Dessine la texture dans la fenetre
+     * @param pTexture texture a dessiner
+     * @param team équipe a checker
+     */
     void Texture::draw(const data::Texture *pTexture, int team)
     {
         if(team != -1 )
@@ -83,11 +97,22 @@ namespace data {
         }
     }
 
+    /**
+     * Getter simple
+     * @param t la texture
+     * @return un Gluint := son ID
+     */
     GLuint Texture::getID(const Texture *t)
     {
         return t->ID;
     }
 
+    /**
+     * On load un autre texture dans la meme instance -> on remplace l'ancienne
+     * @param texture a changer
+     * @param data
+     * @param selector n° de la nouvelle texture si nouvelle il y a
+     */
     void Texture::update(Texture *texture, const LoadData* data, const Selection* selector)
     {
         if(selector->selected != -1 and selector->changed )

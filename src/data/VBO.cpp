@@ -15,13 +15,10 @@ namespace data {
      * @param cylinder, vector de la liste des coordonnées des points d'un cylindre
      * @param normals, vector de la liste des normals des triangle qui constituent un cylindre
      */
-    VBO::VBO(LoadData* data, const std::vector<float>& cylinder, const std::vector<float>& normals, const std::vector<std::vector<float>>& combined_arcs)
+    VBO::VBO(const LoadData* data, const std::vector<float>& cylinder, const std::vector<float>& normals)
     {
         m_data = data;
         load_VBO(cylinder, normals);
-
-        if(!combined_arcs.empty())
-            loadVBO_arc(combined_arcs);
     }
 
     /**
@@ -88,21 +85,5 @@ namespace data {
         );
     }
 
-    void VBO::loadVBO_arc(const std::vector<std::vector<float>>& combined_arcs)
-    {
-        for(int day = 0; day < cst::NB_DAYS; day++){
-
-            glGenBuffers(1, &arc_vertexbuffer[0]);
-            glBindBuffer(GL_ARRAY_BUFFER, arc_vertexbuffer[0]);
-            glBufferData(
-                    GL_ARRAY_BUFFER,
-                    sizeof(float) * combined_arcs[day].size(),
-                    &combined_arcs[day],
-                    GL_STATIC_DRAW
-            );
-
-        }
-
-    }
 
 }

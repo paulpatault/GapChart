@@ -34,7 +34,6 @@ add_executable(main
         src/main.cpp
         src/data/LoadData.cpp
         src/data/LoadData.h
-        includes/debugbreak.h
         includes/imgui/imgui.cpp
         includes/imgui/imgui.h
         src/data/Cylinder.cpp
@@ -58,8 +57,6 @@ add_executable(main
         includes/imgui/imgui_impl_opengl3.h
         src/screen/Render.cpp
         src/screen/Render.h
-        src/data/LoadData2/LoadData2.cpp
-        src/data/LoadData2/LoadData2.h
         src/data/VAO.cpp
         src/data/VAO.h
         src/data/VBO.cpp
@@ -69,12 +66,14 @@ add_executable(main
         includes/variables.h
         src/data/Shader.cpp
         src/data/Shader.h
-        src/data/Arc.cpp
-        src/data/Arc.h
         includes/utils.h
-        includes/main_includes.h
-        src/data/Texture.cpp src/data/Texture.h
-        src/screen/Camera.cpp src/screen/Camera.h src/screen/Lamp.cpp src/screen/Lamp.h)
+        src/data/Texture.cpp
+        src/data/Texture.h
+        src/screen/Camera.cpp
+        src/screen/Camera.h
+        src/screen/Lamp.cpp
+        src/screen/Lamp.h)
+
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )

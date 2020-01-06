@@ -51,7 +51,7 @@ namespace data {
                 try{
                     rank = std::stoi(value);
                 }
-                catch(exception const& e) //On rattrape les exceptions standard de tous les types
+                catch(std::exception const& e) //On rattrape les exceptions standard de tous les types
                 {
                     std::cerr << "ERREUR R: " << e.what() << "  on value == " << value <<
                               " for idx == " << idx << " and k == " << k << std::endl; //On affiche la description de l'erreur
@@ -62,7 +62,7 @@ namespace data {
                 try{
                     points = std::stoi(value);
                 }
-                catch(exception const& e) //On rattrape les exceptions standard de tous les types
+                catch(std::exception const& e) //On rattrape les exceptions standard de tous les types
                 {
                     std::cerr << "ERREUR P: " << e.what() << "  on value == " << value <<
                               " for idx == " << idx << " and k == " << k << std::endl; //On affiche la description de l'erreur
@@ -122,26 +122,26 @@ namespace data {
      */
     void LoadData::loadMatch(const std::string& filePath)
     {
-        match = vector<vector<Match>>(cst::NB_TEAMS); // 38
+        match = std::vector<std::vector<Match>>(cst::NB_TEAMS); // 38
 
 
         ////// TRAVAIL SUR LE FICHIER //////   ( 6 colonnes par jour )
 
-        string teamAtHome, teamAway;
+        std::string teamAtHome, teamAway;
         int scoreAtHome, scoreAway, indiceAway, indiceAtHome, win;
         // declaration
-        ifstream myfile;
+        std::ifstream myfile;
         // ouverture
         myfile.open (filePath);
         // string qu'on récupère avec le getline()
-        string value;
+        std::string value;
         // le caractère d'arret
         char c = ',';
 
         /// double for 'inversé' car le fichier est organisé comme ca (i.e. 1 ligne par equipe / jours = colonnes)
         for(int team = 0; team < cst::NB_TEAMS; team++) // 2e dim := equipes
         {
-            match[team] = vector<Match>(cst::NB_DAYS);
+            match[team] = std::vector<Match>(cst::NB_DAYS);
             getline(myfile, value, c); // on passe le nom de l'équipe et le saut de ligne
             getline(myfile, value, c); // value = rang
             getline(myfile, value, c); // value = points
@@ -292,55 +292,6 @@ namespace data {
 
     /**
      * Getter basic
-     * @param team équipe demandé
-     * @param day jour demandé
-     * @return l'adversaire de l'équipe team pour le match du jour day
-     */
-    int LoadData::getAdversary(int team, int day) const
-    {
-
-        string res = "L'équipe";
-
-        string askedTeam  = match[team][day].teamAtHome;
-        string otherTeam = match[team][day].teamAway;
-        string inOut = " à domicile";
-
-        if(__getIndexByName(match[team][day].teamAway) == team )  // At Home
-        {
-            askedTeam = match[team][day].teamAway;
-            otherTeam = match[team][day].teamAtHome;
-            inOut = " à l'extérieur";
-        }
-
-        res += askedTeam;
-
-        switch(match[team][day].win)
-        {
-            case 1:
-                res += " a gagné";
-                break;
-            case 0:
-                res += " a fait égalité";
-                break;
-            case -1:
-                res += " a perdu";
-                break;
-            default:
-                break;
-        }
-        res += " contre l'équipe" + otherTeam + " avec le score de ";
-        res += to_string(match[team][day].scoreAtHome) + " à " + to_string(match[team][day].scoreAway);
-        res += inOut + ".";
-        //res += " le " + to_string(day+1) + "ième jour." ;
-
-        //std::cout << res << std::endl;
-
-        int adv = __getIndexByName(otherTeam);
-        return adv;
-    }
-
-    /**
-     * Getter basic
      * @param index de l'equipe demandée
      * @return chemin du .png de la texture
      */
@@ -390,16 +341,6 @@ namespace data {
             default:
                 exit(-1);
         }
-    }
-
-    /**
-     * Getter basic
-     * @param team équipe demandé
-     * @return l'ensemble des matchs joués par l'équipe team
-     */
-    std::vector<Match> LoadData::getMatchs(int team) const
-    {
-        return match[team];
     }
 
     void LoadData::destroy(const LoadData *pData)

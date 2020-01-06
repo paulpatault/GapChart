@@ -15,7 +15,6 @@ namespace screen {
      */
     void Display::draw(GLuint programID, const std::vector<data::VBO>& vec_VBO, const glm::vec3 *colors, const Selection& select)
     {
-        //int team = 16;
         for(int team = 0; team < cst::NB_TEAMS; team++)
         {
             GLint colorID = glGetUniformLocation(programID,"u_color");
@@ -64,27 +63,6 @@ namespace screen {
 
             glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].size_of_cylinder);
         }
-
-        // ARC.S
-        //for(int day = 0; day < cst::NB_DAYS; day++)
-        if(select.arcs)
-        {
-            glEnableVertexAttribArray(0);
-            glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[select.selected].arc_vertexbuffer[0]); // O/day
-            glVertexAttribPointer(
-                    0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-                    3,                  // size
-                    GL_FLOAT,           // type
-                    GL_FALSE,           // normalized?
-                    0,                  // stride
-                    (void*)nullptr      // array buffer offset
-            );
-            // Draw the triangle !
-            glDrawArrays(GL_TRIANGLE_STRIP, 0, 60 ); // * 38
-            glDisableVertexAttribArray(0);
-        }
-
-
     }
 
     /**
@@ -129,9 +107,6 @@ namespace screen {
 
         if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS and n_selected != -1)
             n_selected += 10;
-
-        // non fonctionnel
-        last_selection.arcs = glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS;
 
         last_selection.changed = n_selected != last_selection.selected;
         last_selection.selected = n_selected;

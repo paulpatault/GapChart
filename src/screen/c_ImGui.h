@@ -20,7 +20,7 @@ namespace screen {
 
         static void loop();
 
-        static void maj(glm::vec3* colors, glm::vec3& lp);
+        static void maj(glm::vec3* colors);
 
         static void terminate();
 
