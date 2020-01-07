@@ -78,5 +78,10 @@ namespace screen {
                     and (glfwWindowShouldClose(screen) == 0);
     }
 
+    GLFWwindow *Render::getScreen(const Render* render)
+    {
+        return render->screen;
+    }
+
 }
 

@@ -22,7 +22,7 @@ namespace screen {
 
         static void clear();
 
-        static void update(Render window);
+        static void update(const Render* window);
 
     };
 

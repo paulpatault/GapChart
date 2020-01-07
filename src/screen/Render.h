@@ -29,6 +29,8 @@ namespace screen {
 
         GLFWwindow* screen;
 
+        static GLFWwindow* getScreen(const Render* render);
+
         void update() const;
 
         bool shouldNotClose() const;

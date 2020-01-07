@@ -80,9 +80,9 @@ namespace screen {
      * @param window classe de la fenetre sur laquel on travail
      * var::selected = l'indice de l'éuipe séléctionnée (si une l'a été), -1 sinon
      */
-    void Display::update(Render window)
+    void Display::update(const Render* window)
     {
-        window.update();
+        window->update();
     }
 
     /**

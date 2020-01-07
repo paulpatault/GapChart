@@ -33,10 +33,10 @@
 int main()
 {
     /// Instance of the class Render that manages the window + initialise GL
-    screen::Render window("Projet IGSD", glm::vec4(1.f));
+    auto* window = new screen::Render("Projet IGSD", glm::vec4(1.f));
 
     /// ImGui context
-    screen::c_ImGui::init(window.screen);
+    screen::c_ImGui::init(screen::Render::getScreen(window));
 
     /// Vertex Array
     auto* m_VAO = new data::VAO( ( GLuint() ) );
@@ -66,6 +66,7 @@ int main()
             glm::vec3(glm::vec3(1.f)),
             glm::vec3(glm::vec3(0.9f, 0.5f, 0.f))
             );
+    auto* pLamp = &lamp;
 
     /// Camera
     auto* pCamera = new screen::Camera(glm::vec3(0.0f, 0.0f, 1000.0f));
@@ -93,43 +94,42 @@ int main()
 
         ///--------- curves ---------///
         data::Shader::use(pProgramShader);
-        data::Shader::setMat4_stat(pProgramShader, "u_Model", *pMVP->getModelMatrix());
-        data::Shader::setMat4_stat(pProgramShader, "u_Rotate", *pMVP->getRotationMatrix());
-        data::Shader::setMat4_stat(pProgramShader, "u_View", pCamera->getViewMatrix());
-        data::Shader::setMat4_stat(pProgramShader, "u_Projection", *pMVP->getProjectionMatrix());
-        data::Shader::setVec3_stat(pProgramShader, "u_CameraPos", pCamera->getPosition());
-        data::Shader::setVec3_stat(pProgramShader, "u_lightPos", lamp.getPosition());
-        data::Shader::setVec3_stat(pProgramShader, "u_lightColor", lamp.getLightColor());
-        screen::Display::draw(pProgramShader->ID, var::t_VBO, var::colors, var::selector);
+        data::Shader::setMat4_stat(pProgramShader, "u_Model", screen::MVP::getModelMatrix(pMVP));
+        data::Shader::setMat4_stat(pProgramShader, "u_Rotate", screen::MVP::getRotationMatrix(pMVP));
+        data::Shader::setMat4_stat(pProgramShader, "u_View", screen::Camera::getViewMatrix(pCamera));
+        data::Shader::setMat4_stat(pProgramShader, "u_Projection", screen::MVP::getProjectionMatrix(pMVP));
+        data::Shader::setVec3_stat(pProgramShader, "u_CameraPos", screen::Camera::getPosition(pCamera));
+        data::Shader::setVec3_stat(pProgramShader, "u_lightPos", screen::Lamp::getPosition(pLamp));
+        data::Shader::setVec3_stat(pProgramShader, "u_lightColor", screen::Lamp::getLightColor(pLamp));
+        screen::Display::draw(data::Shader::getID(pProgramShader), var::t_VBO, var::colors, var::selector);
 
         ///--------- textures ---------///
         data::Texture::update(pTexture, pData, &var::selector);
         data::Shader::use(pTitleShader);
-
-        data::Shader::setMat4_stat(pTitleShader, "u_Model", pTexture->modelMatrix);
+        data::Shader::setMat4_stat(pTitleShader, "u_Model", data::Texture::getModelMatrix(pTexture));
         data::Texture::draw(pTexture, var::selector.selected);
 
         ///--------- lamp ---------///
         data::Shader::use(pLampShader);
-        data::Shader::setMat4_stat(pLampShader, "projection", *pMVP->getProjectionMatrix());
-        data::Shader::setMat4_stat(pLampShader, "view", pCamera->getViewMatrix());
-        data::Shader::setMat4_stat(pLampShader, "model", lamp.getModelMatrix());
-        data::Shader::setVec3_stat(pLampShader, "u_color", lamp.getColor());
-        screen::Lamp::draw_stat(&lamp);
+        data::Shader::setMat4_stat(pLampShader, "projection", screen::MVP::getProjectionMatrix(pMVP));
+        data::Shader::setMat4_stat(pLampShader, "view", screen::Camera::getViewMatrix(pCamera));
+        data::Shader::setMat4_stat(pLampShader, "model", screen::Lamp::getModelMatrix(pLamp));
+        data::Shader::setVec3_stat(pLampShader, "u_color", screen::Lamp::getColor(pLamp));
+        screen::Lamp::draw(pLamp);
 
         ///--------- keyboard callback ---------///
-        screen::Camera::processInput(pCamera, window.screen, var::deltaTime);
-        screen::Display::selectionCallBack(window.screen, var::selector);
+        screen::Camera::processInput(pCamera, screen::Render::getScreen(window), var::deltaTime);
+        screen::Display::selectionCallBack(screen::Render::getScreen(window), var::selector);
 
         ///--------- updates ---------///
-        screen::MVP::maj_stat(pMVP, window.screen);
+        screen::MVP::maj(pMVP, screen::Render::getScreen(window));
         screen::c_ImGui::maj(var::colors);
         utils::majVBOs(var::t_VBO, var::selector, pData);
         utils::updateTime(var::deltaTime, var::lastFrame);
 
         screen::Display::update(window);
 
-    } while( window.shouldNotClose() );
+    } while( window->shouldNotClose() );
 
     screen::c_ImGui::terminate();
 
@@ -137,7 +137,7 @@ int main()
     data::Shader::destroy(pProgramShader);
     data::Shader::destroy(pTitleShader);
     data::Shader::destroy(pLampShader);
-    screen::Lamp::destroy(&lamp);
+    screen::Lamp::destroy(pLamp);
     screen::Camera::destroy(pCamera);
     data::Texture::destroy(pTexture);
     screen::MVP::destroy(pMVP);

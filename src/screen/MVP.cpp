@@ -87,24 +87,10 @@ namespace screen {
 
     /**
      * Mise a jour de MVP après sa réinitialisatio ou modification par keyboardCallback
-     * @param window fenetre de travail
-     */
-    void MVP::maj(GLFWwindow* window)
-    {
-        keyboardCallback(window);
-
-        if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
-            reInitMVP();
-        else
-            updateMVP();
-    }
-
-    /**
-     * Mise a jour de MVP après sa réinitialisatio ou modification par keyboardCallback
      * @param mvp instance de MVP
      * @param window fenetre de travail
      */
-    void MVP::maj_stat(MVP* mvp, GLFWwindow* window)
+    void MVP::maj(MVP* mvp, GLFWwindow* window)
     {
         mvp->keyboardCallback(window);
 
@@ -114,32 +100,35 @@ namespace screen {
             mvp->updateMVP();
     }
 
-    /**
-     * Envoie les matrices Model, View et Projection aux shaders
-     * @param window fenetre de travail
-     */
-    void MVP::send_updated(GLFWwindow* window, data::Shader* shader)
-    {
-        maj(window);
-        shader->setMat4("u_Model", model);
-        shader->setMat4("u_Rotate", rotation);
-        shader->setMat4("u_View", view);
-        shader->setMat4("u_Projection", projection);
-    }
-
-    glm::mat4* MVP::getModelMatrix()
+    glm::mat4* MVP::p_getModelMatrix()
     {
         return &model;
     }
 
-    glm::mat4* MVP::getRotationMatrix()
+    glm::mat4 MVP::getModelMatrix(const MVP* mvp)
+    {
+        return mvp->model;
+    }
+
+
+    glm::mat4* MVP::p_getRotationMatrix()
     {
         return &rotation;
     }
 
-    glm::mat4* MVP::getProjectionMatrix()
+    glm::mat4 MVP::getRotationMatrix(const MVP* mvp)
+    {
+        return mvp->rotation;
+    }
+
+    glm::mat4* MVP::p_getProjectionMatrix()
     {
         return &projection;
+    }
+
+    glm::mat4 MVP::getProjectionMatrix(const MVP *mvp)
+    {
+        return mvp->projection;
     }
 
     void MVP::destroy(const MVP* pMVP)

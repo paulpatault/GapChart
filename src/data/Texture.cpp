@@ -134,6 +134,11 @@ namespace data {
         delete texture;
     }
 
+    glm::mat4 Texture::getModelMatrix(const Texture* texture)
+    {
+        return texture->modelMatrix;
+    }
+
     Texture::~Texture() = default;
 
 }

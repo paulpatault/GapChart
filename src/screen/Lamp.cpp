@@ -72,19 +72,19 @@ namespace screen {
         glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertices.size(), &vertices[0], GL_STATIC_DRAW);
     }
 
-    glm::vec3 Lamp::getPosition() const
+    glm::vec3 Lamp::getPosition(const Lamp* lamp)
     {
-        return position;
+        return lamp->position;
     }
 
-    glm::vec3 Lamp::getLightColor() const
+    glm::vec3 Lamp::getLightColor(const Lamp* lamp)
     {
-        return lightColor;
+        return lamp->lightColor;
     }
 
-    glm::vec3 Lamp::getColor() const
+    glm::vec3 Lamp::getColor(const Lamp* lamp)
     {
-        return color;
+        return lamp->color;
     }
 
     bool Lamp::isDisplayable() const
@@ -97,9 +97,9 @@ namespace screen {
         return VAO_ID;
     }
 
-    glm::mat4 Lamp::getModelMatrix() const
+    glm::mat4 Lamp::getModelMatrix(const Lamp* lamp)
     {
-        return model;
+        return lamp->model;
     }
 
     void Lamp::update(Lamp* lamp)
@@ -113,7 +113,7 @@ namespace screen {
 
     }
 
-    void Lamp::draw_stat(Lamp* lamp)
+    void Lamp::draw(const Lamp* lamp)
     {
         if(lamp->isDisplayable())
         {

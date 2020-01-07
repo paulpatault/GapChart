@@ -30,17 +30,19 @@ namespace screen {
     public:
         MVP();
 
-        void maj(GLFWwindow* window);
+        static void maj(MVP* mvp, GLFWwindow* window);
 
-        static void maj_stat(MVP* mvp, GLFWwindow* window);
+        glm::mat4* p_getModelMatrix();
 
-        void send_updated(GLFWwindow* window, data::Shader* shader);
+        glm::mat4* p_getRotationMatrix();
 
-        glm::mat4* getModelMatrix();
+        glm::mat4* p_getProjectionMatrix();
 
-        glm::mat4* getRotationMatrix();
+        static glm::mat4 getModelMatrix(const MVP* mvp);
 
-        glm::mat4* getProjectionMatrix();
+        static glm::mat4 getRotationMatrix(const MVP* mvp);
+
+        static glm::mat4 getProjectionMatrix(const MVP* mvp);
 
         static void destroy(const MVP* pMVP);
 

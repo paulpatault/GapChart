@@ -111,6 +111,15 @@ namespace data {
     }
 
     /**
+     * Return d'ID du shader sh
+     */
+    GLuint Shader::getID(Shader* sh)
+    {
+        return sh->ID;
+    }
+
+
+    /**
      * Liaison des shaders avec le programID
      * @param programID
      */
@@ -248,7 +257,7 @@ namespace data {
     /**
      * Idem que setVec3 sauf que la methode est static
      */
-    void Shader::setVec3_stat(Shader *shader, const std::string &name, const glm::vec3 &value)
+    void Shader::setVec3_stat(const Shader *shader, const std::string &name, const glm::vec3 &value)
     {
         shader->setVec3(name, value);
     }
@@ -256,7 +265,7 @@ namespace data {
     /**
      * Idem que setMat4 sauf que la methode est static
      */
-    void Shader::setMat4_stat(Shader *shader, const std::string &name, const glm::mat4 &mat)
+    void Shader::setMat4_stat(const Shader *shader, const std::string &name, const glm::mat4 &mat)
     {
         shader->setMat4(name, mat);
     }

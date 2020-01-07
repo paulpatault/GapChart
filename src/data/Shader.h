@@ -22,12 +22,15 @@ using namespace std;
 namespace data {
 
     class Shader {
-    public:
+    private:
         GLuint ID;
 
-        Shader(const char * vertex_file_path, const char * fragment_file_path);
+    public:
+        Shader(const char* vertex_file_path, const char* fragment_file_path);
 
         static void use(Shader*);
+
+        static GLuint getID(Shader*);
 
         void setBool(const std::string &name, bool value) const;
 
@@ -41,7 +44,7 @@ namespace data {
 
         void setVec3(const std::string &name, const glm::vec3 &value) const;
 
-        static void setVec3_stat(Shader* shader, const std::string &name, const glm::vec3 &value);
+        static void setVec3_stat(const Shader* shader, const std::string &name, const glm::vec3 &value);
 
         void setVec3(const std::string &name, float x, float y, float z) const;
 
@@ -55,7 +58,7 @@ namespace data {
 
         void setMat4(const std::string &name, const glm::mat4 &mat) const;
 
-        static void setMat4_stat(Shader* shader, const std::string &name, const glm::mat4 &mat);
+        static void setMat4_stat(const Shader* shader, const std::string &name, const glm::mat4 &mat);
 
         static void destroy(const Shader* shader);
     };

@@ -36,6 +36,8 @@ namespace data {
 
         GLuint LoadTexture(const char* fileName);
 
+        glm::mat4 modelMatrix;
+
     public:
         explicit Texture(const char* filePath);
 
@@ -43,7 +45,7 @@ namespace data {
 
         ~Texture();
 
-        glm::mat4 modelMatrix;
+        static glm::mat4 getModelMatrix(const Texture* texture);
 
         static void draw(const Texture* texture, int team);
 
