@@ -27,15 +27,6 @@ namespace screen {
     }
 
     /**
-     * Matrice de vue calculée avec les angles d'euler et la matrice LookAt
-     * @return view matrix
-     */
-    glm::mat4 Camera::getViewMatrix(const Camera* cam)
-    {
-        return glm::lookAt(cam->Position, cam->Position + cam->Front, cam->Up);
-    }
-
-    /**
      * Gere le déplacement de la camera
      * @param cam la camera a deplacer
      * @param window fenetre de travail
@@ -145,6 +136,25 @@ namespace screen {
     glm::vec3 Camera::getPosition(const Camera* cam)
     {
         return cam->Position;
+    }
+
+    glm::vec3 Camera::getPosition()
+    {
+        return Position;
+    }
+
+    /**
+     * Matrice de vue calculée avec les angles d'euler et la matrice LookAt
+     * @return view matrix
+     */
+    glm::mat4 Camera::getViewMatrix(const Camera* cam)
+    {
+        return glm::lookAt(cam->Position, cam->Position + cam->Front, cam->Up);
+    }
+
+    glm::mat4 Camera::getViewMatrix()
+    {
+        return glm::lookAt(Position, Position + Front, Up);
     }
 
     /**

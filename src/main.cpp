@@ -57,14 +57,18 @@ int main()
             "../resources/shaders/lamp_vs.glsl",
             "../resources/shaders/lamp_fs.glsl"
             );
-    data::Shader::loadUniform(pLampShader, {"projection", "view", "model", "u_color"});
+    data::Shader::loadUniform(pLampShader,
+            {"projection", "view", "model", "u_color"}
+            );
 
     /// texture shader
     auto* pTitleShader = new data::Shader(
             "../resources/shaders/title_vs.glsl",
             "../resources/shaders/title_fs.glsl"
             );
-    data::Shader::loadUniform(pTitleShader, std::vector<std::string>{"u_Model"});
+    data::Shader::loadUniform(pTitleShader,
+            std::vector<std::string>{"u_Model"}
+            );
 
     /// Lamp for lighting
     screen::Lamp lamp(
@@ -99,26 +103,30 @@ int main()
 
         screen::c_ImGui::loop();
 
-        ///--------- matrix used twice ---------///
+        GLFWwindow* window = screen::Render::getScreen(pWindow);
+
+        ///--------- Matrix M(R)VP ---------///
+        var::modelMatrix = screen::MVP::getModelMatrix(pMVP);
+        var::rotationMatrix = screen::MVP::getRotationMatrix(pMVP);
         var::viewMatrix = screen::Camera::getViewMatrix(pCamera);
         var::projectionMatrix = screen::MVP::getProjectionMatrix(pMVP);
 
         ///--------- curves ---------///
         data::Shader::use(pProgramShader);
-        data::Shader::setMat4(pProgramShader, "u_Model", screen::MVP::getModelMatrix(pMVP));
-        data::Shader::setMat4(pProgramShader, "u_Rotate", screen::MVP::getRotationMatrix(pMVP));
+        data::Shader::setMat4(pProgramShader, "u_Model", var::modelMatrix);
+        data::Shader::setMat4(pProgramShader, "u_Rotate", var::rotationMatrix);
         data::Shader::setMat4(pProgramShader, "u_View", var::viewMatrix);
         data::Shader::setMat4(pProgramShader, "u_Projection", var::projectionMatrix);
-        data::Shader::setVec3(pProgramShader, "u_CameraPos", screen::Camera::getPosition(pCamera));
-        data::Shader::setVec3(pProgramShader, "u_lightPos", screen::Lamp::getPosition(pLamp));
-        data::Shader::setVec3(pProgramShader, "u_lightColor", screen::Lamp::getLightColor(pLamp));
+        data::Shader::setVec3(pProgramShader, "u_CameraPos", pCamera->getPosition());
+        data::Shader::setVec3(pProgramShader, "u_lightPos", pLamp->getPosition());
+        data::Shader::setVec3(pProgramShader, "u_lightColor", pLamp->getLightColor());
         screen::Display::draw(data::Shader::getID(pProgramShader), var::t_VBO, var::colors, var::selector);
         data::Shader::unbind();
 
         ///--------- textures ---------///
         data::Texture::update(pTexture, pData, &var::selector); // on doit update la texture avant l'affichage car sinon sur 1 image on aura la mauvaise texture
         data::Shader::use(pTitleShader);
-        data::Shader::setMat4(pTitleShader, "u_Model", data::Texture::getModelMatrix(pTexture));
+        data::Shader::setMat4(pTitleShader, "u_Model", pTexture->getModelMatrix());
         data::Texture::draw(pTexture, var::selector.selected);
         data::Shader::unbind();
 
@@ -126,17 +134,17 @@ int main()
         data::Shader::use(pLampShader);
         data::Shader::setMat4(pLampShader, "projection", var::projectionMatrix);
         data::Shader::setMat4(pLampShader, "view", var::viewMatrix);
-        data::Shader::setMat4(pLampShader, "model", screen::Lamp::getModelMatrix(pLamp));
-        data::Shader::setVec3(pLampShader, "u_color", screen::Lamp::getColor(pLamp));
+        data::Shader::setMat4(pLampShader, "model", pLamp->getModelMatrix());
+        data::Shader::setVec3(pLampShader, "u_color", pLamp->getColor());
         screen::Lamp::draw(pLamp);
         data::Shader::unbind();
 
         ///--------- keyboard callback ---------///
-        screen::Camera::processInput(pCamera, screen::Render::getScreen(pWindow), var::deltaTime);
-        screen::Display::selectionCallBack(screen::Render::getScreen(pWindow), var::selector);
+        screen::Camera::processInput(pCamera, window, var::deltaTime);
+        screen::Display::selectionCallBack(window, var::selector);
 
         ///--------- updates ---------///
-        screen::MVP::maj(pMVP, screen::Render::getScreen(pWindow));
+        screen::MVP::maj(pMVP, window);
         screen::c_ImGui::maj(var::colors);
         utils::majVBOs(var::t_VBO, var::selector, pData);
         utils::updateTime(var::deltaTime, var::lastFrame);

@@ -30,12 +30,16 @@ namespace screen {
         GLuint getVAO_ID() const;
 
         static glm::vec3 getPosition(const Lamp* lamp);
+        glm::vec3 getPosition();
 
         static glm::vec3 getColor(const Lamp* lamp);
+        glm::vec3 getColor();
 
         static glm::vec3 getLightColor(const Lamp* lamp);
+        glm::vec3 getLightColor();
 
         static glm::mat4 getModelMatrix(const Lamp* lamp);
+        glm::mat4 getModelMatrix();
 
         static void update(Lamp* lamp);
 

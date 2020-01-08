@@ -46,6 +46,7 @@ namespace data {
         ~Texture();
 
         static glm::mat4 getModelMatrix(const Texture* texture);
+        glm::mat4 getModelMatrix();
 
         static void draw(const Texture* texture, int team);
 

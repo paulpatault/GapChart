@@ -35,8 +35,10 @@ namespace screen {
         static void processInput(Camera* cam, GLFWwindow *window, float deltaTime);
 
         static glm::mat4 getViewMatrix(const Camera* cam);
+        glm::mat4 getViewMatrix();
 
         static glm::vec3 getPosition(const Camera* cam);
+        glm::vec3 getPosition();
 
         static void destroy(Camera* cam);
 

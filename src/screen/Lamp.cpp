@@ -77,14 +77,29 @@ namespace screen {
         return lamp->position;
     }
 
+    glm::vec3 Lamp::getPosition()
+    {
+        return position;
+    }
+
     glm::vec3 Lamp::getLightColor(const Lamp* lamp)
     {
         return lamp->lightColor;
     }
 
+    glm::vec3 Lamp::getLightColor()
+    {
+        return lightColor;
+    }
+
     glm::vec3 Lamp::getColor(const Lamp* lamp)
     {
         return lamp->color;
+    }
+
+    glm::vec3 Lamp::getColor()
+    {
+        return color;
     }
 
     bool Lamp::isDisplayable() const
@@ -100,6 +115,11 @@ namespace screen {
     glm::mat4 Lamp::getModelMatrix(const Lamp* lamp)
     {
         return lamp->model;
+    }
+
+    glm::mat4 Lamp::getModelMatrix()
+    {
+        return model;
     }
 
     void Lamp::update(Lamp* lamp)

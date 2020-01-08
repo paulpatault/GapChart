@@ -139,6 +139,11 @@ namespace data {
         return texture->modelMatrix;
     }
 
+    glm::mat4 Texture::getModelMatrix()
+    {
+        return modelMatrix;
+    }
+
     Texture::~Texture() = default;
 
 }
