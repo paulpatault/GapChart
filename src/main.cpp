@@ -33,13 +33,13 @@
 int main()
 {
     /// Instance of the class Render that manages the window + initialise GL
-    auto* window = new screen::Render("Projet IGSD", glm::vec4(1.f));
+    auto* pWindow = new screen::Render("Projet IGSD", glm::vec4(1.f));
 
     /// ImGui context
-    screen::c_ImGui::init(screen::Render::getScreen(window));
+    screen::c_ImGui::init(screen::Render::getScreen(pWindow));
 
     /// Vertex Array
-    auto* m_VAO = new data::VAO( ( GLuint() ) );
+    auto* pVAO = new data::VAO( GLuint() );
 
     /// Shaders
     /// curves shader
@@ -47,18 +47,24 @@ int main()
             "../resources/shaders/SimpleVertexShader.glsl",
             "../resources/shaders/SimpleFragmentShader.glsl"
             );
+    /// Loading uniform location into a map so that the graphics card does not have to be asked again each time.
+    data::Shader::loadUniform(pProgramShader,
+            {"u_Model", "u_Rotate", "u_View", "u_Projection", "u_CameraPos" , "u_lightPos", "u_lightColor"}
+            );
 
     /// lamp shader
     auto* pLampShader = new data::Shader(
             "../resources/shaders/lamp_vs.glsl",
             "../resources/shaders/lamp_fs.glsl"
             );
+    data::Shader::loadUniform(pLampShader, {"projection", "view", "model", "u_color"});
 
     /// texture shader
     auto* pTitleShader = new data::Shader(
             "../resources/shaders/title_vs.glsl",
             "../resources/shaders/title_fs.glsl"
             );
+    data::Shader::loadUniform(pTitleShader, std::vector<std::string>{"u_Model"});
 
     /// Lamp for lighting
     screen::Lamp lamp(
@@ -85,6 +91,7 @@ int main()
     var::t_VBO = utils::makeVBOs(pData);
     var::t_VBO_0 = var::t_VBO;
 
+
     /// Main loop
     do
     {
@@ -92,48 +99,54 @@ int main()
 
         screen::c_ImGui::loop();
 
+        ///--------- matrix used twice ---------///
+        var::viewMatrix = screen::Camera::getViewMatrix(pCamera);
+        var::projectionMatrix = screen::MVP::getProjectionMatrix(pMVP);
+
         ///--------- curves ---------///
         data::Shader::use(pProgramShader);
-        data::Shader::setMat4_stat(pProgramShader, "u_Model", screen::MVP::getModelMatrix(pMVP));
-        data::Shader::setMat4_stat(pProgramShader, "u_Rotate", screen::MVP::getRotationMatrix(pMVP));
-        data::Shader::setMat4_stat(pProgramShader, "u_View", screen::Camera::getViewMatrix(pCamera));
-        data::Shader::setMat4_stat(pProgramShader, "u_Projection", screen::MVP::getProjectionMatrix(pMVP));
-        data::Shader::setVec3_stat(pProgramShader, "u_CameraPos", screen::Camera::getPosition(pCamera));
-        data::Shader::setVec3_stat(pProgramShader, "u_lightPos", screen::Lamp::getPosition(pLamp));
-        data::Shader::setVec3_stat(pProgramShader, "u_lightColor", screen::Lamp::getLightColor(pLamp));
+        data::Shader::setMat4(pProgramShader, "u_Model", screen::MVP::getModelMatrix(pMVP));
+        data::Shader::setMat4(pProgramShader, "u_Rotate", screen::MVP::getRotationMatrix(pMVP));
+        data::Shader::setMat4(pProgramShader, "u_View", var::viewMatrix);
+        data::Shader::setMat4(pProgramShader, "u_Projection", var::projectionMatrix);
+        data::Shader::setVec3(pProgramShader, "u_CameraPos", screen::Camera::getPosition(pCamera));
+        data::Shader::setVec3(pProgramShader, "u_lightPos", screen::Lamp::getPosition(pLamp));
+        data::Shader::setVec3(pProgramShader, "u_lightColor", screen::Lamp::getLightColor(pLamp));
         screen::Display::draw(data::Shader::getID(pProgramShader), var::t_VBO, var::colors, var::selector);
+        data::Shader::unbind();
 
         ///--------- textures ---------///
-        data::Texture::update(pTexture, pData, &var::selector);
+        data::Texture::update(pTexture, pData, &var::selector); // on doit update la texture avant l'affichage car sinon sur 1 image on aura la mauvaise texture
         data::Shader::use(pTitleShader);
-        data::Shader::setMat4_stat(pTitleShader, "u_Model", data::Texture::getModelMatrix(pTexture));
+        data::Shader::setMat4(pTitleShader, "u_Model", data::Texture::getModelMatrix(pTexture));
         data::Texture::draw(pTexture, var::selector.selected);
+        data::Shader::unbind();
 
         ///--------- lamp ---------///
         data::Shader::use(pLampShader);
-        data::Shader::setMat4_stat(pLampShader, "projection", screen::MVP::getProjectionMatrix(pMVP));
-        data::Shader::setMat4_stat(pLampShader, "view", screen::Camera::getViewMatrix(pCamera));
-        data::Shader::setMat4_stat(pLampShader, "model", screen::Lamp::getModelMatrix(pLamp));
-        data::Shader::setVec3_stat(pLampShader, "u_color", screen::Lamp::getColor(pLamp));
+        data::Shader::setMat4(pLampShader, "projection", var::projectionMatrix);
+        data::Shader::setMat4(pLampShader, "view", var::viewMatrix);
+        data::Shader::setMat4(pLampShader, "model", screen::Lamp::getModelMatrix(pLamp));
+        data::Shader::setVec3(pLampShader, "u_color", screen::Lamp::getColor(pLamp));
         screen::Lamp::draw(pLamp);
+        data::Shader::unbind();
 
         ///--------- keyboard callback ---------///
-        screen::Camera::processInput(pCamera, screen::Render::getScreen(window), var::deltaTime);
-        screen::Display::selectionCallBack(screen::Render::getScreen(window), var::selector);
+        screen::Camera::processInput(pCamera, screen::Render::getScreen(pWindow), var::deltaTime);
+        screen::Display::selectionCallBack(screen::Render::getScreen(pWindow), var::selector);
 
         ///--------- updates ---------///
-        screen::MVP::maj(pMVP, screen::Render::getScreen(window));
+        screen::MVP::maj(pMVP, screen::Render::getScreen(pWindow));
         screen::c_ImGui::maj(var::colors);
         utils::majVBOs(var::t_VBO, var::selector, pData);
         utils::updateTime(var::deltaTime, var::lastFrame);
 
-        screen::Display::update(window);
+        screen::Display::update(pWindow);
 
-    } while( window->shouldNotClose() );
+    } while( pWindow->shouldNotClose() );
 
     screen::c_ImGui::terminate();
-
-    data::VAO::destroy(m_VAO);
+    data::VAO::destroy(pVAO);
     data::Shader::destroy(pProgramShader);
     data::Shader::destroy(pTitleShader);
     data::Shader::destroy(pLampShader);

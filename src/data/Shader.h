@@ -17,6 +17,7 @@ using namespace std;
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
+#include <map>
 
 
 namespace data {
@@ -25,10 +26,20 @@ namespace data {
     private:
         GLuint ID;
 
+        std::map<std::string, GLint> uniforms;
+
+        void loadUniform(Shader* shader, const std::string& name);
+
+        GLint findUniform(std::string name) const;
+
     public:
         Shader(const char* vertex_file_path, const char* fragment_file_path);
 
+        static void loadUniform(Shader* shader, const std::vector<std::string>& names);
+
         static void use(Shader*);
+
+        static void unbind();
 
         static GLuint getID(Shader*);
 
@@ -44,7 +55,7 @@ namespace data {
 
         void setVec3(const std::string &name, const glm::vec3 &value) const;
 
-        static void setVec3_stat(const Shader* shader, const std::string &name, const glm::vec3 &value);
+        static void setVec3(const Shader* shader, std::string name, const glm::vec3 &value);
 
         void setVec3(const std::string &name, float x, float y, float z) const;
 
@@ -58,7 +69,7 @@ namespace data {
 
         void setMat4(const std::string &name, const glm::mat4 &mat) const;
 
-        static void setMat4_stat(const Shader* shader, const std::string &name, const glm::mat4 &mat);
+        static void setMat4(const Shader* shader, std::string name, const glm::mat4 &mat);
 
         static void destroy(const Shader* shader);
     };

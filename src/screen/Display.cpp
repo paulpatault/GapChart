@@ -17,24 +17,23 @@ namespace screen {
     {
         for(int team = 0; team < cst::NB_TEAMS; team++)
         {
-            GLint colorID = glGetUniformLocation(programID,"u_color");
-            {
-                if( team == select.selected) {
-                    glUniform3f(colorID, 0.1, 0.6, 0.1);
-                } else if (team == 0) {
-                    glUniform3f(colorID, colors[0].x, colors[0].y, colors[0].z);              // TOP 1
-                } else if (team < 4) {
-                    glUniform3f(colorID, colors[1].x, colors[1].y, colors[1].z);              // TOP 1
-                } else if (team < 7) {
-                    glUniform3f(colorID, colors[2].x, colors[2].y, colors[2].z);              // TOP 1
-                } else if (team < 9) {
-                    glUniform3f(colorID, colors[3].x, colors[3].y, colors[3].z);              // TOP 1
-                } else if (team < 15) {
-                    glUniform3f(colorID, colors[4].x, colors[4].y, colors[4].z);              // TOP 1
-                } else {
-                    glUniform3f(colorID, colors[5].x, colors[5].y, colors[5].z);              // TOP 1
-                }
+
+            if (team == select.selected) {
+                glUniform3fv(glGetUniformLocation(programID, "u_color"), 1, &glm::vec3(0.1, 0.6, 0.1)[0]);
+            } else if (team == 0) {
+                glUniform3fv(glGetUniformLocation(programID, "u_color"), 1, &colors[0][0]);              // TOP 1
+            } else if (team < 4) {
+                glUniform3fv(glGetUniformLocation(programID, "u_color"), 1, &colors[1][0]);              // TOP
+            } else if (team < 7) {
+                glUniform3fv(glGetUniformLocation(programID, "u_color"), 1, &colors[2][0]);              // TOP_MID
+            } else if (team < 9) {
+                glUniform3fv(glGetUniformLocation(programID, "u_color"), 1, &colors[3][0]);              // MID
+            } else if (team < 15) {
+                glUniform3fv(glGetUniformLocation(programID, "u_color"), 1, &colors[4][0]);              // BOT_MID
+            } else {
+                glUniform3fv(glGetUniformLocation(programID, "u_color"), 1, &colors[5][0]);              // BOT
             }
+
 
             glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].t_combined_data[0]);
             glVertexAttribPointer(
@@ -48,14 +47,13 @@ namespace screen {
             glEnableVertexAttribArray(0);
 
 
-            glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].t_combined_data[0]);
+            glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].t_combined_data[0]); // optional
             glVertexAttribPointer(
                     1,                  // attribute 1 match the layout in the shader.
                     3,                  // size
                     GL_FLOAT,           // type
                     GL_FALSE,           // normalized?
                     0,                  // stride
-                    //(void*)((vec_VBO[team].size_of_cylinder) * sizeof(float))      // array buffer offset
                     (void*)(vec_VBO[team].t_combined_data[vec_VBO[team].size_of_cylinder] * sizeof(float))      // array buffer offset
             );
             glEnableVertexAttribArray(1);
@@ -67,7 +65,7 @@ namespace screen {
 
     /**
      * Clear la fenetre avec la couleur glClearColor renseignée précédemment
-     * et "relance" glDepth
+     * et garde glDepth
      */
     void Display::clear()
     {
@@ -78,7 +76,6 @@ namespace screen {
     /**
      * Regarde les évenements qui influent sur l'affiche actuel
      * @param window classe de la fenetre sur laquel on travail
-     * var::selected = l'indice de l'éuipe séléctionnée (si une l'a été), -1 sinon
      */
     void Display::update(const Render* window)
     {
@@ -88,7 +85,7 @@ namespace screen {
     /**
      * Séléction d'une équipe a afficher au premier plan
      * @param window fenetre sur laquelle on travail
-     * var::selected = l'indice de l'éuipe séléctionnée (si une l'a été), -1 sinon
+     * @param last_selection sera mis a jour si la séléction change, sera cst sinon, et enfin on "mettra" -1 si la séléction et finie
      */
     void Display::selectionCallBack(GLFWwindow* window, Selection& last_selection)
     {

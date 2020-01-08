@@ -41,6 +41,10 @@ namespace var {
     float deltaTime = 0.0f;
     float lastFrame = 0.0f;
 
+    // dupl matrix
+    glm::mat4 viewMatrix;
+    glm::mat4 projectionMatrix;
+
 }
 
 
