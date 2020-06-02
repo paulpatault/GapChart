@@ -9,10 +9,10 @@ include_directories(/usr/local/include)
 include_directories(/usr/patault/Documents/GitHub/ProjetInfoGraphique\ jet1/includes)
 
 
-include_directories(/usr/local/Cellar/opencv@2/2.4.13.7_6/include)
-set(OPENCV_LIBS /usr/local/Cellar/opencv@2/2.4.13.7_6/lib/libopencv_core.dylib
-        /usr/local/Cellar/opencv@2/2.4.13.7_6/lib/libopencv_imgproc.dylib
-        /usr/local/Cellar/opencv@2/2.4.13.7_6/lib/libopencv_highgui.dylib)
+include_directories(/usr/local/Cellar/opencv@2/2.4.13.7_7/include)
+set(OPENCV_LIBS /usr/local/Cellar/opencv@2/2.4.13.7_7/lib/libopencv_core.2.4.13.dylib
+        /usr/local/Cellar/opencv@2/2.4.13.7_7/lib/libopencv_imgproc.2.4.13.dylib
+        /usr/local/Cellar/opencv@2/2.4.13.7_7/lib/libopencv_highgui.2.4.13.dylib)
 
 set(OpenCV_VERSION 2.4.13.7)
 set(PACKAGE_VERSION ${OpenCV_VERSION})

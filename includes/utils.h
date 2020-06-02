@@ -22,7 +22,7 @@ namespace utils {
             std::vector<float> cylinder = c_cylinder.makeCombinedCylinder(false);
             std::vector<float> normals = data::Cylinder::makeNormals(cylinder);
 
-            res.push_back(*new data::VBO(myData , cylinder , normals));
+            res.push_back(*new data::VBO(cylinder , normals));
         }
 
         return res;
@@ -46,7 +46,7 @@ namespace utils {
                 std::vector<float> cylinder = c_cylinder.makeCombinedCylinder(front);
                 std::vector<float> normals = data::Cylinder::makeNormals(cylinder);
 
-                VBO.push_back(*new data::VBO(myData , cylinder , normals));
+                VBO.push_back(*new data::VBO(cylinder , normals));
             }
         }
     }

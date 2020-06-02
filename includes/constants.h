@@ -21,7 +21,7 @@ namespace cst {
     const float FSCREEN_WIDTH = 1000.f;
     const float FSCREEN_HEIGHT = 700.f;
 
-    const int DIV_CYLINDER = 10;
+    const int DIV_CYLINDER = 100;
     const int NB_POINTS = 4 * (NB_DAYS + 1);
     const float THICKNESS = ( FSCREEN_HEIGHT / 2 ) / 20;
     const float DELTA_X = (FSCREEN_WIDTH - 100) / NB_POINTS;

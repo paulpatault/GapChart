@@ -39,13 +39,14 @@ namespace screen {
         glfwMakeContextCurrent(screen );
 
         glewExperimental = true; // Needed for core profile
-        if (glewInit() != GLEW_OK) {
+        if (glewInit() != GLEW_OK)
+        {
             std::cerr << "Failed to initialize GLEW" << std::endl;
             exit(-1);
         }
 
         // transparence
-        glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_BLEND);
 
         glEnable(GL_DEPTH_TEST);
@@ -78,7 +79,7 @@ namespace screen {
                     and (glfwWindowShouldClose(screen) == 0);
     }
 
-    GLFWwindow *Render::getScreen(const Render* render)
+    GLFWwindow* Render::getScreen(const Render* render)
     {
         return render->screen;
     }

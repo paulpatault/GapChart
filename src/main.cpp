@@ -74,12 +74,13 @@ int main()
     screen::Lamp lamp(
             glm::vec3(glm::vec3(1000.f, 100.f, 2000.f)),
             glm::vec3(glm::vec3(1.f)),
-            glm::vec3(glm::vec3(0.9f, 0.5f, 0.f))
+            glm::vec3(glm::vec3(0.99f, 0.76f, 0.18f))
+            //glm::vec3(glm::vec3(0.9f, 0.5f, 0.f))
             );
     auto* pLamp = &lamp;
 
     /// Camera
-    auto* pCamera = new screen::Camera(glm::vec3(0.0f, 0.0f, 1000.0f));
+    auto* pCamera = new screen::Camera(pWindow->screen, glm::vec3(0.0f, 0.0f, 1000.0f));
 
     /// Texture 0
     auto* pTexture = new data::Texture("../resources/images/Arsenal.png");
@@ -95,6 +96,7 @@ int main()
     var::t_VBO = utils::makeVBOs(pData);
     var::t_VBO_0 = var::t_VBO;
 
+    glfwSetCursorPos(pWindow->screen, cst::FSCREEN_WIDTH / 2, cst::FSCREEN_HEIGHT / 2);
 
     /// Main loop
     do

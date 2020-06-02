@@ -116,7 +116,6 @@ namespace data {
         return sh->ID;
     }
 
-
     /**
      * Liaison des shaders avec le programID
      * @param sh le shader a lier
@@ -143,6 +142,10 @@ namespace data {
     {
         glUniform1i(findUniform(name), (int)value);
     }
+    void Shader::setBool(const Shader *shader, const std::string& name, bool value)
+    {
+        shader->setBool(name, value);
+    }
 
     /**
      * Envoie un int au shader
@@ -152,6 +155,10 @@ namespace data {
     void Shader::setInt(const std::string &name, int value) const
     {
         glUniform1i(findUniform(name), value);
+    }
+    void Shader::setInt(const Shader *shader, const std::string& name, int value)
+    {
+        shader->setInt(name, value);
     }
 
     /**
@@ -163,6 +170,10 @@ namespace data {
     {
         glUniform1f(findUniform(name), value);
     }
+    void Shader::setFloat(const Shader *shader, const std::string& name, float value)
+    {
+        shader->setFloat(name, value);
+    }
 
     /**
      * Envoie un vec2 au shader
@@ -173,16 +184,9 @@ namespace data {
     {
         glUniform2fv(findUniform(name), 1, &value[0]);
     }
-
-    /**
-     * Envoie un vec2 au shader
-     * @param name nom dans le shader
-     * @param x 1ere coord du vec2
-     * @param y 2eme coord du vec2
-     */
-    void Shader::setVec2(const std::string &name, float x, float y) const
+    void Shader::setVec2(const Shader *shader, const std::string& name, const glm::vec2 &value)
     {
-        glUniform2f(findUniform(name), x, y);
+        shader->setVec2(name, value);
     }
 
     /**
@@ -194,17 +198,9 @@ namespace data {
     {
         glUniform3fv(findUniform(name), 1, &value[0]);
     }
-
-    /**
-     * Envoie un vec3 au shader
-     * @param name nom dans le shader
-     * @param x 1ere coord du vec3
-     * @param y 2eme coord du vec3
-     * @param z 3eme coord du vec3
-     */
-    void Shader::setVec3(const std::string &name, float x, float y, float z) const
+    void Shader::setVec3(const Shader *shader, const std::string& name, const glm::vec3 &value)
     {
-        glUniform3f(findUniform(name), x, y, z);
+        shader->setVec3(name, value);
     }
 
     /**
@@ -216,18 +212,9 @@ namespace data {
     {
         glUniform4fv(findUniform(name), 1, &value[0]);
     }
-
-    /**
-     * Envoie un vec4 au shader
-     * @param name nom dans le shader
-     * @param x 1ere coord du vec4
-     * @param y 2eme coord du vec4
-     * @param z 3eme coord du vec4
-     * @param w 4eme coord du vec4
-     */
-    void Shader::setVec4(const std::string &name, float x, float y, float z, float w)
+    void Shader::setVec4(const Shader *shader, const std::string& name, const glm::vec4 &value)
     {
-        glUniform4f(findUniform(name), x, y, z, w);
+        shader->setVec4(name, value);
     }
 
     /**
@@ -239,6 +226,10 @@ namespace data {
     {
         glUniformMatrix2fv(findUniform(name), 1, GL_FALSE, &mat[0][0]);
     }
+    void Shader::setMat2(const Shader *shader, const std::string& name, const glm::mat2 &mat)
+    {
+        shader->setMat2(name, mat);
+    }
 
     /**
      * Envoie une mat3 au shader
@@ -248,6 +239,10 @@ namespace data {
     void Shader::setMat3(const std::string &name, const glm::mat3 &mat) const
     {
         glUniformMatrix3fv(findUniform(name), 1, GL_FALSE, &mat[0][0]);
+    }
+    void Shader::setMat3(const Shader *shader, const std::string& name, const glm::mat3 &mat)
+    {
+        shader->setMat3(name, mat);
     }
 
     /**
@@ -259,19 +254,7 @@ namespace data {
     {
         glUniformMatrix4fv(findUniform(name), 1, GL_FALSE, &mat[0][0]);
     }
-
-    /**
-     * Idem que setVec3 sauf que la methode est static
-     */
-    void Shader::setVec3(const Shader *shader, std::string name, const glm::vec3 &value)
-    {
-        shader->setVec3(name, value);
-    }
-
-    /**
-     * Idem que setMat4 sauf que la methode est static
-     */
-    void Shader::setMat4(const Shader *shader, std::string name, const glm::mat4 &mat)
+    void Shader::setMat4(const Shader *shader, const std::string& name, const glm::mat4 &mat)
     {
         shader->setMat4(name, mat);
     }

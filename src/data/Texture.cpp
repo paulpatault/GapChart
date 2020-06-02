@@ -70,7 +70,7 @@ namespace data {
      */
     void Texture::draw(const data::Texture *pTexture, int team)
     {
-        if(team != -1 )
+        if(team != -1)
         {
             glBindVertexArray(pTexture->VAO);
 
@@ -81,10 +81,25 @@ namespace data {
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
             // position attribute
-            glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)nullptr);
+            glVertexAttribPointer(
+                    0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+                    3,                  // size
+                    GL_FLOAT,           // type
+                    GL_FALSE,           // normalized?
+                    5 * sizeof(float),  // stride
+                    (void*)nullptr      // array buffer offset
+            );
             glEnableVertexAttribArray(0);
+
             // texture coord attribute
-            glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+            glVertexAttribPointer(
+                    1,
+                    2,
+                    GL_FLOAT,
+                    GL_FALSE,
+                    5 * sizeof(float),
+                    (void*)(3 * sizeof(float))
+            );
             glEnableVertexAttribArray(1);
 
             // bind Texture

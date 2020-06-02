@@ -28,7 +28,7 @@ namespace data {
 
         std::map<std::string, GLint> uniforms;
 
-        void loadUniform(Shader* shader, const std::string& name);
+        static void loadUniform(Shader* shader, const std::string& name);
 
         GLint findUniform(std::string name) const;
 
@@ -44,32 +44,31 @@ namespace data {
         static GLuint getID(Shader*);
 
         void setBool(const std::string &name, bool value) const;
+        static void setBool(const Shader* shader, const std::string &name, bool value);
 
         void setInt(const std::string &name, int value) const;
+        static void setInt(const Shader* shader, const std::string &name, int value);
 
         void setFloat(const std::string &name, float value) const;
+        static void setFloat(const Shader* shader, const std::string &name, float value);
 
         void setVec2(const std::string &name, const glm::vec2 &value) const;
-
-        void setVec2(const std::string &name, float x, float y) const;
+        static void setVec2(const Shader* shader, const std::string &name, const glm::vec2 &value);
 
         void setVec3(const std::string &name, const glm::vec3 &value) const;
-
-        static void setVec3(const Shader* shader, std::string name, const glm::vec3 &value);
-
-        void setVec3(const std::string &name, float x, float y, float z) const;
+        static void setVec3(const Shader* shader, const std::string& name, const glm::vec3 &value);
 
         void setVec4(const std::string &name, const glm::vec4 &value) const;
-
-        void setVec4(const std::string &name, float x, float y, float z, float w);
+        static void setVec4(const Shader* shader, const std::string& name, const glm::vec4 &value);
 
         void setMat2(const std::string &name, const glm::mat2 &mat) const;
+        static void setMat2(const Shader* shader, const std::string& name, const glm::mat2 &mat);
 
         void setMat3(const std::string &name, const glm::mat3 &mat) const;
+        static void setMat3(const Shader* shader, const std::string& name, const glm::mat3 &mat);
 
         void setMat4(const std::string &name, const glm::mat4 &mat) const;
-
-        static void setMat4(const Shader* shader, std::string name, const glm::mat4 &mat);
+        static void setMat4(const Shader* shader, const std::string& name, const glm::mat4 &mat);
 
         static void destroy(const Shader* shader);
     };

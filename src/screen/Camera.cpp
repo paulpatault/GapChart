@@ -15,7 +15,7 @@ namespace screen {
      * @param yaw angle selon y
      * @param pitch angle selon x
      */
-    Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch)
+    Camera::Camera(GLFWwindow* window, glm::vec3 position, glm::vec3 up, float yaw, float pitch)
     {
         Front = glm::vec3(0.0f, 0.0f, -1.0f);
         Position = position;
@@ -23,6 +23,7 @@ namespace screen {
         WorldUp = up;
         Yaw = yaw;
         Pitch = pitch;
+        glfwGetCursorPos(window, &lastX, &lastY);
         updateCameraVectors();
     }
 
@@ -31,7 +32,7 @@ namespace screen {
      * @param cam la camera a deplacer
      * @param window fenetre de travail
      */
-    void Camera::processInput(Camera* cam, GLFWwindow *window, float deltaTime)
+    void Camera::processInput(Camera* cam, GLFWwindow* window, float deltaTime)
     {
         // réajustement de la vitesse de déplacement
         deltaTime *= 10;
@@ -54,7 +55,7 @@ namespace screen {
         if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
             cam->ProcessKeyboard(UP, deltaTime);
 
-        /// YAW PITCH
+        /// YAW & PITCH
         if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
             cam->Yaw -= 0.01f * cam->MovementSpeed;
         if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
@@ -63,6 +64,17 @@ namespace screen {
             cam->Pitch -= 0.01f * cam->MovementSpeed;
         if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
             cam->Pitch += 0.01f * cam->MovementSpeed;
+
+        double xPos, yPos;
+        glfwGetCursorPos(window, &xPos, &yPos);
+        float xDiff = (float)cam->lastX - (float)xPos;
+        float yDiff = (float)cam->lastY - (float)yPos;
+
+        cam->lastX = (float)xPos;
+        cam->lastY = (float)yPos;
+
+        cam->Yaw -= xDiff;
+        cam->Pitch += yDiff;
 
         /// increase MovementSpeed
         if (glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS and cam->MovementSpeed > 0.2f) // > 0.2 pour ne pas avoir une vitesse négative

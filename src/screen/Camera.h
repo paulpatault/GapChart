@@ -8,6 +8,9 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <includes/constants.h>
+
+#include <iostream>
 
 namespace screen {
 
@@ -26,9 +29,12 @@ namespace screen {
 
     class Camera {
     public:
-        explicit Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f),
+        explicit Camera(
+                GLFWwindow* window,
+                glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f),
                 glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f),
-                float yaw = YAW, float pitch = PITCH );
+                float yaw = YAW, float pitch = PITCH
+        );
 
         void ProcessKeyboard(Camera_Movement direction, float deltaTime);
 
@@ -44,15 +50,18 @@ namespace screen {
 
     private:
         glm::vec3 Position,
-            Position0,
-            Front,
-            Up,
-            Right,
-            WorldUp;
+                Position0,
+                Front,
+                Up,
+                Right,
+                WorldUp;
 
         float Yaw,
-            Pitch,
-            MovementSpeed = SPEED;
+                Pitch,
+                MovementSpeed = SPEED;
+
+        double lastX,
+                lastY;
 
         void reinit();
 

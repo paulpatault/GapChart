@@ -18,6 +18,8 @@ namespace screen {
         for(int team = 0; team < cst::NB_TEAMS; team++)
         {
 
+            int end_index = vec_VBO[team].index_end_raw_data;
+
             if (team == select.selected) {
                 glUniform3fv(glGetUniformLocation(programID, "u_color"), 1, &glm::vec3(0.1, 0.6, 0.1)[0]);
             } else if (team == 0) {
@@ -35,7 +37,7 @@ namespace screen {
             }
 
 
-            glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].t_combined_data[0]);
+            glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].combined_data[0]);
             glVertexAttribPointer(
                     0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
                     3,                  // size
@@ -47,19 +49,18 @@ namespace screen {
             glEnableVertexAttribArray(0);
 
 
-            glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].t_combined_data[0]); // optional
+            glBindBuffer(GL_ARRAY_BUFFER, vec_VBO[team].combined_data[0]); // optional
             glVertexAttribPointer(
                     1,                  // attribute 1 match the layout in the shader.
                     3,                  // size
                     GL_FLOAT,           // type
                     GL_FALSE,           // normalized?
                     0,                  // stride
-                    (void*)(vec_VBO[team].t_combined_data[vec_VBO[team].size_of_cylinder] * sizeof(float))      // array buffer offset
+                    (void*)(vec_VBO[team].combined_data[end_index] * sizeof(float))      // array buffer offset
             );
             glEnableVertexAttribArray(1);
 
-
-            glDrawArrays(GL_TRIANGLES, 0, vec_VBO[team].size_of_cylinder);
+            glDrawArrays(GL_TRIANGLES, 0, end_index);
         }
     }
 
